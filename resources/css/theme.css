@@ -1,0 +1,96 @@
+ html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Arimo', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5,h6,.navbar-brand{
+                font-family: 'Roboto', serif;
+            }
+            .container{
+                max-width: 65rem;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+            .navbar-brand img{
+                max-height: 58px;
+            }
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            .bg-blue{
+                background-color: #3F51B5;
+            }
+            .bg-grey{
+                background-color: #f5f5f6;
+            }
+            .text-heading,
+            .text-sub{
+                display: block;
+            }
+            .featurette-heading .text-sub{
+                font-size: .89rem
+            }
+            .text-heading{
+                display: block;
+            }
+            /*
+             * Cover
+             */
+            .cover-container{
+                max-width: 42em;
+            }
+            .cover {
+              padding: 0 1.5rem;
+            }
+            .cover .btn-lg {
+              padding: .75rem 1.25rem;
+              font-weight: 700;
+            }
+            .bg-cover{
+                background-size: cover;
+            }
+            /*landing*/
+            .beta{
+                font-size: 12px;
+                font-style: italic;
+            }
