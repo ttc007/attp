@@ -219,4 +219,8 @@ class FoodSafetyController extends BaseController
         $ward = Ward::find(Session::get('ward_id'));
         return view('food_safety.report',compact('ward'));
     }
+
+    function reportMaster(){
+        return view('food_safety.reportMaster');
+    }
 }

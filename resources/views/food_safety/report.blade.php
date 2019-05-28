@@ -34,9 +34,9 @@
         <div id="data-render" class="py-5 text-center">
           <table class="table" >
             <tbody id="table"></tbody>
-            <tr id='tr_tong'>
-              <td>Tổng</td>
-            </tr>
+            <!-- <tr id='tr_tong'>
+              <td>Quý 4 - Cả năm</td>
+            </tr> -->
           </table>
         </div>
       </div>
@@ -59,8 +59,6 @@
               year:$("#GLOBAL_YEAR").val()
             },
             success:function(data){
-               console.log(data);
-               console.log($("#ward_id").val());
               var t=0;
               $("#table").empty();
               $.each(data,function(i,v){
@@ -88,19 +86,29 @@
                     `+data+`
                   </tr>
                 `);
+                if(i==3||i==6||i==9||i==12){
+                  var quy = "Quý " +(i/3);
+                  if(i==12) quy = "Quý 4 - cả năm";
+                  var tr = $("<tr style='background:#2ec'><td> "+quy+"</td></tr>");
+                  for (var i =1; i <= t; i++) {
+                    var tong3 = 0;
+                    $('.count_'+i).each(function (h,k){
+                      tong3 +=parseInt($(k).text());
+                    });
+                    tr.append('<td>'+tong3+'</td>');
+                  }
+                  $("table").append(tr);
+                }
               });
-              $("#tr_tong").empty();
-              $("#tr_tong").append(`<td>Tổng</td>`);
-              for (var i =1; i <= t; i++) {
-                // console.log($('.count_'+i));
-                var tong2 = 0;
-                $('.count_'+i).each(function (h,k){
-                  // console.log(h);
-                  // console.log(k);
-                  tong2 +=parseInt($(k).text());
-                });
-                $("#tr_tong").append('<td>'+tong2+'</td>');
-              }
+              // $("#tr_tong").empty();
+              // $("#tr_tong").append(`<td>Tổng</td>`);
+              // for (var i =1; i <= t; i++) {
+              //   var tong2 = 0;
+              //   $('.count_'+i).each(function (h,k){
+              //     tong2 +=parseInt($(k).text());
+              //   });
+              //   $("#tr_tong").append('<td>'+tong2+'</td>');
+              // }
             }
           });
         });

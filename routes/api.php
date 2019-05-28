@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::post('/sitebold_lead','UploadFileCSVController@sitebold_lead');
 
 Route::get('/month_report/{month}','ReportController@month_report');
+Route::get('/month_report_master/{month}','ReportController@month_report_master');
 
 Route::post('/village','VillageController@api_store');
 Route::get('/village','VillageController@api_get');
