@@ -21,13 +21,13 @@
     <![endif]-->
     <link rel="stylesheet" href="{{ asset('css/lib/font-awesome/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/lib/bootstrap/bootstrap.min.css')}}">
-    <!-- <link rel="stylesheet" href="{{ asset('css/lib/lobipanel/lobipanel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/lib/lobipanel/lobipanel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/separate/vendor/lobipanel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/lib/jqueryui/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/separate/pages/widgets.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/separate/vendor/select2.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/separate/vendor/bootstrap-touchspin.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/separate/vendor/bootstrap-select/bootstrap-select.min.css')}}"> -->
+    <link rel="stylesheet" href="{{ asset('css/separate/vendor/bootstrap-select/bootstrap-select.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
     <link href="https://cdn.jsdelivr.net/sweetalert2/6.4.3/sweetalert2.min.css" rel="stylesheet"/>

@@ -53,11 +53,11 @@
               year:$("#GLOBAL_YEAR").val()
             },
             success:function(data){
-              
+              console.log(data);
               $("#data-render").empty();
               $.each(data, function(i, wardList){
-                var divCol6 = $("<div class='col-md-3'></div>");
-                var table = $("<table class='table my-4' style='font-size:9px!important'>");
+                var divCol6 = $("<div class='col-md-12'></div>");
+                var table = $("<table class='table my-4' style=''>");
                 divCol6.append(table);
 
                 var thead = $("<tr></tr>");
@@ -69,20 +69,20 @@
                   thead.empty();
                   thead.append("<td><b> Tháng "+i+"</b></td>");
                   $.each(ward, function(k, cateData){
-                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"</td>");
+                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"("+data.fsInChildOfCategory[k]+")</td>");
                     thead.append("<td>"+k+"</td>")
                   });
                 });
 
 
                 if(i==3||i==6||i==9||i==12){
-                  var divCol6 = $("<div class='col-md-3'></div>");
+                  var divCol6 = $("<div class='col-md-12'></div>");
                   var bg = "#cae2f1";
                   if(i==6) bg = "#8bdaa3";
                   if(i==9) bg = "#d5e484";
                   if(i==12) bg = "#e2927a"
                   var table = $(`<table class='table my-4' 
-                    style='font-size:9px!important;background:`+bg+`'>`);
+                    style='background:`+bg+`'>`);
                   divCol6.append(table);
                   $("#data-render").append(divCol6);
                   var thead = $("<tr></tr>");
@@ -94,10 +94,16 @@
                     thead.append("<td><b> Quý "+(i==12?' 4 - cả năm':(i/3))+"</b></td>");
                     $.each(ward, function(k, cateData){
                       var tong = 0;
+                      var count = 0;
                       $.each($(".count_"+convertToSlug(k)+"_"+convertToSlug(j)) , function(m, objEle){
-                        tong+=parseInt($(objEle).text());
-                      })
-                      tr.append("<td class='total_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+tong+"</td>");
+                        tong+= parseInt($(objEle).text());
+                        count+= parseInt($(objEle).text().split("/")[1]);
+                      });
+                      var rating = 0;
+                      if(tong>0) rating = (count/tong*100);
+                      rating = Math.round(rating * 100) / 100;
+                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[k]+")";
+                      tr.append("<td class='total_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+viewCount+"</td>");
                       thead.append("<td>"+k+"</td>")
                     });
                   });
