@@ -337,9 +337,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="communication" class="btn btn-primary">Kênh truyền thông</a>
+                            <a href="/communication" class="btn btn-primary">Kênh truyền thông</a>
                          
-                            <a href="lawSystem" class="btn btn-success">
+                            <a href="/lawSystem" class="btn btn-success">
                             Hệ thống pháp luật</a>
                             <a 1href="/sales" class="btn btn-secondary">Bảng điều khiển</a>
                             @guest

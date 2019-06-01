@@ -188,7 +188,7 @@ class ReportController extends Controller
                 }
                 $data[$ward->name] = $data1;
             }
-            $data2[$i] = $data;
+            $data2['months'][$i] = $data;
 
         }
         $data2["fsInChildOfCategory"] = $category->fsInChildOfCategory();

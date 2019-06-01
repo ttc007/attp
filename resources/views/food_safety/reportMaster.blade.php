@@ -57,7 +57,7 @@
             success:function(data){
               console.log(data);
               $("#data-render").empty();
-              $.each(data, function(i, wardList){
+              $.each(data.months, function(i, wardList){
                 var divCol6 = $("<div class='col-md-12'></div>");
                 var table = $("<table class='table my-4' style=''>");
                 divCol6.append(table);
