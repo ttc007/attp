@@ -38,7 +38,7 @@ class PostController extends Controller
     {
         if($request->hasFile('file')){
             $file = $request->file;
-            $file->move('upload', $file->getClientOriginalName());
+            $file->move(public_path('/upload'), $file->getClientOriginalName());
 
             $data = [
                 "type" => $request->type,
@@ -51,7 +51,7 @@ class PostController extends Controller
             if($request->type=="Hệ thống pháp luật") return redirect("/lawSystem");
             return redirect("/communication");
         }
-        return redirect()->back();
+        // return redirect()->back();
     }
 
     /**
