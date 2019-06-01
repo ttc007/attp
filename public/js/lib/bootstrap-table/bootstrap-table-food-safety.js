@@ -151,7 +151,7 @@ $(document).ready(function(){
                 var trave="";
                 $.each(row.check_dates,function(i,v){
                     if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
-                            trave = v.ngay_xac_nhan_hien_thuc+"(";
+                            trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
                             if(v.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
                             if(v.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
                             if(v.ghi_chu_1!=null)trave+=` - `+v.ghi_chu_1;
@@ -167,7 +167,7 @@ $(document).ready(function(){
             var year = $("#GLOBAL_YEAR").val();
             if(year=="2018"){
                     if(row.ngay_kiem_tra_2==null) return '';
-                    var trave = row.ngay_kiem_tra_2+`(`;
+                    var trave = dateFormatByString(row.ngay_kiem_tra_2)+`(`;
                     if(row.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>"+row.ket_qua_kiem_tra_2+"</b>";
                     if(row.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>"+row.ket_qua_kiem_tra_2+"</b>";
                     if (row.ghi_chu_2!=null)trave+=` - `+row.ghi_chu_2;
@@ -178,7 +178,7 @@ $(document).ready(function(){
                 var trave="";
                 $.each(row.check_dates,function(i,v){
                     if(year==v.year&&v.ngay_kiem_tra_2) {
-                            trave = v.ngay_kiem_tra_2+"(";
+                            trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
                             if(v.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>"+v.ket_qua_kiem_tra_2+"</b>";
                             if(v.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>"+v.ket_qua_kiem_tra_2+"</b>";
                             if(v.ghi_chu_2!=null)trave+=` - `+v.ghi_chu_2;
@@ -194,7 +194,7 @@ $(document).ready(function(){
             var year = $("#GLOBAL_YEAR").val();
             if(year=="2018"){
                     if(row.ngay_kiem_tra_3==null) return '';
-                    var trave = row.ngay_kiem_tra_3+`(`;
+                    var trave = dateFormatByString(row.ngay_kiem_tra_3)+`(`;
                     if(row.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>"+row.ket_qua_kiem_tra_3+"</b>";
                     if(row.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>"+row.ket_qua_kiem_tra_3+"</b>";
                     if (row.ghi_chu_3!=null)trave+=` - `+row.ghi_chu_3;
@@ -204,8 +204,8 @@ $(document).ready(function(){
             }else{
                 var trave="";
                 $.each(row.check_dates,function(i,v){
-                    if(year==v.year&&v.ngay_kiem_tra_2) {
-                            trave = v.ngay_kiem_tra_3+"(";
+                    if(year==v.year&&v.ngay_kiem_tra_3) {
+                            trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
                             if(v.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>"+v.ket_qua_kiem_tra_3+"</b>";
                             if(v.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>"+v.ket_qua_kiem_tra_3+"</b>";
                             if(v.ghi_chu_3!=null)trave+=` - `+v.ghi_chu_3;

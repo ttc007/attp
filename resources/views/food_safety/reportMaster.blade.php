@@ -2,44 +2,46 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/lib/bootstrap-table/bootstrap-table.min.css')}}">
 <link href="https://cdn.jsdelivr.net/sweetalert2/6.4.3/sweetalert2.min.css" rel="stylesheet"/>
-<style>
-  
-</style>
-<input type="hidden" name="" id='app_id' value="{{\Session::get('app_id')}}">
-			<div class="section-header w-100">
-				<div class="tbl">
-					<div class="tbl-row">
-						<div class="tbl-cell">
-							<h3 class="w-100 mb-5">Food Safety / Báo Cáo</h3>
-              <h4>Báo cáo tổng hợp</h4>
-						</div>
-					</div>
+
+<div class="col-md-12 mt-4">
+  <input type="hidden" name="" id='app_id' value="{{\Session::get('app_id')}}">
+	<div class="section-header w-100">
+		<div class="tbl">
+			<div class="tbl-row">
+				<div class="tbl-cell">
+					<h3 class="w-100 mb-5">Food Safety / Báo Cáo</h3>
+          <h4>Báo cáo tổng hợp</h4>
 				</div>
 			</div>
-             
-      <div class="row p-4">
-         <h4>Chọn năm</h4>
-         <select class="form-control" style="width:100px;display:inline-block" id="GLOBAL_YEAR">
-            <option>2018</option>
-            <option selected>2019</option>
-            <option>2020</option>
-          </select>
-      </div>
-      <div class="row py-2 col-md-12">
-        <h3>Chọn tháng</h3>
-        <select class="form-control" id="month_report">
-            @for($i=1;$i<=12;$i++)
-              <option>{{$i}}</option>
-            @endfor
-        </select>
-      </div>
-      <div class="row p-3">
-        
-        <div id="data-render" class="text-center row mx-0"
-           style="margin-left: -30px!important">
-        </div>
-      </div>
-      
+		</div>
+	</div>
+
+  <div class="row p-4">
+    <div class="col-md-2">
+     <p>Chọn năm</p>
+     <select class="form-control" style="width:100px;display:inline-block" id="GLOBAL_YEAR">
+        <option>2018</option>
+        <option selected>2019</option>
+        <option>2020</option>
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <p>Chọn tháng</p>
+      <select class="form-control" id="month_report">
+          @for($i=1;$i<=12;$i++)
+            <option>{{$i}}</option>
+          @endfor
+      </select>
+    </div>
+  </div>
+
+  <div class="row p-3">
+    <div id="data-render" class="text-center row mx-0"
+       style="margin-left: -30px!important">
+    </div>
+  </div>
+</div>     
 @endsection
 
 @section('script')
@@ -69,7 +71,7 @@
                   thead.empty();
                   thead.append("<td><b> Tháng "+i+"</b></td>");
                   $.each(ward, function(k, cateData){
-                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"("+data.fsInChildOfCategory[k]+")</td>");
+                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"("+data.fsInChildOfCategory[k+j]+")</td>");
                     thead.append("<td>"+k+"</td>")
                   });
                 });
@@ -102,7 +104,7 @@
                       var rating = 0;
                       if(tong>0) rating = (count/tong*100);
                       rating = Math.round(rating * 100) / 100;
-                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[k]+")";
+                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[k+j]+")";
                       tr.append("<td class='total_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+viewCount+"</td>");
                       thead.append("<td>"+k+"</td>")
                     });
@@ -113,14 +115,6 @@
           });
         });
 
-        function convertToSlug(Text)
-        {
-          return Text
-            .toLowerCase()
-            .replace(/ /g,'-')
-            .replace(/[^\w-]+/g,'')
-            ;
-        }
     </script>
 
 @endsection

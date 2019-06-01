@@ -31,6 +31,12 @@ Route::group(['prefix'=>'food_safety/','middleware' => ['auth']],function() {
 
 Route::get('/food_safety/report', 'FoodSafetyController@report');
 Route::get('/food_safety/reportMaster', 'FoodSafetyController@reportMaster');
+Route::get('/food_safety/reportUnexpected', 'FoodSafetyController@reportUnexpected');
+
+Route::get('/post', 'PostController@index');
+Route::post('/post/store', 'PostController@store');
+Route::get('/communication', 'PostController@communication');
+Route::get('/lawSystem', 'PostController@lawSystem');
 
 Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
 

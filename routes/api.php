@@ -13,14 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 Route::post('/sitebold_lead','UploadFileCSVController@sitebold_lead');
 
 Route::get('/month_report/{month}','ReportController@month_report');
 Route::get('/month_report_master/{month}','ReportController@month_report_master');
+Route::get('/reportByDate','ReportController@reportByDate');
+
+
 
 Route::post('/village','VillageController@api_store');
 Route::get('/village','VillageController@api_get');

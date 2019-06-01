@@ -223,4 +223,8 @@ class FoodSafetyController extends BaseController
     function reportMaster(){
         return view('food_safety.reportMaster');
     }
+
+    function reportUnexpected(){
+        return view('food_safety.reportUnexpected');
+    }
 }

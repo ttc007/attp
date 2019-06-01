@@ -337,9 +337,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <a  onclick="report()" class="btn btn-primary">Báo cáo</a>
+                            <a href="communication" class="btn btn-primary">Kênh truyền thông</a>
                          
-                            <a 1href="{{route('sales.activity')}}" class="btn btn-success">Hoạt động</a>
+                            <a href="lawSystem" class="btn btn-success">
+                            Hệ thống pháp luật</a>
                             <a 1href="/sales" class="btn btn-secondary">Bảng điều khiển</a>
                             @guest
                                 <a href="/login" class="btn btn-warning">Đăng nhập</a>

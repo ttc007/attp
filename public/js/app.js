@@ -685,3 +685,25 @@ $(document).ready(function(){
 		return false;
 	});
 });
+
+function convertToSlug(Text){
+  return Text
+    .toLowerCase()
+    .replace(/ /g,'-')
+    .replace(/[^\w-]+/g,'')
+    ;
+}
+
+function dateFormatByDate(date){
+	var month = date.getMonth()+1;
+	if(month<10) month ="0"+month;
+	var day = date.getDate();
+	if(day<10) day = "0"+day;
+	var dateFormatByDate = day+"-"+month+"-"+date.getFullYear();
+	return dateFormatByDate;
+}
+
+function dateFormatByString(string){
+	var date = new Date(string);
+	return dateFormatByDate(date);
+}

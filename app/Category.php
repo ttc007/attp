@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Food_safety;
+use App\Ward;
 
 class Category extends Model
 {
@@ -28,7 +29,12 @@ class Category extends Model
         $childs = Self::where('parent_id',$this->id)->get();
         $data = [];
         foreach ($childs as $key => $child) {
-            $data[$child->name] = Food_safety::where("categoryb2_id", $child->id)->count();
+            foreach (Ward::all() as $ward) {
+                $data[$child->name.$ward->name] = Food_safety::join("villages", "villages.id", "food_safeties.village_id")
+                        ->where("categoryb2_id", $child->id)
+                        ->where("villages.parent_id", $ward->id)
+                        ->count();
+            }
         }
         return $data;
     }
