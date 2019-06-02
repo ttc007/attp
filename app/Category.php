@@ -30,9 +30,8 @@ class Category extends Model
         $data = [];
         foreach ($childs as $key => $child) {
             foreach (Ward::all() as $ward) {
-                $data[$child->name.$ward->name] = Food_safety::join("villages", "villages.id", "food_safeties.village_id")
-                        ->where("categoryb2_id", $child->id)
-                        ->where("villages.parent_id", $ward->id)
+                $data[$child->name.$ward->name] = Food_safety::where("categoryb2_id", $child->id)
+                        ->where("ward_id", $ward->id)
                         ->count();
             }
         }

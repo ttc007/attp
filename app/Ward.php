@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Village;
 
 class Ward extends Model
 {
@@ -19,4 +20,9 @@ class Ward extends Model
     }
 
     protected $guarded = [];
+
+    function village_id_array(){
+        $villages = Village::where('parent_id', $this->id)->pluck('id')->toArray();
+        return $villages;
+    }
 }

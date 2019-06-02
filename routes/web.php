@@ -40,6 +40,8 @@ Route::get('/lawSystem', 'PostController@lawSystem');
 
 Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
 
+Route::get('/updateDataWard', 'FoodSafetyController@updateDataWard');
+
 Route::group(['prefix'=>'village/','middleware' => ['auth']],function() {
     Route::get('/', 'VillageController@index')->name('village');
 });

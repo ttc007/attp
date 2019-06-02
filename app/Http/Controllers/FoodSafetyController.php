@@ -61,7 +61,8 @@ class FoodSafetyController extends BaseController
     }
     
     function store(Request $request){
-        $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'phone', 'certification_date',
+        $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'ward_id',
+                                'phone', 'certification_date',
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
                                 , 'category_id', 'categoryb2_id',
                                 'noi_tieu_thu');
@@ -86,10 +87,8 @@ class FoodSafetyController extends BaseController
     }
 
     function api_get(Request $request){
-        $food_safeties = Village::join('food_safeties','villages.id','food_safeties.village_id')
-                        
-                        ->where('food_safeties.category_id',$request->category_id)
-                        ->where('villages.parent_id',$request->ward_id)
+        $food_safeties = Food_safety::where('food_safeties.category_id',$request->category_id)
+                        ->where('ward_id',$request->ward_id)
                         ->get();
         foreach ($food_safeties as $key => $value) {
             $value->village = @Village::find($value->village_id)->name;
@@ -204,11 +203,6 @@ class FoodSafetyController extends BaseController
                         'noi_tieu_thu'=>$row->noi_tieu_thu
                         //'address'=>$row->dia_chi
                     ]);
-                    // echo $row->chu_co_so.' ---'
-                    //      .$row->dia_chi_co_so.' ---'
-                    //      .$row->ngay_cap.' ---'
-                    //      .$row->so_gcn.' ---'
-                    //     .$row->nganh_nghe_kinh_doanh.'<br>'; 
                 }); 
             }); 
         },'UTF-8')->get();
@@ -226,5 +220,16 @@ class FoodSafetyController extends BaseController
 
     function reportUnexpected(){
         return view('food_safety.reportUnexpected');
+    }
+
+    function updateDataWard(){
+        $wards = Ward::all();
+        foreach ($wards as $key => $ward) {
+            $food_safeties = Food_safety::whereIn('village_id', $ward->village_id_array())
+                ->update([
+                    "ward_id"=>$ward->id
+                ]);
+            // dd( $ward->village_id_array());
+        }
     }
 }

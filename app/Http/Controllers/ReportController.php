@@ -38,47 +38,35 @@ class ReportController extends Controller
                                     ->whereYear('food_safeties.ngay_kiem_tra_3', $request->year)
                                     ->count();
                 } else {
-                       $food_safetys_count = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                       $food_safetys_count = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_xac_nhan_hien_thuc','=',$i)
                                 ->whereYear('date_checked.ngay_xac_nhan_hien_thuc', $request->year)
                                 ->count();
-                       $food_safetys_count2 = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                       $food_safetys_count2 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_kiem_tra_2','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_2', $request->year)
                                 ->count();
-                       $food_safetys_count3 = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                       $food_safetys_count3 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_kiem_tra_3','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_3', $request->year)
                                 ->count();
-                        $food_safetys_count_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_1', 'Đạt')
                                 ->whereMonth('date_checked.ngay_xac_nhan_hien_thuc','=',$i)
                                 ->whereYear('date_checked.ngay_xac_nhan_hien_thuc', $request->year)
                                 ->count();
-                       $food_safetys_count2_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                       $food_safetys_count2_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
                                 ->whereMonth('date_checked.ngay_kiem_tra_2','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_2', $request->year)
                                 ->count();
-                       $food_safetys_count3_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
+                       $food_safetys_count3_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id',$request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_3', 'Đạt')
                                 ->whereMonth('date_checked.ngay_kiem_tra_3','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_3', $request->year)
@@ -130,47 +118,35 @@ class ReportController extends Controller
                                         ->whereYear('food_safeties.ngay_kiem_tra_3', $request->year)
                                         ->count();
                     } else {
-                        $food_safetys_count = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_xac_nhan_hien_thuc','=',$i)
                                 ->whereYear('date_checked.ngay_xac_nhan_hien_thuc', $request->year)
                                 ->count();
-                        $food_safetys_count2 = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count2 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_kiem_tra_2','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_2', $request->year)
                                 ->count();
-                        $food_safetys_count3 = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count3 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->whereMonth('date_checked.ngay_kiem_tra_3','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_3', $request->year)
                                 ->count();
-                        $food_safetys_count_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_1', 'Đạt')
                                 ->whereMonth('date_checked.ngay_xac_nhan_hien_thuc','=',$i)
                                 ->whereYear('date_checked.ngay_xac_nhan_hien_thuc', $request->year)
                                 ->count();
-                        $food_safetys_count2_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count2_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
                                 ->whereMonth('date_checked.ngay_kiem_tra_2','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_2', $request->year)
                                 ->count();
-                        $food_safetys_count3_pass = Food_safety::join('villages','villages.id',
-                               'food_safeties.village_id')
-                                ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                                ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                        $food_safetys_count3_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                                 ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
                                 ->whereMonth('date_checked.ngay_kiem_tra_3','=',$i)
                                 ->whereYear('date_checked.ngay_kiem_tra_3', $request->year)
@@ -202,47 +178,35 @@ class ReportController extends Controller
         foreach (Ward::all() as $key => $ward) {
             $data1 = [];
             foreach ($category->childs() as $key => $value) {
-                $food_safetys_count = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
                         ->where('date_checked.ngay_xac_nhan_hien_thuc','<=' ,$request->endDate)
                         ->count();
-                $food_safetys_count2 = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count2 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
                         ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
                         ->count();
-                $food_safetys_count3 = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count3 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
                         ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)
                         ->count();
-                $food_safetys_count_pass = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ket_qua_kiem_tra_1', 'Đạt')
                         ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
                         ->where('date_checked.ngay_xac_nhan_hien_thuc','<=', $request->endDate)
                         ->count();
-                $food_safetys_count2_pass = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count2_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
                         ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
                         ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
                         ->count();
-                $food_safetys_count3_pass = Food_safety::join('villages','villages.id',
-                       'food_safeties.village_id')
-                        ->join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('villages.parent_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
+                $food_safetys_count3_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
                         ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
                         ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
                         ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)

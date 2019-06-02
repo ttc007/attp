@@ -81,6 +81,7 @@
     <div class="box-typical box-typical-padding col-sm-12">
             <div class="row">
                 <input type="hidden" id='food_safety_id' name="food_safety_id" value="0">
+                <input type="hidden" id='ward_id' name="ward_id" value="{{Session::get('ward_id')}}">
                 <label class="col-sm-2 form-control-label pt-3">Tên chủ cơ sở</label>
                 <div class="col-sm-8 form-group">
                     <p class="form-control-static">
