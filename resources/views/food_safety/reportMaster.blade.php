@@ -48,6 +48,7 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
         $("#month_report").change(function(){
+          var month = $(this).val();
           $.ajax({
             url:'/api/month_report_master/'+$(this).val(),
             type:'GET',
@@ -55,9 +56,8 @@
               year:$("#GLOBAL_YEAR").val()
             },
             success:function(data){
-              console.log(data);
               $("#data-render").empty();
-              $.each(data.months, function(i, wardList){
+              for (var i = 1; i <= month; i++) {
                 var divCol6 = $("<div class='col-md-12'></div>");
                 var table = $("<table class='table my-4' style=''>");
                 divCol6.append(table);
@@ -65,14 +65,53 @@
                 var thead = $("<tr></tr>");
                 table.append(thead);
                 $("#data-render").append(divCol6);
-                $.each(wardList, function(j, ward){
-                  var tr = $(`<tr><td>`+j+`</td></tr>`);
+                $.each(data.wards, function(j, ward){
+                  var tr = $(`<tr><td>`+ward.name+`</td></tr>`);
                   table.append(tr);
                   thead.empty();
                   thead.append("<td><b> Tháng "+i+"</b></td>");
-                  $.each(ward, function(k, cateData){
-                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"("+data.fsInChildOfCategory[k+j]+")</td>");
-                    thead.append("<td>"+k+"</td>")
+                  $.each(data.categories, function(k, category){
+                    var cateData = "";
+                    var check = 0;
+                    var pass = 0;
+                    var rating = 0;
+                    $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
+                      if(foodSafetyDateChecked.categoryb2_id==category.id
+                        &&foodSafetyDateChecked.ward_id==ward.id){
+                        if(foodSafetyDateChecked.ngay_xac_nhan_hien_thuc){
+                          var dateCheckMonth = foodSafetyDateChecked.ngay_xac_nhan_hien_thuc.split("-")[1];
+                          if(dateCheckMonth==i){
+                            check++;
+                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                              pass++;
+                            }
+                          }
+                        }
+                        if(foodSafetyDateChecked.ngay_kiem_tra_2){
+                          var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_2.split("-")[1];
+                          if(dateCheckMonth==i){
+                            check++;
+                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                              pass++;
+                            }
+                          }
+                        }
+                        if(foodSafetyDateChecked.ngay_kiem_tra_3){
+                          var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_3.split("-")[1];
+                          if(dateCheckMonth==i){
+                            check++;
+                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                              pass++;
+                            }
+                          }
+                        }
+                      }
+                    });
+                    if(check>0) rating = (pass/check*100);
+                    rating = Math.round(rating * 100) / 100;
+                    cateData = check+"/"+pass+"/"+rating+"%";
+                    tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"("+data.fsInChildOfCategory[category.name+ward.name]+")</td>");
+                    thead.append("<td>"+category.name+"</td>")
                   });
                 });
 
@@ -89,28 +128,29 @@
                   $("#data-render").append(divCol6);
                   var thead = $("<tr></tr>");
                   table.append(thead);
-                  $.each(wardList, function(j, ward){
-                    var tr = $(`<tr><td>`+j+`</td></tr>`);
+                  $.each(data.wards, function(j, ward){
+                    var tr = $(`<tr><td>`+ward.name+`</td></tr>`);
                     table.append(tr);
                     thead.empty();
                     thead.append("<td><b> Quý "+(i==12?' 4 - cả năm':(i/3))+"</b></td>");
-                    $.each(ward, function(k, cateData){
+                    $.each(data.categories, function(k, category){
                       var tong = 0;
                       var count = 0;
-                      $.each($(".count_"+convertToSlug(k)+"_"+convertToSlug(j)) , function(m, objEle){
+                      $.each($(".count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)) , function(m, objEle){
                         tong+= parseInt($(objEle).text());
                         count+= parseInt($(objEle).text().split("/")[1]);
                       });
                       var rating = 0;
                       if(tong>0) rating = (count/tong*100);
                       rating = Math.round(rating * 100) / 100;
-                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[k+j]+")";
-                      tr.append("<td class='total_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+viewCount+"</td>");
-                      thead.append("<td>"+k+"</td>")
+                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[category.name+ward.name]+")";
+                      tr.append("<td class='total_"+convertToSlug(category.name)+"_"
+                          +convertToSlug(ward.name)+"'>"+viewCount+"</td>");
+                      thead.append("<td>"+category.name+"</td>")
                     });
                   });
                 }
-              }); 
+              }
             }
           });
         });
