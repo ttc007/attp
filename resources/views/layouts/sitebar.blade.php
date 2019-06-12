@@ -20,6 +20,25 @@
                     <span class="lbl">Quản lí bảng tin</span>
                 </a>
             </li>
+        @else
+            <li class="aquamarine @if(Request::is('post')) opened @endif">
+                <a href="/food_safety/y-te">
+                    <i class="font-icon font-icon-doc"></i>
+                    <span class="lbl">Danh sách</span>
+                </a>
+            </li>
+            <li class="blue-dirty @if(Request::is('food_safety/reportMaster')) opened @endif">
+                <a href="/food_safety/report">
+                    <i class="font-icon font-icon-notebook"></i>
+                    <span class="lbl">Báo cáo</span>
+                </a>
+            </li>
+            <li class="gold @if(Request::is('food_safety/reportUnexpected')) opened @endif">
+                <a href="/food_safety/reportUnexpectedWard">
+                    <i class="font-icon font-icon-event"></i>
+                    <span class="lbl">Kiểm tra theo đợt</span>
+                </a>
+            </li>
         @endif
     </ul>
 </nav><!--.side-menu-->

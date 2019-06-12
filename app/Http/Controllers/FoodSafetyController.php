@@ -73,8 +73,11 @@ class FoodSafetyController extends BaseController
             $food_safety->update($data);
             $check_date = DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)->first();
             $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2','ngay_kiem_tra_3', 'ket_qua_kiem_tra_1', 'ket_qua_kiem_tra_2',
-                                'ket_qua_kiem_tra_3', 'ghi_chu_1',
-                                'ghi_chu_2', 'ghi_chu_3', 'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
+                                'ket_qua_kiem_tra_3',
+                                'test_1', 'test_2', 'test_3',
+                                'ghi_chu_1',
+                                'ghi_chu_2', 'ghi_chu_3',
+                                'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
                                 'hinh_thuc_xu_phat_3','year','food_safety_id');
             if($check_date){
                  DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)
@@ -107,7 +110,7 @@ class FoodSafetyController extends BaseController
             if($value->ngay_ky_cam_ket!=""){
                 $ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->addYears(3)->addDays(7);
                 if($ngay_ky_cam_ket<Carbon::now()) 
-                $value->ngay_ky_cam_ket = "<b class='text-danger'>".$Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."<b>";
+                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."<b>";
                 else $value->ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y');
             }
             
@@ -208,6 +211,16 @@ class FoodSafetyController extends BaseController
         },'UTF-8')->get();
         return redirect('/food_safety/y-te');
     }
+    
+    // function updateDataWard(){
+    //     $wards = Ward::all();
+    //     foreach ($wards as $key => $ward) {
+    //         $food_safeties = Food_safety::whereIn('village_id', $ward->village_id_array())
+    //             ->update([
+    //                 "ward_id"=>$ward->id
+    //             ]);
+    //     }
+    // }
 
     function report(){
         $ward = Ward::find(Session::get('ward_id'));
@@ -222,14 +235,8 @@ class FoodSafetyController extends BaseController
         return view('food_safety.reportUnexpected');
     }
 
-    function updateDataWard(){
-        $wards = Ward::all();
-        foreach ($wards as $key => $ward) {
-            $food_safeties = Food_safety::whereIn('village_id', $ward->village_id_array())
-                ->update([
-                    "ward_id"=>$ward->id
-                ]);
-            // dd( $ward->village_id_array());
-        }
+    function reportUnexpectedWard(){
+        $ward = Ward::find(Session::get('ward_id'));
+        return view('food_safety.reportUnexpectedWard', compact('ward'));
     }
 }

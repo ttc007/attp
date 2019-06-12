@@ -26,13 +26,15 @@
             <div class="bootstrap-table-header">Quản lí An toàn thực phẩm</div>
                 @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
                 <a class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm</a>
-                <a href="/food_safety/upfile_csv" class="btn"><i class="fa fa-plus"></i>Upfile</a>
+                <!-- <a href="/food_safety/upfile_csv" class="btn"><i class="fa fa-plus"></i>
+                Upfile</a> -->
                 @endif
-                <a href="/food_safety/report" class="btn"><i class="fa fa-plus"></i>Báo cáo</a>
+                <!-- <a href="/food_safety/report" class="btn"><i class="fa fa-plus"></i>Báo cáo</a> -->
                 <br>Chọn năm<select class="form-control" style="width:100px;display:inline-block" id="GLOBAL_YEAR">
                                         <option>2018</option>
                                         <option selected>2019</option>
                                         <option>2020</option>
+                                        <option>2021</option>
                                 </select>
             </div>
           
@@ -184,6 +186,14 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_1" name="hinh_thuc_xu_phat_1" type="text" value="" class="form-control" >
                 </div>
+                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_1">
+                        <option value="">--Chọn--</option>
+                        <option>Âm tính</option>
+                        <option>Dương tính</option>
+                    </select>
+                </div>
             </div>
             <div class="row p-3 m-1" style="border:1px solid #ddd">
                 <label class="col-sm-3 form-control-label pt-3">Ngày kiểm tra(lần 2)</label>
@@ -206,6 +216,14 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_2" name="hinh_thuc_xu_phat_2" type="text" value="" class="form-control" >
                 </div>
+                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_2" name="test_2">
+                        <option value="">--Chọn--</option>
+                        <option>Âm tính</option>
+                        <option>Dương tính</option>
+                    </select>
+                </div>
             </div>
             <div class="row p-3 m-1" style="border:1px solid #ddd">
                 <label class="col-sm-3 form-control-label pt-3">Ngày kiểm tra(lần 3)</label>
@@ -227,6 +245,14 @@
                 <label class="col-sm-3 form-control-label pt-3">Hình thức xử lí</label>
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_3" name="hinh_thuc_xu_phat_3" type="text" value="" class="form-control" >
+                </div>
+                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_3" name="test_3">
+                        <option value="">--Chọn--</option>
+                        <option>Âm tính</option>
+                        <option>Dương tính</option>
+                    </select>
                 </div>
             </div>
             @if($category->slug=="nong-nghiep")

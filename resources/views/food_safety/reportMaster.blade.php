@@ -91,7 +91,7 @@
                           var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_2.split("-")[1];
                           if(dateCheckMonth==i){
                             check++;
-                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                            if(foodSafetyDateChecked.ket_qua_kiem_tra_2=="Đạt"){
                               pass++;
                             }
                           }
@@ -100,7 +100,7 @@
                           var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_3.split("-")[1];
                           if(dateCheckMonth==i){
                             check++;
-                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                            if(foodSafetyDateChecked.ket_qua_kiem_tra_3=="Đạt"){
                               pass++;
                             }
                           }
@@ -121,7 +121,7 @@
                   var bg = "#cae2f1";
                   if(i==6) bg = "#8bdaa3";
                   if(i==9) bg = "#d5e484";
-                  if(i==12) bg = "#e2927a"
+                  if(i==12) bg = "#e2927a";
                   var table = $(`<table class='table my-4' 
                     style='background:`+bg+`'>`);
                   divCol6.append(table);

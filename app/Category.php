@@ -37,4 +37,15 @@ class Category extends Model
         }
         return $data;
     }
+
+    function fsInChildOfCategoryWard($ward_id){
+        $childs = Self::where('parent_id',$this->id)->get();
+        $data = [];
+        foreach ($childs as $key => $child) {
+            $data[$child->name] = Food_safety::where("categoryb2_id", $child->id)
+                        ->where("ward_id", $ward_id)
+                        ->count();
+        }
+        return $data;
+    }
 }

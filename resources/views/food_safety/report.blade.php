@@ -47,6 +47,7 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
         $("#month_report").change(function(){
+          var month = $(this).val();
           $.ajax({
             url:'/api/month_report/'+$(this).val(),
             type:'GET',
@@ -54,60 +55,92 @@
               ward_id:$("#ward_id").val(),
               year:$("#GLOBAL_YEAR").val()
             },
-            success:function(response){
-              // console.log(response);
-              var t=0;
+            success:function(data){
               $("#table").empty();
-              $.each(response.cate,function(i,v){
-                if(i==1){
-                  var title = "";
-                  $.each(v,function(j,k){
-                    title += '<th>'+j+'</th>';
+              var thead = $(`<tr></tr>`);
+              $("#table").append(thead);
+              
+              for(var i=1; i<=month; i++){
+                var tr = $("<tr><td>Tháng "+i+"</td></tr>");
+                thead.empty();
+                thead.append("<td></td>");
+                
+                $.each(data.categories, function(m, category){
+                  var check = 0;
+                  var pass = 0;
+                  var rating = 0;
+                  thead.append("<td>"+category.name+"</td>");
+                  
+                  $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
+                    if(foodSafetyDateChecked.categoryb2_id==category.id){
+                      if(foodSafetyDateChecked.ngay_xac_nhan_hien_thuc){
+                        var dateCheckMonth = foodSafetyDateChecked.ngay_xac_nhan_hien_thuc.split("-")[1];
+                        if(dateCheckMonth==i){
+                          check++;
+                          if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                            pass++;
+                          }
+                        }
+                      }
+                      if(foodSafetyDateChecked.ngay_kiem_tra_2){
+                        var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_2.split("-")[1];
+                        if(dateCheckMonth==i){
+                          check++;
+                          if(foodSafetyDateChecked.ket_qua_kiem_tra_2=="Đạt"){
+                            pass++;
+                          }
+                        }
+                      }
+                      if(foodSafetyDateChecked.ngay_kiem_tra_3){
+                        var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_3.split("-")[1];
+                        if(dateCheckMonth==i){
+                          check++;
+                          if(foodSafetyDateChecked.ket_qua_kiem_tra_3=="Đạt"){
+                            pass++;
+                          }
+                        }
+                      }
+                    }
                   });
-                  $("#table").append(`
-                    <tr>
-                      <th>Tháng</th>
-                      `+title+`
-                    </tr>
-                  `);
-                }
-                var data ='';
-                t=0;
-                $.each(v,function(j,k){
-                  t++;
-                  data += '<td class="count_'+t+'" >'+k+
-                    '('+response.fsInChildOfCategory[j+$("#wardName").text()]+')'+'</td>';
+
+                  if(check>0) rating = (pass/check*100);
+                  rating = Math.round(rating * 100) / 100;
+                  var cateData = check+"/"+pass+"/"+rating+"%";
+                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+cateData+"("+data.fsInChildOfCategory[category.name]+")</td>");
                 });
-                $("#table").append(`
-                  <tr>
-                    <td>`+i+`</td>
-                    `+data+`
-                  </tr>
-                `);
+                $("#table").append(tr);
                 if(i==3||i==6||i==9||i==12){
                   var quy = "Quý " +(i/3);
                   if(i==12) quy = "Quý 4 - cả năm";
-                  var tr = $("<tr style='background:#2ec'><td> "+quy+"</td></tr>");
-                  for (var i =1; i <= t; i++) {
-                    var tong3 = 0;
-                    var count = 0;
+                  var bg = "#2ec";
+                  // if(i==6) bg = "#8bdaa3";
+                  // if(i==9) bg = "#d5e484";
+                  // if(i==12) bg = "#e2927a";
+                  var tr = $("<tr style='background:"+bg+"'><td> "+quy+"</td></tr>");
+                  
+                  $.each(data.fsInChildOfCategory, function(cateName, cateCount){
+                    var checkQuarter = 0;
+                    var passQuarter = 0;
                     var total = 0;
-                    $('.count_'+i).each(function (h,k){
-                      tong3 +=parseInt($(k).text());
-                      count +=parseInt($(k).text().split("/")[1]);
+                    var rating = 0;
+                    $('.count_'+convertToSlug(cateName)).each(function (h,k){
+                      checkQuarter +=parseInt($(k).text());
+                      passQuarter +=parseInt($(k).text().split("/")[1]);
                       total = parseInt($(k).text().split("(")[1]);
                     });
                     var rating = 0;
-                    if(tong3>0) rating = (count/tong3*100);
+                    if(checkQuarter>0) rating = (passQuarter/checkQuarter*100);
                     rating = Math.round(rating * 100) / 100;
-                    var viewCount = tong3+"/"+count+"/"+rating+"%"+"("+
+                    var viewCount = checkQuarter+"/"+passQuarter+"/"+rating+"%"+"("+
                     total
                     +")";
                     tr.append('<td>'+viewCount+'</td>');
-                  }
-                  $("table").append(tr);
+                  });
+                  
+                  
+                  $("#table").append(tr);
                 }
-              });
+              }
             }
           });
         });
