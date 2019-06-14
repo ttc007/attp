@@ -21,7 +21,7 @@
                 </a>
             </li>
         @else
-            <li class="aquamarine @if(Request::is('post')) opened @endif">
+            <li class="aquamarine @if(Request::is('food_safety/y-te')) opened @endif">
                 <a href="/food_safety/y-te">
                     <i class="font-icon font-icon-doc"></i>
                     <span class="lbl">Danh sách</span>
@@ -37,6 +37,12 @@
                 <a href="/food_safety/reportUnexpectedWard">
                     <i class="font-icon font-icon-event"></i>
                     <span class="lbl">Kiểm tra theo đợt</span>
+                </a>
+            </li>
+            <li class="green @if(Request::is('post')) opened @endif">
+                <a href="/post">
+                    <i class="font-icon font-icon-mail"></i>
+                    <span class="lbl">Quản lí bảng tin</span>
                 </a>
             </li>
         @endif

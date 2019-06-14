@@ -15,9 +15,11 @@
                   <tr>
                     <td><h6>Chọn kiểu</h6></td>
                     <td>
-                      <select class="form-control" name="type" style="width: 150px">
+                      <select class="form-control" name="type" style="width: 200px">
+                        @if(Auth::user()->role=='hql')
                         <option>Video</option>
                         <option>Image</option>
+                        @endif
                         <option>Hệ thống pháp luật</option>
                       </select>
                     </td>

@@ -71,7 +71,7 @@
                 <div class="tbl-cell">
                     <h3>TẠO MỚI / UPDATE</h3>
                     <ol class="buttons">
-                        <span class="font-icon font-icon-del overlay-close" onclick='location.reload()'></span>
+                        <span class="font-icon font-icon-del overlay-close" onclick='$(".outside-overlay.contact").css("display", "none")'></span>
                     </ol>
                 </div>
             </div>
@@ -186,15 +186,74 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_1" name="hinh_thuc_xu_phat_1" type="text" value="" class="form-control" >
                 </div>
-                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
                 <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1">
-                        <option value="">--Chọn--</option>
-                        <option>Âm tính</option>
-                        <option>Dương tính</option>
+                    <select class="form-control" id="test_1" name="test_1a">
+                        <option value="Hàn the:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Hàn the:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Hàn the:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_1b">
+                        <option value="Formol:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Formol:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Formol:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                Độ ôi khét dầu mỡ</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_1c">
+                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_1d">
+                        <option value="Độ sạch bát đĩa:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch bát đĩa:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                  Độ sạch tiếp xúc thực phẩm</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_1e">
+                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
                     </select>
                 </div>
             </div>
+
             <div class="row p-3 m-1" style="border:1px solid #ddd">
                 <label class="col-sm-3 form-control-label pt-3">Ngày kiểm tra(lần 2)</label>
                 <div class="col-sm-3 form-group">
@@ -216,12 +275,69 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_2" name="hinh_thuc_xu_phat_2" type="text" value="" class="form-control" >
                 </div>
-                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
                 <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_2" name="test_2">
-                        <option value="">--Chọn--</option>
-                        <option>Âm tính</option>
-                        <option>Dương tính</option>
+                    <select class="form-control" id="test_1" name="test_2a">
+                        <option value="Hàn the:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Hàn the:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Hàn the:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_2b">
+                        <option value="Formol:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Formol:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Formol:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                Độ ôi khét dầu mỡ</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_2c">
+                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_2d">
+                        <option value="Độ sạch bát đĩa:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch bát đĩa:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                  Độ sạch tiếp xúc thực phẩm</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_2e">
+                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
                     </select>
                 </div>
             </div>
@@ -246,12 +362,69 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_3" name="hinh_thuc_xu_phat_3" type="text" value="" class="form-control" >
                 </div>
-                <label class="col-sm-3 form-control-label pt-3">Test nhanh</label>
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
                 <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_3" name="test_3">
-                        <option value="">--Chọn--</option>
-                        <option>Âm tính</option>
-                        <option>Dương tính</option>
+                    <select class="form-control" id="test_1" name="test_3a">
+                        <option value="Hàn the:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Hàn the:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Hàn the:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_3b">
+                        <option value="Formol:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Formol:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Formol:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                Độ ôi khét dầu mỡ</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_3c">
+                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_3d">
+                        <option value="Độ sạch bát đĩa:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch bát đĩa:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
+                    </select>
+                </div>
+                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
+                  Độ sạch tiếp xúc thực phẩm</label>
+                <div class="col-sm-3 form-group">
+                    <select class="form-control" id="test_1" name="test_3e">
+                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
+                          Không kiểm tra
+                        </option>
+                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
+                          Âm tính
+                        </option>
+                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
                     </select>
                 </div>
             </div>
@@ -267,7 +440,7 @@
               <div class="col-sm-4"></div>
               <div class="col-sm-10 py-4">        
                   <button class='btn ' >Thêm / Update</button>
-                  <a class='btn btn-danger overlay-close' onclick='location.reload()'>Thoát</a>
+                  <a class='btn btn-danger overlay-close' onclick='$(".outside-overlay.contact").css("display", "none")'>Thoát</a>
               </div>
             </div>
 
@@ -318,22 +491,48 @@
                   $("#so_cap").val(data.so_cap);
                   $("#ngay_kham_suc_khoe").val(data.ngay_kham_suc_khoe);
                   $("#ngay_ky_cam_ket").val(data.ngay_ky_cam_ket);
-                  $("#ngay_xac_nhan_hien_thuc").val(data.ngay_xac_nhan_hien_thuc);
-                  $("#ngay_kiem_tra_2").val(data.ngay_kiem_tra_2);
-                  $("#ngay_kiem_tra_3").val(data.ngay_kiem_tra_3);
+                  
                   $("#noi_tieu_thu").val(data.noi_tieu_thu);
 
-                  $("#ket_qua_kiem_tra_1").val(data.ket_qua_kiem_tra_1);
-                  $("#ket_qua_kiem_tra_2").val(data.ket_qua_kiem_tra_2);
-                  $("#ket_qua_kiem_tra_3").val(data.ket_qua_kiem_tra_3);
+                  var date_checked = data.date_checked;
 
-                  $("#ghi_chu_1").val(data.ghi_chu_1);
-                  $("#ghi_chu_2").val(data.ghi_chu_2);
-                  $("#ghi_chu_3").val(data.ghi_chu_3);
+                  $("#ngay_xac_nhan_hien_thuc").val(date_checked.ngay_xac_nhan_hien_thuc);
+                  $("#ngay_kiem_tra_2").val(date_checked.ngay_kiem_tra_2);
+                  $("#ngay_kiem_tra_3").val(date_checked.ngay_kiem_tra_3);
+                  
+                  $("#ket_qua_kiem_tra_1").val(date_checked.ket_qua_kiem_tra_1);
+                  $("#ket_qua_kiem_tra_2").val(date_checked.ket_qua_kiem_tra_2);
+                  $("#ket_qua_kiem_tra_3").val(date_checked.ket_qua_kiem_tra_3);
 
-                  $("#hinh_thuc_xu_phat_1").val(data.hinh_thuc_xu_phat_1);
-                  $("#hinh_thuc_xu_phat_2").val(data.hinh_thuc_xu_phat_2);
-                  $("#hinh_thuc_xu_phat_3").val(data.hinh_thuc_xu_phat_3);
+                  $("#ghi_chu_1").val(date_checked.ghi_chu_1);
+                  $("#ghi_chu_2").val(date_checked.ghi_chu_2);
+                  $("#ghi_chu_3").val(date_checked.ghi_chu_3);
+
+                  $("#hinh_thuc_xu_phat_1").val(date_checked.hinh_thuc_xu_phat_1);
+                  $("#hinh_thuc_xu_phat_2").val(date_checked.hinh_thuc_xu_phat_2);
+                  $("#hinh_thuc_xu_phat_3").val(date_checked.hinh_thuc_xu_phat_3);
+
+                  var test_1_arr = data.date_checked.test_1.split("<br>");
+                  var test_2_arr = data.date_checked.test_2.split("<br>");
+                  var test_3_arr = data.date_checked.test_3.split("<br>");
+                  $("[name=test_1a]").val(test_1_arr[0]);
+                  $("[name=test_1b]").val(test_1_arr[1]);
+                  $("[name=test_1c]").val(test_1_arr[2]);
+                  $("[name=test_1d]").val(test_1_arr[3]);
+                  $("[name=test_1e]").val(test_1_arr[4]);
+
+                  $("[name=test_2a]").val(test_2_arr[0]);
+                  $("[name=test_2b]").val(test_2_arr[1]);
+                  $("[name=test_2c]").val(test_2_arr[2]);
+                  $("[name=test_2d]").val(test_2_arr[3]);
+                  $("[name=test_2e]").val(test_2_arr[4]);
+
+                  $("[name=test_3a]").val(test_3_arr[0]);
+                  $("[name=test_3b]").val(test_3_arr[1]);
+                  $("[name=test_3c]").val(test_3_arr[2]);
+                  $("[name=test_3d]").val(test_3_arr[3]);
+                  $("[name=test_3e]").val(test_3_arr[4]);
+
                 }
             })
         }

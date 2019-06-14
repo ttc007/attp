@@ -91,3 +91,12 @@ label{
 .overlay .section-header{
 	padding: 20px
 }
+
+.test-nhanh{
+    font-size: 12px!important;
+    color:#666!important;
+    text-align: right;
+}
+.test-nhanh-title{
+    color: #f29824!important;
+}

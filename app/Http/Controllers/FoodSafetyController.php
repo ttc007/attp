@@ -66,19 +66,33 @@ class FoodSafetyController extends BaseController
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
                                 , 'category_id', 'categoryb2_id',
                                 'noi_tieu_thu');
-        if($request->food_safety_id==0)
-        $food_safety = Food_safety::create($data);
-        else {
+        if($request->food_safety_id==0){
+            $food_safety = Food_safety::create($data);
+        } else {
             $food_safety = Food_safety::find($request->food_safety_id);
             $food_safety->update($data);
             $check_date = DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)->first();
             $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2','ngay_kiem_tra_3', 'ket_qua_kiem_tra_1', 'ket_qua_kiem_tra_2',
                                 'ket_qua_kiem_tra_3',
-                                'test_1', 'test_2', 'test_3',
-                                'ghi_chu_1',
-                                'ghi_chu_2', 'ghi_chu_3',
+                                'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
                                 'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
                                 'hinh_thuc_xu_phat_3','year','food_safety_id');
+            $data_checkDate['test_1'] =  $request->test_1a."<br>".
+                                        $request->test_1b."<br>".
+                                        $request->test_1c."<br>".
+                                        $request->test_1d."<br>".
+                                        $request->test_1e;
+            $data_checkDate['test_2'] =  $request->test_2a."<br>".
+                                        $request->test_2b."<br>".
+                                        $request->test_2c."<br>".
+                                        $request->test_2d."<br>".
+                                        $request->test_2e;
+            $data_checkDate['test_3'] =  $request->test_3a."<br>".
+                                        $request->test_3b."<br>".
+                                        $request->test_3c."<br>".
+                                        $request->test_3d."<br>".
+                                        $request->test_3e;                            
+            
             if($check_date){
                  DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)
                  ->update($data_checkDate);
@@ -133,22 +147,9 @@ class FoodSafetyController extends BaseController
 
     function api_show($id, Request $request){
         $food_safety = Food_safety::find($id);
-        $check_date = DB::table('date_checked')->where('food_safety_id', $id)->where('year',$request->year)->first();
-        if($request->year!="2018"){
-                $food_safety->ngay_xac_nhan_hien_thuc = $check_date?$check_date->ngay_xac_nhan_hien_thuc:"";
-                $food_safety->ngay_kiem_tra_2 = $check_date?$check_date->ngay_kiem_tra_2:"";
-                $food_safety->ngay_kiem_tra_3 = $check_date?$check_date->ngay_kiem_tra_3:"";
-                $food_safety->ghi_chu_1 = $check_date?$check_date->ghi_chu_1:"";
-                $food_safety->ghi_chu_2 = $check_date?$check_date->ghi_chu_2:"";
-                $food_safety->ghi_chu_3 = $check_date?$check_date->ghi_chu_3:"";
-                $food_safety->hinh_thuc_xu_phat_1 = $check_date?$check_date->hinh_thuc_xu_phat_1:"";
-                $food_safety->hinh_thuc_xu_phat_2 = $check_date?$check_date->hinh_thuc_xu_phat_2:"";
-                $food_safety->hinh_thuc_xu_phat_3 = $check_date?$check_date->hinh_thuc_xu_phat_3:"";
-                $food_safety->ket_qua_kiem_tra_1 = $check_date?$check_date->ket_qua_kiem_tra_1:"";
-                $food_safety->ket_qua_kiem_tra_2 = $check_date?$check_date->ket_qua_kiem_tra_2:"";
-                $food_safety->ket_qua_kiem_tra_3 = $check_date?$check_date->ket_qua_kiem_tra_3:"";
-        }
+        $date_checked = DB::table('date_checked')->where('food_safety_id', $id)->where('year',$request->year)->first();
         
+        $food_safety->date_checked = $date_checked;
         return $food_safety;
     }
 

@@ -20,6 +20,10 @@ $(document).ready(function(){
 		return '$' + total;
 	}
 
+	function sttFormatter(data, rowData, index){
+		return index+1;
+	}
+
 	function statusFormatter(data, rowData, index) {
 		var classBtn = '',
 			classDropup = '',
@@ -122,7 +126,7 @@ $(document).ready(function(){
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
-                        year:$("#GLOBAL_YEAR").val()
+                year:$("#GLOBAL_YEAR").val()
 	        },
 	        dataType: "json",
 	        success: function(response){
@@ -138,7 +142,7 @@ $(document).ready(function(){
         
         function ngaykiemtraFormatter(value, row, index){
             var year = $("#GLOBAL_YEAR").val();
-            var trave="";
+            var trave="<div class='text-left'>";
             $.each(row.check_dates,function(i,v){
                 if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
                     trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
@@ -147,20 +151,26 @@ $(document).ready(function(){
                     trave+=`)`;
                     if(v.ghi_chu_1!=null)trave+=`<br>`+v.ghi_chu_1;
                     if(v.hinh_thuc_xu_phat_1!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_1;
-                    trave+="<br>Test nhanh:";
-                    if(v.test_1=="Âm tính"){
-                    	trave+="<span style='color:#5cb85c!important'>"+v.test_1+"</span>";
-                    } else if(v.test_1=="Dương tính"){
-                    	trave+="<span style='color:#d9534f!important'>"+v.test_1+"</span>";
+                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                    if(v.test_1!=""){
+                    	var test_1_arr = v.test_1.split("<br>");
+                    	$.each(test_1_arr, function(t, test_1_item){
+                    		var kqTest = test_1_item.split(":")[1];
+                    		if(kqTest!="Không kiểm tra"){
+                    			trave+= "<span class='test-nhanh'>"+
+                    				test_1_item+"</span><br>";
+                    		}
+                    	});
                     }
                 }
             });
+            trave+="</div>";
             return trave;
         }
 
         function ngaykiemtraFormatter2(value, row, index){
             var year = $("#GLOBAL_YEAR").val();
-            var trave="";
+            var trave="<div class='text-left'>";
             $.each(row.check_dates,function(i,v){
                 if(year==v.year&&v.ngay_kiem_tra_2) {
                     trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
@@ -169,20 +179,26 @@ $(document).ready(function(){
                     trave+=`)`;
                     if(v.ghi_chu_2!=null)trave+=`<br>`+v.ghi_chu_2;
                     if(v.hinh_thuc_xu_phat_2!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_2;
-                    trave+="<br>Test nhanh:";
-                    if(v.test_2=="Âm tính"){
-                    	trave+="<span style='color:#5cb85c!important'>"+v.test_2+"</span>";
-                    } else if(v.test_2=="Dương tính") {
-                    	trave+="<span style='color:#d9534f!important'>"+v.test_2+"</span>";
+                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                    if(v.test_2!=""){
+                    	var test_2_arr = v.test_2.split("<br>");
+                    	$.each(test_2_arr, function(t, test_2_item){
+                    		var kqTest = test_2_item.split(":")[1];
+                    		if(kqTest!="Không kiểm tra"){
+                    			trave+= "<span class='test-nhanh'>"+
+                    				test_2_item+"</span><br>";
+                    		}
+                    	});
                     }
                 }
             });
+            trave+="</div>";
             return trave;
         }
 
         function ngaykiemtraFormatter3(value, row, index){
             var year = $("#GLOBAL_YEAR").val();
-            var trave="";
+            var trave="<div class='text-left'>";
             $.each(row.check_dates,function(i,v){
                 if(year==v.year&&v.ngay_kiem_tra_3) {
                     trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
@@ -191,18 +207,34 @@ $(document).ready(function(){
                     trave+=`)`;
                     if(v.ghi_chu_3!=null)trave+=`<br>`+v.ghi_chu_3;
                     if(v.hinh_thuc_xu_phat_3!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_3;
-                    trave+="<br>Test nhanh:";
-                    if(v.test_3=="Âm tính"){
-                    	trave+="<span style='color:#5cb85c!important'>"+v.test_3+"</span>";
-                    } else if(v.test_3=="Dương tính"){
-                    	trave+="<span style='color:#d9534f!important'>"+v.test_3+"</span>";
+                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                    if(v.test_3!=""){
+                    	var test_3_arr = v.test_3.split("<br>");
+                    	$.each(test_3_arr, function(t, test_3_item){
+                    		var kqTest = test_3_item.split(":")[1];
+                    		if(kqTest!="Không kiểm tra"){
+                    			trave+= "<span class='test-nhanh'>"+
+                    				test_3_item+"</span><br>";
+                    		}
+                    	});
                     }
                 }
             });
+            trave+="</div>";
             return trave;
         }
     $data_field = [
 			[
+				{
+					field: 'ten_chu_co_so',
+					title: 'STT',
+					sortable: true,
+					editable: true,
+					formatter: sttFormatter,
+					footerFormatter: totalNameFormatter,
+					align: 'center',
+					events: nameEvents,
+				},
 				{
 					field: 'ten_chu_co_so',
 					title: 'Tên chủ cơ sở',
@@ -276,21 +308,21 @@ $(document).ready(function(){
 					field: 'ngay_xac_nhan_hien_thuc',
 					title: 'Ngày kiểm tra lần 1',
 					sortable: true,
-					align: 'center',
+					align: 'left',
 					formatter: ngaykiemtraFormatter
 				},
 				{
 					field: 'ngay_xac_nhan_hien_thuc',
 					title: 'Ngày kiểm tra lần 2',
 					sortable: true,
-					align: 'center',
+					align: 'left',
 					formatter: ngaykiemtraFormatter2
 				},
 				{
 					field: 'ngay_xac_nhan_hien_thuc',
 					title: 'Ngày kiểm tra lần 3',
 					sortable: true,
-					align: 'center',
+					align: 'left',
 					formatter: ngaykiemtraFormatter3
 				},
 				{
