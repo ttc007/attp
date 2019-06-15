@@ -34,6 +34,9 @@ Route::get('/food_safety/reportMaster', 'FoodSafetyController@reportMaster');
 Route::get('/food_safety/reportUnexpected', 'FoodSafetyController@reportUnexpected');
 Route::get('/food_safety/reportUnexpectedWard', 'FoodSafetyController@reportUnexpectedWard');
 
+Route::get('/food_safety/reportTest', 'FoodSafetyController@reportTest');
+Route::get('/food_safety/reportTestMaster', 'FoodSafetyController@reportTestMaster');
+
 Route::get('/post', 'PostController@index');
 Route::post('/post/store', 'PostController@store');
 Route::get('/communication', 'PostController@communication');

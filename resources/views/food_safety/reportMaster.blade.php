@@ -75,6 +75,7 @@
                     var check = 0;
                     var pass = 0;
                     var rating = 0;
+                    var rating1 = 0;
                     $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
                       if(foodSafetyDateChecked.categoryb2_id==category.id
                         &&foodSafetyDateChecked.ward_id==ward.id){
@@ -110,7 +111,12 @@
                     if(check>0) rating = (pass/check*100);
                     rating = Math.round(rating * 100) / 100;
                     cateData = check+"/"+pass+"/"+rating+"%";
-                    tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"("+data.fsInChildOfCategory[category.name+ward.name]+")</td>");
+
+                    var categoryCount = parseInt(data.fsInChildOfCategory[category.name+ward.name]);
+                    if(categoryCount>0) rating1 = (check/categoryCount*100);
+                    rating1 = Math.round(rating1 * 100) / 100;
+
+                    tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name+ward.name]+"/"+rating1+"%)</td>");
                     thead.append("<td>"+category.name+"</td>")
                   });
                 });
@@ -143,7 +149,13 @@
                       var rating = 0;
                       if(tong>0) rating = (count/tong*100);
                       rating = Math.round(rating * 100) / 100;
-                      var viewCount = tong+"/"+count+"/"+rating+"%"+"("+data.fsInChildOfCategory[category.name+ward.name]+")";
+
+                      var rating1 = 0;
+                      var categoryCount = parseInt(data.fsInChildOfCategory[category.name+ward.name]);
+                      if(categoryCount>0) rating1 = (tong/categoryCount*100);
+                      rating1 = Math.round(rating1 * 100) / 100;
+
+                      var viewCount = tong+"/"+count+"/"+rating+"%"+"<br>("+data.fsInChildOfCategory[category.name+ward.name]+"/"+rating1+"%)";
                       tr.append("<td class='total_"+convertToSlug(category.name)+"_"
                           +convertToSlug(ward.name)+"'>"+viewCount+"</td>");
                       thead.append("<td>"+category.name+"</td>")

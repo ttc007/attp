@@ -152,7 +152,7 @@ $(document).ready(function(){
                     if(v.ghi_chu_1!=null)trave+=`<br>`+v.ghi_chu_1;
                     if(v.hinh_thuc_xu_phat_1!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_1;
                     trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_1!=""){
+                    if(v.test_1){
                     	var test_1_arr = v.test_1.split("<br>");
                     	$.each(test_1_arr, function(t, test_1_item){
                     		var kqTest = test_1_item.split(":")[1];
@@ -180,7 +180,7 @@ $(document).ready(function(){
                     if(v.ghi_chu_2!=null)trave+=`<br>`+v.ghi_chu_2;
                     if(v.hinh_thuc_xu_phat_2!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_2;
                     trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_2!=""){
+                    if(v.test_2){
                     	var test_2_arr = v.test_2.split("<br>");
                     	$.each(test_2_arr, function(t, test_2_item){
                     		var kqTest = test_2_item.split(":")[1];
@@ -208,7 +208,7 @@ $(document).ready(function(){
                     if(v.ghi_chu_3!=null)trave+=`<br>`+v.ghi_chu_3;
                     if(v.hinh_thuc_xu_phat_3!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_3;
                     trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_3!=""){
+                    if(v.test_3){
                     	var test_3_arr = v.test_3.split("<br>");
                     	$.each(test_3_arr, function(t, test_3_item){
                     		var kqTest = test_3_item.split(":")[1];

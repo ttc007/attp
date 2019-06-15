@@ -35,9 +35,11 @@
         </div>
         </div>
         <div id="data-render" class="py-5 text-center">
-          <table class="table" >
+          <table class="table" id='table-report-month'>
             <tbody id="table"></tbody>
           </table>
+          <a class="btn" onclick="ExportToExcel('table-report-month')" 
+            style="display: none" id='btn-report-excel'>Xuất Excel</a>
         </div>
       </div>
       
@@ -56,6 +58,7 @@
               year:$("#GLOBAL_YEAR").val()
             },
             success:function(data){
+              $("#btn-report-excel").css("display", 'block');
               $("#table").empty();
               var thead = $(`<tr></tr>`);
               $("#table").append(thead);
@@ -63,12 +66,13 @@
               for(var i=1; i<=month; i++){
                 var tr = $("<tr><td>Tháng "+i+"</td></tr>");
                 thead.empty();
-                thead.append("<td></td>");
+                thead.append("<td><b>"+$("#wardName").text()+"</b></td>");
                 
                 $.each(data.categories, function(m, category){
                   var check = 0;
                   var pass = 0;
                   var rating = 0;
+                  var rating1 = 0;
                   thead.append("<td>"+category.name+"</td>");
                   
                   $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
@@ -105,8 +109,13 @@
 
                   if(check>0) rating = (pass/check*100);
                   rating = Math.round(rating * 100) / 100;
+
+                  var categoryCount = parseInt(data.fsInChildOfCategory[category.name]);
+                  if(categoryCount>0) rating1 = (check/categoryCount*100);
+                  rating1 = Math.round(rating1 * 100) / 100;
+
                   var cateData = check+"/"+pass+"/"+rating+"%";
-                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+cateData+"("+data.fsInChildOfCategory[category.name]+")</td>");
+                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name]+"/"+rating1+"%)</td>");
                 });
                 $("#table").append(tr);
                 if(i==3||i==6||i==9||i==12){
@@ -131,9 +140,12 @@
                     var rating = 0;
                     if(checkQuarter>0) rating = (passQuarter/checkQuarter*100);
                     rating = Math.round(rating * 100) / 100;
-                    var viewCount = checkQuarter+"/"+passQuarter+"/"+rating+"%"+"("+
-                    total
-                    +")";
+
+                    var rating1 = 0;
+                    if(total>0) rating1 = checkQuarter/total*100;
+                    rating1 = Math.round(rating1 * 100) / 100;
+                    var viewCount = checkQuarter+"/"+passQuarter+"/"+rating
+                      +"%<br>("+total+"/"+rating1+"%)";
                     tr.append('<td>'+viewCount+'</td>');
                   });
                   

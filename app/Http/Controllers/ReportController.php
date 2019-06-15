@@ -152,4 +152,26 @@ class ReportController extends Controller
         $data["fsInChildOfCategory"] = $category->fsInChildOfCategoryWard($request->ward_id);
         return $data;
     }
+
+    function month_report_test($month,Request $request){
+        $data = [];
+        $foodSafetyDateCheckeds = Food_safety::join('date_checked',
+                                'date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('food_safeties.ward_id', $request->ward_id)
+                                ->where('date_checked.year', $request->year)
+                                ->get();
+        $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
+        return $data;
+    }
+
+    function month_report_test_master($month,Request $request){
+        $data = [];
+        $foodSafetyDateCheckeds = Food_safety::join('date_checked',
+                                'date_checked.food_safety_id', 'food_safeties.id')
+                                ->where('date_checked.year', $request->year)
+                                ->get();
+        $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
+        $data["wards"] = Ward::all();
+        return $data;
+    }
 }

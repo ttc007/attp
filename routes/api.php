@@ -20,7 +20,8 @@ Route::get('/month_report_master/{month}','ReportController@month_report_master'
 Route::get('/reportByDate','ReportController@reportByDate');
 Route::get('/reportByDateWard','ReportController@reportByDateWard');
 
-
+Route::get('/month_report_test/{month}','ReportController@month_report_test');
+Route::get('/month_report_test_master/{month}','ReportController@month_report_test_master');
 
 Route::post('/village','VillageController@api_store');
 Route::get('/village','VillageController@api_get');

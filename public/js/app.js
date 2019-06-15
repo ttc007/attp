@@ -707,3 +707,9 @@ function dateFormatByString(string){
 	var date = new Date(string);
 	return dateFormatByDate(date);
 }
+
+function ExportToExcel(mytblId){
+   var htmltable= document.getElementById(mytblId);
+   var html = htmltable.outerHTML;
+   window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+}

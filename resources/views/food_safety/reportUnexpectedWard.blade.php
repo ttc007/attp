@@ -7,7 +7,7 @@
 </style>
 <div class="col-md-12">
   <input type="hidden" name="" id='app_id' value="{{\Session::get('app_id')}}">
-  <input type="hidden" name="ward_id" id="ward_id" value="{{Auth::user()->role}}">
+  <input type="hidden" name="ward_id" id="ward_id" value="{{Session::get('ward_id')}}">
 	<div class="section-header w-100">
 		<div class="tbl">
 			<div class="tbl-row">
@@ -36,8 +36,12 @@
   </div>
 
   <div class="row p-3">
-    <div id="data-render" class="text-center row mx-0"
-       style="margin-left: -30px!important">
+    <div id="data-render" class="text-center row mx-0" style="margin-left: -30px!important">
+      <table class="table" id='table-report-month'>
+            <tbody id="table"></tbody>
+      </table>
+      <a class="btn" onclick="ExportToExcel('table-report-month')" 
+        style="display: none" id='btn-report-excel'>Xuất Excel</a>
     </div>
   </div>
 </div>     
@@ -56,21 +60,23 @@
               ward_id:$("[name=ward_id]").val()
             },
             success:function(data){
-              $("#data-render").empty();
-              var divCol6 = $("<div class='col-md-12'></div>");
-              var table = $("<table class='table my-4' style=''>");
-              divCol6.append(table);
+              var table = $("#table-report-month");
+              $("#btn-report-excel").css("display", "block");
 
               var thead = $("<tr></tr>");
               table.append(thead);
-              $("#data-render").append(divCol6);
-              var tr = $(`<tr><td></td></tr>`);
+              var tr = $(`<tr><td>`+$("#wardName").text()+`</td></tr>`);
               table.append(tr);
               thead.empty();
               thead.append("<td style='width:100px'>"+dateFormatByString($("[name=startDate]").val())+"<br>~<br>"+
                 dateFormatByString($("[name=endDate]").val())+"</td>");
               $.each(data.wards, function(k, cateData){
-                tr.append("<td class='count_"+convertToSlug(k)+"'>"+cateData+"("+data.fsInChildOfCategory[k]+")</td>");
+                var check = cateData.split("/")[0];
+                var rating1 = 0;
+                var categoryCount = parseInt(data.fsInChildOfCategory[k])
+                if(categoryCount>0) rating1 = check/categoryCount*100;
+                rating1 = Math.round(rating1/100)*100;
+                tr.append("<td>"+cateData+"<br>("+data.fsInChildOfCategory[k]+"/"+rating1+"%)</td>");
                 thead.append("<td>"+k+"</td>")
               });
             }

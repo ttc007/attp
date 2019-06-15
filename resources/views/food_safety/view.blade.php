@@ -494,24 +494,38 @@
                   
                   $("#noi_tieu_thu").val(data.noi_tieu_thu);
 
-                  var date_checked = data.date_checked;
+                  var date_checked = {};
+                  if(data.date_checked) date_checked = data.date_checked;
 
-                  $("#ngay_xac_nhan_hien_thuc").val(date_checked.ngay_xac_nhan_hien_thuc);
-                  $("#ngay_kiem_tra_2").val(date_checked.ngay_kiem_tra_2);
-                  $("#ngay_kiem_tra_3").val(date_checked.ngay_kiem_tra_3);
+                  if(date_checked){
+                    $("#ngay_xac_nhan_hien_thuc").val(date_checked.ngay_xac_nhan_hien_thuc);
+                    $("#ngay_kiem_tra_2").val(date_checked.ngay_kiem_tra_2);
+                    $("#ngay_kiem_tra_3").val(date_checked.ngay_kiem_tra_3);
+                    
+                    $("#ket_qua_kiem_tra_1").val(date_checked.ket_qua_kiem_tra_1);
+                    $("#ket_qua_kiem_tra_2").val(date_checked.ket_qua_kiem_tra_2);
+                    $("#ket_qua_kiem_tra_3").val(date_checked.ket_qua_kiem_tra_3);
+
+                    $("#ghi_chu_1").val(date_checked.ghi_chu_1);
+                    $("#ghi_chu_2").val(date_checked.ghi_chu_2);
+                    $("#ghi_chu_3").val(date_checked.ghi_chu_3);
+
+                    $("#hinh_thuc_xu_phat_1").val(date_checked.hinh_thuc_xu_phat_1);
+                    $("#hinh_thuc_xu_phat_2").val(date_checked.hinh_thuc_xu_phat_2);
+                    $("#hinh_thuc_xu_phat_3").val(date_checked.hinh_thuc_xu_phat_3);
+                  }
                   
-                  $("#ket_qua_kiem_tra_1").val(date_checked.ket_qua_kiem_tra_1);
-                  $("#ket_qua_kiem_tra_2").val(date_checked.ket_qua_kiem_tra_2);
-                  $("#ket_qua_kiem_tra_3").val(date_checked.ket_qua_kiem_tra_3);
-
-                  $("#ghi_chu_1").val(date_checked.ghi_chu_1);
-                  $("#ghi_chu_2").val(date_checked.ghi_chu_2);
-                  $("#ghi_chu_3").val(date_checked.ghi_chu_3);
-
-                  $("#hinh_thuc_xu_phat_1").val(date_checked.hinh_thuc_xu_phat_1);
-                  $("#hinh_thuc_xu_phat_2").val(date_checked.hinh_thuc_xu_phat_2);
-                  $("#hinh_thuc_xu_phat_3").val(date_checked.hinh_thuc_xu_phat_3);
-
+                  if(!data.date_checked) {
+                    data.date_checked = {
+                      test_1:"",
+                      test_2:"",
+                      test_3:""
+                    }
+                  }else {
+                    if(!data.date_checked.test_1) data.date_checked.test_1="";
+                    if(!data.date_checked.test_2) data.date_checked.test_2="";
+                    if(!data.date_checked.test_3) data.date_checked.test_3="";
+                  }
                   var test_1_arr = data.date_checked.test_1.split("<br>");
                   var test_2_arr = data.date_checked.test_2.split("<br>");
                   var test_3_arr = data.date_checked.test_3.split("<br>");

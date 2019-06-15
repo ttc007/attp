@@ -8,6 +8,12 @@
                     <span class="lbl">Báo cáo tổng hợp</span>
                 </a>
             </li>
+            <li class="blue-dirty @if(Request::is('food_safety/reportTestMaster')) opened @endif">
+                <a href="/food_safety/reportTestMaster">
+                    <i class="font-icon font-icon-notebook"></i>
+                    <span class="lbl">Báo cáo Test tổng hợp</span>
+                </a>
+            </li>
             <li class="gold @if(Request::is('food_safety/reportUnexpected')) opened @endif">
                 <a href="/food_safety/reportUnexpected">
                     <i class="font-icon font-icon-event"></i>
@@ -31,6 +37,12 @@
                 <a href="/food_safety/report">
                     <i class="font-icon font-icon-notebook"></i>
                     <span class="lbl">Báo cáo</span>
+                </a>
+            </li>
+            <li class="blue-dirty @if(Request::is('food_safety/reportTest')) opened @endif">
+                <a href="/food_safety/reportTest">
+                    <i class="font-icon font-icon-search"></i>
+                    <span class="lbl">Báo cáo Test</span>
                 </a>
             </li>
             <li class="gold @if(Request::is('food_safety/reportUnexpected')) opened @endif">

@@ -54,10 +54,9 @@
               endDate:$("[name=endDate]").val()
             },
             success:function(data){
-              console.log(data);
               $("#data-render").empty();
               var divCol6 = $("<div class='col-md-12'></div>");
-              var table = $("<table class='table my-4' style=''>");
+              var table = $("<table class='table my-4' style='' id='table-report-by-date'>");
               divCol6.append(table);
 
               var thead = $("<tr></tr>");
@@ -70,7 +69,12 @@
                 thead.append("<td style='width:100px'>"+dateFormatByString($("[name=startDate]").val())+"<br>~<br>"+
                   dateFormatByString($("[name=endDate]").val())+"</td>");
                 $.each(ward, function(k, cateData){
-                  tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"("+data.fsInChildOfCategory[k+j]+")</td>");
+                  var check = cateData.split("/")[0];
+                  var rating1 = 0;
+                  var categoryCount = parseInt(data.fsInChildOfCategory[k+j])
+                  if(categoryCount>0) rating1 = check/categoryCount*100;
+                  rating1 = Math.round(rating1/100)*100;
+                  tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[k+j]+"/"+rating1+"%)</td>");
                   thead.append("<td>"+k+"</td>")
                 });
               });
