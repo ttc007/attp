@@ -53,6 +53,9 @@ Route::group(['prefix'=>'village/','middleware' => ['auth']],function() {
 Route::group(['prefix'=>'ward/','middleware' => ['auth']],function() {
     Route::get('/', 'WardController@index');
 });
+Route::group(['prefix'=>'test/','middleware' => ['auth']],function() {
+    Route::get('/', 'TestController@index');
+});
 
 Route::group(['prefix'=>'user/','middleware' => ['auth']],function() {
     Route::get('/', 'UserController@index');

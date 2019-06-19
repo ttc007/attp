@@ -33,6 +33,11 @@ Route::get('/ward','WardController@api_get');
 Route::post('/ward/delete','WardController@api_delete');
 Route::get('/ward/{id}','WardController@api_show');
 
+Route::post('/test','TestController@api_store');
+Route::get('/test','TestController@api_get');
+Route::post('/test/delete','TestController@api_delete');
+Route::get('/test/{id}','TestController@api_show');
+
 
 Route::get('/category_store','CategoryController@api_store');
 Route::get('/category','CategoryController@api_get');

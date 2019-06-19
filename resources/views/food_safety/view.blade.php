@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-    <form action="{{route('food_safety.store')}}"  method="POST">
+    <form action="{{route('food_safety.store')}}"  method="POST" id="formAddFoodSafety">
       <input type="hidden" id="category_id" name="category_id" value="{{$category_id}}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="box-typical box-typical-padding col-sm-12">
@@ -98,6 +98,17 @@
                     <p class="form-control-static">
                       <input name="ten_co_so" type="text" class="form-control" 
                       id="ten_co_so" required>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2 form-control-label pt-3">Trạng thái</label>
+                <div class="col-sm-8 form-group">
+                    <p class="form-control-static">
+                      <select name="status" class="form-control" style="width: 200px">
+                        <option>Đang hoạt động</option>
+                        <option>Tạm nghỉ</option>
+                      </select>
                     </p>
                 </div>
             </div>
@@ -131,7 +142,7 @@
                 <div class="col-sm-8 form-group">
                     <p class="form-control-static">
                       <input name="phone" type="text" class="form-control" 
-                      id="phone">
+                      id="phone"  style="width: 300px">
                     </p>
                 </div>
             </div>
@@ -187,77 +198,43 @@
                     <input id="hinh_thuc_xu_phat_1" name="hinh_thuc_xu_phat_1" type="text" value="" class="form-control" >
                 </div>
                 
-                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
-                
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1a">
-                        <option value="Hàn the:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Hàn the:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Hàn the:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1b">
-                        <option value="Formol:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Formol:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Formol:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                Độ ôi khét dầu mỡ</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1c">
-                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1d">
-                        <option value="Độ sạch bát đĩa:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch bát đĩa:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                  Độ sạch tiếp xúc thực phẩm</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_1e">
-                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
-                    </select>
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh
+                  <a class="btn" onclick="addTest(1)">+</a></label>
+                <input type="hidden" name="test_1">
+                <div id='divTest1' class="divTest w-100">
+                  <div class="w-100 row ml-3 mt-2 testRow">
+                    <div class="col-sm-3 form-group">
+                      <select class="form-control test_name">
+                          <option value="" selected="">
+                            Chọn 1 loại test
+                          </option>
+                          @foreach($tests as $test)
+                            <option value="{{$test->name}}">{{$test->name}}</option>
+                          @endforeach 
+                      </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <select class="form-control test_value">
+                            <option value="Không kiểm tra">
+                              Không kiểm tra
+                            </option>
+                            <option  value="Âm tính">
+                              Âm tính
+                            </option>
+                            <option value="Dương tính">Dương tính</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      
+                    </div>
+                  </div>
                 </div>
             </div>
 
             <div class="row p-3 m-1" style="border:1px solid #ddd">
                 <label class="col-sm-3 form-control-label pt-3">Ngày kiểm tra(lần 2)</label>
                 <div class="col-sm-3 form-group">
-                            <input id="ngay_kiem_tra_2" name="ngay_kiem_tra_2" type="date" value="" class="form-control" >
+                    <input id="ngay_kiem_tra_2" name="ngay_kiem_tra_2" type="date" value="" class="form-control" >
                 </div>
                 <label class="col-sm-3 form-control-label pt-3">Kết quả</label>
                 <div class="col-sm-3 form-group">
@@ -275,70 +252,37 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_2" name="hinh_thuc_xu_phat_2" type="text" value="" class="form-control" >
                 </div>
-                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
                 
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_2a">
-                        <option value="Hàn the:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Hàn the:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Hàn the:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_2b">
-                        <option value="Formol:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Formol:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Formol:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                Độ ôi khét dầu mỡ</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_2c">
-                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_2d">
-                        <option value="Độ sạch bát đĩa:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch bát đĩa:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                  Độ sạch tiếp xúc thực phẩm</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_2e">
-                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
-                    </select>
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh
+                  <a class="btn" onclick="addTest(2)">+</a></label>
+                <input type="hidden" name="test_2">
+                <div id='divTest2' class="divTest w-100">
+                  <div class="w-100 row ml-3 mt-2 testRow">
+                    <div class="col-sm-3 form-group">
+                      <select class="form-control test_name">
+                          <option value="Chọn 1 loại test" selected="">
+                            Chọn 1 loại test
+                          </option>
+                          @foreach($tests as $test)
+                            <option value="{{$test->name}}">{{$test->name}}</option>
+                          @endforeach 
+                      </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <select class="form-control test_value" >
+                            <option value="Không kiểm tra" selected="">
+                              Không kiểm tra
+                            </option>
+                            <option  value="Âm tính">
+                              Âm tính
+                            </option>
+                            <option value="Dương tính">Dương tính</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      
+                    </div>
+                  </div>
                 </div>
             </div>
             <div class="row p-3 m-1" style="border:1px solid #ddd">
@@ -362,70 +306,37 @@
                 <div class="col-sm-3 form-group">
                     <input id="hinh_thuc_xu_phat_3" name="hinh_thuc_xu_phat_3" type="text" value="" class="form-control" >
                 </div>
-                <label class="col-sm-12 form-control-label pt-3">Test nhanh</label>
                 
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Hàn the</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_3a">
-                        <option value="Hàn the:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Hàn the:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Hàn the:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Formol</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_3b">
-                        <option value="Formol:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Formol:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Formol:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                Độ ôi khét dầu mỡ</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_3c">
-                        <option value="Độ ôi khét dầu mỡ:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ ôi khét dầu mỡ:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ ôi khét dầu mỡ:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">Độ sạch bát đĩa</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_3d">
-                        <option value="Độ sạch bát đĩa:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch bát đĩa:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch bát đĩa:Dương tính">Dương tính</option>
-                    </select>
-                </div>
-                <label class="col-sm-3 form-control-label pt-1 test-nhanh">
-                  Độ sạch tiếp xúc thực phẩm</label>
-                <div class="col-sm-3 form-group">
-                    <select class="form-control" id="test_1" name="test_3e">
-                        <option value="Độ sạch tiếp xúc thực phẩm:Không kiểm tra">
-                          Không kiểm tra
-                        </option>
-                        <option  value="Độ sạch tiếp xúc thực phẩm:Âm tính">
-                          Âm tính
-                        </option>
-                        <option value="Độ sạch tiếp xúc thực phẩm:Dương tính">Dương tính</option>
-                    </select>
+                <label class="col-sm-12 form-control-label pt-3">Test nhanh
+                  <a class="btn" onclick="addTest(3)">+</a></label>
+                <input type="hidden" name="test_3">
+                <div id='divTest3' class="divTest w-100">
+                  <div  class="w-100 row ml-3 mt-2 testRow">
+                    <div class="col-sm-3 form-group">
+                      <select class="form-control test_name">
+                          <option value="Chọn 1 loại test" selected="">
+                            Chọn 1 loại test
+                          </option>
+                          @foreach($tests as $test)
+                            <option value="{{$test->name}}">{{$test->name}}</option>
+                          @endforeach 
+                      </select>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <select class="form-control test_value">
+                            <option value="Không kiểm tra" selected="">
+                              Không kiểm tra
+                            </option>
+                            <option  value="Âm tính">
+                              Âm tính
+                            </option>
+                            <option value="Dương tính">Dương tính</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                      
+                    </div>
+                  </div>
                 </div>
             </div>
             @if($category->slug=="nong-nghiep")
@@ -439,7 +350,7 @@
             <div class="form-group row">
               <div class="col-sm-4"></div>
               <div class="col-sm-10 py-4">        
-                  <button class='btn ' >Thêm / Update</button>
+                  <a class='btn ' onclick="addOrUpdateFoodSafety()" >Thêm / Update</a>
                   <a class='btn btn-danger overlay-close' onclick='$(".outside-overlay.contact").css("display", "none")'>Thoát</a>
               </div>
             </div>
@@ -491,6 +402,7 @@
                   $("#so_cap").val(data.so_cap);
                   $("#ngay_kham_suc_khoe").val(data.ngay_kham_suc_khoe);
                   $("#ngay_ky_cam_ket").val(data.ngay_ky_cam_ket);
+                  $("[name=status]").val(data.status);
                   
                   $("#noi_tieu_thu").val(data.noi_tieu_thu);
 
@@ -529,28 +441,89 @@
                   var test_1_arr = data.date_checked.test_1.split("<br>");
                   var test_2_arr = data.date_checked.test_2.split("<br>");
                   var test_3_arr = data.date_checked.test_3.split("<br>");
-                  $("[name=test_1a]").val(test_1_arr[0]);
-                  $("[name=test_1b]").val(test_1_arr[1]);
-                  $("[name=test_1c]").val(test_1_arr[2]);
-                  $("[name=test_1d]").val(test_1_arr[3]);
-                  $("[name=test_1e]").val(test_1_arr[4]);
+                  
+                  $("#divTest1").empty();
+                  if(data.date_checked.test_1!=""){
+                    $.each(test_1_arr, function(i, test_1_row){
+                      addTest(1, test_1_row);
+                    });
+                  } else {
+                    addTest(1);
+                  }
 
-                  $("[name=test_2a]").val(test_2_arr[0]);
-                  $("[name=test_2b]").val(test_2_arr[1]);
-                  $("[name=test_2c]").val(test_2_arr[2]);
-                  $("[name=test_2d]").val(test_2_arr[3]);
-                  $("[name=test_2e]").val(test_2_arr[4]);
+                  $("#divTest2").empty();
+                  if(data.date_checked.test_2!=""){
+                    $.each(test_1_arr, function(i, test_2_row){
+                      addTest(2, test_2_row);
+                    });
+                  } else {
+                    addTest(2);
+                  }
 
-                  $("[name=test_3a]").val(test_3_arr[0]);
-                  $("[name=test_3b]").val(test_3_arr[1]);
-                  $("[name=test_3c]").val(test_3_arr[2]);
-                  $("[name=test_3d]").val(test_3_arr[3]);
-                  $("[name=test_3e]").val(test_3_arr[4]);
-
+                  $("#divTest3").empty();
+                  if(data.date_checked.test_3!=""){
+                    $.each(test_1_arr, function(i, test_3_row){
+                      addTest(3, test_3_row);
+                    });
+                  } else {
+                    addTest(3);
+                  }
                 }
-            })
+            });
         }
 
+        function addTest(number, testNameAndTestValue){
+          var rowTest = $(`<div  class="w-100 row ml-3 mt-2 testRow">
+            <div class="col-sm-3 form-group">
+              <select class="form-control test_name">
+                  <option value="Chọn 1 loại test" selected="">
+                    Chọn 1 loại test
+                  </option>
+                  @foreach($tests as $test)
+                    <option value="{{$test->name}}">{{$test->name}}</option>
+                  @endforeach 
+              </select>
+            </div>
+            <div class="col-sm-3 form-group">
+                <select class="form-control test_value">
+                    <option value="Không kiểm tra" selected="">
+                      Không kiểm tra
+                    </option>
+                    <option  value="Âm tính">
+                      Âm tính
+                    </option>
+                    <option value="Dương tính">Dương tính</option>
+                </select>
+            </div>
+          </div>`);
+          var aRemoveTest = $(`<a class="btn" >-</a>`);
+          aRemoveTest.click(function(){
+            rowTest.remove();
+          });
+          var divRemoveTest = $(`<div class="col-sm-6 form-group divRemoveTest">
+          </div>`);
+          divRemoveTest.append(aRemoveTest)
+          $("#divTest"+number).append(rowTest);
+          $(rowTest).append(divRemoveTest);
+          if(testNameAndTestValue){
+            $(rowTest).find(".test_name").val(testNameAndTestValue.split(":")[0]).change();
+            $(rowTest).find(".test_value").val(testNameAndTestValue.split(":")[1]).change();
+          }
+        }
+
+        function addOrUpdateFoodSafety(){
+          $.each($(".divTest"), function (i,divTest){
+            var number = i+1;
+            var test = "";
+            var testRows = $(divTest).find(".testRow");
+            $.each(testRows, function(j, testRow){
+              test+=$(testRow).find(".test_name").val()+":"+$(testRow).find(".test_value").val();
+              if(j!=testRows.length-1) test+="<br>";
+            });
+            $("[name=test_"+number+"]").val(test);
+          });
+          $("#formAddFoodSafety").submit();
+        }
     </script>
 
 @endsection

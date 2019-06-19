@@ -57,8 +57,7 @@
             },
             success:function(data){
               $("#data-render").empty();
-              var testArr = ["Hàn the", "Formol", "Độ ôi khét dầu mỡ", 
-                "Độ sạch bát đĩa", "Độ sạch tiếp xúc thực phẩm"];
+              var testArr = data.tests;
               for (var i = 1; i <= month; i++) {
                 var divCol6 = $("<div class='col-md-12'></div>");
                 var table = $("<table class='table my-4' style=''>");

@@ -25,25 +25,21 @@ $(document).ready(function(){
 	}
 
 	function statusFormatter(data, rowData, index) {
-		var classBtn = '',
-			classDropup = '',
-			pageSize = 10;
-		if (rowData['status'] === 'Chưa thực hiện') classBtn = '';
-		if (rowData['status'] === 'Đang thực hiện') classBtn = 'btn-primary';
-		if (rowData['status'] === 'Đã hoàn thành') classBtn = 'btn-success';
-		//if (data === 'Reject') classBtn = 'btn-warning';
-
-		if (index >= pageSize / 2) {
-			classDropup = 'dropup';
+		var color = "#46c35f";
+		if(data=="Tạm nghỉ") {
+			color = `red`;
+		} else if(!data) {
+			data = "Đang hoạt động";
 		}
 
-		return	'<div class="dropdown dropdown-status ' +
-				classDropup +
-				' ">' +
-				'<button class="nameclick btn ' +
-				classBtn +
-				' " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-				data +
+		var trave = `<span style='color:`+color+`'>`+data+`</span>`;
+		return trave;
+	}
+	function nameFormatter(data, rowData, index) {
+		return	'<div class="dropdown dropdown-status">' +
+				'<button class="nameclick btn" type="button" data-toggle="dropdown"'+
+				'aria-haspopup="true" aria-expanded="false">' +
+					data +
 				'</button>' +
 				'</div>';
 	}
@@ -240,7 +236,7 @@ $(document).ready(function(){
 					title: 'Tên chủ cơ sở',
 					sortable: true,
 					editable: true,
-					formatter: statusFormatter,
+					formatter: nameFormatter,
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
@@ -250,7 +246,7 @@ $(document).ready(function(){
 					title: 'Tên cơ sở',
 					sortable: true,
 					editable: true,
-					formatter: statusFormatter,
+					formatter: nameFormatter,
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
@@ -324,6 +320,13 @@ $(document).ready(function(){
 					sortable: true,
 					align: 'left',
 					formatter: ngaykiemtraFormatter3
+				},
+				{
+					field: 'status',
+					title: 'Trạng thái',
+					sortable: true,
+					align: 'left',
+					formatter: statusFormatter
 				},
 				{
 					field: 'operate',

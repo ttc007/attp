@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Food_safety;
 use App\Category;
 use App\Ward;
+use App\Test;
 
 class ReportController extends Controller
 {
@@ -161,6 +162,7 @@ class ReportController extends Controller
                                 ->where('date_checked.year', $request->year)
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
+        $data["tests"] = Test::pluck('name')->toArray();
         return $data;
     }
 
@@ -172,6 +174,7 @@ class ReportController extends Controller
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["wards"] = Ward::all();
+        $data["tests"] = Test::pluck('name')->toArray();
         return $data;
     }
 }

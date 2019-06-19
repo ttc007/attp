@@ -61,8 +61,7 @@
               $("#btn-report-excel").css("display", 'block');
               $("#table").empty();
               var thead = $(`<tr></tr>`);
-              var testArr = ["Hàn the", "Formol", "Độ ôi khét dầu mỡ", 
-                "Độ sạch bát đĩa", "Độ sạch tiếp xúc thực phẩm"];
+              var testArr = data.tests;
               $("#table").append(thead);
               
               for(var i=1; i<=month; i++){
