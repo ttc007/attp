@@ -74,21 +74,26 @@ class FoodSafetyController extends BaseController
         } else {
             $food_safety = Food_safety::find($request->food_safety_id);
             $food_safety->update($data);
-            $check_date = DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)->first();
-            $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2','
-                                ngay_kiem_tra_3', 'ket_qua_kiem_tra_1', 'ket_qua_kiem_tra_2',
-                                'ket_qua_kiem_tra_3',
-                                'test_1', 'test_2', 'test_3',
-                                'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
-                                'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
-                                'hinh_thuc_xu_phat_3','year','food_safety_id');
             
-            if($check_date){
-                 DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)
-                 ->update($data_checkDate);
-            } else {
-                 DB::table('date_checked')->insert($data_checkDate);
-            }
+        }
+        $check_date = DB::table('date_checked')->where('food_safety_id',
+            $food_safety->id)->where('year',$request->year)->first();
+        $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2'
+                            ,'ngay_kiem_tra_3', 'ket_qua_kiem_tra_1',
+                            'ket_qua_kiem_tra_2',
+                            'ket_qua_kiem_tra_3',
+                            'test_1', 'test_2', 'test_3',
+                            'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
+                            'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
+                            'hinh_thuc_xu_phat_3','year');
+        $data_checkDate['food_safety_id'] = $food_safety->id;
+        if($check_date){
+             DB::table('date_checked')
+             ->where('food_safety_id', $food_safety->id)
+             ->where('year',$request->year)
+             ->update($data_checkDate);
+        } else {
+             DB::table('date_checked')->insert($data_checkDate);
         }
         return redirect()->back();
     }
