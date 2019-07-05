@@ -37,12 +37,19 @@ Route::get('/food_safety/reportUnexpectedWard', 'FoodSafetyController@reportUnex
 Route::get('/food_safety/reportTest', 'FoodSafetyController@reportTest');
 Route::get('/food_safety/reportTestMaster', 'FoodSafetyController@reportTestMaster');
 
+Route::get('/food_safety/filter', 'FoodSafetyController@filter');
+
+Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
+
+
 Route::get('/post', 'PostController@index');
 Route::post('/post/store', 'PostController@store');
+Route::get('/post/delete/{id}', 'PostController@destroy');
+
 Route::get('/communication', 'PostController@communication');
 Route::get('/lawSystem', 'PostController@lawSystem');
 
-Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
+
 
 Route::get('/updateDataWard', 'FoodSafetyController@updateDataWard');
 

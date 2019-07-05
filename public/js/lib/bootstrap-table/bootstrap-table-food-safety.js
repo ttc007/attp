@@ -482,8 +482,8 @@ $(document).ready(function(){
 		$table.bootstrapTable('refreshOptions', {
 			exportDataType: $(this).val()
 		});
+		console.log($(this).val());
 	});
-
 
 });
 

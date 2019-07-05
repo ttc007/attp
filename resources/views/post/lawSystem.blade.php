@@ -13,6 +13,12 @@
 				<div class="col-md-6">
 	            @foreach ($posts as $post)
 	              <div class="card mt-4 p-2">
+	              	@if(Auth::user()->role=='hql')
+	                <div class="text-right">
+	                  <a data-href="post/delete/{{$post->id}}" style="cursor: pointer;" 
+	                      onclick="deleteConfirm(this)">X</a>
+	                </div>
+	                @endif
 	                <b style="color:#1275af">{{$post->author}}</b> 
 	                <span class="text-muted"  style="display: inline;">
 	                  {{$post->created_at->diffForHumans()}}
@@ -42,6 +48,10 @@
 @section('script')
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
-        
+        function deleteConfirm(obj){
+          if(true==confirm("Bạn có chắc muốn xóa văn bản này?")){
+            location.href = $(obj).attr("data-href");
+          };
+        }
     </script>
 @endsection

@@ -31,6 +31,7 @@ class Category extends Model
         foreach ($childs as $key => $child) {
             foreach (Ward::all() as $ward) {
                 $data[$child->name.$ward->name] = Food_safety::where("categoryb2_id", $child->id)
+                        ->where('status','!=', 'Tạm nghỉ')
                         ->where("ward_id", $ward->id)
                         ->count();
             }
@@ -43,6 +44,7 @@ class Category extends Model
         $data = [];
         foreach ($childs as $key => $child) {
             $data[$child->name] = Food_safety::where("categoryb2_id", $child->id)
+                        ->where('status','!=', 'Tạm nghỉ')
                         ->where("ward_id", $ward_id)
                         ->count();
         }

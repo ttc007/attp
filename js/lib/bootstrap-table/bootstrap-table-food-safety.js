@@ -122,7 +122,7 @@ $(document).ready(function(){
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
-                        year:$("#GLOBAL_YEAR").val()
+                year:$("#GLOBAL_YEAR").val()
 	        },
 	        dataType: "json",
 	        success: function(response){
@@ -473,16 +473,23 @@ $(document).ready(function(){
 		.always(function() {
 			console.log("complete");
 		});
-		
-		
 	});
+		
+	alert(112);
 
 	$('#toolbar').find('select').change(function () {
+		alert(112);
 		$table.bootstrapTable('refreshOptions', {
 			exportDataType: $(this).val()
 		});
+		console.log($(this).val());
 	});
 
+	function filter(){
+		$table.bootstrapTable('refreshOptions', {
+			exportDataType: $(this).val()
+		});
+	}
 
 });
 
