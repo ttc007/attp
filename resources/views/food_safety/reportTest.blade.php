@@ -49,6 +49,9 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
         $("#month_report").change(function(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
+
           var month = $(this).val();
           $.ajax({
             url:'/api/month_report_test/'+$(this).val(),
@@ -186,6 +189,7 @@
                   $("#table").append(tr);
                 }
               }
+              loader.remove();
             }
           });
         });

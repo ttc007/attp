@@ -543,6 +543,8 @@
         }
 
         function addOrUpdateFoodSafety(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $.each($(".divTest"), function (i,divTest){
             var number = i+1;
             var test = "";
@@ -553,39 +555,49 @@
             });
             $("[name=test_"+number+"]").val(test);
           });
-          $.ajax({
-            url:$("#formAddFoodSafety").attr("action"),
-            type:"POST",
-            data:$("#formAddFoodSafety").serialize(),
-            async: false,
-            success:function(){
-              filter();
-            }
-          });
+          callApiAddOrUpdateFoodSafety();
+        }
+        function callApiAddOrUpdateFoodSafety(){
+            $.ajax({
+              url:$("#formAddFoodSafety").attr("action"),
+              type:"POST",
+              data:$("#formAddFoodSafety").serialize(),
+              // async: false,
+              success:function(){
+                close();
+                filter('noAddLoading', 'endLoading');
+              }
+            });
         }
 
-        function filter(){
-          var data = [];
-          $.ajax({
-            async: false,
-            url: "/api/food_safety/",
-            data: {
-              category_id:$("#category_id").val(),
-              ward_id:$("#ward_id").val(),
-              year:$("#GLOBAL_YEAR").val(),
-              categoryb2_id:$("#categoryFilter").val(),
-              village_id:$("#villageFilter").val()
-            },
-            dataType: "json",
-            success: function(response){
-                data = response;
+        function filter(noAddLoading, endLoading){
+            if(noAddLoading!="noAddLoading"){
+              var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+              $('body').append(loader);
             }
-        });
-          $("#table").bootstrapTable('refreshOptions', {
-            exportDataType: $("#GLOBAL_YEAR").val(),
-            data:data
-          });
-          close();
+            
+            $.ajax({
+                // async: false,
+                url: "/api/food_safety/",
+                data: {
+                  category_id:$("#category_id").val(),
+                  ward_id:$("#ward_id").val(),
+                  year:$("#GLOBAL_YEAR").val(),
+                  categoryb2_id:$("#categoryFilter").val(),
+                  village_id:$("#villageFilter").val()
+                },
+                dataType: "json",
+                success: function(response){
+                    $("#table").bootstrapTable('refreshOptions', {
+                      // exportDataType: $("#GLOBAL_YEAR").val(),
+                      data:response
+                    });
+                    if(endLoading=="endLoading"||endLoading==undefined){
+                      $(".loader-overlay").remove();
+                    }
+
+                }
+            });
         }
 
         function addNew(){
