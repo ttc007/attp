@@ -237,16 +237,16 @@ $(document).ready(function(){
     }
     $data_field = [
 			[
-				{
-					field: 'ten_chu_co_so',
-					title: 'Tên chủ cơ sở',
-					sortable: true,
-					editable: true,
-					formatter: statusFormatter,
-					footerFormatter: totalNameFormatter,
-					align: 'center',
-					events: nameEvents,
-				},
+				// {
+				// 	field: 'ten_chu_co_so',
+				// 	title: 'Tên chủ cơ sở',
+				// 	sortable: true,
+				// 	editable: true,
+				// 	formatter: statusFormatter,
+				// 	footerFormatter: totalNameFormatter,
+				// 	align: 'center',
+				// 	events: nameEvents,
+				// },
 				{
 					field: 'ten_co_so',
 					title: 'Tên cơ sở',
@@ -283,7 +283,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					footerFormatter: certificationDateFormatter
+					// footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'so_cap',
@@ -385,7 +385,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					footerFormatter: certificationDateFormatter
+					// footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'noi_tieu_thu',
