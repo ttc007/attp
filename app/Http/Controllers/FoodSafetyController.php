@@ -126,9 +126,9 @@ class FoodSafetyController extends BaseController
             
             if($value->certification_date){
                 $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
-            if($certification_date<Carbon::now()) 
-                $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."<b>";
-            else $value->certification_date = Carbon::parse($value->certification_date)->format('d-m-Y');
+                if($certification_date<Carbon::now()) 
+                    $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."<b>";
+                else $value->certification_date = Carbon::parse($value->certification_date)->format('d-m-Y');
             }
             
 
