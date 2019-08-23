@@ -127,7 +127,7 @@ class FoodSafetyController extends BaseController
             if($value->certification_date){
                 $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
                 if($certification_date<Carbon::now()) 
-                    $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."<b>";
+                    $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."</b>";
                 else $value->certification_date = Carbon::parse($value->certification_date)->format('d-m-Y');
             }
             
@@ -135,14 +135,14 @@ class FoodSafetyController extends BaseController
             if($value->ngay_kham_suc_khoe!=""){
                 $ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->addYears(1)->addDays(7);
                 if($ngay_kham_suc_khoe<Carbon::now()) 
-                $value->ngay_kham_suc_khoe = "<b class='text-danger'>".Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y')."<b>";
+                $value->ngay_kham_suc_khoe = "<b class='text-danger'>".Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y')."</b>";
                 else $value->ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y');
             }
 
             if($value->ngay_ky_cam_ket!=""){
                 $ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->addYears(3)->addDays(7);
                 if($ngay_ky_cam_ket<Carbon::now()) 
-                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."<b>";
+                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."</b>";
                 else $value->ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y');
             }
             
@@ -171,20 +171,20 @@ class FoodSafetyController extends BaseController
             $value->village = @Village::find($value->village_id)->name;
             $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
             if($certification_date<Carbon::now()) 
-            $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."<b>";
+            $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."</b>";
             else $value->certification_date = Carbon::parse($value->certification_date)->format('d-m-Y');
 
             if($value->ngay_kham_suc_khoe!=""){
                 $ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->addYears(1)->addDays(7);
                 if($ngay_kham_suc_khoe<Carbon::now()) 
-                $value->ngay_kham_suc_khoe = "<b class='text-danger'>".Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y')."<b>";
+                $value->ngay_kham_suc_khoe = "<b class='text-danger'>".Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y')."</b>";
                 else $value->ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y');
             }
 
             if($value->ngay_ky_cam_ket!=""){
                 $ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->addYears(3)->addDays(7);
                 if($ngay_ky_cam_ket<Carbon::now()) 
-                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."<b>";
+                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."</b>";
                 else $value->ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y');
             }
             

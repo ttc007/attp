@@ -41,7 +41,14 @@ $(document).ready(function(){
 				'aria-haspopup="true" aria-expanded="false">' +
 					data +
 				'</button>' +
-				'</div>';
+				'<div class="text-left"><br>Tên cơ sở:'+ rowData.ten_chu_co_so+
+				'<br>Số điện thoại:'+ rowData.phone+
+				'<br>Thôn:'+ rowData.village+
+				'<br>Nhóm:'+ rowData.category_2+
+				'<br>Ngày kí cam kết(3 năm):'+ rowData.certification_date+
+				'<br>Ngày khám sức khỏe(1 năm):'+ rowData.ngay_kham_suc_khoe+
+				'<br>Ngày tập huấn kiến thức(3năm):'+ rowData.ngay_ky_cam_ket+
+				'</div></div>';
 	}
 
 	window.operateEvents = {
@@ -240,65 +247,6 @@ $(document).ready(function(){
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
-				},
-				{
-					field: 'ten_co_so',
-					title: 'Tên cơ sở',
-					sortable: true,
-					editable: true,
-					formatter: nameFormatter,
-					footerFormatter: totalNameFormatter,
-					align: 'center',
-					events: nameEvents,
-				},
-				{
-					field: 'phone',
-					title: 'Số điện thoại',
-					sortable: true,
-					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'village',
-					title: 'Địa chỉ',
-					sortable: true,
-					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'category_2',
-					title: 'Nhóm',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'certification_date',
-					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: certificationDateFormatter
-				},
-				{
-					field: 'so_cap',
-					title: 'Số cấp',
-					sortable: true,
-					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'ngay_kham_suc_khoe',
-					title: 'Ngày khám<br> sức khỏe<br>(1 năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'ngay_ky_cam_ket',
-					title: 'Ngày tập huấn<br> kiến thức<br>(3năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
 				},
 				{
 					field: 'ngay_xac_nhan_hien_thuc',

@@ -25,3 +25,10 @@
 	font-size: 11px;
 	color:#666;
 }
+body {
+    font-size: 14px;
+}
+.table {
+	border-left: 1px solid #ccc!important;
+	border-right: 1px solid #ccc!important;
+}
