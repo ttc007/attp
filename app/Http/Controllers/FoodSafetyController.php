@@ -89,26 +89,55 @@ class FoodSafetyController extends BaseController
             $food_safety->update($data);
             
         }
-        $check_date = DB::table('date_checked')->where('food_safety_id',
-            $food_safety->id)->where('year',$request->year)->first();
-        $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2'
-                            ,'ngay_kiem_tra_3', 'ket_qua_kiem_tra_1',
-                            'ket_qua_kiem_tra_2',
-                            'ket_qua_kiem_tra_3',
-                            'test_1', 'test_2', 'test_3',
-                            'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
-                            'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
-                            'hinh_thuc_xu_phat_3','year');
-        $data_checkDate['food_safety_id'] = $food_safety->id;
-        if($check_date){
-             DB::table('date_checked')
-             ->where('food_safety_id', $food_safety->id)
-             ->where('year',$request->year)
-             ->update($data_checkDate);
-        } else {
-             DB::table('date_checked')->insert($data_checkDate);
-        }
         return redirect()->back();
+    }
+
+    function store_checked(Request $request){
+        $check_date = DB::table('date_checked')->where('food_safety_id',
+            $request->food_safety_id)->where('year',$request->year)->first();
+        $data_checkDate = $request->only(
+                            'ngay_xac_nhan_hien_thuc',
+                            'ket_qua_kiem_tra_1',
+                            'test_1',
+                            'ghi_chu_1',
+                            'hinh_thuc_xu_phat_1',
+                            'food_safety_id',
+                            'year');
+        if($check_date){
+            if(!$check_date->ngay_xac_nhan_hien_thuc||!$check_date->ket_qua_kiem_tra_1){
+                DB::table('date_checked')
+                    ->where('food_safety_id', $request->food_safety_id)
+                    ->where('year',$request->year)
+                    ->update($data_checkDate);
+            } elseif(!$check_date->ngay_kiem_tra_2||!$check_date->ket_qua_kiem_tra_2) {
+                $data = [
+                    'ngay_kiem_tra_2' => $request->ngay_xac_nhan_hien_thuc,
+                    'ket_qua_kiem_tra_2' => $request->ket_qua_kiem_tra_1,
+                    'test_2' => $request->test_1,
+                    'ghi_chu_2' => $request->ghi_chu_1,
+                    'hinh_thuc_xu_phat_2' => $request->hinh_thuc_xu_phat_1,
+                ];
+                DB::table('date_checked')
+                     ->where('food_safety_id', $request->food_safety_id)
+                     ->where('year',$request->year)
+                     ->update($data);
+            } else {
+                $data = [
+                    'ngay_kiem_tra_3' => $request->ngay_xac_nhan_hien_thuc,
+                    'ket_qua_kiem_tra_3' => $request->ket_qua_kiem_tra_1,
+                    'test_3' => $request->test_1,
+                    'ghi_chu_3' => $request->ghi_chu_1,
+                    'hinh_thuc_xu_phat_3' => $request->hinh_thuc_xu_phat_1,
+                ];
+                DB::table('date_checked')
+                     ->where('food_safety_id', $request->food_safety_id)
+                     ->where('year',$request->year)
+                     ->update($data);
+            }
+        } else {
+            DB::table('date_checked')->insert($data_checkDate);
+        }
+        return '200';
     }
 
     function api_get(Request $request){

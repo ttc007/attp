@@ -80,11 +80,11 @@ label{
     background-color: #edeff0;
     border-radius: 2px;
     display: none;
-    margin: 40px 0 80px;
+    margin: 0px 0 80px;
     overflow: hidden;
     position: fixed;
     right: 0;
-    width: 756px;
+    width: 100%;
     height: 100%;
     z-index: 25;
 }
@@ -133,4 +133,7 @@ label{
     top:0;
     z-index: 99999;
     /*background: #ff000040;*/
+}
+.outside-overlay{
+  z-index: 99;
 }

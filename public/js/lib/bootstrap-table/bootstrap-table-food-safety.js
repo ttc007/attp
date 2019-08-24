@@ -45,9 +45,10 @@ $(document).ready(function(){
 				'<br>Số điện thoại:'+ rowData.phone+
 				'<br>Thôn:'+ rowData.village+
 				'<br>Nhóm:'+ rowData.category_2+
-				'<br>Ngày kí cam kết(3 năm):'+ rowData.certification_date+
-				'<br>Ngày khám sức khỏe(1 năm):'+ rowData.ngay_kham_suc_khoe+
-				'<br>Ngày tập huấn kiến thức(3năm):'+ rowData.ngay_ky_cam_ket+
+				'<br>Ngày kí cam kết(3 năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
+				'<br>Ngày khám sức khỏe(1 năm):'+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
+				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
+				'<br>Số cấp:'+(rowData.so_cap?rowData.so_cap:"-")+
 				'</div></div>';
 	}
 
