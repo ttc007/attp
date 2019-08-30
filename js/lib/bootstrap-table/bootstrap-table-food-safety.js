@@ -20,28 +20,36 @@ $(document).ready(function(){
 		return '$' + total;
 	}
 
-	function statusFormatter(data, rowData, index) {
-		var classBtn = '',
-			classDropup = '',
-			pageSize = 10;
-		if (rowData['status'] === 'Chưa thực hiện') classBtn = '';
-		if (rowData['status'] === 'Đang thực hiện') classBtn = 'btn-primary';
-		if (rowData['status'] === 'Đã hoàn thành') classBtn = 'btn-success';
-		//if (data === 'Reject') classBtn = 'btn-warning';
+	function sttFormatter(data, rowData, index){
+		return index+1;
+	}
 
-		if (index >= pageSize / 2) {
-			classDropup = 'dropup';
+	function statusFormatter(data, rowData, index) {
+		var color = "#46c35f";
+		if(data=="Tạm nghỉ") {
+			color = `red`;
+		} else if(!data) {
+			data = "Đang hoạt động";
 		}
 
-		return	'<div class="dropdown dropdown-status ' +
-				classDropup +
-				' ">' +
-				'<button class="nameclick btn ' +
-				classBtn +
-				' " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-				data +
+		var trave = `<span style='color:`+color+`'>`+data+`</span>`;
+		return trave;
+	}
+	function nameFormatter(data, rowData, index) {
+		return	'<div class="dropdown dropdown-status">' +
+				'<button class="nameclick btn" type="button" data-toggle="dropdown"'+
+				'aria-haspopup="true" aria-expanded="false">' +
+					data +
 				'</button>' +
-				'</div>';
+				'<div class="text-left"><br>Tên cơ sở:'+ rowData.ten_chu_co_so+
+				'<br>Số điện thoại:'+ (rowData.phone?rowData.phone:"-")+
+				'<br>Thôn:'+ (rowData.village?rowData.village.name:"-")+
+				'<br>Nhóm:'+ (rowData.category_2?rowData.category_2.name:"-")+
+				'<br>Ngày kí cam kết(3 năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
+				'<br>Ngày khám sức khỏe(1 năm):'+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
+				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
+				'<br>Số cấp:'+(rowData.so_cap?rowData.so_cap:"-")+
+				'</div></div>';
 	}
 
 	window.operateEvents = {
@@ -118,7 +126,7 @@ $(document).ready(function(){
 	    var result = null;
 	    $.ajax({
 	        async: false,
-	        url: "/api/food_safety/",
+	        url: 'http://localhost/attp/' +"api/food_safety/",
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
@@ -135,197 +143,70 @@ $(document).ready(function(){
 	function certificationDateFormatter(data){
 
 	}
-    console.log("assd1");
+        
     function ngaykiemtraFormatter(value, row, index){
-    	console.log("assd");
         var year = $("#GLOBAL_YEAR").val();
-        if(year=="2018"){
-                if(row.ngay_xac_nhan_hien_thuc==null) return 'Chưa kiểm tra';
-                var trave = row.ngay_xac_nhan_hien_thuc+`(`;
-                if(row.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>"+row.ket_qua_kiem_tra_1+"</b>";
-                if(row.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>"+row.ket_qua_kiem_tra_1+"</b>";
-                if (row.ghi_chu_1!=null)trave+=` - `+row.ghi_chu_1;
-                if (row.hinh_thuc_xu_phat_1!=null)trave+=` - Xử phạt:`+row.hinh_thuc_xu_phat_1;
-                trave+=`)`;
-                return trave;
-        }else{
-            var trave="";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
-                    trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
-                    if(v.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                    if(v.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                    if(v.ghi_chu_1!=null)trave+=` - `+v.ghi_chu_1;
-                    if(v.hinh_thuc_xu_phat_1!=null)trave+=` - Xử phạt:`+v.hinh_thuc_xu_phat_1;
-                    trave+=`) <br>Test nhanh:`;
-                    trave+="<br>Test nhanh:";
-                    if(v.test_1=="Âm tính"){
-                    	trave+="<span style=''color:#5cb85c!important'>"+v.test_1+"</span>";
-                    } else {
-                    	trave+="<span style=''color:#d9534f!important'>"+v.test_1+"</span>";
-                    }
-                }
-            });
-            return trave;
-        }
+        var trave = "<div class='text-left'>";
+        $.each(row.checkeds, function(i,checked){
+        	if(true){
+	        	trave +="<div><b style='color:#636c72'>Lần:"+(i+1)+"</b>:<b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
+	            
+	            if(checked.result=="Chưa đạt") trave += "Kết quả:<b class='text-danger'>Chưa đạt</b>";
+	            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";
+	            
+	            if(checked.note!=null) trave +=`<br>`+checked.note;
+	            if(checked.penalize!=null) trave +=`<br> Xử phạt:`+checked.penalize;
+	            if(checked.checked_tests.lenth>0){
+	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+	            	$.each(checked.checked_tests, function(t, checked_test){
+	            		console.log(checked_test);
+	            		trave += "<span class='test-nhanh'>"+
+	            				checked_test.name+":"+checked_test.result+"</span><br>";
+	            	});
+	            } else {
+	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span>: Không test";
+	            }
+        	}
+        });
+     	trave +="</div></div>";
+        return trave;
     }
 
-    function ngaykiemtraFormatter2(value, row, index){
-        var year = $("#GLOBAL_YEAR").val();
-        if(year=="2018"){
-                if(row.ngay_kiem_tra_2==null) return '';
-                var trave = dateFormatByString(row.ngay_kiem_tra_2)+`(`;
-                if(row.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>"+row.ket_qua_kiem_tra_2+"</b>";
-                if(row.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>"+row.ket_qua_kiem_tra_2+"</b>";
-                if (row.ghi_chu_2!=null)trave+=` - `+row.ghi_chu_2;
-                if (row.hinh_thuc_xu_phat_2!=null)trave+=` - Xử phạt:`+row.hinh_thuc_xu_phat_2;
-                trave+=`)`;
-                return trave;
-        }else{
-            var trave="";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_kiem_tra_2) {
-                        trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
-                        if(v.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>"+v.ket_qua_kiem_tra_2+"</b>";
-                        if(v.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>"+v.ket_qua_kiem_tra_2+"</b>";
-                        if(v.ghi_chu_2!=null)trave+=` - `+v.ghi_chu_2;
-                        if(v.hinh_thuc_xu_phat_2!=null)trave+=` - Xử phạt:`+v.hinh_thuc_xu_phat_2;
-                        trave+=`)`;
-                        trave+="<br>Test nhanh:";
-                        if(v.test_2=="Âm tính"){
-                        	trave+="<span style=''color:#5cb85c!important'>"+v.test_2+"</span>";
-                        } else {
-                        	trave+="<span style=''color:#d9534f!important'>"+v.test_2+"</span>";
-                        }
-                }
-            });
-            return trave;
-        }
-    }
-
-    function ngaykiemtraFormatter3(value, row, index){
-        var year = $("#GLOBAL_YEAR").val();
-        if(year=="2018"){
-                if(row.ngay_kiem_tra_3==null) return '';
-                var trave = dateFormatByString(row.ngay_kiem_tra_3)+`(`;
-                if(row.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>"+row.ket_qua_kiem_tra_3+"</b>";
-                if(row.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>"+row.ket_qua_kiem_tra_3+"</b>";
-                if (row.ghi_chu_3!=null)trave+=` - `+row.ghi_chu_3;
-                if (row.hinh_thuc_xu_phat_3!=null)trave+=` - Xử phạt:`+row.hinh_thuc_xu_phat_3;
-                trave+=`)`;
-                return trave;
-        }else{
-            var trave="";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_kiem_tra_3) {
-                        trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
-                        if(v.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>"+v.ket_qua_kiem_tra_3+"</b>";
-                        if(v.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>"+v.ket_qua_kiem_tra_3+"</b>";
-                        if(v.ghi_chu_3!=null)trave+=` - `+v.ghi_chu_3;
-                        if(v.hinh_thuc_xu_phat_3!=null)trave+=` - Xử phạt:`+v.hinh_thuc_xu_phat_3;
-                        trave+=`)`;
-                        trave+="<br>Test nhanh:";
-                        if(v.test_3=="Âm tính"){
-                        	trave+="<span style=''color:#5cb85c!important'>"+v.test_3+"</span>";
-                        } else {
-                        	trave+="<span style=''color:#d9534f!important'>"+v.test_3+"</span>";
-                        }
-                }
-            });
-            return trave;
-        }
-    }
     $data_field = [
 			[
-				// {
-				// 	field: 'ten_chu_co_so',
-				// 	title: 'Tên chủ cơ sở',
-				// 	sortable: true,
-				// 	editable: true,
-				// 	formatter: statusFormatter,
-				// 	footerFormatter: totalNameFormatter,
-				// 	align: 'center',
-				// 	events: nameEvents,
-				// },
 				{
-					field: 'ten_co_so',
-					title: 'Tên cơ sở',
+					field: 'ten_chu_co_so',
+					title: 'STT',
 					sortable: true,
 					editable: true,
-					formatter: statusFormatter,
+					formatter: sttFormatter,
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
 				},
 				{
-					field: 'phone',
-					title: 'Số điện thoại',
+					field: 'ten_chu_co_so',
+					title: 'Tên chủ cơ sở',
 					sortable: true,
+					editable: true,
+					formatter: nameFormatter,
+					footerFormatter: totalNameFormatter,
 					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'village',
-					title: 'Địa chỉ',
-					sortable: true,
-					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'category_2',
-					title: 'Nhóm',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'certification_date',
-					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: certificationDateFormatter
-				},
-				{
-					field: 'so_cap',
-					title: 'Số cấp',
-					sortable: true,
-					align: 'center',
-					footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'ngay_kham_suc_khoe',
-					title: 'Ngày khám<br> sức khỏe<br>(1 năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
-				},
-				{
-					field: 'ngay_ky_cam_ket',
-					title: 'Ngày tập huấn<br> kiến thức<br>(3năm)',
-					sortable: true,
-					align: 'center',
-					// footerFormatter: totalPriceFormatter
+					events: nameEvents,
 				},
 				{
 					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 1',
+					title: 'Lịch sử kiểm tra năm '+ $("#GLOBAL_YEAR").val(),
 					sortable: true,
-					align: 'center',
+					align: 'left',
 					formatter: ngaykiemtraFormatter
 				},
 				{
-					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 2',
+					field: 'status',
+					title: 'Trạng thái',
 					sortable: true,
-					align: 'center',
-					formatter: ngaykiemtraFormatter2
-				},
-				{
-					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 3',
-					sortable: true,
-					align: 'center',
-					formatter: ngaykiemtraFormatter3
+					align: 'left',
+					formatter: statusFormatter
 				},
 				{
 					field: 'operate',
@@ -385,7 +266,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					// footerFormatter: certificationDateFormatter
+					footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'noi_tieu_thu',
@@ -473,23 +354,16 @@ $(document).ready(function(){
 		.always(function() {
 			console.log("complete");
 		});
-	});
 		
-	alert(112);
+		
+	});
 
 	$('#toolbar').find('select').change(function () {
-		alert(112);
 		$table.bootstrapTable('refreshOptions', {
 			exportDataType: $(this).val()
 		});
 		console.log($(this).val());
 	});
-
-	function filter(){
-		$table.bootstrapTable('refreshOptions', {
-			exportDataType: $(this).val()
-		});
-	}
 
 });
 

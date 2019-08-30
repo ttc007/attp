@@ -83,7 +83,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="dd-header-marketing">
                                 @foreach(app('App\Http\Controllers\WardController')->api_get() as $value)
-                                    <a href="/view_ward_ss/{{$value->id}}" class="dropdown-item {{Auth::user()&&$value->id==Auth::user()->role?'text-danger':''}}" title="Xem tình hình hoạt động của xã {{$value->name}}" >
+                                    <a href="{{route('view_ward_ss', ['id'=> $value->id ])}}" class="dropdown-item {{Auth::user()&&$value->id==Auth::user()->role?'text-danger':''}}" title="Xem tình hình hoạt động của xã {{$value->name}}" >
                                     Xã {{$value->name}}</a>
                                 @endforeach
                             </div>

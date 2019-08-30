@@ -734,7 +734,7 @@ function edit(id){
     }
     if(id==undefined) id = $("#food_safety_id").val();
     $.ajax({
-        url:'/api/food_safety/'+id,
+        url:'api/food_safety/'+id,
         data:{year:$("#GLOBAL_YEAR_EDIT").val()},
         type:'GET',
         success:function(data){
@@ -891,7 +891,7 @@ function filter(noAddLoading, endLoading){
     
     $.ajax({
         // async: false,
-        url: "/api/food_safety/",
+        url: "api/food_safety/",
         data: {
           category_id:$("#category_id").val(),
           ward_id:$("#ward_id").val(),

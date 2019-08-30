@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::get('/home','HomeController@index')->name('home');
 Route::get('/admin_view_choose','HomeController@admin_view_choose');
-Route::get('/view_ward_ss/{id}','HomeController@view_ward_ss');
+Route::get('/view_ward_ss/{id}','HomeController@view_ward_ss')->name('view_ward_ss');
 
 
 
@@ -80,3 +80,16 @@ Route::group(['prefix'=>'category/','middleware' => ['auth']],function() {
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+Route::get('/clear', function() {
+
+   Artisan::call('cache:clear');
+   Artisan::call('config:clear');
+   Artisan::call('route:clear');
+   Artisan::call('clear-compiled');
+   Artisan::call('config:cache');
+   Artisan::call('view:clear');
+   
+   return "Cleared!";
+
+});
+Route::get('/updateDB', 'UpdateDataController@updateDB');

@@ -707,3 +707,254 @@ function dateFormatByString(string){
 	var date = new Date(string);
 	return dateFormatByDate(date);
 }
+
+function ExportToExcel(mytblId){
+   var htmltable= document.getElementById(mytblId);
+   var html = htmltable.outerHTML;
+   window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+}
+
+function detailFormatter(index, row) {
+    var html = [];
+    $.each(row, function (key, value) {
+        html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+    });
+    return html.join('');
+}
+function close(){
+  $(".overlay").css('display', 'none');
+  $(".outside-overlay").css('display', 'none');
+}
+
+let GlobalHost = 'http://localhost/attp/';
+
+function edit(id){
+  	$("#form-checked-right").css("display",'block');
+  	$("#form-checked").css("display",'none');
+
+    if($("#GLOBAL_YEAR_EDIT").val()!=$("#GLOBAL_YEAR").val()){
+      $("#GLOBAL_YEAR_EDIT").val($("#GLOBAL_YEAR").val()).change();
+    }
+    if(id==undefined) id = $("#food_safety_id").val();
+    $.ajax({
+        url: GlobalHost+'api/food_safety/'+id,
+        data:{year:$("#GLOBAL_YEAR_EDIT").val()},
+        type:'GET',
+        success:function(data){
+	      	$(".overlay").css('display', 'block');
+	      	$(".outside-overlay").css('display', 'block');
+	      	$("#food_safety_id").val(data.id);
+	      	$("#ten_chu_co_so").val(data.ten_chu_co_so);
+	      	$("#ten_co_so").val(data.ten_co_so);
+	      	$("#village_id").val(data.village_id);
+	      	$("#categoryb2_id").val(data.categoryb2_id);
+	      	$("#phone").val(data.phone);
+	      	$("#certification_date").val(data.certification_date);
+	      	$("#so_cap").val(data.so_cap);
+	      	$("#ngay_kham_suc_khoe").val(data.ngay_kham_suc_khoe);
+	      	$("#ngay_ky_cam_ket").val(data.ngay_ky_cam_ket);
+	      	$("[name=status]").val(data.status);
+		      
+	      	$("#noi_tieu_thu").val(data.noi_tieu_thu);
+	      	$("#formCheckedData [name=food_safety_id]").val(data.id);
+	      	var date_checked = {};
+	      	if(data.date_checked) date_checked = data.date_checked;
+	      	renderHistory(date_checked);
+      	}
+    });
+}
+function renderHistory(date_checked){
+	if(date_checked){
+        $("#historyChecked").empty();
+        var empty = true;
+        if(date_checked.ngay_xac_nhan_hien_thuc
+            &&date_checked.ket_qua_kiem_tra_1){
+            empty = false;
+            var color = '#d9534f';
+            if (date_checked.ket_qua_kiem_tra_1 =='Đạt'){
+                color = '#46c35f';
+            }
+            var tr = $(`
+              <tr>
+                  <td>`+dateFormatByString(date_checked.ngay_xac_nhan_hien_thuc)+`</td>
+                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_1+`</td>
+                  <td>-`+(date_checked.ghi_chu_1?date_checked.ghi_chu_1:"")+"<br>-"+
+                  (date_checked.hinh_thuc_xu_phat_1?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_1:"")+`</td>
+              </tr>
+            `);
+            var td = $(`<td></td>`);
+            tr.append(td);
+            if(date_checked.test_1){
+                $(td).html(date_checked.test_1);
+            }
+            $("#historyChecked").append(tr);
+        }
+
+        if(date_checked.ngay_kiem_tra_2
+            &&date_checked.ket_qua_kiem_tra_2){
+            empty = false;
+            var color = '#d9534f';
+            if (date_checked.ket_qua_kiem_tra_2 =='Đạt'){
+                color = '#46c35f';
+            }
+            var tr = $(`
+              <tr>
+                  <td>`+dateFormatByString(date_checked.ngay_kiem_tra_2)+`</td>
+                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_2+`</td>
+                  <td>-`+(date_checked.ghi_chu_2?date_checked.ghi_chu_2:"")+"<br>-"+
+                  (date_checked.hinh_thuc_xu_phat_2?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_2:"")+`</td>
+              </tr>
+            `);
+            var td = $(`<td></td>`);
+            tr.append(td);
+            if(date_checked.test_2){
+                $(td).html(date_checked.test_2);
+            }
+            $("#historyChecked").append(tr);
+        }
+
+        if(date_checked.ngay_kiem_tra_3
+            &&date_checked.ket_qua_kiem_tra_3){
+            empty = false;
+            var color = '#d9534f';
+            if (date_checked.ket_qua_kiem_tra_3 =='Đạt'){
+                color = '#46c35f';
+            }
+            var tr = $(`
+              <tr>
+                  <td>`+dateFormatByString(date_checked.ngay_kiem_tra_3)+`</td>
+                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_3+`</td>
+                  <td>-`+(date_checked.ghi_chu_2?date_checked.ghi_chu_3:"")+"<br>-"+
+                  (date_checked.hinh_thuc_xu_phat_3?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_3:"")+`</td>
+              </tr>
+            `);
+            var td = $(`<td></td>`);
+            tr.append(td);
+            if(date_checked.test_3){
+                $(td).html(date_checked.test_3);
+            }
+            $("#historyChecked").append(tr);
+        }
+        if(empty){
+            $("#historyChecked").append(`<tr><td colspan='4'>
+              <div class='text-center'>
+                Năm `+$("#GLOBAL_YEAR_EDIT").val()+` chưa kiểm tra cơ sở này.
+                </div></td></tr>
+            `);
+        }
+  	}
+}
+function getHistory(){
+  	$("#form-checked").css("display",'none');
+	$.ajax({
+        url: GlobalHost + 'api/food_safety/'+$("#food_safety_id").val(),
+        data:{year:$("#GLOBAL_YEAR_EDIT").val()},
+        type:'GET',
+        success:function(data){
+        	var date_checked = {};
+	      	if(data.date_checked) date_checked = data.date_checked;
+	      	renderHistory(date_checked);
+        }
+    });
+}
+
+function addOrUpdateFoodSafety(){
+  var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+  $('body').append(loader);
+  $.each($(".divTest"), function (i,divTest){
+    var number = i+1;
+    var test = "";
+    var testRows = $(divTest).find(".testRow");
+    $.each(testRows, function(j, testRow){
+      test+=$(testRow).find(".test_name").val()+":"+$(testRow).find(".test_value").val();
+      if(j!=testRows.length-1) test+="<br>";
+    });
+    $("[name=test_"+number+"]").val(test);
+  });
+  callApiAddOrUpdateFoodSafety();
+}
+function callApiAddOrUpdateFoodSafety(){
+    $.ajax({
+      url:$("#formAddFoodSafety").attr("action"),
+      type:"POST",
+      data:$("#formAddFoodSafety").serialize(),
+      // async: false,
+      success:function(){
+        close();
+        filter('noAddLoading', 'endLoading');
+      }
+    });
+}
+
+function filter(noAddLoading, endLoading){
+    if(noAddLoading!="noAddLoading"){
+      var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+      $('body').append(loader);
+    }
+    
+    $.ajax({
+        // async: false,
+        url:  GlobalHost + "api/food_safety/",
+        data: {
+          category_id:$("#category_id").val(),
+          ward_id:$("#ward_id").val(),
+          year:$("#GLOBAL_YEAR").val(),
+          categoryb2_id:$("#categoryFilter").val(),
+          village_id:$("#villageFilter").val()
+        },
+        dataType: "json",
+        success: function(response){
+            $("#table").bootstrapTable('refreshOptions', {
+              // exportDataType: $("#GLOBAL_YEAR").val(),
+              data:response
+            });
+            if(endLoading=="endLoading"||endLoading==undefined){
+              $(".loader-overlay").remove();
+            }
+
+        }
+    });
+}
+
+function addNew(){
+  $("#formAddFoodSafety")[0].reset();
+  $("#food_safety_id").val(0);
+  $("#form-checked-right").css("display",'none');
+}
+
+function addChecked(){
+	if($("#ngay_kiem_tra").val()==""){
+		alert("Ngày kiểm tra là bắt buộc!");
+		$("#ngay_kiem_tra").focus();
+	} else {
+		var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+	  	$('body').append(loader);
+	  	$.each($(".divTest"), function (i,divTest){
+		    var number = i+1;
+		    var test = "";
+		    var testRows = $(divTest).find(".testRow");
+		    $.each(testRows, function(j, testRow){
+		      test+=$(testRow).find(".test_name").val()+":"+$(testRow).find(".test_value").val();
+		      if(j!=testRows.length-1) test+="<br>";
+		    });
+		    $("[name=test_"+number+"]").val(test);
+	  	});
+	  	var checkedDate = new Date($("#ngay_kiem_tra").val());
+	  	$("#formCheckedData [name=year]").val(checkedDate.getFullYear());
+		$.ajax({
+	      	url:'/store_checked',
+	      	type:"POST",
+	      	data:$("#formCheckedData").serialize(),
+	      	async: false,
+	      	success:function(){
+	         	getHistory();
+	         	loader.remove();
+	      	}
+	    });
+	}
+}
+function viewFormChecked(){
+  	$("#form-checked").css("display",'block');
+  	$("#formCheckedData")[0].reset();
+  	$("#divTest1").empty();
+}

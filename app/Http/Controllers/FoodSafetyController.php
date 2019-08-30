@@ -14,6 +14,8 @@ use Input;
 use App\Ward;
 use App\Test;
 use Illuminate\Support\Facades\DB;
+use App\Checked;
+use App\CheckedTest;
 
 
 class FoodSafetyController extends BaseController
@@ -175,15 +177,6 @@ class FoodSafetyController extends BaseController
                 else $value->ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y');
             }
             
-            if($value->ngay_xac_nhan_hien_thuc!=null)
-            $value->ngay_xac_nhan_hien_thuc = Carbon::parse($value->ngay_xac_nhan_hien_thuc)->format('d-m-Y');
-
-            if($value->ngay_kiem_tra_2!=null)
-            $value->ngay_kiem_tra_2 = Carbon::parse($value->ngay_kiem_tra_2)->format('d-m-Y');
-
-            if($value->ngay_kiem_tra_3!=null)
-            $value->ngay_kiem_tra_3 = Carbon::parse($value->ngay_kiem_tra_3)->format('d-m-Y');
-
             $value->category_2 = @Category::find($value->categoryb2_id)->name;
             
             $check_dates = DB::table('date_checked')->where('food_safety_id', $value->id)->get();

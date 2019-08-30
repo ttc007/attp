@@ -47,7 +47,7 @@ Route::get('/category/{id}','CategoryController@api_show');
 
 
 Route::post('/food_safety','FoodSafetyController@api_store');
-Route::get('/food_safety','FoodSafetyController@api_get');
+Route::get('/food_safety','API\FoodSafetyController@api_get');
 
 Route::get('/food_safety_filter','FoodSafetyController@api_get_filter');
 

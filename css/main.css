@@ -21,14 +21,13 @@
 	font-weight: 600;
 	font-size: 11px;
 }
-.test-nhanh{
-	font-size: 11px;
-	color:#666;
-}
 body {
     font-size: 14px;
 }
+.bootstrap-table .table, .fixed-table-body .table, .table {
+    font-size: 12px;
+}
 .table {
-	border-left: 1px solid #ccc!important;
-	border-right: 1px solid #ccc!important;
+	border-left: 1px solid #ddd!important;
+	border-right: 1px solid #ddd!important;
 }

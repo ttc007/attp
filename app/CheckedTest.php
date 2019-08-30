@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Food_safety extends Model
+class CheckedTest extends Model
 {
-	protected $table = 'food_safeties';
     protected $guarded = [];
 }
