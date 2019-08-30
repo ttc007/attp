@@ -30,7 +30,8 @@ Route::group(['prefix'=>'food_safety/','middleware' => ['auth']],function() {
 
     
 });
-Route::post('/store_checked', 'FoodSafetyController@store_checked')->name('store_checked');
+Route::post('/store_checked', 'CheckedController@store_checked')->name('store_checked');
+Route::get('/checked/remove/{id}', 'CheckedController@remove')->name('delete_checked');
 
 Route::get('/food_safety/report', 'FoodSafetyController@report');
 Route::get('/food_safety/reportMaster', 'FoodSafetyController@reportMaster');

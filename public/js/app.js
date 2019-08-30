@@ -734,7 +734,7 @@ function edit(id){
     }
     if(id==undefined) id = $("#food_safety_id").val();
     $.ajax({
-        url:'api/food_safety/'+id,
+        url:'/api/food_safety/'+id,
         data:{year:$("#GLOBAL_YEAR_EDIT").val()},
         type:'GET',
         success:function(data){
@@ -754,91 +754,83 @@ function edit(id){
 		      
 	      	$("#noi_tieu_thu").val(data.noi_tieu_thu);
 	      	$("#formCheckedData [name=food_safety_id]").val(data.id);
-	      	var date_checked = {};
-	      	if(data.date_checked) date_checked = data.date_checked;
-	      	renderHistory(date_checked);
+	      	var checkeds = {};
+	      	if(data.checkeds) checkeds = data.checkeds;
+	      	renderHistory(checkeds);
       	}
     });
 }
-function renderHistory(date_checked){
-	if(date_checked){
+function renderHistory(checkeds){
+	if(checkeds){
         $("#historyChecked").empty();
-        var empty = true;
-        if(date_checked.ngay_xac_nhan_hien_thuc
-            &&date_checked.ket_qua_kiem_tra_1){
-            empty = false;
-            var color = '#d9534f';
-            if (date_checked.ket_qua_kiem_tra_1 =='Đạt'){
-                color = '#46c35f';
-            }
-            var tr = $(`
-              <tr>
-                  <td>`+dateFormatByString(date_checked.ngay_xac_nhan_hien_thuc)+`</td>
-                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_1+`</td>
-                  <td>-`+(date_checked.ghi_chu_1?date_checked.ghi_chu_1:"")+"<br>-"+
-                  (date_checked.hinh_thuc_xu_phat_1?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_1:"")+`</td>
-              </tr>
-            `);
-            var td = $(`<td></td>`);
-            tr.append(td);
-            if(date_checked.test_1){
-                $(td).html(date_checked.test_1);
-            }
-            $("#historyChecked").append(tr);
-        }
+        var color = '#d9534f';
 
-        if(date_checked.ngay_kiem_tra_2
-            &&date_checked.ket_qua_kiem_tra_2){
-            empty = false;
-            var color = '#d9534f';
-            if (date_checked.ket_qua_kiem_tra_2 =='Đạt'){
+        $.each(checkeds, function(i, checked){
+        	if (checked.result =='Đạt'){
                 color = '#46c35f';
             }
-            var tr = $(`
-              <tr>
-                  <td>`+dateFormatByString(date_checked.ngay_kiem_tra_2)+`</td>
-                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_2+`</td>
-                  <td>-`+(date_checked.ghi_chu_2?date_checked.ghi_chu_2:"")+"<br>-"+
-                  (date_checked.hinh_thuc_xu_phat_2?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_2:"")+`</td>
-              </tr>
-            `);
-            var td = $(`<td></td>`);
-            tr.append(td);
-            if(date_checked.test_2){
-                $(td).html(date_checked.test_2);
-            }
-            $("#historyChecked").append(tr);
-        }
+            var dateChecked = checked.day+"-"+checked.month+"-"+checked.year;
+            var tr = $("<tr></tr>");
 
-        if(date_checked.ngay_kiem_tra_3
-            &&date_checked.ket_qua_kiem_tra_3){
-            empty = false;
-            var color = '#d9534f';
-            if (date_checked.ket_qua_kiem_tra_3 =='Đạt'){
-                color = '#46c35f';
-            }
-            var tr = $(`
-              <tr>
-                  <td>`+dateFormatByString(date_checked.ngay_kiem_tra_3)+`</td>
-                  <td style='color:`+color+`'>`+date_checked.ket_qua_kiem_tra_3+`</td>
-                  <td>-`+(date_checked.ghi_chu_2?date_checked.ghi_chu_3:"")+"<br>-"+
-                  (date_checked.hinh_thuc_xu_phat_3?" Xử phạt:"+date_checked.hinh_thuc_xu_phat_3:"")+`</td>
-              </tr>
+            var aEdit = $(`<td>
+            	<a>`+dateChecked+`</a></td>
+            `);
+
+            aEdit.click(function(){
+            	$("#form-checked").css("display", 'block');
+            	$("#formCheckedData [name=checked_id]").val(checked.id);
+            	$("#formCheckedData [name=dateChecked]").val(checked.year+"-"+checked.month+"-"+checked.day);
+            	console.log(dateChecked);
+            	$("#formCheckedData [name=result]").val(checked.result);
+            	$("#formCheckedData [name=note]").val(checked.note);
+            	$("#formCheckedData [name=penalize]").val(checked.penalize);
+
+            	$("#divTest").empty();
+            	$.each(checked.checked_tests, function (i, checked_test){
+            		var testNameAndTestValue = checked_test.test.id+":"+checked_test.result;
+                	addTest(testNameAndTestValue);
+            	});
+            });
+            tr.append(aEdit);
+            tr.append(`
+                  <td style='color:`+color+`'>`+checked.result+`</td>
+                  <td>-`+(checked.note?checked.note:"")+"<br>-"+
+                  (checked.penalize?" Xử phạt:"+checked.penalize:"")+`</td>
             `);
             var td = $(`<td></td>`);
             tr.append(td);
-            if(date_checked.test_3){
-                $(td).html(date_checked.test_3);
+            if(checked.checked_tests){
+            	$.each(checked.checked_tests, function (i, checked_test){
+                	$(td).append("- "+checked_test.test.name+":"+checked_test.result+"<br>");
+            	});
             }
-            $("#historyChecked").append(tr);
-        }
-        if(empty){
-            $("#historyChecked").append(`<tr><td colspan='4'>
-              <div class='text-center'>
-                Năm `+$("#GLOBAL_YEAR_EDIT").val()+` chưa kiểm tra cơ sở này.
-                </div></td></tr>
+
+            var tdAction = $("<td></td>");
+            
+            var aRemove = $(`
+            	<a ><i class="fa fa-remove"></i></a>
             `);
-        }
+            aRemove.click(function(){
+            	$.ajax({
+            		url: '/checked/remove/'+checked.id,
+            		type:"GET",
+            		success:function(){
+            			tr.remove();
+            		}
+            	})
+            });
+
+
+            tdAction.append(aRemove);
+            tr.append(tdAction);
+            $("#historyChecked").append(tr);
+        });
+  	} else {
+  		$("#historyChecked").append(`<tr><td colspan='4'>
+          <div class='text-center'>
+            Năm `+$("#GLOBAL_YEAR_EDIT").val()+` chưa kiểm tra cơ sở này.
+            </div></td></tr>
+        `);
   	}
 }
 function getHistory(){
@@ -848,9 +840,9 @@ function getHistory(){
         data:{year:$("#GLOBAL_YEAR_EDIT").val()},
         type:'GET',
         success:function(data){
-        	var date_checked = {};
-	      	if(data.date_checked) date_checked = data.date_checked;
-	      	renderHistory(date_checked);
+        	var checkeds = {};
+	      	if(data.checkeds) checkeds = data.checkeds;
+	      	renderHistory(checkeds);
         }
     });
 }
@@ -891,7 +883,7 @@ function filter(noAddLoading, endLoading){
     
     $.ajax({
         // async: false,
-        url: "api/food_safety/",
+        url: "/api/food_safety/",
         data: {
           category_id:$("#category_id").val(),
           ward_id:$("#ward_id").val(),
@@ -926,18 +918,15 @@ function addChecked(){
 	} else {
 		var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
 	  	$('body').append(loader);
+	  	var test = "";
 	  	$.each($(".divTest"), function (i,divTest){
-		    var number = i+1;
-		    var test = "";
 		    var testRows = $(divTest).find(".testRow");
 		    $.each(testRows, function(j, testRow){
 		      test+=$(testRow).find(".test_name").val()+":"+$(testRow).find(".test_value").val();
 		      if(j!=testRows.length-1) test+="<br>";
 		    });
-		    $("[name=test_"+number+"]").val(test);
 	  	});
-	  	var checkedDate = new Date($("#ngay_kiem_tra").val());
-	  	$("#formCheckedData [name=year]").val(checkedDate.getFullYear());
+	    $("[name=test]").val(test);
 		$.ajax({
 	      	url:'/store_checked',
 	      	type:"POST",
@@ -950,8 +939,9 @@ function addChecked(){
 	    });
 	}
 }
-function viewFormChecked(){
+function addCheckedNew(){
   	$("#form-checked").css("display",'block');
   	$("#formCheckedData")[0].reset();
-  	$("#divTest1").empty();
+  	$("#divTest").empty();
+  	$("#formCheckedData [name=checked_id]").val(0);
 }

@@ -123,12 +123,12 @@
     <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-food-safety.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script type="text/javascript">
-      function addTest(number, testNameAndTestValue){
+      function addTest( testNameAndTestValue){
           var rowTest = $(`<div  class="w-100 row mt-2 testRow">
             <div class="col-sm-7 form-group">
               <select class="form-control test_name">
                   @foreach($tests as $test)
-                    <option value="{{$test->name}}">{{$test->name}}</option>
+                    <option value="{{$test->id}}">{{$test->name}}</option>
                   @endforeach 
               </select>
             </div>
@@ -148,7 +148,7 @@
           var divRemoveTest = $(`<div class="col-sm-1 form-group divRemoveTest">
           </div>`);
           divRemoveTest.append(aRemoveTest)
-          $("#divTest"+number).append(rowTest);
+          $("#divTest").append(rowTest);
           $(rowTest).append(divRemoveTest);
           if(testNameAndTestValue){
             $(rowTest).find(".test_name").val(testNameAndTestValue.split(":")[0]).change();

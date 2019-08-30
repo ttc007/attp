@@ -42,9 +42,9 @@ $(document).ready(function(){
 					data +
 				'</button>' +
 				'<div class="text-left"><br>Tên cơ sở:'+ rowData.ten_chu_co_so+
-				'<br>Số điện thoại:'+ rowData.phone+
-				'<br>Thôn:'+ rowData.village+
-				'<br>Nhóm:'+ rowData.category_2+
+				'<br>Số điện thoại:'+ (rowData.phone?rowData.phone:"-")+
+				'<br>Thôn:'+ (rowData.village?rowData.village.name:"-")+
+				'<br>Nhóm:'+ (rowData.category_2?rowData.category_2.name:"-")+
 				'<br>Ngày kí cam kết(3 năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
 				'<br>Ngày khám sức khỏe(1 năm):'+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
 				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
@@ -126,7 +126,7 @@ $(document).ready(function(){
 	    var result = null;
 	    $.ajax({
 	        async: false,
-	        url: "/api/food_safety/",
+	        url:"/api/food_safety/",
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
@@ -146,87 +146,31 @@ $(document).ready(function(){
         
     function ngaykiemtraFormatter(value, row, index){
         var year = $("#GLOBAL_YEAR").val();
-        var trave="<div class='text-left'>";
-        $.each(row.check_dates,function(i,v){
-            if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
-                trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
-                if(v.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                if(v.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                trave+=`)`;
-                if(v.ghi_chu_1!=null)trave+=`<br>`+v.ghi_chu_1;
-                if(v.hinh_thuc_xu_phat_1!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_1;
-                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                if(v.test_1){
-                	var test_1_arr = v.test_1.split("<br>");
-                	$.each(test_1_arr, function(t, test_1_item){
-                		var kqTest = test_1_item.split(":")[1];
-                		if(kqTest!="Không kiểm tra"){
-                			trave+= "<span class='test-nhanh'>"+
-                				test_1_item+"</span><br>";
-                		}
-                	});
-                }
+        var trave = "<div class='text-left'>";
+        $.each(row.checkeds, function(i,checked){
+        	trave +="<div style='margin-bottom:30px'><b style='color:#636c72'>Lần "+(i+1)+"</b>:<b>"
+        	+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
+	            
+            if(checked.result=="Chưa đạt") trave += "Kết quả:<b class='text-danger'>Chưa đạt</b>";
+            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";
+            
+            if(checked.note!=null) trave +=`<br>`+checked.note;
+            if(checked.penalize!=null) trave +=`<br> Xử phạt:`+checked.penalize;
+            if(checked.checked_tests.length>0){
+            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+            	$.each(checked.checked_tests, function(t, checked_test){
+            		trave += "<span class='test-nhanh'>"+
+            				checked_test.test.name+":"+checked_test.result+"</span><br>";
+            	});
+            } else {
+            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span>: Không test";
             }
+            trave+="</div>";
         });
-        trave+="</div>";
+     	trave +="</div>";
         return trave;
     }
 
-    function ngaykiemtraFormatter2(value, row, index){
-        var year = $("#GLOBAL_YEAR").val();
-        var trave="<div class='text-left'>";
-        $.each(row.check_dates,function(i,v){
-            if(year==v.year&&v.ngay_kiem_tra_2) {
-                trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
-                if(v.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                if(v.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                trave+=`)`;
-                if(v.ghi_chu_2!=null)trave+=`<br>`+v.ghi_chu_2;
-                if(v.hinh_thuc_xu_phat_2!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_2;
-                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                if(v.test_2){
-                	var test_2_arr = v.test_2.split("<br>");
-                	$.each(test_2_arr, function(t, test_2_item){
-                		var kqTest = test_2_item.split(":")[1];
-                		if(kqTest!="Không kiểm tra"){
-                			trave+= "<span class='test-nhanh'>"+
-                				test_2_item+"</span><br>";
-                		}
-                	});
-                }
-            }
-        });
-        trave+="</div>";
-        return trave;
-    }
-
-    function ngaykiemtraFormatter3(value, row, index){
-        var year = $("#GLOBAL_YEAR").val();
-        var trave="<div class='text-left'>";
-        $.each(row.check_dates,function(i,v){
-            if(year==v.year&&v.ngay_kiem_tra_3) {
-                trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
-                if(v.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                if(v.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                trave+=`)`;
-                if(v.ghi_chu_3!=null)trave+=`<br>`+v.ghi_chu_3;
-                if(v.hinh_thuc_xu_phat_3!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_3;
-                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                if(v.test_3){
-                	var test_3_arr = v.test_3.split("<br>");
-                	$.each(test_3_arr, function(t, test_3_item){
-                		var kqTest = test_3_item.split(":")[1];
-                		if(kqTest!="Không kiểm tra"){
-                			trave+= "<span class='test-nhanh'>"+
-                				test_3_item+"</span><br>";
-                		}
-                	});
-                }
-            }
-        });
-        trave+="</div>";
-        return trave;
-    }
     $data_field = [
 			[
 				{
@@ -251,24 +195,10 @@ $(document).ready(function(){
 				},
 				{
 					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 1',
+					title: 'Lịch sử kiểm tra năm '+ $("#GLOBAL_YEAR").val(),
 					sortable: true,
 					align: 'left',
 					formatter: ngaykiemtraFormatter
-				},
-				{
-					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 2',
-					sortable: true,
-					align: 'left',
-					formatter: ngaykiemtraFormatter2
-				},
-				{
-					field: 'ngay_xac_nhan_hien_thuc',
-					title: 'Ngày kiểm tra lần 3',
-					sortable: true,
-					align: 'left',
-					formatter: ngaykiemtraFormatter3
 				},
 				{
 					field: 'status',
