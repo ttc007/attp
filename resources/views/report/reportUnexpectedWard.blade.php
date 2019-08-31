@@ -40,8 +40,10 @@
       <table class="table" id='table-report-month'>
             <tbody id="table"></tbody>
       </table>
-      <a class="btn" onclick="ExportToExcel('table-report-month')" 
+      <div class="text-left py-3">
+        <a class="btn" onclick="ExportToExcel('table-report-month')" 
         style="display: none" id='btn-report-excel'>Xuất Excel</a>
+      </div>
     </div>
   </div>
 </div>     
@@ -63,8 +65,8 @@
             },
             success:function(data){
               var table = $("#table-report-month");
-              $("#btn-report-excel").css("display", "block");
-
+              $("#btn-report-excel").css("display", "inline-block");
+              table.empty();
               var thead = $("<tr></tr>");
               table.append(thead);
               var tr = $(`<tr><td>`+$("#wardName").text()+`</td></tr>`);

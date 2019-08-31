@@ -207,30 +207,5 @@ class FoodSafetyController extends BaseController
     //     }
     // }
 
-    function report(){
-        $ward = Ward::find(Session::get('ward_id'));
-        return view('food_safety.report',compact('ward'));
-    }
-
-    function reportMaster(){
-        return view('food_safety.reportMaster');
-    }
-
-    function reportTest(){
-        $ward = Ward::find(Session::get('ward_id'));
-        return view('food_safety.reportTest',compact('ward'));
-    }
-
-    function reportTestMaster(){
-        return view('food_safety.reportTestMaster');
-    }
-
-    function reportUnexpected(){
-        return view('food_safety.reportUnexpected');
-    }
-
-    function reportUnexpectedWard(){
-        $ward = Ward::find(Session::get('ward_id'));
-        return view('food_safety.reportUnexpectedWard', compact('ward'));
-    }
+    
 }

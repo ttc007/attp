@@ -41,7 +41,7 @@ $(document).ready(function(){
 				'aria-haspopup="true" aria-expanded="false">' +
 					data +
 				'</button>' +
-				'<div class="text-left"><br>Tên cơ sở:'+ rowData.ten_chu_co_so+
+				'<div class="text-left"><br>Tên cơ sở:'+ rowData.ten_co_so+
 				'<br>Số điện thoại:'+ (rowData.phone?rowData.phone:"-")+
 				'<br>Thôn:'+ (rowData.village?rowData.village.name:"-")+
 				'<br>Nhóm:'+ (rowData.category_2?rowData.category_2.name:"-")+

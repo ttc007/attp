@@ -137,3 +137,6 @@ label{
 .outside-overlay{
   z-index: 99;
 }
+.bootstrap-table .table, .fixed-table-body .table, .table{
+  font-size: 14px!important;
+}

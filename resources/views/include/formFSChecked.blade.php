@@ -63,7 +63,7 @@
             </tr>
             <tr>
                 <td>Test nhanh
-                    <a style="cursor: pointer;" onclick="addTest(1)">
+                    <a style="cursor: pointer;" onclick="addTest(1, 'Âm tính')">
                         <i class="fa fa-plus"></i>
                     </a></td>
                 <td>

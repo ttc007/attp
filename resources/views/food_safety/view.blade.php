@@ -106,10 +106,10 @@
         
         <div class='row mx-4'>
           <div class="col-md-6">
-              @include('include.formFSInfo') 
+              @include('include.formfsinfo') 
           </div>
           <div class="col-md-6" id='form-checked-right'>
-              @include('include.formFSChecked') 
+              @include('include.formfschecked') 
           </div>
       </div><!--Overlay-->
     </div><!--Outside Overlay-->
@@ -123,7 +123,7 @@
     <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-food-safety.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script type="text/javascript">
-      function addTest( testNameAndTestValue){
+      function addTest( testName,TestValue){
           var rowTest = $(`<div  class="w-100 row mt-2 testRow">
             <div class="col-sm-7 form-group">
               <select class="form-control test_name">
@@ -150,10 +150,8 @@
           divRemoveTest.append(aRemoveTest)
           $("#divTest").append(rowTest);
           $(rowTest).append(divRemoveTest);
-          if(testNameAndTestValue){
-            $(rowTest).find(".test_name").val(testNameAndTestValue.split(":")[0]).change();
-            $(rowTest).find(".test_value").val(testNameAndTestValue.split(":")[1]).change();
-          }
+          $(rowTest).find(".test_name").val(testName).change();
+          $(rowTest).find(".test_value").val(TestValue).change();
         }
     </script>
 

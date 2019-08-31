@@ -763,9 +763,9 @@ function edit(id){
 function renderHistory(checkeds){
 	if(checkeds){
         $("#historyChecked").empty();
-        var color = '#d9534f';
-
+        
         $.each(checkeds, function(i, checked){
+        	var color = '#d9534f';
         	if (checked.result =='Đạt'){
                 color = '#46c35f';
             }
@@ -787,8 +787,7 @@ function renderHistory(checkeds){
 
             	$("#divTest").empty();
             	$.each(checked.checked_tests, function (i, checked_test){
-            		var testNameAndTestValue = checked_test.test.id+":"+checked_test.result;
-                	addTest(testNameAndTestValue);
+                	addTest(checked_test.test.id, checked_test.result);
             	});
             });
             tr.append(aEdit);
@@ -816,10 +815,10 @@ function renderHistory(checkeds){
             		type:"GET",
             		success:function(){
             			tr.remove();
+	         			filter();
             		}
             	})
             });
-
 
             tdAction.append(aRemove);
             tr.append(tdAction);
@@ -934,6 +933,7 @@ function addChecked(){
 	      	async: false,
 	      	success:function(){
 	         	getHistory();
+	         	filter();
 	         	loader.remove();
 	      	}
 	    });
