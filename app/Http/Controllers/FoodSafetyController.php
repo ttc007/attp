@@ -82,14 +82,15 @@ class FoodSafetyController extends BaseController
         $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'ward_id',
                                 'phone', 'certification_date', 'status',
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
-                                , 'category_id', 'categoryb2_id',
+                                , 'category_id', 'categoryb2_id', 'code',
                                 'noi_tieu_thu');
         if($request->food_safety_id==0){
             $food_safety = FoodSafety::create($data);
         } else {
             $food_safety = FoodSafety::find($request->food_safety_id);
-            $food_safety->update($data);
-            
+            $count = FoodSafety::where('code', $request->code)->count();
+            if($count==0 || ($food_safety->code && $request->code != $food_safety->code)) $food_safety->update($data);
+            else return "Code duplicate";
         }
         return redirect()->back();
     }
@@ -157,40 +158,40 @@ class FoodSafetyController extends BaseController
             $reader->ignoreEmpty(); 
             $reader->each(function($sheet){
                 $sheet->each(function($row){
-                    $cate1 = Category::where('name',$row->nhom)->first();
-                    $cate2 = Category::where('name',$row->nganh_nghe_kinh_doanh)->first();
-                    $village = Village::where('name',$row->dia_chi_co_so)->first();
-                    $food_safety = FoodSafety::where('ten_chu_co_so',$row->chu_co_so);
-                    if($village)$food_safety = $food_safety->where('village_id',$village->id);
-                    if($cate1) $food_safety=$food_safety->where('category_id',$cate1->id);
-                    if($cate2) $food_safety=$food_safety->where('categoryb2_id',$cate2->id);             
-                    $food_safety=$food_safety->first();
-                    if($food_safety&&$row->chu_co_so!=""){
-                        $food_safety->update([
-                            'ten_co_so'=>$row->chu_co_so,
-                            'ten_chu_co_so'=>$row->chu_co_so,
-                            'village_id'=>@$village->id,
-                            'phone'=>$row->dien_thoai,
-                            'certification_date'=>$row->ngay_cap,
-                            'so_cap'=>$row->so_gcn,
-                            'category_id'=>@$cate1->id,
-                            'categoryb2_id'=>@$cate2->id,
-                            'noi_tieu_thu'=>$row->noi_tieu_thu
-                        ]);
-                    }
-                    else if($row->chu_co_so!="")
-                    $food_safety = FoodSafety::create([
-                        'ten_co_so'=>$row->chu_co_so,
-                        'ten_chu_co_so'=>$row->chu_co_so,
-                        'village_id'=>@$village->id,
-                        'phone'=>$row->dien_thoai,
-                        'certification_date'=>$row->ngay_cap,
-                        'so_cap'=>$row->so_gcn,
-                        'category_id'=>@$cate1->id,
-                        'categoryb2_id'=>@$cate2->id,
-                        'noi_tieu_thu'=>$row->noi_tieu_thu
-                        //'address'=>$row->dia_chi
-                    ]);
+                    dd($row);
+                    // $cate1 = Category::where('name',$row->nhom)->first();
+                    // $cate2 = Category::where('name',$row->nganh_nghe_kinh_doanh)->first();
+                    // $village = Village::where('name',$row->dia_chi_co_so)->first();
+                    // $food_safety = FoodSafety::where('ten_chu_co_so',$row->chu_co_so);
+                    // if($village)$food_safety = $food_safety->where('village_id',$village->id);
+                    // if($cate1) $food_safety=$food_safety->where('category_id',$cate1->id);
+                    // if($cate2) $food_safety=$food_safety->where('categoryb2_id',$cate2->id);             
+                    // $food_safety=$food_safety->first();
+                    // if($food_safety&&$row->chu_co_so!=""){
+                    //     $food_safety->update([
+                    //         'ten_co_so'=>$row->chu_co_so,
+                    //         'ten_chu_co_so'=>$row->chu_co_so,
+                    //         'village_id'=>@$village->id,
+                    //         'phone'=>$row->dien_thoai,
+                    //         'certification_date'=>$row->ngay_cap,
+                    //         'so_cap'=>$row->so_gcn,
+                    //         'category_id'=>@$cate1->id,
+                    //         'categoryb2_id'=>@$cate2->id,
+                    //         'noi_tieu_thu'=>$row->noi_tieu_thu
+                    //     ]);
+                    // }
+                    // else if($row->chu_co_so!="")
+                    // $food_safety = FoodSafety::create([
+                    //     'ten_co_so'=>$row->chu_co_so,
+                    //     'ten_chu_co_so'=>$row->chu_co_so,
+                    //     'village_id'=>@$village->id,
+                    //     'phone'=>$row->dien_thoai,
+                    //     'certification_date'=>$row->ngay_cap,
+                    //     'so_cap'=>$row->so_gcn,
+                    //     'category_id'=>@$cate1->id,
+                    //     'categoryb2_id'=>@$cate2->id,
+                    //     'noi_tieu_thu'=>$row->noi_tieu_thu
+                    // ]);
                 }); 
             }); 
         },'UTF-8')->get();

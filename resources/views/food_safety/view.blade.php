@@ -25,6 +25,7 @@
             <div class="bootstrap-table-header">Quản lí An toàn thực phẩm</div>
                 @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
                   <a class="btn call-overlay" data-overlay="contact" onclick="addNew()"><i class="fa fa-plus"></i>Thêm</a>
+                  <a class="btn" href='upfile_csv'>Up exel danh sách hàng loạt</a>
                 @endif
                 <br>
             </div>

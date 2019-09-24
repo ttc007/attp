@@ -751,6 +751,8 @@ function edit(id){
 	      	$("#ngay_kham_suc_khoe").val(data.ngay_kham_suc_khoe);
 	      	$("#ngay_ky_cam_ket").val(data.ngay_ky_cam_ket);
 	      	$("[name=status]").val(data.status);
+	      	$("#code").val(data.code);
+	      	console.log(data.code);
 		      
 	      	$("#noi_tieu_thu").val(data.noi_tieu_thu);
 	      	$("#formCheckedData [name=food_safety_id]").val(data.id);

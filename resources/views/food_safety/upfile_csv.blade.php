@@ -17,7 +17,7 @@
 			</div>
       <section class="box-typical col-sm-12 p-5">
         <p class="text-muted">Chọn 1 tệp danh sách exel rồi thêm vào</p>
-        <form method="post" action="/food_safety/upfile_csv" enctype="multipart/form-data">
+        <form method="post" action="upfile_csv" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="file" name="file" class="form-control w-25 ">
             <button class="btn mt-3">Up</button>

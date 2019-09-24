@@ -754,7 +754,8 @@ function edit(id){
 	      	$("#ngay_kham_suc_khoe").val(data.ngay_kham_suc_khoe);
 	      	$("#ngay_ky_cam_ket").val(data.ngay_ky_cam_ket);
 	      	$("[name=status]").val(data.status);
-		      
+	      	$("[name=code]").val(data.code);
+					      
 	      	$("#noi_tieu_thu").val(data.noi_tieu_thu);
 	      	$("#formCheckedData [name=food_safety_id]").val(data.id);
 	      	var date_checked = {};
@@ -879,9 +880,14 @@ function callApiAddOrUpdateFoodSafety(){
       type:"POST",
       data:$("#formAddFoodSafety").serialize(),
       // async: false,
-      success:function(){
-        close();
-        filter('noAddLoading', 'endLoading');
+      success:function(data){
+      	if(data=='Code duplicate'){
+      		$(".loader-overlay").remove();
+      		alert('Mã số đã bị trùng lặp!!!!!!');
+      	} else {
+      		close();
+        	filter('noAddLoading', 'endLoading');
+      	}
       }
     });
 }
