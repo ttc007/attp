@@ -12,6 +12,13 @@
         
         <table class="table table-bordered">
             <tr>
+                <td>Mã số</td>
+                <td>
+                    <input name="code" type="text"
+                        class="form-control" id="code" required>
+                </td>
+            </tr>
+            <tr>
                 <td>Tên chủ cơ sở</td>
                 <td>
                     <input name="ten_chu_co_so" type="text"
