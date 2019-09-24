@@ -15,11 +15,12 @@ class CreateCheckedsTable extends Migration
     {
         Schema::create('checkeds', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('food_safety_id');
+            $table->string('food_safety_id');
             $table->string('year');
             $table->string('month');
             $table->string('day');
             $table->string('result');
+            $table->date('dateChecked');
             $table->string('note')->nullable();
             $table->string('penalize')->nullable();
             $table->timestamps();

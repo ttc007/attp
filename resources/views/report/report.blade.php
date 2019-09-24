@@ -38,8 +38,10 @@
           <table class="table" id='table-report-month'>
             <tbody id="table"></tbody>
           </table>
-          <a class="btn" onclick="ExportToExcel('table-report-month')" 
-            style="display: none" id='btn-report-excel'>Xuất Excel</a>
+          <div class="text-left my-3">
+            <a class="btn" onclick="ExportToExcel('table-report-month')" 
+            style="display: none;" id='btn-report-excel'>Xuất Excel</a>
+          </div>
         </div>
       </div>
       
@@ -60,7 +62,7 @@
               year:$("#GLOBAL_YEAR").val()
             },
             success:function(data){
-              $("#btn-report-excel").css("display", 'block');
+              $("#btn-report-excel").css("display", 'inline-block');
               $("#table").empty();
               var thead = $(`<tr></tr>`);
               $("#table").append(thead);
@@ -79,29 +81,15 @@
                   
                   $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
                     if(foodSafetyDateChecked.categoryb2_id==category.id){
-                      if(foodSafetyDateChecked.ngay_xac_nhan_hien_thuc){
-                        var dateCheckMonth = foodSafetyDateChecked.ngay_xac_nhan_hien_thuc.split("-")[1];
-                        if(dateCheckMonth==i){
-                          check++;
-                          if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
-                            pass++;
-                          }
+                      if(foodSafetyDateChecked.result){
+                        var dateCheckMonth = foodSafetyDateChecked.month;
+                        if(dateCheckMonth.charAt(0)=='0'){
+                          dateCheckMonth = dateCheckMonth.substring(1,2);
+                          dateCheckMonth = parseInt(dateCheckMonth);
                         }
-                      }
-                      if(foodSafetyDateChecked.ngay_kiem_tra_2){
-                        var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_2.split("-")[1];
                         if(dateCheckMonth==i){
                           check++;
-                          if(foodSafetyDateChecked.ket_qua_kiem_tra_2=="Đạt"){
-                            pass++;
-                          }
-                        }
-                      }
-                      if(foodSafetyDateChecked.ngay_kiem_tra_3){
-                        var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_3.split("-")[1];
-                        if(dateCheckMonth==i){
-                          check++;
-                          if(foodSafetyDateChecked.ket_qua_kiem_tra_3=="Đạt"){
+                          if(foodSafetyDateChecked.result=="Đạt"){
                             pass++;
                           }
                         }

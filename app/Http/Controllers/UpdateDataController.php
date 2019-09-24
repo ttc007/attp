@@ -14,7 +14,8 @@ class UpdateDataController extends Controller
     function updateDB(Request $request){
     	$dateCheckeds = DateChecked::all();
     	foreach ($dateCheckeds as $key => $dateChecked) {
-    		if($dateChecked->ngay_xac_nhan_hien_thuc && $dateChecked->ket_qua_kiem_tra_1){
+    		if($dateChecked->ngay_xac_nhan_hien_thuc){
+                if($dateChecked->ket_qua_kiem_tra_1!="Đạt") $dateChecked->ket_qua_kiem_tra_1 = 'Chưa đạt';
     			$date1 = Carbon::parse($dateChecked->ngay_xac_nhan_hien_thuc);
     			$checked = Checked::create([
     				'food_safety_id' => $dateChecked->food_safety_id,
@@ -23,7 +24,8 @@ class UpdateDataController extends Controller
     				'penalize' => $dateChecked->hinh_thuc_xu_phat_1,
     				'year' => $date1->format('Y'),
     				'month' => $date1->format('m'),
-    				'day' => $date1->format('d')
+    				'day' => $date1->format('d'),
+                    'dateChecked' => $dateChecked->ngay_xac_nhan_hien_thuc
     			]);
     			if($dateChecked->test_1){
     				$testArr = explode("<br>", $dateChecked->test_1);
@@ -44,7 +46,8 @@ class UpdateDataController extends Controller
     				}
     			}
     		}
-    		if($dateChecked->ngay_kiem_tra_2 && $dateChecked->ket_qua_kiem_tra_2){
+    		if($dateChecked->ngay_kiem_tra_2){
+                if($dateChecked->ket_qua_kiem_tra_2!="Đạt") $dateChecked->ket_qua_kiem_tra_2 = 'Chưa đạt';
     			$date2 = Carbon::parse($dateChecked->ngay_kiem_tra_2);
     			$checked = Checked::create([
     				'food_safety_id' => $dateChecked->food_safety_id,
@@ -53,7 +56,8 @@ class UpdateDataController extends Controller
     				'penalize' => $dateChecked->hinh_thuc_xu_phat_2,
     				'year' => $date2->format('Y'),
     				'month' => $date2->format('m'),
-    				'day' => $date2->format('d')
+    				'day' => $date2->format('d'),
+                    'dateChecked' => $dateChecked->ngay_kiem_tra_2
     			]);
     			if($dateChecked->test_2){
     				$testArr = explode("<br>", $dateChecked->test_2);
@@ -74,7 +78,8 @@ class UpdateDataController extends Controller
     				}
     			}
     		}
-    		if($dateChecked->ngay_kiem_tra_3 && $dateChecked->ket_qua_kiem_tra_3){
+    		if($dateChecked->ngay_kiem_tra_3){
+                if($dateChecked->ket_qua_kiem_tra_3!="Đạt") $dateChecked->ket_qua_kiem_tra_3 = 'Chưa đạt';
     			$date2 = Carbon::parse($dateChecked->ngay_kiem_tra_3);
     			$checked = Checked::create([
     				'food_safety_id' => $dateChecked->food_safety_id,
@@ -83,7 +88,8 @@ class UpdateDataController extends Controller
     				'penalize' => $dateChecked->hinh_thuc_xu_phat_3,
     				'year' => $date2->format('Y'),
     				'month' => $date2->format('m'),
-    				'day' => $date2->format('d')
+    				'day' => $date2->format('d'),
+                    'dateChecked' => $dateChecked->ngay_kiem_tra_3
     			]);
     			if($dateChecked->test_3){
     				$testArr = explode("<br>", $dateChecked->test_3);
@@ -105,5 +111,7 @@ class UpdateDataController extends Controller
     			}
     		}
     	}
+    
+        return redirect("/");
     }
 }

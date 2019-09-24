@@ -98,7 +98,7 @@ label{
     text-align: right;
 }
 .test-nhanh-title{
-    color: #f29824!important;
+    color: #fa424a!important
 }
 
 .loader {
@@ -136,4 +136,7 @@ label{
 }
 .outside-overlay{
   z-index: 99;
+}
+.bootstrap-table .table, .fixed-table-body .table, .table{
+  font-size: 14px!important;
 }

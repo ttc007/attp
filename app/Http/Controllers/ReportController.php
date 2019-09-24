@@ -3,23 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Food_safety;
+use App\FoodSafety;
 use App\Category;
 use App\Ward;
 use App\Test;
+use Session;
 
 class ReportController extends Controller
 {
+    function report(){
+        $ward = Ward::find(Session::get('ward_id'));
+        return view('report.report',compact('ward'));
+    }
+
+    function reportMaster(){
+        return view('report.reportMaster');
+    }
+
+    function reportTest(){
+        $ward = Ward::find(Session::get('ward_id'));
+        return view('report.reportTest',compact('ward'));
+    }
+
+    function reportTestMaster(){
+        return view('report.reportTestMaster');
+    }
+
+    function reportUnexpected(){
+        return view('report.reportUnexpected');
+    }
+
+    function reportUnexpectedWard(){
+        $ward = Ward::find(Session::get('ward_id'));
+        return view('report.reportUnexpectedWard', compact('ward'));
+    }
+
     function month_report($month,Request $request){
     	$category = Category::where('slug','y-te')->first();
 
     	$data = [];
-    	$foodSafetyDateCheckeds = Food_safety::join('date_checked',
-                                'date_checked.food_safety_id', 'food_safeties.id')
+    	$foodSafetyDateCheckeds = FoodSafety::join('checkeds',
+                                'checkeds.food_safety_id', 'food_safeties.id')
                                 ->where('food_safeties.status','<>', 'Tạm nghỉ')
                                 ->where('food_safeties.category_id', $category->id)
                                 ->where('food_safeties.ward_id', $request->ward_id)
-                                ->where('date_checked.year', $request->year)
+                                ->where('checkeds.year', $request->year)
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["fsInChildOfCategory"] = $category->fsInChildOfCategoryWard($request->ward_id);
@@ -31,11 +59,11 @@ class ReportController extends Controller
         $category = Category::where('slug','y-te')->first();
         $data2 = [];
         
-        $foodSafetyDateCheckeds = Food_safety::join('date_checked',
-                                'date_checked.food_safety_id', 'food_safeties.id')
+        $foodSafetyDateCheckeds = FoodSafety::join('checkeds',
+                                'checkeds.food_safety_id', 'food_safeties.id')
                                 ->where('food_safeties.status','<>', 'Tạm nghỉ')
                                 ->where('food_safeties.category_id', $category->id)
-                                ->where('date_checked.year', $request->year)
+                                ->where('checkeds.year', $request->year)
                                 ->get();
         $data2["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data2["fsInChildOfCategory"] = $category->fsInChildOfCategory();
@@ -51,49 +79,20 @@ class ReportController extends Controller
         foreach (Ward::all() as $key => $ward) {
             $data1 = [];
             foreach ($category->childs() as $key => $value) {
-                $food_safetys_count = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                $count = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                         ->where('food_safeties.status','<>', 'Tạm nghỉ')
                         ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
-                        ->where('date_checked.ngay_xac_nhan_hien_thuc','<=' ,$request->endDate)
+                        ->where('checkeds.dateChecked','>=',$request->startDate)
+                        ->where('checkeds.dateChecked','<=' ,$request->endDate)
                         ->count();
-                $food_safetys_count2 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+                $countPass = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                         ->where('food_safeties.status','<>', 'Tạm nghỉ')
                         ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
-                        ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
-                        ->count();
-                $food_safetys_count3 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
-                        ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)
-                        ->count();
-                $food_safetys_count_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ket_qua_kiem_tra_1', 'Đạt')
-                        ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
-                        ->where('date_checked.ngay_xac_nhan_hien_thuc','<=', $request->endDate)
-                        ->count();
-                $food_safetys_count2_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
-                        ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
-                        ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
-                        ->count();
-                $food_safetys_count3_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                        ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                        ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
-                        ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
-                        ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
-                        ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)
+                        ->where('checkeds.result', 'Đạt')
+                        ->where('checkeds.dateChecked','>=',$request->startDate)
+                        ->where('checkeds.dateChecked','<=', $request->endDate)
                         ->count();
                 
-                $count = $food_safetys_count+$food_safetys_count2+$food_safetys_count3;
-                $countPass = $food_safetys_count_pass+$food_safetys_count2_pass
-                    +$food_safetys_count3_pass;
                 $rating = "0";
                 if($count>0) $rating = round($countPass/$count*100, 2);
                 
@@ -110,53 +109,23 @@ class ReportController extends Controller
         $category = Category::where('slug','y-te')->first();
 
         $data = [];
-
         
         $data1 = [];
+
         foreach ($category->childs() as $key => $value) {
-            $food_safetys_count = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+            $count = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                     ->where('food_safeties.status','<>', 'Tạm nghỉ')
                     ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
-                    ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
-                    ->where('date_checked.ngay_xac_nhan_hien_thuc','<=' ,$request->endDate)
+                    ->where('checkeds.dateChecked','>=',$request->startDate)
+                    ->where('checkeds.dateChecked','<=' ,$request->endDate)
                     ->count();
-            $food_safetys_count2 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
+            $countPass = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                     ->where('food_safeties.status','<>', 'Tạm nghỉ')
                     ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
-                    ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
-                    ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
+                    ->where('checkeds.result', 'Đạt')
+                    ->where('checkeds.dateChecked','>=',$request->startDate)
+                    ->where('checkeds.dateChecked','<=', $request->endDate)
                     ->count();
-            $food_safetys_count3 = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                    ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                    ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
-                    ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
-                    ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)
-                    ->count();
-            $food_safetys_count_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                    ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                    ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
-                    ->where('date_checked.ket_qua_kiem_tra_1', 'Đạt')
-                    ->where('date_checked.ngay_xac_nhan_hien_thuc','>=',$request->startDate)
-                    ->where('date_checked.ngay_xac_nhan_hien_thuc','<=', $request->endDate)
-                    ->count();
-            $food_safetys_count2_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                    ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                    ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)
-                    ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
-                    ->where('date_checked.ngay_kiem_tra_2','>=',$request->startDate)
-                    ->where('date_checked.ngay_kiem_tra_2','<=', $request->endDate)
-                    ->count();
-            $food_safetys_count3_pass = Food_safety::join('date_checked','date_checked.food_safety_id', 'food_safeties.id')
-                    ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                    ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id', $value->id)
-                    ->where('date_checked.ket_qua_kiem_tra_2', 'Đạt')
-                    ->where('date_checked.ngay_kiem_tra_3','>=',$request->startDate)
-                    ->where('date_checked.ngay_kiem_tra_3','<=', $request->endDate)
-                    ->count();
-            
-            $count = $food_safetys_count+$food_safetys_count2+$food_safetys_count3;
-            $countPass = $food_safetys_count_pass+$food_safetys_count2_pass
-                +$food_safetys_count3_pass;
             $rating = "0";
             if($count>0) $rating = round($countPass/$count*100, 2);
             
@@ -170,11 +139,12 @@ class ReportController extends Controller
 
     function month_report_test($month,Request $request){
         $data = [];
-        $foodSafetyDateCheckeds = Food_safety::join('date_checked',
-                                'date_checked.food_safety_id', 'food_safeties.id')
+        $foodSafetyDateCheckeds = FoodSafety::join('checkeds',
+                                'checkeds.food_safety_id', 'food_safeties.id')
+                                ->join('checked_tests', 'checkeds.id', 'checked_tests.checked_id')
                                 ->where('food_safeties.status','<>', 'Tạm nghỉ')
                                 ->where('food_safeties.ward_id', $request->ward_id)
-                                ->where('date_checked.year', $request->year)
+                                ->where('checkeds.year', $request->year)
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["tests"] = Test::pluck('name')->toArray();
@@ -183,10 +153,11 @@ class ReportController extends Controller
 
     function month_report_test_master($month,Request $request){
         $data = [];
-        $foodSafetyDateCheckeds = Food_safety::join('date_checked',
-                                'date_checked.food_safety_id', 'food_safeties.id')
+        $foodSafetyDateCheckeds = FoodSafety::join('checkeds',
+                                'checkeds.food_safety_id', 'food_safeties.id')
+                                ->join('checked_tests', 'checkeds.id', 'checked_tests.checked_id')
                                 ->where('food_safeties.status','<>', 'Tạm nghỉ')
-                                ->where('date_checked.year', $request->year)
+                                ->where('checkeds.year', $request->year)
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["wards"] = Ward::all();

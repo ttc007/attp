@@ -30,15 +30,19 @@ Route::group(['prefix'=>'food_safety/','middleware' => ['auth']],function() {
 
     
 });
-Route::post('/store_checked', 'FoodSafetyController@store_checked')->name('store_checked');
+Route::post('/store_checked', 'CheckedController@store_checked')->name('store_checked');
+Route::get('/checked/remove/{id}', 'CheckedController@remove')->name('delete_checked');
 
-Route::get('/food_safety/report', 'FoodSafetyController@report');
-Route::get('/food_safety/reportMaster', 'FoodSafetyController@reportMaster');
-Route::get('/food_safety/reportUnexpected', 'FoodSafetyController@reportUnexpected');
-Route::get('/food_safety/reportUnexpectedWard', 'FoodSafetyController@reportUnexpectedWard');
+Route::group(['prefix'=>'food_safety'], function(){
+  Route::get('/report', 'ReportController@report');
+  Route::get('/reportMaster', 'ReportController@reportMaster');
+  Route::get('/reportUnexpected', 'ReportController@reportUnexpected');
+  Route::get('/reportUnexpectedWard', 'ReportController@reportUnexpectedWard');
 
-Route::get('/food_safety/reportTest', 'FoodSafetyController@reportTest');
-Route::get('/food_safety/reportTestMaster', 'FoodSafetyController@reportTestMaster');
+  Route::get('/reportTest', 'ReportController@reportTest');
+  Route::get('/reportTestMaster', 'ReportController@reportTestMaster');
+});
+
 
 Route::get('/food_safety/filter', 'FoodSafetyController@filter');
 

@@ -74,7 +74,7 @@
                   table.append(tr);
                   thead.empty();
                   thead.append("<td><b> Tháng "+i+"</b></td>");
-                  $.each(testArr, function(k, testItem){
+                  $.each(testArr, function(testId, testItem){
                     var cateData = "";
                     var total = 0;
                     var negative = 0;
@@ -83,58 +83,16 @@
                     var positiveRating = 0;
                     $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
                       if(foodSafetyDateChecked.ward_id==ward.id){
-                        if(foodSafetyDateChecked.ngay_xac_nhan_hien_thuc){
-                          var dateCheckMonth = foodSafetyDateChecked.ngay_xac_nhan_hien_thuc.split("-")[1];
-                          if(dateCheckMonth==i){
-                            var test_1 = foodSafetyDateChecked.test_1;
-                            if(test_1){
-                              $.each(test_1.split("<br>"), function(t,test){
-                                if(test){
-                                  if(test.split(":")[0]==testItem&&
-                                    test.split(":")[1]!="Không kiểm tra"){
-                                    total++;
-                                    if(test.split(":")[1]=="Âm tính") negative++;
-                                    if(test.split(":")[1]=="Dương tính") positive++;
-                                  }
-                                }
-                              });
-                            }
+                        if(foodSafetyDateChecked.dateChecked){
+                          var dateCheckMonth = foodSafetyDateChecked.month;
+                          if(dateCheckMonth.charAt(0)=='0'){
+                            dateCheckMonth = dateCheckMonth.substring(1,2);
+                            dateCheckMonth = parseInt(dateCheckMonth);
                           }
-                        }
-                        if(foodSafetyDateChecked.ngay_kiem_tra_2){
-                          var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_2.split("-")[1];
-                          if(dateCheckMonth==i){
-                            var test_2 = foodSafetyDateChecked.test_2;
-                            if(test_2){
-                              $.each(test_2.split("<br>"), function(t,test){
-                                if(test){
-                                  if(test.split(":")[0]==testItem&&
-                                    test.split(":")[1]!="Không kiểm tra"){
-                                    total++;
-                                    if(test.split(":")[1]=="Âm tính") negative++;
-                                    if(test.split(":")[1]=="Dương tính") positive++;
-                                  }
-                                }
-                              });
-                            }
-                          }
-                        }
-                        if(foodSafetyDateChecked.ngay_kiem_tra_3){
-                          var dateCheckMonth = foodSafetyDateChecked.ngay_kiem_tra_3.split("-")[1];
-                          if(dateCheckMonth==i){
-                            var test_3 = foodSafetyDateChecked.test_3;
-                            if(test_3){
-                              $.each(test_3.split("<br>"), function(t,test){
-                                if(test){
-                                  if(test.split(":")[0]==testItem&&
-                                    test.split(":")[1]!="Không kiểm tra"){
-                                    total++;
-                                    if(test.split(":")[1]=="Âm tính") negative++;
-                                    if(test.split(":")[1]=="Dương tính") positive++;
-                                  }
-                                }
-                              });
-                            }
+                          if(dateCheckMonth==i&&testId==foodSafetyDateChecked.test_id){
+                            total++;
+                            if(foodSafetyDateChecked.result=="Âm tính") negative++;
+                            if(foodSafetyDateChecked.result=="Dương tính") positive++;
                           }
                         }
                       }
@@ -151,7 +109,7 @@
                         "/"+positive+
                         "<br>("+negativeRating+"%/"
                         +positiveRating+"%)";
-                    tr.append("<td class='count_"+convertToSlug(testItem)+"'>"+cateData+"</td>");
+                    tr.append("<td class='count_"+convertToSlug(testItem)+"_"+convertToSlug(ward.name)+"'>"+cateData+"</td>");
                     thead.append("<td>"+testItem+"</td>")
                   });
                 });
@@ -180,7 +138,7 @@
                       var positive = 0;
                       var negativeRating = 0;
                       var positiveRating = 0;
-                      $('.count_'+convertToSlug(testItem)).each(function (h,k){
+                      $('.count_'+convertToSlug(testItem)+"_"+convertToSlug(ward.name)).each(function (h,k){
                         total +=parseInt($(k).text());
                         negative +=parseInt($(k).text().split("/")[1]);
                         positive += parseInt($(k).text().split("/")[2]);
