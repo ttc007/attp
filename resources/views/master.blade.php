@@ -7,8 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>HOA VANG - FOOD SAFETY</title>
 
-    <link href="../img/favicon.png" rel="icon" type="image.png')}}">
-    <link href="../img/favicon.png" rel="shortcut icon">
+    <link href="{{ asset('img/logo.png')}}" rel="icon" type="image/png')}}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

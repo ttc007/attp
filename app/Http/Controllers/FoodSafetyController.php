@@ -9,7 +9,6 @@ use App\Village;
 use Session;
 use Carbon\Carbon;
 use File;
-use Excel;
 use Input;
 use App\Ward;
 use App\Test;
@@ -33,24 +32,14 @@ class FoodSafetyController extends BaseController
         $categories = [];
         $category = null;
         $tests = Test::all();
-        return view('food_safety.view', compact('category_id','villages','categories','category', 'tests'));
+        return view('food_safety.view', compact('category_id','villages',
+            'categories','category', 'tests'));
     }
 
     function create()
     {
         $types = $this->typeRepository->where('app_id',Session::get('app_id'))->get();
         return view('kpi.add',compact('types'));
-    }
-
-    public function edit($id)
-    {
-        $kpi = $this->kpiRepository->find($id);
-        $types = $this->typeRepository->where('app_id',Session::get('app_id'))->get();
-
-        return view('kpi.edit', [
-            'kpi' => $kpi,
-            'types' => $types,
-        ]);
     }
 
     function getByCate($category){
@@ -63,7 +52,7 @@ class FoodSafetyController extends BaseController
         }
         $villages = Village::where('parent_id',Session::get('ward_id'))->get();
         $tests = Test::all();
-        return view('food_safety.view',compact('category_id','villages','categories','category','tests'));
+        return view('food_safety.view', compact('category_id','villages','categories','category','tests'));
     }
 
     function filter(){

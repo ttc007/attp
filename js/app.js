@@ -782,10 +782,10 @@ function renderHistory(checkeds){
             	$("#form-checked").css("display", 'block');
             	$("#formCheckedData [name=checked_id]").val(checked.id);
             	$("#formCheckedData [name=dateChecked]").val(checked.year+"-"+checked.month+"-"+checked.day);
-            	console.log(dateChecked);
             	$("#formCheckedData [name=result]").val(checked.result);
             	$("#formCheckedData [name=note]").val(checked.note);
             	$("#formCheckedData [name=penalize]").val(checked.penalize);
+            	$("#formCheckedData [name=code]").val(checked.code);
 
             	$("#divTest").empty();
             	$.each(checked.checked_tests, function (i, checked_test){
@@ -926,6 +926,9 @@ function addChecked(){
 	if($("#ngay_kiem_tra").val() == ""){
 		alert("Ngày kiểm tra là bắt buộc!");
 		$("#ngay_kiem_tra").focus();
+	} else if($("#formCheckedData #codeChecked").val() == ""){
+		alert("Mã kiểm tra là bắt buộc!");
+		$("#formCheckedData #codeChecked").focus();
 	} else {
 		var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
 	  	$('body').append(loader);
@@ -944,9 +947,14 @@ function addChecked(){
 	      	data:$("#formCheckedData").serialize(),
 	      	async: false,
 	      	success:function(data){
-	      		getHistory();
-	         	filter();
-	         	loader.remove();
+	      		if(data == 'Code checked duplicate'){
+	      			alert('Mã kiểm tra đã bị trùng!');
+	      			$(".loader-overlay").remove();
+	      		} else {
+	      			getHistory();
+		         	filter();
+		         	loader.remove();
+	      		}
 	      	}
 	    });
 	}

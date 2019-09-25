@@ -20,7 +20,7 @@
 				</div>
 			</div>
       
-			<section class="box-typical col-sm-12">
+		<section class="box-typical col-sm-12">
         <div id="toolbar">
             <div class="bootstrap-table-header">Quản lí An toàn thực phẩm</div>
                 @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))

@@ -27,7 +27,11 @@ class CheckedController extends Controller
         	$checked = Checked::find($request->checked_id);
         	$checked->update($data);
         } else {
-        	$checked = Checked::create($data);
+            if(Checked::where('code', $request->code)->count() == 0) {
+                $checked = Checked::create($data);
+            } else {
+                return "Code checked duplicate";
+            }
         }
 
         CheckedTest::where("checked_id", $checked->id)->delete();

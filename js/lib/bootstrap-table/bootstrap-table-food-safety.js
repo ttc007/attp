@@ -43,7 +43,7 @@ $(document).ready(function(){
 				'</button>' +
 				'<div class="text-left pt-2">'+
 				'<b>Mã số: '+ (rowData.code?rowData.code:"") + "</b>"+
-				'<br>Tên cơ sở: '+ rowData.ten_chu_co_so+
+				'<br>Tên chủ cơ sở: '+ rowData.ten_chu_co_so+
 				'<br>Số điện thoại: '+ (rowData.phone?rowData.phone:"-")+
 				'<br>Thôn: '+ (rowData.village?rowData.village.name:"-")+
 				'<br>Nhóm: '+ (rowData.category_2?rowData.category_2.name:"-")+
@@ -157,7 +157,7 @@ $(document).ready(function(){
 	            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";
 	            trave +="<br>Mã kiểm tra: <b>"+checked.code+"</b>";
 	            if(checked.note!=null) trave +=`<br>`+checked.note;
-	            if(checked.penalize!=null) trave +=` -- Xử phạt: `+checked.penalize;
+	            if(checked.penalize!=null) trave +=`<br> Xử phạt: `+checked.penalize;
 	            if(checked.checked_tests.length>0){
 	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
 	            	$.each(checked.checked_tests, function(t, checked_test){
