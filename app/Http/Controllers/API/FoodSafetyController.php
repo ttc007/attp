@@ -23,7 +23,7 @@ class FoodSafetyController extends Controller
         if($request->village_id){
             $food_safeties = $food_safeties->where('village_id',$request->village_id);
         }
-        $food_safeties = $food_safeties->get();
+        $food_safeties = $food_safeties->orderBy('code', 'desc')->get();
         foreach ($food_safeties as $key => $value) {
             if($value->certification_date){
                 $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);

@@ -1,0 +1,161 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>xlsWorksheetName</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table><thead><tr><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);" rowspan="1"></th><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">STT</th><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Tên chủ cơ sở</th><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Lịch sử kiểm tra năm 2019</th><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Trạng thái</th><th style="border-bottom: 1px solid rgb(221, 221, 221);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Hành động</th></tr></thead><tbody><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">1</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Trần Phước HoànMã số:
+Tên cơ sở:Trần Phước Hoàn
+Số điện thoại:02363770213
+Thôn:Hòa Bắc
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):06-12-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Tạm nghỉ</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">2</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Trương Thị PhươngMã số: HQL_HB_BATT_002
+Tên cơ sở:Trương Thị Phương
+Số điện thoại:0906499684
+Thôn:Hòa Bắc
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):09-05-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">3</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Trương Thị PhươngMã số: HQL_HB_BATT_003
+Tên cơ sở:Trương Thị Phương
+Số điện thoại:0906499684
+Thôn:Hòa Bắc
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):09-05-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">4</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Lâm Thị HươngMã số:
+Tên cơ sở:Lâm Thị Hương
+Số điện thoại:02363670036
+Thôn:Hòa Châu
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):04-12-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">5</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Ngô Thị MaiMã số:
+Tên cơ sở:Ngô Thị Mai
+Số điện thoại:0905111425
+Thôn:Hòa Châu
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):08-02-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">6</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Ngô Thị Mỹ LệMã số:
+Tên cơ sở:Ngô Thị Mỹ Lệ
+Số điện thoại:0935535615
+Thôn:Hòa Châu
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):09-10-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">7</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Chế Thị TớiMã số:
+Tên cơ sở:Chế Thị Tới
+Số điện thoại:0905321625
+Thôn:Hòa Khương
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):20-08-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">8</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">nguyễn Thị HạnhMã số:
+Tên cơ sở:nguyễn Thị Hạnh
+Số điện thoại:0905627217
+Thôn:Hòa Liên
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):10-05-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">9</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Nguyễn Thị HạnhMã số:
+Tên cơ sở:Nguyễn Thị Hạnh
+Số điện thoại:0905627217
+Thôn:Hòa Liên
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):10-05-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">10</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đỗ Thị ThạnhMã số:
+Tên cơ sở:Đỗ Thị Thạnh
+Số điện thoại:0905668744
+Thôn:Hòa Nhơn
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):14-05-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">11</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đỗ Thị ThạnhMã số:
+Tên cơ sở:Đỗ Thị Thạnh
+Số điện thoại:0905668744
+Thôn:Hòa Nhơn
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):14-05-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">12</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Phạm Thị NhànMã số:
+Tên cơ sở:Phạm Thị Nhàn
+Số điện thoại:0707662475
+Thôn:Hòa Nhơn
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):12-06-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">13</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Hồ Thị HàMã số:
+Tên cơ sở:Hồ Thị Hà
+Số điện thoại:0905637544
+Thôn:Hòa Nhơn
+Nhóm:Nhóm trẻ gia đình
+Ngày kí cam kết(3 năm):01-10-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">14</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Trần Thị MinhMã số: HQL_HP_BATP_001
+Tên cơ sở:Trần Thị Minh
+Số điện thoại:3780079
+Thôn:Hòa Phong
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):28-12-2019
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">15</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Lê Thị Bích LiênMã số:
+Tên cơ sở:Lê Thị Bích Liên
+Số điện thoại:0987424512
+Thôn:Hòa Phong
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):15-08-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">16</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Phạm Thị LaiMã số:
+Tên cơ sở:Phạm Thị Lai
+Số điện thoại:0905302122
+Thôn:Hòa Phong
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):12-09-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">17</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Phạm Thị LaiMã số:
+Tên cơ sở:Phạm Thị Lai
+Số điện thoại:0905302122
+Thôn:Hòa Phong
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):12-09-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">18</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Nguyễn Thị Kim ThoaMã số:
+Tên cơ sở:Nguyễn Thị Kim Thoa
+Số điện thoại:0905212762
+Thôn:Hòa Phú
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):15-08-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">19</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Lê Thị Kim VânMã số:
+Tên cơ sở:Lê Thị Kim Vân
+Số điện thoại:0905520625
+Thôn:Hòa Sơn
+Nhóm:Bếp ăn tập thể
+Ngày kí cam kết(3 năm):10-09-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr><tr><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 0px none rgb(52, 52, 52);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">20</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Hồ Thị Dạ ThảoMã số:
+Tên cơ sở:Hồ Thị Dạ Thảo
+Số điện thoại:0906422007
+Thôn:Hòa Tiến
+Nhóm:Nhóm trẻ gia đình
+Ngày kí cam kết(3 năm):12-04-2018
+Ngày khám sức khỏe(1 năm):-
+Ngày tập huấn kiến thức(3năm):-
+Số cấp:-</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);">Đang hoạt động</td><td style="border-bottom: 1px solid rgb(216, 226, 231);border-top: 1px solid rgb(216, 226, 231);border-left: 1px solid rgb(216, 226, 231);border-right: 1px solid rgb(216, 226, 231);"></td></tr></tbody></table></body></html>

@@ -75,7 +75,7 @@
             <tr>
                 <td>Ngày ký cam kết</td>
                 <td>
-                    <input id="certification_date" name='certification_date' 
+                    <input id="ngay_ky_cam_ket" name='ngay_ky_cam_ket' 
                         type="date" value="" class="form-control" >
                 </td>
             </tr>
@@ -95,7 +95,7 @@
             </tr>
             <tr>
                 <td>Ngày tập huấn kiến thức</td>
-                <td><input id="ngay_ky_cam_ket" name="ngay_ky_cam_ket" type="date" 
+                <td><input id="certification_date" name="certification_date" type="date" 
                     value="" class="form-control" >
                 </td>
             </tr>

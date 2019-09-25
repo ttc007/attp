@@ -15,8 +15,9 @@ use App\Ward;
 use App\Test;
 use Illuminate\Support\Facades\DB;
 use App\Checked;
+use App\Providers\XLSXReader;
+use Auth;
 use App\CheckedTest;
-
 
 class FoodSafetyController extends BaseController
 {
@@ -73,9 +74,9 @@ class FoodSafetyController extends BaseController
             $category_id = $category->id;
             $categories = $category->childs();
         }
-        $villages = Village::where('parent_id',Session::get('ward_id'))->get();
+        $villages = Village::where('parent_id', Session::get('ward_id'))->get();
         $tests = Test::all();
-        return view('food_safety.filter',compact('category_id','villages','categories','category','tests'));
+        return view('food_safety.filter', compact('category_id','villages','categories','category','tests'));
     }
     
     function store(Request $request){
@@ -94,8 +95,6 @@ class FoodSafetyController extends BaseController
         }
         return redirect()->back();
     }
-
-    
 
     function api_get(Request $request){
         $food_safeties = FoodSafety::where('food_safeties.category_id',$request->category_id)
@@ -151,51 +150,87 @@ class FoodSafetyController extends BaseController
     }
 
     function upfile_csv_store(Request $request){
-        $path = $request->file('file')->getRealPath();
-        // $result = Excel::load($path)->all();          
-        // var_dump($result);  
-        Excel::load($path, function($reader) {
-            $reader->ignoreEmpty(); 
-            $reader->each(function($sheet){
-                $sheet->each(function($row){
-                    dd($row);
-                    // $cate1 = Category::where('name',$row->nhom)->first();
-                    // $cate2 = Category::where('name',$row->nganh_nghe_kinh_doanh)->first();
-                    // $village = Village::where('name',$row->dia_chi_co_so)->first();
-                    // $food_safety = FoodSafety::where('ten_chu_co_so',$row->chu_co_so);
-                    // if($village)$food_safety = $food_safety->where('village_id',$village->id);
-                    // if($cate1) $food_safety=$food_safety->where('category_id',$cate1->id);
-                    // if($cate2) $food_safety=$food_safety->where('categoryb2_id',$cate2->id);             
-                    // $food_safety=$food_safety->first();
-                    // if($food_safety&&$row->chu_co_so!=""){
-                    //     $food_safety->update([
-                    //         'ten_co_so'=>$row->chu_co_so,
-                    //         'ten_chu_co_so'=>$row->chu_co_so,
-                    //         'village_id'=>@$village->id,
-                    //         'phone'=>$row->dien_thoai,
-                    //         'certification_date'=>$row->ngay_cap,
-                    //         'so_cap'=>$row->so_gcn,
-                    //         'category_id'=>@$cate1->id,
-                    //         'categoryb2_id'=>@$cate2->id,
-                    //         'noi_tieu_thu'=>$row->noi_tieu_thu
-                    //     ]);
-                    // }
-                    // else if($row->chu_co_so!="")
-                    // $food_safety = FoodSafety::create([
-                    //     'ten_co_so'=>$row->chu_co_so,
-                    //     'ten_chu_co_so'=>$row->chu_co_so,
-                    //     'village_id'=>@$village->id,
-                    //     'phone'=>$row->dien_thoai,
-                    //     'certification_date'=>$row->ngay_cap,
-                    //     'so_cap'=>$row->so_gcn,
-                    //     'category_id'=>@$cate1->id,
-                    //     'categoryb2_id'=>@$cate2->id,
-                    //     'noi_tieu_thu'=>$row->noi_tieu_thu
-                    // ]);
-                }); 
-            }); 
-        },'UTF-8')->get();
-        return redirect('/food_safety/y-te');
+        $file = $request->file('file');
+        $path = public_path('upload/excel/'.$file->getClientOriginalName());
+        $file->move(public_path('/upload/excel'), $file->getClientOriginalName());
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+
+        $xlsx = new XLSXReader($path);
+        $data = $xlsx->getSheetData('Cơ sở');
+
+        foreach ($data as $key => $rowCoso) {
+            if($key > 0){
+                // dd($rowCoso);
+                $village = Village::where('name', $rowCoso[1])->first();
+                $category = Category::where('name', $rowCoso[2])->first();
+                if($rowCoso[0] != "" && $rowCoso[3] != "" && $village && $category) {
+                    $food_safety = FoodSafety::where('code', $rowCoso[0])->first();
+                    $dataInsert = [
+                        'code' => $rowCoso[0],
+                        'ten_co_so' => $rowCoso[3],
+                        'ten_chu_co_so' => $rowCoso[4],
+                        'categoryb2_id' => $category->id,
+                        'category_id' => Category::find($category->parent_id)->id,
+                        'ward_id' => Auth::user()->role,
+                        'village_id' => $village->id,
+                        'status' => $rowCoso[5],
+                        'phone' => $rowCoso[6],
+                        'ngay_ky_cam_ket' => $rowCoso[7]?Carbon::parse($rowCoso[7]):null,
+                        'ngay_kham_suc_khoe' => $rowCoso[8]?Carbon::parse($rowCoso[8]):null,
+                        'certification_date' => $rowCoso[9]?Carbon::parse($rowCoso[9]):null,
+                        'so_cap' => $rowCoso[10]
+                    ];
+                    if($food_safety){
+                        $food_safety->update($dataInsert);
+                    } else {
+                        FoodSafety::create($dataInsert);
+                    }
+                }
+            }
+        }
+
+        $dataChecked = $xlsx->getSheetData('Kiểm tra');
+        foreach ($dataChecked as $key => $rowChecked) {
+            if($key > 0 && $rowChecked[0] != "" && $rowChecked[1] != "" && $rowChecked[4] != ""){
+                $checked = Checked::where('code', $rowChecked[0])->first();
+                $dateChecked = Carbon::parse($rowChecked[4]);
+                $food_safety = FoodSafety::where('code', $rowChecked[1])->first();
+                $dataInsertChecked = [
+                    'code' => $rowChecked[0],
+                    'food_safety_id' => $food_safety->id,
+                    'result' => $rowChecked[5],
+                    'note' => $rowChecked[6],
+                    'penalize' => $rowChecked[7],
+                    'year' => $dateChecked->format('Y'),
+                    'month' => $dateChecked->format('m'),
+                    'day' => $dateChecked->format('d'),
+                    'dateChecked' => $dateChecked->format('Y-m-d')
+                ];
+                if($checked){
+                    $checked->update($dataInsertChecked);
+                } else {
+                    $checked = Checked::create($dataInsertChecked);
+                }
+
+                if($checked){
+                    CheckedTest::where("checked_id", $checked->id)->delete();
+                    for ($i = 7; $i <= 12; $i++) {
+                        if(isset($rowChecked[$i]) && $rowChecked[$i] != "") {
+                            $testName = explode(":", $rowChecked[$i])[0];
+                            $testResult = explode(":", $rowChecked[$i])[1];
+                            $test = Test::where('name', $testName)->first();
+                            CheckedTest::create([
+                                'checked_id' => $checked->id,
+                                'test_id' => $test->id,
+                                'result' => $testResult
+                            ]);
+                        }
+                    }
+                }
+            }
+        }
+
+        return redirect('food_safety/y-te');
     }
     
     // function updateDataWard(){
@@ -207,6 +242,5 @@ class FoodSafetyController extends BaseController
     //             ]);
     //     }
     // }
-
     
 }

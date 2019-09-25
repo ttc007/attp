@@ -47,9 +47,9 @@ $(document).ready(function(){
 				'<br>Số điện thoại:'+ (rowData.phone?rowData.phone:"-")+
 				'<br>Thôn:'+ (rowData.village?rowData.village.name:"-")+
 				'<br>Nhóm:'+ (rowData.category_2?rowData.category_2.name:"-")+
-				'<br>Ngày kí cam kết(3 năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
+				'<br>Ngày kí cam kết(3 năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
 				'<br>Ngày khám sức khỏe(1 năm):'+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
-				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
+				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
 				'<br>Số cấp:'+(rowData.so_cap?rowData.so_cap:"-")+
 				'</div></div>';
 	}
@@ -67,7 +67,7 @@ $(document).ready(function(){
 				showCancelButton:true
 			}).then(function(){
 				$.ajax({
-					url: '/api/food_safety/delete',
+					url: '../api/food_safety/delete',
 					type: 'POST',
 					data: {
 						id: row.id
@@ -128,7 +128,7 @@ $(document).ready(function(){
 	    var result = null;
 	    $.ajax({
 	        async: false,
-	        url: 'http://localhost/attp/' +"api/food_safety/",
+	        url: "../api/food_safety",
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
@@ -158,12 +158,11 @@ $(document).ready(function(){
 	            
 	            if(checked.note!=null) trave +=`<br>`+checked.note;
 	            if(checked.penalize!=null) trave +=`<br> Xử phạt:`+checked.penalize;
-	            if(checked.checked_tests.lenth>0){
+	            if(checked.checked_tests.length>0){
 	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
 	            	$.each(checked.checked_tests, function(t, checked_test){
-	            		console.log(checked_test);
 	            		trave += "<span class='test-nhanh'>"+
-	            				checked_test.name+":"+checked_test.result+"</span><br>";
+	            				checked_test.test.name+":"+checked_test.result+"</span><br>";
 	            	});
 	            } else {
 	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span>: Không test";
