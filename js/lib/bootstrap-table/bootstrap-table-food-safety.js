@@ -151,13 +151,13 @@ $(document).ready(function(){
         var trave = "<div class='text-left'>";
         $.each(row.checkeds, function(i,checked){
         	if(true){
-	        	trave +="<div class='pt-2'><b style='color:#0a7dca'>Lần:"+(i+1)+"</b>:<b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
+	        	trave +="<div class='pt-2'><b style='color:#0a7dca'>Lần:"+(i+1)+"</b>: <b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
 	            
-	            if(checked.result=="Chưa đạt") trave += "Kết quả:<b class='text-danger'>Chưa đạt</b>";
+	            if(checked.result=="Chưa đạt") trave += "Kết quả: <b class='text-danger'>Chưa đạt</b>";
 	            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";
-	            
+	            trave +="<br>Mã kiểm tra: <b>"+checked.code+"</b>";
 	            if(checked.note!=null) trave +=`<br>`+checked.note;
-	            if(checked.penalize!=null) trave +=`<br> Xử phạt:`+checked.penalize;
+	            if(checked.penalize!=null) trave +=` -- Xử phạt: `+checked.penalize;
 	            if(checked.checked_tests.length>0){
 	            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
 	            	$.each(checked.checked_tests, function(t, checked_test){
