@@ -122,11 +122,11 @@ class UpdateDataController extends Controller
     function updateFSCode(){
         $food_safeties = FoodSafety::all();
         foreach ($food_safeties as $key => $food_safety) {
-            // $dataUpdate = [
-            //     'ngay_ky_cam_ket' => $food_safety->certification_date?$food_safety->certification_date:null,
-            //     'certification_date' => $food_safety->ngay_ky_cam_ket?$food_safety->ngay_ky_cam_ket:null
-            // ];
-            // $food_safety->update($dataUpdate);
+            $dataUpdate = [
+                'ngay_ky_cam_ket' => $food_safety->certification_date?$food_safety->certification_date:null,
+                'certification_date' => $food_safety->ngay_ky_cam_ket?$food_safety->ngay_ky_cam_ket:null
+            ];
+            $food_safety->update($dataUpdate);
 
             $ward = Ward::find($food_safety->ward_id);
             if(!$ward) $food_safety->delete();

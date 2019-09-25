@@ -214,7 +214,7 @@ class FoodSafetyController extends BaseController
 
                 if($checked){
                     CheckedTest::where("checked_id", $checked->id)->delete();
-                    for ($i = 7; $i <= 12; $i++) {
+                    for ($i = 8; $i < 14; $i++) {
                         if(isset($rowChecked[$i]) && $rowChecked[$i] != "") {
                             $testName = explode(":", $rowChecked[$i])[0];
                             $testResult = explode(":", $rowChecked[$i])[1];

@@ -151,7 +151,7 @@ $(document).ready(function(){
         var trave = "<div class='text-left'>";
         $.each(row.checkeds, function(i,checked){
         	if(true){
-	        	trave +="<div><b style='color:#636c72'>Lần:"+(i+1)+"</b>:<b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
+	        	trave +="<div class='pt-2'><b style='color:#0a7dca'>Lần:"+(i+1)+"</b>:<b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
 	            
 	            if(checked.result=="Chưa đạt") trave += "Kết quả:<b class='text-danger'>Chưa đạt</b>";
 	            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";

@@ -772,6 +772,7 @@ function renderHistory(checkeds){
             }
             var dateChecked = checked.day+"-"+checked.month+"-"+checked.year;
             var tr = $("<tr></tr>");
+            tr.append("<td>"+checked.code+"</td>");
 
             var aEdit = $(`<td>
             	<a>`+dateChecked+`</a></td>

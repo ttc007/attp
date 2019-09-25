@@ -8,6 +8,7 @@
 </select>
 <table class="table table-bordered">
     <tr>
+        <td>Mã kiểm tra</td>
         <td>Ngày kiểm tra</td>
         <td>Kết quả <br> kiểm tra</td>
         <td>Nội dung không đạt và hình thức xử phạt <br>(nếu có)</td>
