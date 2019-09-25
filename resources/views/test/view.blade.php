@@ -15,7 +15,7 @@
 			<section class="box-typical col-sm-12">
         <div id="toolbar">
             <div class="bootstrap-table-header">Quản lí test nhanh</div>
-                <a href="{{ route('contact.add') }}" class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm 1 test nhanh</a>
+                <a href="" class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm 1 test nhanh</a>
         </div>
         <div class="table-responsive" id="project-uid" data-uid="all">
             <table id="table" 

@@ -47,12 +47,14 @@ Route::get('/category/{id}','CategoryController@api_show');
 
 
 Route::post('/food_safety','FoodSafetyController@api_store');
-Route::get('/food_safety','FoodSafetyController@api_get');
+Route::get('/food_safety','API\FoodSafetyController@api_get');
 
-Route::get('/food_safety_filter','FoodSafetyController@api_get_filter');
+Route::get('/food_safety_filter','API\FoodSafetyController@api_get_filter');
+
+Route::get('/food_safety/{id}','API\FoodSafetyController@api_show');
 
 Route::post('/food_safety/delete','FoodSafetyController@api_delete');
-Route::get('/food_safety/{id}','FoodSafetyController@api_show');
+
 
 Route::get('/template_email/{id}', 'TemplateController@get_template_email');
 Route::get('/template_email', 'TemplateController@get_list_template_email');
