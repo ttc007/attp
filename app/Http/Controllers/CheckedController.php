@@ -21,7 +21,8 @@ class CheckedController extends Controller
 			'year' => $date->format('Y'),
 			'month' => $date->format('m'),
 			'day' => $date->format('d'),
-            'dateChecked' => $request->dateChecked
+            'dateChecked' => $request->dateChecked,
+            'code' => $request->code
     	];
         if($request->checked_id > 0){
         	$checked = Checked::find($request->checked_id);
