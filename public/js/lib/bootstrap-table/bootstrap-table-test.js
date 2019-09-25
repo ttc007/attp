@@ -53,7 +53,7 @@ $(document).ready(function(){
 			swal({
 				type:'warning',
 				title:'warning',
-				text:'Bạn chắc chắn muốn xóa xã này',
+				text:'Bạn chắc chắn muốn xóa test này',
 				showCancelButton: true,
 			}).then(function(){
 				$.ajax({
@@ -115,7 +115,7 @@ $(document).ready(function(){
 	    var result = null;
 	    $.ajax({
 	        async: false,
-	        url: "/api/ward",
+	        url: "/api/test",
 	        dataType: "json",
 	        type:'GET',
 	        success: function(response){

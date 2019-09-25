@@ -122,7 +122,7 @@ $(document).ready(function(){
 	        data: {
 	        	category_id:$("#category_id").val(),
 	        	ward_id:$("#ward_id").val(),
-                        year:$("#GLOBAL_YEAR").val()
+                year:$("#GLOBAL_YEAR").val()
 	        },
 	        dataType: "json",
 	        success: function(response){
@@ -237,16 +237,16 @@ $(document).ready(function(){
     }
     $data_field = [
 			[
-				{
-					field: 'ten_chu_co_so',
-					title: 'Tên chủ cơ sở',
-					sortable: true,
-					editable: true,
-					formatter: statusFormatter,
-					footerFormatter: totalNameFormatter,
-					align: 'center',
-					events: nameEvents,
-				},
+				// {
+				// 	field: 'ten_chu_co_so',
+				// 	title: 'Tên chủ cơ sở',
+				// 	sortable: true,
+				// 	editable: true,
+				// 	formatter: statusFormatter,
+				// 	footerFormatter: totalNameFormatter,
+				// 	align: 'center',
+				// 	events: nameEvents,
+				// },
 				{
 					field: 'ten_co_so',
 					title: 'Tên cơ sở',
@@ -283,7 +283,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					footerFormatter: certificationDateFormatter
+					// footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'so_cap',
@@ -385,7 +385,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					footerFormatter: certificationDateFormatter
+					// footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'noi_tieu_thu',
@@ -473,16 +473,23 @@ $(document).ready(function(){
 		.always(function() {
 			console.log("complete");
 		});
-		
-		
 	});
+		
+	alert(112);
 
 	$('#toolbar').find('select').change(function () {
+		alert(112);
 		$table.bootstrapTable('refreshOptions', {
 			exportDataType: $(this).val()
 		});
+		console.log($(this).val());
 	});
 
+	function filter(){
+		$table.bootstrapTable('refreshOptions', {
+			exportDataType: $(this).val()
+		});
+	}
 
 });
 

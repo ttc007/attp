@@ -25,25 +25,21 @@ $(document).ready(function(){
 	}
 
 	function statusFormatter(data, rowData, index) {
-		var classBtn = '',
-			classDropup = '',
-			pageSize = 10;
-		if (rowData['status'] === 'Chưa thực hiện') classBtn = '';
-		if (rowData['status'] === 'Đang thực hiện') classBtn = 'btn-primary';
-		if (rowData['status'] === 'Đã hoàn thành') classBtn = 'btn-success';
-		//if (data === 'Reject') classBtn = 'btn-warning';
-
-		if (index >= pageSize / 2) {
-			classDropup = 'dropup';
+		var color = "#46c35f";
+		if(data=="Tạm nghỉ") {
+			color = `red`;
+		} else if(!data) {
+			data = "Đang hoạt động";
 		}
 
-		return	'<div class="dropdown dropdown-status ' +
-				classDropup +
-				' ">' +
-				'<button class="nameclick btn ' +
-				classBtn +
-				' " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
-				data +
+		var trave = `<span style='color:`+color+`'>`+data+`</span>`;
+		return trave;
+	}
+	function nameFormatter(data, rowData, index) {
+		return	'<div class="dropdown dropdown-status">' +
+				'<button class="nameclick btn" type="button" data-toggle="dropdown"'+
+				'aria-haspopup="true" aria-expanded="false">' +
+					data +
 				'</button>' +
 				'</div>';
 	}
@@ -140,89 +136,89 @@ $(document).ready(function(){
 
 	}
         
-        function ngaykiemtraFormatter(value, row, index){
-            var year = $("#GLOBAL_YEAR").val();
-            var trave="<div class='text-left'>";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
-                    trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
-                    if(v.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                    if(v.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                    trave+=`)`;
-                    if(v.ghi_chu_1!=null)trave+=`<br>`+v.ghi_chu_1;
-                    if(v.hinh_thuc_xu_phat_1!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_1;
-                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_1){
-                    	var test_1_arr = v.test_1.split("<br>");
-                    	$.each(test_1_arr, function(t, test_1_item){
-                    		var kqTest = test_1_item.split(":")[1];
-                    		if(kqTest!="Không kiểm tra"){
-                    			trave+= "<span class='test-nhanh'>"+
-                    				test_1_item+"</span><br>";
-                    		}
-                    	});
-                    }
+    function ngaykiemtraFormatter(value, row, index){
+        var year = $("#GLOBAL_YEAR").val();
+        var trave="<div class='text-left'>";
+        $.each(row.check_dates,function(i,v){
+            if(year==v.year&&v.ngay_xac_nhan_hien_thuc) {
+                trave = dateFormatByString(v.ngay_xac_nhan_hien_thuc)+"(";
+                if(v.ket_qua_kiem_tra_1=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
+                if(v.ket_qua_kiem_tra_1=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
+                trave+=`)`;
+                if(v.ghi_chu_1!=null)trave+=`<br>`+v.ghi_chu_1;
+                if(v.hinh_thuc_xu_phat_1!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_1;
+                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                if(v.test_1){
+                	var test_1_arr = v.test_1.split("<br>");
+                	$.each(test_1_arr, function(t, test_1_item){
+                		var kqTest = test_1_item.split(":")[1];
+                		if(kqTest!="Không kiểm tra"){
+                			trave+= "<span class='test-nhanh'>"+
+                				test_1_item+"</span><br>";
+                		}
+                	});
                 }
-            });
-            trave+="</div>";
-            return trave;
-        }
+            }
+        });
+        trave+="</div>";
+        return trave;
+    }
 
-        function ngaykiemtraFormatter2(value, row, index){
-            var year = $("#GLOBAL_YEAR").val();
-            var trave="<div class='text-left'>";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_kiem_tra_2) {
-                    trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
-                    if(v.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                    if(v.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                    trave+=`)`;
-                    if(v.ghi_chu_2!=null)trave+=`<br>`+v.ghi_chu_2;
-                    if(v.hinh_thuc_xu_phat_2!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_2;
-                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_2){
-                    	var test_2_arr = v.test_2.split("<br>");
-                    	$.each(test_2_arr, function(t, test_2_item){
-                    		var kqTest = test_2_item.split(":")[1];
-                    		if(kqTest!="Không kiểm tra"){
-                    			trave+= "<span class='test-nhanh'>"+
-                    				test_2_item+"</span><br>";
-                    		}
-                    	});
-                    }
+    function ngaykiemtraFormatter2(value, row, index){
+        var year = $("#GLOBAL_YEAR").val();
+        var trave="<div class='text-left'>";
+        $.each(row.check_dates,function(i,v){
+            if(year==v.year&&v.ngay_kiem_tra_2) {
+                trave = dateFormatByString(v.ngay_kiem_tra_2)+"(";
+                if(v.ket_qua_kiem_tra_2=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
+                if(v.ket_qua_kiem_tra_2=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
+                trave+=`)`;
+                if(v.ghi_chu_2!=null)trave+=`<br>`+v.ghi_chu_2;
+                if(v.hinh_thuc_xu_phat_2!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_2;
+                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                if(v.test_2){
+                	var test_2_arr = v.test_2.split("<br>");
+                	$.each(test_2_arr, function(t, test_2_item){
+                		var kqTest = test_2_item.split(":")[1];
+                		if(kqTest!="Không kiểm tra"){
+                			trave+= "<span class='test-nhanh'>"+
+                				test_2_item+"</span><br>";
+                		}
+                	});
                 }
-            });
-            trave+="</div>";
-            return trave;
-        }
+            }
+        });
+        trave+="</div>";
+        return trave;
+    }
 
-        function ngaykiemtraFormatter3(value, row, index){
-            var year = $("#GLOBAL_YEAR").val();
-            var trave="<div class='text-left'>";
-            $.each(row.check_dates,function(i,v){
-                if(year==v.year&&v.ngay_kiem_tra_3) {
-                    trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
-                    if(v.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
-                    if(v.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
-                    trave+=`)`;
-                    if(v.ghi_chu_3!=null)trave+=`<br>`+v.ghi_chu_3;
-                    if(v.hinh_thuc_xu_phat_3!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_3;
-                    trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
-                    if(v.test_3){
-                    	var test_3_arr = v.test_3.split("<br>");
-                    	$.each(test_3_arr, function(t, test_3_item){
-                    		var kqTest = test_3_item.split(":")[1];
-                    		if(kqTest!="Không kiểm tra"){
-                    			trave+= "<span class='test-nhanh'>"+
-                    				test_3_item+"</span><br>";
-                    		}
-                    	});
-                    }
+    function ngaykiemtraFormatter3(value, row, index){
+        var year = $("#GLOBAL_YEAR").val();
+        var trave="<div class='text-left'>";
+        $.each(row.check_dates,function(i,v){
+            if(year==v.year&&v.ngay_kiem_tra_3) {
+                trave = dateFormatByString(v.ngay_kiem_tra_3)+"(";
+                if(v.ket_qua_kiem_tra_3=="Chưa đạt")trave+= "<b class='text-danger'>Chưa đạt</b>";
+                if(v.ket_qua_kiem_tra_3=="Đạt")trave+= "<b class='text-success'>Đạt</b>";
+                trave+=`)`;
+                if(v.ghi_chu_3!=null)trave+=`<br>`+v.ghi_chu_3;
+                if(v.hinh_thuc_xu_phat_3!=null)trave+=`<br> Xử phạt:`+v.hinh_thuc_xu_phat_3;
+                trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+                if(v.test_3){
+                	var test_3_arr = v.test_3.split("<br>");
+                	$.each(test_3_arr, function(t, test_3_item){
+                		var kqTest = test_3_item.split(":")[1];
+                		if(kqTest!="Không kiểm tra"){
+                			trave+= "<span class='test-nhanh'>"+
+                				test_3_item+"</span><br>";
+                		}
+                	});
                 }
-            });
-            trave+="</div>";
-            return trave;
-        }
+            }
+        });
+        trave+="</div>";
+        return trave;
+    }
     $data_field = [
 			[
 				{
@@ -240,7 +236,7 @@ $(document).ready(function(){
 					title: 'Tên chủ cơ sở',
 					sortable: true,
 					editable: true,
-					formatter: statusFormatter,
+					formatter: nameFormatter,
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
@@ -250,7 +246,7 @@ $(document).ready(function(){
 					title: 'Tên cơ sở',
 					sortable: true,
 					editable: true,
-					formatter: statusFormatter,
+					formatter: nameFormatter,
 					footerFormatter: totalNameFormatter,
 					align: 'center',
 					events: nameEvents,
@@ -281,7 +277,7 @@ $(document).ready(function(){
 					title: 'Ngày ký<br> cam kêt<br>(3 năm)',
 					sortable: true,
 					align: 'center',
-					footerFormatter: certificationDateFormatter
+					// footerFormatter: certificationDateFormatter
 				},
 				{
 					field: 'so_cap',
@@ -324,6 +320,13 @@ $(document).ready(function(){
 					sortable: true,
 					align: 'left',
 					formatter: ngaykiemtraFormatter3
+				},
+				{
+					field: 'status',
+					title: 'Trạng thái',
+					sortable: true,
+					align: 'left',
+					formatter: statusFormatter
 				},
 				{
 					field: 'operate',
@@ -479,8 +482,8 @@ $(document).ready(function(){
 		$table.bootstrapTable('refreshOptions', {
 			exportDataType: $(this).val()
 		});
+		console.log($(this).val());
 	});
-
 
 });
 

@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: fdb21.awardspace.net
+<<<<<<< HEAD
 -- Thời gian đã tạo: Th8 22, 2019 lúc 04:46 PM
+=======
+-- Thời gian đã tạo: Th7 31, 2019 lúc 08:16 AM
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 -- Phiên bản máy phục vụ: 5.7.20-log
 -- Phiên bản PHP: 5.5.38
 
@@ -775,6 +779,7 @@ INSERT INTO `date_checked` (`id`, `food_safety_id`, `year`, `ngay_xac_nhan_hien_
 (669, 1243, '2019', '2019-07-18', NULL, NULL, 'Tủ lạnh lưu mẫu sắp xếp không ngăn nắp', NULL, NULL, 'nhắc nhở', NULL, NULL, 'Chưa đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (670, 1244, '2019', '2019-07-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (671, 1245, '2019', '2019-07-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+<<<<<<< HEAD
 (672, 1246, '2019', '2019-01-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'null:Không kiểm tra', 'null:Không kiểm tra', 'null:Không kiểm tra'),
 (673, 1247, '2019', '2019-04-18', NULL, NULL, 'nguyên liệu thực phẩm', NULL, NULL, 'phạt tiền', NULL, NULL, 'Chưa đạt', NULL, NULL, 'null:Không kiểm tra', 'null:Không kiểm tra', 'null:Không kiểm tra'),
 (674, 1248, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
@@ -789,6 +794,22 @@ INSERT INTO `date_checked` (`id`, `food_safety_id`, `year`, `ngay_xac_nhan_hien_
 (683, 1257, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (684, 1258, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'null:Không kiểm tra', 'null:Không kiểm tra', 'null:Không kiểm tra'),
 (685, 1259, '2019', '2019-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'null:Không kiểm tra', 'null:Không kiểm tra', 'null:Không kiểm tra'),
+=======
+(672, 1246, '2019', '2019-01-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(673, 1247, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(674, 1248, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(675, 1249, '2019', '2019-01-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(676, 1250, '2019', '2019-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(677, 1251, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(678, 1252, '2019', '2019-05-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(679, 1253, '2019', '2019-05-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(680, 1254, '2019', '2019-05-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(681, 1255, '2019', '2019-01-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(682, 1256, '2019', '2019-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(683, 1257, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(684, 1258, '2019', '2019-04-18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+(685, 1259, '2019', '2019-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 (686, 1260, '2019', '2019-01-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (687, 1261, '2019', '2019-03-05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (688, 1262, '2019', '2019-01-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'null:Không kiểm tra', 'null:Không kiểm tra', 'null:Không kiểm tra'),
@@ -800,6 +821,7 @@ INSERT INTO `date_checked` (`id`, `food_safety_id`, `year`, `ngay_xac_nhan_hien_
 (694, 1268, '2019', '2019-12-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (695, 1269, '2019', '2019-12-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (696, 1270, '2019', '2019-12-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
+<<<<<<< HEAD
 (697, 1271, '2019', '2019-12-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (698, 1272, '2019', '2019-03-07', NULL, NULL, 'trang thiết bị dụng cụ', NULL, NULL, 'phạt tiền', NULL, NULL, 'Chưa đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (699, 1273, '2019', '2019-01-21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
@@ -858,6 +880,9 @@ INSERT INTO `date_checked` (`id`, `food_safety_id`, `year`, `ngay_xac_nhan_hien_
 (752, 1324, '2019', '2019-04-14', '2019-06-09', NULL, NULL, NULL, NULL, NULL, 'mời về xử lý cơ sở hong chấp hành', NULL, 'Chưa đạt', 'Chưa đạt', NULL, 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (753, 1325, '2019', '2019-04-14', '2019-06-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', 'Đạt', NULL, 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra'),
 (754, 1326, '2019', '2019-04-14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra');
+=======
+(697, 1271, '2019', '2019-12-07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Đạt', NULL, NULL, ':Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra', 'Chọn 1 loại test:Không kiểm tra');
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 
 -- --------------------------------------------------------
 
@@ -1755,8 +1780,13 @@ INSERT INTO `food_safeties` (`id`, `ten_chu_co_so`, `ten_co_so`, `category_id`, 
 (913, 'Nguyễn thị Diệu', 'Ngôi Sao Nhỏ', 1, 6, NULL, 4, 28, NULL, NULL, NULL, '2017-03-30', '2019-06-18 03:08:21', '2019-06-18 03:08:21', '0905810038', NULL, 'Đang hoạt động'),
 (914, 'Võ Thị Kim Nin', 'BÌNH Minh', 1, 6, NULL, 4, 53, NULL, NULL, NULL, NULL, '2019-06-18 03:13:58', '2019-06-18 03:13:58', '0905031371', NULL, 'Đang hoạt động'),
 (915, 'Nguyễn Chính', 'Chính Trực', 1, 7, NULL, 4, 53, NULL, NULL, NULL, '2016-09-29', '2019-06-18 03:26:12', '2019-06-18 03:26:12', '0979292155', NULL, 'Đang hoạt động'),
+<<<<<<< HEAD
 (917, 'Lê thị ánh Hòa', 'quán bún hoà', 1, 4, NULL, 3, 128, NULL, NULL, '2018-09-20', NULL, '2019-06-18 08:28:17', '2019-08-12 08:10:30', '0905075812', NULL, 'Đang hoạt động'),
 (918, 'lê thị mua', 'quán bún mua', 1, 4, NULL, 3, 128, NULL, NULL, '2018-10-17', NULL, '2019-06-18 08:32:26', '2019-08-20 07:44:43', NULL, NULL, 'Đang hoạt động'),
+=======
+(917, 'Lê thị ánh Hòa', 'quán bún hoà', 1, 4, NULL, 3, 128, NULL, NULL, NULL, NULL, '2019-06-18 08:28:17', '2019-06-18 08:28:17', '0905075812', NULL, 'Đang hoạt động'),
+(918, 'lê thị mua', 'quán bún mua', 1, 4, NULL, 3, 128, NULL, NULL, NULL, NULL, '2019-06-18 08:32:26', '2019-06-18 08:32:26', NULL, NULL, 'Đang hoạt động'),
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 (919, 'Nguyễn Thị Như Thúy', 'Bún / Mỳ', 1, 5, NULL, 7, 123, '2017-06-17', NULL, '2019-06-13', '2019-05-10', '2019-06-19 06:28:00', '2019-06-19 06:28:00', '0794602228', NULL, 'Đang hoạt động'),
 (922, 'Lê thị Phước', 'cơm/ Mỳ', 1, 5, NULL, 7, 124, '2018-05-17', NULL, '2019-06-13', '2019-05-10', '2019-06-19 06:33:57', '2019-06-19 06:33:57', '0962816912', NULL, 'Đang hoạt động'),
 (923, 'Nguyễn Kim Sơn', 'Mỳ', 1, 5, NULL, 7, 123, '2017-02-05', NULL, '2019-06-13', '2019-05-10', '2019-06-19 06:47:19', '2019-06-19 06:52:08', '0905251907', NULL, 'Đang hoạt động'),
@@ -2072,11 +2102,16 @@ INSERT INTO `food_safeties` (`id`, `ten_chu_co_so`, `ten_co_so`, `category_id`, 
 (1243, 'Phạm Thị Chữ', 'NLDLTT Quỳnh Linh', 1, 16, NULL, 12, 56, NULL, NULL, NULL, NULL, '2019-07-25 02:30:38', '2019-07-25 02:30:38', NULL, NULL, 'Đang hoạt động'),
 (1244, 'Phạm Thị Nhàn', 'Trường Mầm non tư thục', 1, 16, NULL, 12, 56, NULL, NULL, NULL, NULL, '2019-07-25 02:31:31', '2019-07-25 02:31:31', NULL, NULL, 'Đang hoạt động'),
 (1245, 'Hồ Thị Hà', 'NLDLTT Sơn Ca', 1, 16, NULL, 12, 56, NULL, NULL, NULL, NULL, '2019-07-25 02:32:24', '2019-07-25 02:32:24', NULL, NULL, 'Đang hoạt động'),
+<<<<<<< HEAD
 (1246, 'nguyễn thị thơm', '269 quán thơm', 1, 15, NULL, 3, 128, NULL, NULL, '2018-10-17', NULL, '2019-07-26 07:33:44', '2019-08-22 01:58:54', NULL, NULL, 'Đang hoạt động'),
+=======
+(1246, 'nguyễn thị thơm', '269 quán thơm', 1, 5, NULL, 3, 128, NULL, NULL, NULL, NULL, '2019-07-26 07:33:44', '2019-07-26 07:33:44', NULL, NULL, 'Đang hoạt động'),
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 (1247, 'trương thị liễu', 'cháo vịt liễu', 1, 15, NULL, 3, 128, NULL, NULL, '2019-01-10', NULL, '2019-07-26 07:36:56', '2019-07-26 07:36:56', NULL, NULL, 'Đang hoạt động'),
 (1248, 'nguyễn thị kim anh', 'quán cơm', 1, 15, NULL, 3, 128, NULL, NULL, '2019-02-10', NULL, '2019-07-26 07:41:47', '2019-07-26 07:41:47', NULL, NULL, 'Đang hoạt động'),
 (1249, 'phạm công hậu', 'cháo dinh dưỡng', 1, 15, NULL, 3, 128, NULL, NULL, '2019-01-01', NULL, '2019-07-26 07:44:11', '2019-07-26 07:44:11', NULL, NULL, 'Đang hoạt động'),
 (1250, 'Nguyễn thị minh tâm', 'quán cơm', 1, 15, NULL, 3, 128, NULL, NULL, '2018-06-15', NULL, '2019-07-26 07:47:20', '2019-07-26 07:47:20', NULL, NULL, 'Đang hoạt động'),
+<<<<<<< HEAD
 (1251, 'cao xuân thời', 'quan cơm tấm', 1, 15, NULL, 3, 128, NULL, NULL, '2019-02-15', NULL, '2019-07-26 07:49:13', '2019-08-12 08:13:21', NULL, NULL, 'Đang hoạt động'),
 (1252, 'Nguyễn thị Mai', 'quán bún mai', 1, 15, NULL, 3, 129, NULL, NULL, '2019-02-15', NULL, '2019-07-26 07:50:49', '2019-08-12 08:12:36', NULL, NULL, 'Đang hoạt động'),
 (1253, 'Nguyễn văn Hà', 'quán bà Toại', 1, 15, NULL, 3, 129, NULL, NULL, '2019-02-05', NULL, '2019-07-26 07:52:14', '2019-08-22 01:47:18', NULL, NULL, 'Đang hoạt động'),
@@ -2089,6 +2124,20 @@ INSERT INTO `food_safeties` (`id`, `ten_chu_co_so`, `ten_co_so`, `category_id`, 
 (1260, 'lê thị hối', 'quan tĩnh', 1, 15, NULL, 3, 137, NULL, NULL, '2018-11-16', NULL, '2019-07-26 08:08:04', '2019-07-26 08:08:04', NULL, NULL, 'Đang hoạt động'),
 (1261, 'trần thị hoa', 'quan hoa', 1, 15, NULL, 3, 137, NULL, NULL, '2019-02-10', NULL, '2019-07-26 08:09:55', '2019-07-26 08:09:55', NULL, NULL, 'Đang hoạt động'),
 (1262, 'tống văn doanh', 'quan phở nam định', 1, 15, NULL, 3, 137, NULL, NULL, '2018-10-15', NULL, '2019-07-26 08:11:40', '2019-07-31 08:35:35', NULL, NULL, 'Đang hoạt động'),
+=======
+(1251, 'cao xuân thời', 'quan cơm tấm', 1, 0, NULL, 3, 128, NULL, NULL, '2019-02-15', NULL, '2019-07-26 07:49:13', '2019-07-26 07:49:13', NULL, NULL, 'Đang hoạt động'),
+(1252, 'Nguyễn thị Mai', 'quán bún mai', 1, 0, NULL, 3, 129, NULL, NULL, '2019-02-15', NULL, '2019-07-26 07:50:49', '2019-07-26 07:50:49', NULL, NULL, 'Đang hoạt động'),
+(1253, 'Nguyễn văn Hà', 'quán bà Toại', 1, 15, NULL, 3, 128, NULL, NULL, '2019-02-05', NULL, '2019-07-26 07:52:14', '2019-07-26 07:52:14', NULL, NULL, 'Đang hoạt động'),
+(1254, 'lê thanh Tân', 'quan cơm', 1, 0, NULL, 3, 129, NULL, NULL, '2019-03-15', NULL, '2019-07-26 07:54:55', '2019-07-26 07:54:55', NULL, NULL, 'Đang hoạt động'),
+(1255, 'lê thị phụ', 'quán mỳ thử', 1, 15, NULL, 3, 136, NULL, NULL, '2018-11-15', '2018-04-10', '2019-07-26 07:59:02', '2019-07-26 07:59:02', NULL, NULL, 'Đang hoạt động'),
+(1256, 'lữ thị quý', 'quán quý', 1, 15, NULL, 3, 133, NULL, NULL, '2019-01-15', NULL, '2019-07-26 08:00:51', '2019-07-26 08:00:51', NULL, NULL, 'Đang hoạt động'),
+(1257, 'nguyễn thị ân', 'quán bánh canh', 1, 15, NULL, 3, 133, NULL, NULL, '2018-12-15', NULL, '2019-07-26 08:02:30', '2019-07-26 08:02:30', NULL, NULL, 'Đang hoạt động'),
+(1258, 'Nguyễn thị thùy linh', 'quán bún bà vân', 1, 0, NULL, 3, 136, NULL, NULL, '2019-03-15', NULL, '2019-07-26 08:04:24', '2019-07-26 08:04:24', NULL, NULL, 'Đang hoạt động'),
+(1259, 'Phan thị thanh', 'quán bún bé ba', 1, 0, NULL, 3, 136, NULL, NULL, '2019-02-05', NULL, '2019-07-26 08:06:10', '2019-07-26 08:06:10', NULL, NULL, 'Đang hoạt động'),
+(1260, 'lê thị hối', 'quan tĩnh', 1, 15, NULL, 3, 137, NULL, NULL, '2018-11-16', NULL, '2019-07-26 08:08:04', '2019-07-26 08:08:04', NULL, NULL, 'Đang hoạt động'),
+(1261, 'trần thị hoa', 'quan hoa', 1, 15, NULL, 3, 137, NULL, NULL, '2019-02-10', NULL, '2019-07-26 08:09:55', '2019-07-26 08:09:55', NULL, NULL, 'Đang hoạt động'),
+(1262, 'tống văn doanh', 'quan phở nam định', 1, 15, NULL, 3, 137, NULL, NULL, NULL, NULL, '2019-07-26 08:11:40', '2019-07-31 07:47:26', NULL, NULL, 'Đang hoạt động'),
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 (1263, 'Lê Thị Nghiêm', 'Nhóm lớp ĐLTT Khai Trí', 1, 16, NULL, 12, 63, NULL, NULL, NULL, NULL, '2019-07-30 06:32:05', '2019-07-30 06:32:05', NULL, NULL, 'Đang hoạt động'),
 (1264, 'Đinh Thị cẩm Lai', 'Nhóm lớp ĐLTT Tương Lai', 1, 16, NULL, 12, 63, NULL, NULL, NULL, NULL, '2019-07-30 06:33:26', '2019-07-30 06:33:26', NULL, NULL, 'Đang hoạt động'),
 (1265, 'Nguyễn Thị Thanh', 'Nhóm lớp ĐLTT Ban Mai Xanh', 1, 16, NULL, 12, 63, NULL, NULL, NULL, NULL, '2019-07-30 06:34:23', '2019-07-30 06:34:23', NULL, NULL, 'Đang hoạt động'),
@@ -2097,6 +2146,7 @@ INSERT INTO `food_safeties` (`id`, `ten_chu_co_so`, `ten_co_so`, `category_id`, 
 (1268, 'Đặng Thị Kiều Dung', 'Nhóm lớp ĐLTT Ngọc Quyên', 1, 16, NULL, 12, 59, NULL, NULL, NULL, NULL, '2019-07-30 06:37:58', '2019-07-30 06:37:58', NULL, NULL, 'Đang hoạt động'),
 (1269, 'Nguyễn  T Thanh Nga', 'Nhóm lớp ĐLTT Khai Tâm', 1, 16, NULL, 12, 59, NULL, NULL, NULL, NULL, '2019-07-30 06:39:03', '2019-07-30 06:39:03', NULL, NULL, 'Đang hoạt động'),
 (1270, 'Nguyễn Thị Thực', 'Nhóm lớp ĐLTT Ánh Khuyên', 1, 16, NULL, 12, 55, NULL, NULL, NULL, NULL, '2019-07-30 06:40:22', '2019-07-30 06:40:22', NULL, NULL, 'Đang hoạt động'),
+<<<<<<< HEAD
 (1271, 'Nguyễn Thị Huệ', 'Nhóm lớp ĐLTT Minh Trí', 1, 16, NULL, 12, 55, NULL, NULL, NULL, NULL, '2019-07-30 06:42:08', '2019-07-30 06:42:08', NULL, NULL, 'Đang hoạt động'),
 (1272, 'trần thị ánh minh', 'quán cơm bình dân', 1, 15, NULL, 3, 137, NULL, NULL, '2018-10-15', NULL, '2019-07-31 08:34:36', '2019-07-31 08:34:36', NULL, NULL, 'Đang hoạt động'),
 (1273, 'nguyễn thị hoa', 'quán bún hoa', 1, 15, NULL, 3, 137, NULL, NULL, '2018-08-25', NULL, '2019-07-31 08:37:59', '2019-07-31 08:37:59', NULL, NULL, 'Đang hoạt động'),
@@ -2153,6 +2203,9 @@ INSERT INTO `food_safeties` (`id`, `ten_chu_co_so`, `ten_co_so`, `category_id`, 
 (1324, 'Đào thị thủy', 'quán thủy', 1, 15, NULL, 3, 137, NULL, NULL, NULL, NULL, '2019-08-22 02:12:12', '2019-08-22 02:12:12', NULL, NULL, 'Đang hoạt động'),
 (1325, 'Trần thị Hiệp', 'quan hiệp', 1, 15, NULL, 3, 137, NULL, NULL, '2018-10-17', NULL, '2019-08-22 02:16:47', '2019-08-22 02:16:47', NULL, NULL, 'Đang hoạt động'),
 (1326, 'lê thị lượng', 'quan bún lượng', 1, 15, NULL, 3, 137, NULL, NULL, '2018-10-17', NULL, '2019-08-22 02:18:58', '2019-08-22 02:18:58', NULL, NULL, 'Đang hoạt động');
+=======
+(1271, 'Nguyễn Thị Huệ', 'Nhóm lớp ĐLTT Minh Trí', 1, 16, NULL, 12, 55, NULL, NULL, NULL, NULL, '2019-07-30 06:42:08', '2019-07-30 06:42:08', NULL, NULL, 'Đang hoạt động');
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 
 -- --------------------------------------------------------
 
@@ -2517,12 +2570,20 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `date_checked`
 --
 ALTER TABLE `date_checked`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=755;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=698;
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 --
 -- AUTO_INCREMENT cho bảng `food_safeties`
 --
 ALTER TABLE `food_safeties`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1327;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1272;
+>>>>>>> d230875bdd62b1d5fb980871f50538f943ec6e02
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --

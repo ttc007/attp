@@ -12,6 +12,7 @@ use File;
 use Excel;
 use Input;
 use App\Ward;
+use App\Test;
 use Illuminate\Support\Facades\DB;
 
 
@@ -28,7 +29,8 @@ class FoodSafetyController extends BaseController
         $villages = Village::where('parent_id',Session::get('ward_id'))->get();
         $categories = [];
         $category = null;
-        return view('food_safety.view', compact('category_id','villages','categories','category'));
+        $tests = Test::all();
+        return view('food_safety.view', compact('category_id','villages','categories','category', 'tests'));
     }
 
     function create()
@@ -57,12 +59,26 @@ class FoodSafetyController extends BaseController
             $categories = $category->childs();
         }
         $villages = Village::where('parent_id',Session::get('ward_id'))->get();
-        return view('food_safety.view',compact('category_id','villages','categories','category'));
+        $tests = Test::all();
+        return view('food_safety.view',compact('category_id','villages','categories','category','tests'));
+    }
+
+    function filter(){
+        $categories = [];
+        $category_id = 0;
+        $category = Category::where('slug','y-te')->first();
+        if($category) {
+            $category_id = $category->id;
+            $categories = $category->childs();
+        }
+        $villages = Village::where('parent_id',Session::get('ward_id'))->get();
+        $tests = Test::all();
+        return view('food_safety.filter',compact('category_id','villages','categories','category','tests'));
     }
     
     function store(Request $request){
         $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'ward_id',
-                                'phone', 'certification_date',
+                                'phone', 'certification_date', 'status',
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
                                 , 'category_id', 'categoryb2_id',
                                 'noi_tieu_thu');
@@ -71,42 +87,86 @@ class FoodSafetyController extends BaseController
         } else {
             $food_safety = Food_safety::find($request->food_safety_id);
             $food_safety->update($data);
-            $check_date = DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)->first();
-            $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2','ngay_kiem_tra_3', 'ket_qua_kiem_tra_1', 'ket_qua_kiem_tra_2',
-                                'ket_qua_kiem_tra_3',
-                                'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
-                                'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
-                                'hinh_thuc_xu_phat_3','year','food_safety_id');
-            $data_checkDate['test_1'] =  $request->test_1a."<br>".
-                                        $request->test_1b."<br>".
-                                        $request->test_1c."<br>".
-                                        $request->test_1d."<br>".
-                                        $request->test_1e;
-            $data_checkDate['test_2'] =  $request->test_2a."<br>".
-                                        $request->test_2b."<br>".
-                                        $request->test_2c."<br>".
-                                        $request->test_2d."<br>".
-                                        $request->test_2e;
-            $data_checkDate['test_3'] =  $request->test_3a."<br>".
-                                        $request->test_3b."<br>".
-                                        $request->test_3c."<br>".
-                                        $request->test_3d."<br>".
-                                        $request->test_3e;                            
             
-            if($check_date){
-                 DB::table('date_checked')->where('food_safety_id', $request->food_safety_id)->where('year',$request->year)
-                 ->update($data_checkDate);
-            } else {
-                 DB::table('date_checked')->insert($data_checkDate);
-            }
+        }
+        $check_date = DB::table('date_checked')->where('food_safety_id',
+            $food_safety->id)->where('year',$request->year)->first();
+        $data_checkDate = $request->only('ngay_xac_nhan_hien_thuc','ngay_kiem_tra_2'
+                            ,'ngay_kiem_tra_3', 'ket_qua_kiem_tra_1',
+                            'ket_qua_kiem_tra_2',
+                            'ket_qua_kiem_tra_3',
+                            'test_1', 'test_2', 'test_3',
+                            'ghi_chu_1','ghi_chu_2', 'ghi_chu_3',
+                            'hinh_thuc_xu_phat_1', 'hinh_thuc_xu_phat_2',
+                            'hinh_thuc_xu_phat_3','year');
+        $data_checkDate['food_safety_id'] = $food_safety->id;
+        if($check_date){
+             DB::table('date_checked')
+             ->where('food_safety_id', $food_safety->id)
+             ->where('year',$request->year)
+             ->update($data_checkDate);
+        } else {
+             DB::table('date_checked')->insert($data_checkDate);
         }
         return redirect()->back();
     }
 
     function api_get(Request $request){
         $food_safeties = Food_safety::where('food_safeties.category_id',$request->category_id)
-                        ->where('ward_id',$request->ward_id)
-                        ->get();
+                        ->where('ward_id',$request->ward_id);
+        if($request->categoryb2_id){
+            $food_safeties = $food_safeties->where('categoryb2_id',$request->categoryb2_id);
+        }
+        if($request->village_id){
+            $food_safeties = $food_safeties->where('village_id',$request->village_id);
+        }
+        $food_safeties = $food_safeties->get();
+        foreach ($food_safeties as $key => $value) {
+            $value->village = @Village::find($value->village_id)->name;
+            
+            if($value->certification_date){
+                $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
+            if($certification_date<Carbon::now()) 
+                $value->certification_date = "<b class='text-danger'>".Carbon::parse($value->certification_date)->format('d-m-Y')."<b>";
+            else $value->certification_date = Carbon::parse($value->certification_date)->format('d-m-Y');
+            }
+            
+
+            if($value->ngay_kham_suc_khoe!=""){
+                $ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->addYears(1)->addDays(7);
+                if($ngay_kham_suc_khoe<Carbon::now()) 
+                $value->ngay_kham_suc_khoe = "<b class='text-danger'>".Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y')."<b>";
+                else $value->ngay_kham_suc_khoe = Carbon::parse($value->ngay_kham_suc_khoe)->format('d-m-Y');
+            }
+
+            if($value->ngay_ky_cam_ket!=""){
+                $ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->addYears(3)->addDays(7);
+                if($ngay_ky_cam_ket<Carbon::now()) 
+                $value->ngay_ky_cam_ket = "<b class='text-danger'>".Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y')."<b>";
+                else $value->ngay_ky_cam_ket = Carbon::parse($value->ngay_ky_cam_ket)->format('d-m-Y');
+            }
+            
+            if($value->ngay_xac_nhan_hien_thuc!=null)
+            $value->ngay_xac_nhan_hien_thuc = Carbon::parse($value->ngay_xac_nhan_hien_thuc)->format('d-m-Y');
+
+            if($value->ngay_kiem_tra_2!=null)
+            $value->ngay_kiem_tra_2 = Carbon::parse($value->ngay_kiem_tra_2)->format('d-m-Y');
+
+            if($value->ngay_kiem_tra_3!=null)
+            $value->ngay_kiem_tra_3 = Carbon::parse($value->ngay_kiem_tra_3)->format('d-m-Y');
+
+            $value->category_2 = @Category::find($value->categoryb2_id)->name;
+            
+            $check_dates = DB::table('date_checked')->where('food_safety_id', $value->id)->get();
+            $value->check_dates = $check_dates;
+        }
+        return $food_safeties;
+    }
+
+    function api_get_filter(Request $request){
+        $food_safeties = Food_safety::where('food_safeties.category_id',$request->category_id)
+                        ->where('ward_id',$request->ward_id);
+        $food_safeties->get();
         foreach ($food_safeties as $key => $value) {
             $value->village = @Village::find($value->village_id)->name;
             $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);

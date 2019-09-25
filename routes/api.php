@@ -33,6 +33,11 @@ Route::get('/ward','WardController@api_get');
 Route::post('/ward/delete','WardController@api_delete');
 Route::get('/ward/{id}','WardController@api_show');
 
+Route::post('/test','TestController@api_store');
+Route::get('/test','TestController@api_get');
+Route::post('/test/delete','TestController@api_delete');
+Route::get('/test/{id}','TestController@api_show');
+
 
 Route::get('/category_store','CategoryController@api_store');
 Route::get('/category','CategoryController@api_get');
@@ -43,6 +48,9 @@ Route::get('/category/{id}','CategoryController@api_show');
 
 Route::post('/food_safety','FoodSafetyController@api_store');
 Route::get('/food_safety','FoodSafetyController@api_get');
+
+Route::get('/food_safety_filter','FoodSafetyController@api_get_filter');
+
 Route::post('/food_safety/delete','FoodSafetyController@api_delete');
 Route::get('/food_safety/{id}','FoodSafetyController@api_show');
 

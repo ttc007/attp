@@ -37,12 +37,19 @@ Route::get('/food_safety/reportUnexpectedWard', 'FoodSafetyController@reportUnex
 Route::get('/food_safety/reportTest', 'FoodSafetyController@reportTest');
 Route::get('/food_safety/reportTestMaster', 'FoodSafetyController@reportTestMaster');
 
+Route::get('/food_safety/filter', 'FoodSafetyController@filter');
+
+Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
+
+
 Route::get('/post', 'PostController@index');
 Route::post('/post/store', 'PostController@store');
+Route::get('/post/delete/{id}', 'PostController@destroy');
+
 Route::get('/communication', 'PostController@communication');
 Route::get('/lawSystem', 'PostController@lawSystem');
 
-Route::get('/food_safety/{category}', 'FoodSafetyController@getByCate');
+
 
 Route::get('/updateDataWard', 'FoodSafetyController@updateDataWard');
 
@@ -52,6 +59,9 @@ Route::group(['prefix'=>'village/','middleware' => ['auth']],function() {
 
 Route::group(['prefix'=>'ward/','middleware' => ['auth']],function() {
     Route::get('/', 'WardController@index');
+});
+Route::group(['prefix'=>'test/','middleware' => ['auth']],function() {
+    Route::get('/', 'TestController@index');
 });
 
 Route::group(['prefix'=>'user/','middleware' => ['auth']],function() {

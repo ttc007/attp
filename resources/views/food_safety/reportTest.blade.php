@@ -49,6 +49,9 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
         $("#month_report").change(function(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
+
           var month = $(this).val();
           $.ajax({
             url:'/api/month_report_test/'+$(this).val(),
@@ -61,8 +64,7 @@
               $("#btn-report-excel").css("display", 'block');
               $("#table").empty();
               var thead = $(`<tr></tr>`);
-              var testArr = ["Hàn the", "Formol", "Độ ôi khét dầu mỡ", 
-                "Độ sạch bát đĩa", "Độ sạch tiếp xúc thực phẩm"];
+              var testArr = data.tests;
               $("#table").append(thead);
               
               for(var i=1; i<=month; i++){
@@ -187,6 +189,7 @@
                   $("#table").append(tr);
                 }
               }
+              loader.remove();
             }
           });
         });

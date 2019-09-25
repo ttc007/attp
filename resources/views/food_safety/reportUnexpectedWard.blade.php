@@ -35,8 +35,8 @@
     </div>
   </div>
 
-  <div class="row p-3">
-    <div id="data-render" class="text-center row mx-0" style="margin-left: -30px!important">
+  <div class="row p-4">
+    <div id="data-render" class="text-center row mx-3">
       <table class="table" id='table-report-month'>
             <tbody id="table"></tbody>
       </table>
@@ -51,6 +51,8 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
         function reportByDate(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $.ajax({
             url:"/api/reportByDateWard",
             type:"GET",
@@ -79,6 +81,7 @@
                 tr.append("<td>"+cateData+"<br>("+data.fsInChildOfCategory[k]+"/"+rating1+"%)</td>");
                 thead.append("<td>"+k+"</td>")
               });
+              loader.remove();
             }
           });
         }

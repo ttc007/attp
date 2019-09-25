@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/lib/bootstrap-table/bootstrap-table.min.css')}}">
 <link href="https://cdn.jsdelivr.net/sweetalert2/6.4.3/sweetalert2.min.css" rel="stylesheet"/>
 <style>
   
@@ -8,82 +7,97 @@
 <input type="hidden" name="" id='app_id' value="{{\Session::get('app_id')}}">
 <input type="hidden" id="role" value="{{Auth::user()?'':'Guest'}}">
 <input type="hidden" id="category_id_page" value="{{$category->name}}">
-			<div class="section-header">
+			<div class="section-header1 w-100">
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>
-                 <b>{{app('App\Http\Controllers\UserController')->session_Ward_name()}}</b> 
-                / @if($category){{$category->name}}@endif</h3>
+              <div class="row">
+                <div class="col-md-10">
+                  <h3>
+                   <b>{{app('App\Http\Controllers\UserController')->session_Ward_name()}}</b> 
+                    / @if($category){{$category->name}}@endif
+                  </h3>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-control" id='selectMode'>
+                    <option selected="">Chế độ siêu lọc</option>
+                    <option>Chế độ tổng hợp</option>
+                  </select>
+                </div>
+              </div>
 						</div>
 					</div>
 				</div>
 			</div>
       
-			<section class="box-typical col-sm-12">
+			<section class="box-typical col-sm-12 pt-2">
         <div id="toolbar">
             
             <div class="bootstrap-table-header">Quản lí An toàn thực phẩm</div>
                 @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
-                  <a class="btn call-overlay" data-overlay="contact" onclick="addNew()"><i class="fa fa-plus"></i>Thêm</a>
+                  <a class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm</a>
                 @endif
                 <br>
+                <div class="row my-3">
+                  <div class="col-md-2">
+                    <b>Chọn năm</b><br>
+                    <select class="form-control" 
+                      style="width:100%;display:inline-block" id="GLOBAL_YEAR">
+                        <option>2018</option>
+                        <option selected>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <b>Chọn nhóm</b><br>
+                    <select class="form-control" 
+                      style="width:100%;display:inline-block" id="categoryFilter">
+                        <option></option>
+                        @foreach($categories as $key => $category)
+                          <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <b>Chọn thôn</b><br>
+                    <select class="form-control" 
+                      style="width:100%;display:inline-block" id="villageFilter">
+                        <option></option>
+                        @foreach($villages as $key => $village)
+                          <option value="{{$village->id}}">{{$village->name}}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    &nbsp;<br>
+                    <a class="btn btn-primary" onclick="filter()">Lọc</a>
+                  </div>
+
+                </div>
+                
             </div>
-        <div class="row my-3">
-            <div class="col-md-3">
-              <b>Chọn năm</b><br>
-              <select class="form-control" 
-                style="width:100%;display:inline-block" id="GLOBAL_YEAR">
-                  <option>2018</option>
-                  <option selected>2019</option>
-                  <option>2020</option>
-                  <option>2021</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <b>Chọn nhóm</b><br>
-              <select class="form-control" 
-                style="width:100%;display:inline-block" id="categoryFilter">
-                  <option></option>
-                  @foreach($categories as $key => $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
-                  @endforeach
-              </select>
-            </div>
-            <div class="col-md-3">
-              <b>Chọn thôn</b><br>
-              <select class="form-control" 
-                style="width:100%;display:inline-block" id="villageFilter">
-                  <option></option>
-                  @foreach($villages as $key => $village)
-                    <option value="{{$village->id}}">{{$village->name}}</option>
-                  @endforeach
-              </select>
-            </div>
-            <div class="col-md-3">
-              &nbsp;<br>
-              <a class="btn btn-primary" onclick="filter()">Lọc</a>
-            </div>
-        </div>
+          
         <div class="table-responsive" id="project-uid" data-uid="all">
-            <table id="table"
-               class="table table-striped"
-               data-toolbar="#toolbar"
-               data-search="true"
-               data-show-refresh="true"
-               data-show-toggle="true"
-               data-show-columns="true"
-               data-show-export="true"
-               data-detail-view="true"
-               data-detail-formatter="detailFormatter"
-               data-minimum-count-columns="2"
-               data-show-pagination-switch="true"
-               data-pagination="true"
-               data-id-field="id"
-               data-page-list="[20, 25, 50, 100, ALL]"
-               data-page-size='20'
-               data-show-footer="false"
-               data-response-handler="responseHandler">
+            <table id="table" class="table table-bordered" style="display: none">
+              <tr>
+                <th>STT</th>
+                <th>Tên chủ cơ sở</th>
+                <th>Tên cơ sở</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Nhóm</th>
+                <th>Ngày kí cam kết 3 năm</th>
+                <th>Số cấp</th>
+                <th>Ngày khám sức khỏe(1 năm)</th>
+                <th>Ngày tập huấn kiến thức(3 năm)</th>
+                <th>Ngày kiểm tra(lần 1)</th>
+                <th>Ngày kiểm tra(lần 2)</th>
+                <th>Ngày kiểm tra(lần 3)</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+              <tbody id='tbody'></tbody>
             </table>
         </div>
     </section>
@@ -198,8 +212,7 @@
                 </div>
                 
             </div>
-            <br>Chọn năm<select class="form-control" style="width:100px;display:inline-block"
-             name="year" id="GLOBAL_YEAR_EDIT" onchange="edit()">
+            <br>Chọn năm<select class="form-control" style="width:100px;display:inline-block" name="year" id="GLOBAL_YEAR_EDIT" onchange="edit()">
                                         <option>2018</option>
                                         <option selected>2019</option>
                                         <option>2020</option>
@@ -395,24 +408,13 @@
     <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table.js')}}"></script>
     <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-export.min.js')}}"></script>
     <script src="{{ asset('js/lib/bootstrap-table/tableExport.min.js')}}"></script>
-    <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-food-safety.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
-        function detailFormatter(index, row) {
-            var html = [];
-            $.each(row, function (key, value) {
-                html.push('<p><b>' + key + ':</b> ' + value + '</p>');
-            });
-            return html.join('');
-        }
         function close(){
           $(".overlay").css('display', 'none');
           $(".outside-overlay").css('display', 'none');
         }
         function edit(id){
-            if($("#GLOBAL_YEAR_EDIT").val()!=$("#GLOBAL_YEAR").val()){
-              $("#GLOBAL_YEAR_EDIT").val($("#GLOBAL_YEAR").val()).change();
-            }
             if(id==undefined) id = $("#food_safety_id").val();
             $.ajax({
                 url:'/api/food_safety/'+id,
@@ -543,8 +545,6 @@
         }
 
         function addOrUpdateFoodSafety(){
-          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
-          $('body').append(loader);
           $.each($(".divTest"), function (i,divTest){
             var number = i+1;
             var test = "";
@@ -555,54 +555,16 @@
             });
             $("[name=test_"+number+"]").val(test);
           });
-          callApiAddOrUpdateFoodSafety();
-        }
-        function callApiAddOrUpdateFoodSafety(){
-            $.ajax({
-              url:$("#formAddFoodSafety").attr("action"),
-              type:"POST",
-              data:$("#formAddFoodSafety").serialize(),
-              // async: false,
-              success:function(){
-                close();
-                filter('noAddLoading', 'endLoading');
-              }
-            });
-        }
 
-        function filter(noAddLoading, endLoading){
-            if(noAddLoading!="noAddLoading"){
-              var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
-              $('body').append(loader);
+          $.ajax({
+            url:$("#formAddFoodSafety").attr("action"),
+            type:"POST",
+            data:$("#formAddFoodSafety").serialize(),
+            async: false,
+            success:function(){
+              filter();
             }
-            
-            $.ajax({
-                // async: false,
-                url: "/api/food_safety/",
-                data: {
-                  category_id:$("#category_id").val(),
-                  ward_id:$("#ward_id").val(),
-                  year:$("#GLOBAL_YEAR").val(),
-                  categoryb2_id:$("#categoryFilter").val(),
-                  village_id:$("#villageFilter").val()
-                },
-                dataType: "json",
-                success: function(response){
-                    $("#table").bootstrapTable('refreshOptions', {
-                      // exportDataType: $("#GLOBAL_YEAR").val(),
-                      data:response
-                    });
-                    if(endLoading=="endLoading"||endLoading==undefined){
-                      $(".loader-overlay").remove();
-                    }
-
-                }
-            });
-        }
-
-        function addNew(){
-          $("#formAddFoodSafety")[0].reset();
-          $("#food_safety_id").val(0);
+          });
         }
     </script>
 
