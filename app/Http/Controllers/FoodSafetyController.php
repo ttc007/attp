@@ -80,17 +80,18 @@ class FoodSafetyController extends BaseController
     }
     
     function store(Request $request){
+        if(!$request->code) return "Code required";
         $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'ward_id',
                                 'phone', 'certification_date', 'status',
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
                                 , 'category_id', 'categoryb2_id', 'code',
                                 'noi_tieu_thu');
-        if($request->food_safety_id==0){
+        if($request->food_safety_id == 0){
             $food_safety = FoodSafety::create($data);
         } else {
             $food_safety = FoodSafety::find($request->food_safety_id);
             $count = FoodSafety::where('code', $request->code)->count();
-            if($count==0 || ($food_safety->code && $request->code != $food_safety->code)) $food_safety->update($data);
+            if($count == 0 || ($food_safety->code && $request->code == $food_safety->code)) $food_safety->update($data);
             else return "Code duplicate";
         }
         return redirect()->back();

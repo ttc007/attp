@@ -869,9 +869,17 @@ function callApiAddOrUpdateFoodSafety(){
       type:"POST",
       data:$("#formAddFoodSafety").serialize(),
       // async: false,
-      success:function(){
-        close();
-        filter('noAddLoading', 'endLoading');
+      success:function(data){
+      	if(data == 'Code duplicate') {
+  			alert('Mã số đã bị trùng!');
+  			$(".loader-overlay").remove();
+  		} else if(data == 'Code required') {
+  			alert('Mã số là bắt buộc nhập!');
+  			$(".loader-overlay").remove();
+  		} else {
+  			close();
+        	filter('noAddLoading', 'endLoading');
+  		}
       }
     });
 }
@@ -890,7 +898,9 @@ function filter(noAddLoading, endLoading){
           ward_id:$("#ward_id").val(),
           year:$("#GLOBAL_YEAR").val(),
           categoryb2_id:$("#categoryFilter").val(),
-          village_id:$("#villageFilter").val()
+          village_id:$("#villageFilter").val(),
+          code:$("#codeFilter").val(),
+          codeChecked:$('#codeCheckedFilter').val()
         },
         dataType: "json",
         success: function(response){
@@ -913,7 +923,7 @@ function addNew(){
 }
 
 function addChecked(){
-	if($("#ngay_kiem_tra").val()==""){
+	if($("#ngay_kiem_tra").val() == ""){
 		alert("Ngày kiểm tra là bắt buộc!");
 		$("#ngay_kiem_tra").focus();
 	} else {
@@ -933,8 +943,8 @@ function addChecked(){
 	      	type:"POST",
 	      	data:$("#formCheckedData").serialize(),
 	      	async: false,
-	      	success:function(){
-	         	getHistory();
+	      	success:function(data){
+	      		getHistory();
 	         	filter();
 	         	loader.remove();
 	      	}

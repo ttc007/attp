@@ -25,12 +25,12 @@
             <div class="bootstrap-table-header">Quản lí An toàn thực phẩm</div>
                 @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
                   <a class="btn call-overlay" data-overlay="contact" onclick="addNew()"><i class="fa fa-plus"></i>Thêm</a>
-                  <a class="btn" href='upfile_csv'>Up exel danh sách hàng loạt</a>
+                  <a class="btn" href='upfile_csv'>Up excel danh sách hàng loạt</a>
                 @endif
                 <br>
             </div>
         <div class="row my-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
               <b>Chọn năm</b><br>
               <select class="form-control" 
                 style="width:100%;display:inline-block" id="GLOBAL_YEAR">
@@ -40,7 +40,7 @@
                   <option>2021</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <b>Chọn nhóm</b><br>
               <select class="form-control" 
                 style="width:100%;display:inline-block" id="categoryFilter">
@@ -50,7 +50,7 @@
                   @endforeach
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <b>Chọn thôn</b><br>
               <select class="form-control" 
                 style="width:100%;display:inline-block" id="villageFilter">
@@ -60,7 +60,15 @@
                   @endforeach
               </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <b>Mã số cơ sở</b><br>
+              <input type="" name="" id='codeFilter' class="form-control" >
+            </div>
+            <div class="col-md-2">
+              <b>Mã số kiểm tra</b><br>
+              <input type="" name="" id='codeCheckedFilter' class="form-control" >
+            </div>
+            <div class="col-md-2">
               &nbsp;<br>
               <a class="btn btn-primary" onclick="filter()">Lọc</a>
             </div>

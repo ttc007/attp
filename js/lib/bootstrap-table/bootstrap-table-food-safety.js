@@ -39,7 +39,7 @@ $(document).ready(function(){
 		return	'<div class="dropdown dropdown-status">' +
 				'<button class="nameclick btn" type="button" data-toggle="dropdown"'+
 				'aria-haspopup="true" aria-expanded="false">' +
-					data +
+					rowData.ten_co_so +
 				'</button>' +
 				'<div class="text-left pt-2">'+
 				'<b>Mã số: '+ (rowData.code?rowData.code:"") + "</b>"+
@@ -176,7 +176,7 @@ $(document).ready(function(){
     $data_field = [
 			[
 				{
-					field: 'ten_chu_co_so',
+					field: 'code',
 					title: 'STT',
 					sortable: true,
 					editable: true,
@@ -186,7 +186,7 @@ $(document).ready(function(){
 					events: nameEvents,
 				},
 				{
-					field: 'ten_chu_co_so',
+					field: 'code',
 					title: 'Tên chủ cơ sở',
 					sortable: true,
 					editable: true,

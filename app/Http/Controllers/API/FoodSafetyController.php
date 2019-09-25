@@ -16,15 +16,30 @@ class FoodSafetyController extends Controller
 {
     function api_get(Request $request){
         $food_safeties = FoodSafety::where('food_safeties.category_id',$request->category_id)
-                        ->where('ward_id',$request->ward_id);
+                            ->where('ward_id',$request->ward_id);
         if($request->categoryb2_id){
             $food_safeties = $food_safeties->where('categoryb2_id',$request->categoryb2_id);
         }
         if($request->village_id){
             $food_safeties = $food_safeties->where('village_id',$request->village_id);
         }
+
+        if($request->code){
+            $food_safeties = $food_safeties->where('code', 'like', "%".$request->code."%");
+        }
         $food_safeties = $food_safeties->orderBy('code', 'asc')->get();
-        foreach ($food_safeties as $key => $value) {
+
+        if($request->codeChecked) {
+            $data = [];
+            foreach ($food_safeties as $key => $food_safety) {
+                $checked = Checked::where('food_safety_id', $food_safety->id)->where('code', 'like', '%'.$request->codeChecked.'%')->first();
+                if($checked) $data[] = $food_safety;
+            }
+        } else {
+            $data = $food_safeties;
+        }
+
+        foreach ($data as $key => $value) {
             if($value->certification_date){
                 $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
                 if($certification_date<Carbon::now()) 
@@ -58,7 +73,7 @@ class FoodSafetyController extends Controller
             }
             $value->checkeds = $checkeds;
         }
-        return $food_safeties;
+        return $data;
     }
 
     function api_show($id, Request $request){
