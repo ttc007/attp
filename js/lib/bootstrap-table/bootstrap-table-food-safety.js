@@ -43,14 +43,14 @@ $(document).ready(function(){
 				'</button>' +
 				'<div class="text-left pt-2">'+
 				'<b>Mã số: '+ (rowData.code?rowData.code:"") + "</b>"+
-				'<br>Tên cơ sở:'+ rowData.ten_chu_co_so+
-				'<br>Số điện thoại:'+ (rowData.phone?rowData.phone:"-")+
-				'<br>Thôn:'+ (rowData.village?rowData.village.name:"-")+
-				'<br>Nhóm:'+ (rowData.category_2?rowData.category_2.name:"-")+
-				'<br>Ngày kí cam kết(3 năm):'+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
-				'<br>Ngày khám sức khỏe(1 năm):'+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
-				'<br>Ngày tập huấn kiến thức(3năm):'+ (rowData.certification_date?rowData.certification_date:"-")+
-				'<br>Số cấp:'+(rowData.so_cap?rowData.so_cap:"-")+
+				'<br>Tên cơ sở: '+ rowData.ten_chu_co_so+
+				'<br>Số điện thoại: '+ (rowData.phone?rowData.phone:"-")+
+				'<br>Thôn: '+ (rowData.village?rowData.village.name:"-")+
+				'<br>Nhóm: '+ (rowData.category_2?rowData.category_2.name:"-")+
+				'<br>Ngày kí cam kết(3 năm): '+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
+				'<br>Ngày khám sức khỏe(1 năm): '+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
+				'<br>Ngày tập huấn kiến thức(3năm): '+ (rowData.certification_date?rowData.certification_date:"-")+
+				'<br>Số cấp: '+(rowData.so_cap?rowData.so_cap:"-")+
 				'</div></div>';
 	}
 

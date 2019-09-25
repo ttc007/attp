@@ -97,3 +97,4 @@ Route::get('/clear', function() {
 
 });
 Route::get('/updateDB', 'UpdateDataController@updateDB');
+Route::get('/updateFSCode', 'UpdateDataController@updateFSCode');
