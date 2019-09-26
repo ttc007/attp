@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\FoodSafety;
 use App\Ward;
+use App\User;
 
 class Category extends Model
 {
@@ -21,8 +22,11 @@ class Category extends Model
     }
     protected $guarded = [];
 
-    function childs(){
-    	return Self::where('parent_id',$this->id)->get();
+    function childs($ward_id){
+        if($ward_id == '12') {
+            return Self::where('parent_id',$this->id)->where('hierarchy', 'hql')->orderBy('sort')->get();
+        }
+    	return Self::where('parent_id',$this->id)->where('hierarchy', 'ward')->orderBy('sort')->get();
     }
 
     function fsInChildOfCategory(){
@@ -40,7 +44,7 @@ class Category extends Model
     }
 
     function fsInChildOfCategoryWard($ward_id){
-        $childs = Self::where('parent_id',$this->id)->get();
+        $childs = $this->childs($ward_id);
         $data = [];
         foreach ($childs as $key => $child) {
             $data[$child->name] = FoodSafety::where("categoryb2_id", $child->id)

@@ -8,6 +8,7 @@ use App\Category;
 use App\Ward;
 use App\Test;
 use Session;
+use App\User;
 
 class ReportController extends Controller
 {
@@ -51,7 +52,7 @@ class ReportController extends Controller
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["fsInChildOfCategory"] = $category->fsInChildOfCategoryWard($request->ward_id);
-        $data["categories"] = $category->childs();
+        $data["categories"] = $category->childs($request->ward_id);
     	return $data;
     }
 
@@ -74,7 +75,6 @@ class ReportController extends Controller
 
     function reportByDate(Request $request){
         $category = Category::where('slug','y-te')->first();
-
         $data = [];
         foreach (Ward::all() as $key => $ward) {
             $data1 = [];
@@ -107,12 +107,11 @@ class ReportController extends Controller
 
     function reportByDateWard(Request $request){
         $category = Category::where('slug','y-te')->first();
-
         $data = [];
         
         $data1 = [];
 
-        foreach ($category->childs() as $key => $value) {
+        foreach ($category->childs($request->ward_id) as $key => $value) {
             $count = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                     ->where('food_safeties.status','<>', 'Tạm nghỉ')
                     ->where('food_safeties.ward_id', $request->ward_id)->where('food_safeties.categoryb2_id',$value->id)

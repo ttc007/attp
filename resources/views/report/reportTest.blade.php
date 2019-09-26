@@ -57,7 +57,7 @@
 
           var month = $(this).val();
           $.ajax({
-            url:'/api/month_report_test/'+$(this).val(),
+            url:'../api/month_report_test/'+$(this).val(),
             type:'GET',
             data:{
               ward_id:$("#ward_id").val(),

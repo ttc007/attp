@@ -56,7 +56,7 @@
           var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
           $('body').append(loader);
           $.ajax({
-            url:"/api/reportByDateWard",
+            url:"../api/reportByDateWard",
             type:"GET",
             data:{
               startDate:$("[name=startDate]").val(),

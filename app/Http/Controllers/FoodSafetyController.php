@@ -49,7 +49,7 @@ class FoodSafetyController extends BaseController
         $category = Category::where('slug',$category)->first();
         if($category) {
             $category_id = $category->id;
-            $categories = $category->childs();
+            $categories = $category->childs(Auth::user()->role);
         }
         $villages = Village::where('parent_id',Session::get('ward_id'))->get();
         $tests = Test::all();
@@ -62,7 +62,7 @@ class FoodSafetyController extends BaseController
         $category = Category::where('slug','y-te')->first();
         if($category) {
             $category_id = $category->id;
-            $categories = $category->childs();
+            $categories = $category->childs(Auth::user()->role);
         }
         $villages = Village::where('parent_id', Session::get('ward_id'))->get();
         $tests = Test::all();
