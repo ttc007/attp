@@ -6,23 +6,30 @@
   
 </style>
 <input type="hidden" name="" id='app_id' value="{{\Session::get('app_id')}}">
-			<div class="section-header">
-				<div class="tbl">
-					<div class="tbl-row">
-						<div class="tbl-cell">
-							<h3>Food Safety / Upfile</h3>
-						</div>
-					</div>
-				</div>
+<div class="section-header">
+	<div class="tbl">
+		<div class="tbl-row">
+			<div class="tbl-cell">
+				<h3>Food Safety / Upfile</h3>
 			</div>
-      <section class="box-typical col-sm-12 p-5">
-        <p class="text-muted">Chọn 1 tệp danh sách excel rồi thêm vào</p>
-        <form method="post" action="upfile_csv" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <input type="file" name="file" class="form-control w-25 ">
-            <button class="btn mt-3">Up</button>
-        </form>
-    </section>
+		</div>
+	</div>
+</div>
+<section class="box-typical col-sm-12 p-5">
+    <p class="text-muted">Chọn 1 tệp danh sách excel rồi thêm vào</p>
+    <form method="post" action="upfile_csv" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <input type="file" name="file" class="form-control w-25 ">
+        <button class="btn mt-3">Up</button>
+    </form>
+</section>
+
+<section class="w-100">
+    <hr>
+    <p>Bạn có thể download file excel mẫu tại đây.</p>
+    <a href="download_csv" class="btn btn-warning">Download excel cơ sở</a>
+    <a href="download_checked_csv" class="btn btn-warning">Download excel kiểm tra</a>
+</section>
 @endsection
 
 @section('script')

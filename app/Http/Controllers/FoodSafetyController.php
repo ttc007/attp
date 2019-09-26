@@ -17,6 +17,7 @@ use App\Checked;
 use App\Providers\XLSXReader;
 use Auth;
 use App\CheckedTest;
+use Response;
 
 class FoodSafetyController extends BaseController
 {
@@ -149,7 +150,7 @@ class FoodSafetyController extends BaseController
         $data = $xlsx->getSheetData('Cơ sở');
 
         foreach ($data as $key => $rowCoso) {
-            if($key > 0){
+            if($key > 0 && $rowCoso[11] == "Cập nhật"){
                 // dd($rowCoso);
                 $village = Village::where('name', $rowCoso[1])->first();
                 $category = Category::where('name', $rowCoso[2])->first();
@@ -181,7 +182,7 @@ class FoodSafetyController extends BaseController
 
         $dataChecked = $xlsx->getSheetData('Kiểm tra');
         foreach ($dataChecked as $key => $rowChecked) {
-            if($key > 0 && $rowChecked[0] != "" && $rowChecked[1] != "" && $rowChecked[4] != ""){
+            if($key > 0 && $rowChecked[0] != "" && $rowChecked[1] != "" && $rowChecked[4] != "" && $rowChecked[13] == "Cập nhật"){
                 $checked = Checked::where('code', $rowChecked[0])->first();
                 $dateChecked = Carbon::parse($rowChecked[4]);
                 $food_safety = FoodSafety::where('code', $rowChecked[1])->first();
@@ -204,7 +205,7 @@ class FoodSafetyController extends BaseController
 
                 if($checked){
                     CheckedTest::where("checked_id", $checked->id)->delete();
-                    for ($i = 8; $i < 14; $i++) {
+                    for ($i = 8; $i <= 12; $i++) {
                         if(isset($rowChecked[$i]) && $rowChecked[$i] != "") {
                             $testName = explode(":", $rowChecked[$i])[0];
                             $testResult = explode(":", $rowChecked[$i])[1];
@@ -222,7 +223,87 @@ class FoodSafetyController extends BaseController
 
         return redirect('food_safety/y-te');
     }
+
+    function download_csv(){
+        $ward = Ward::find(Auth::user()->role);
+
+        $path = public_path("download/excel/".$ward->name.".csv");
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        if(!file_exists($path)){
+            file_put_contents($path, '');
+        }
+
+        $file = fopen($path, "w");
+
+        $list = array("Mã số", "Thôn" ,"Nhóm", "Tên cơ sở", "Tên chủ cơ sở", "Trạng thái", "Số điện thoại", "Ngày kí cam kết(3 năm)",
+            "Ngày khám sức khỏe(1 năm)", "Ngày tập huấn kiến thức(3 năm)", "Số cấp");
+        fputcsv($file, $list);
+
+        $food_safeties = FoodSafety::where("ward_id", Auth::user()->role)->orderBy('code')->get();
+        foreach ($food_safeties as $key => $food_safety) {
+            $village = Village::find($food_safety->village_id);
+            $category = Category::find($food_safety->categoryb2_id);
+            
+            $ngay_ky_cam_ket = $food_safety->ngay_ky_cam_ket?Carbon::parse($food_safety->ngay_ky_cam_ket):"";
+            if($ngay_ky_cam_ket != ""){
+                $ngay_ky_cam_ket = $ngay_ky_cam_ket->format('d').".".$ngay_ky_cam_ket->format('m').".".$ngay_ky_cam_ket->format('Y');
+            }
+
+            $ngay_kham_suc_khoe = $food_safety->ngay_ky_cam_ket?Carbon::parse($food_safety->ngay_kham_suc_khoe):"";
+            if($ngay_kham_suc_khoe != ""){
+                $ngay_kham_suc_khoe = $ngay_kham_suc_khoe->format('d').".".$ngay_kham_suc_khoe->format('m').".".$ngay_kham_suc_khoe->format('Y');
+            }
+
+            $certification_date = $food_safety->certification_date?Carbon::parse($food_safety->certification_date):"";
+            if($certification_date != ""){
+                $certification_date = $certification_date->format('d').".".$certification_date->format('m').".".$certification_date->format('Y');
+            }
+
+            $data = [$food_safety->code, @$village->name, @$category->name, $food_safety->ten_co_so, $food_safety->ten_chu_co_so,
+                    $food_safety->status, $food_safety->phone, $ngay_ky_cam_ket, $ngay_kham_suc_khoe, $certification_date, $food_safety->so_cap  ];
+
+            fputcsv($file, $data);
+        }
+        fclose($file);
+        return Response::download($path);
+    }
     
+    function download_checked_csv(){
+        $ward = Ward::find(Auth::user()->role);
+
+        $path = public_path("download/excel/".$ward->name." kiểm tra.csv");
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        if(!file_exists($path)){
+            file_put_contents($path, '');
+        }
+
+        $file = fopen($path, "w");
+
+        $list = array("Mã số kiểm tra", "Mã số cơ sở" ,"Tên cơ sở", "Năm kiểm tra", "Ngày kiểm tra", "Kết quả kiểm tra", "Nội dung không đạt",
+            "Xử phạt", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5");
+        fputcsv($file, $list);
+
+        $checkeds = FoodSafety::join("checkeds", "checkeds.food_safety_id", "food_safeties.id")
+            ->where("food_safeties.ward_id", Auth::user()->role)->orderBy('food_safeties.code')->get();
+        foreach ($checkeds as $key => $checked) {
+            $food_safety = FoodSafety::find($checked->food_safety_id);
+            
+            $ngay_kiem_tra = Carbon::parse($food_safety->ngay_kiem_tra);
+            $ngay_kiem_tra = $ngay_kiem_tra->format('d').".".$ngay_kiem_tra->format('m').".".$ngay_kiem_tra->format('Y');
+
+            $data = [$checked->code, @$food_safety->code, @$food_safety->ten_co_so, $checked->year, $ngay_kiem_tra,
+                    $checked->result, $checked->note, $checked->penalize];
+            $cheked_tests = CheckedTest::where('checked_id', $checked->id)->get();
+            foreach ($cheked_tests as $cheked_test) {
+                $test = Test::find($cheked_test->test_id);
+                $data[] = @$test->name.":".$cheked_test->result;
+            }
+
+            fputcsv($file, $data);
+        }
+        fclose($file);
+        return Response::download($path);
+    }
     // function updateDataWard(){
     //     $wards = Ward::all();
     //     foreach ($wards as $key => $ward) {

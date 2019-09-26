@@ -1,0 +1,119 @@
+"Mã số kiểm tra","Mã số cơ sở","Tên cơ sở","Năm kiểm tra","Ngày kiểm tra","Kết quả kiểm tra","Nội dung không đạt","Xử phạt","Test 1","Test 2","Test 3","Test 4","Test 5"
+test,HQL_HB_BATT_002,"Trường THCS Nguyễn Tri Phương",2019,26.09.2019,"Chưa đạt","Test thôi mà",,"Hàn the:Âm tính","Độ ôi khét dầu mỡ:Âm tính"
+KT_HQL_2019_0006,HQL_HC_BATT_001,"Công ty TNHH Việt Hương",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0085,HQL_HC_BATT_002,"Nhóm lớp ĐLTT Thùy Dương",2019,26.09.2019,"Chưa đạt",,
+KT_HQL_2019_0086,HQL_HC_BATT_003,"Nhóm lớp ĐLTT Lạc Việt",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0087,HQL_HC_BATT_005,"Nhóm lớp ĐLTT Ngọc Quyên",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0088,HQL_HC_BATT_006,"Nhóm lớp ĐLTT Khai Tâm",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0100,HQL_HC_CKBM_002,"bánh Đồng Thiên Phú",2019,26.09.2019,"Chưa đạt","khu sơ chế không đảm bảo vệ sinh","Mời về PTY chờ xử lý"
+KT_HQL_2019_0117,HQL_HC_CKBM_003,"Bánh Mỳ Thiện Nhân",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0058,HQL_HC_DVAU_002,"Quán Hoa Kế",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm chín ko được che đậy, thục phẩm bảo quản trong tủ lạnh chưa đảm bảo","nhắc nhở, khắc phục trong vong 01 ngày","Độ sạch bát đĩa:Âm tính"
+KT_HQL_2019_0056,HQL_HC_DVAU_003,"Quán Hoa Đệ",2019,26.09.2019,"Chưa đạt","Tường bếp ko đảm bảo, thùng rác đựng nước thải ko có nắp đậy, chưa có các giấy tờ liên quan đến ATTP, nước thải trực tiếp xuống nền đất","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0009,HQL_HK_BATT_002,"Công ty Bảo vệ thực vật Tw",2019,26.09.2019,Đạt,"Sổ kiểm thực 3 buớc chưa đầy đủ","nhắc nhở"
+KT_HQL_2019_0008,HQL_HK_BATT_004,"Nhà máy xi mang Miền Trung",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0107,HQL_HK_CKBM_001,"Bánh mì Phương Hùng",2019,26.09.2019,"Chưa đạt","Cơ sở thay đổi chủ đề nghị làm lại giấy chứng nhân ATTP cho phù hợp.Khu sản xuất tường chưa đảm bảo","khắc phục trong vòng 15 ngày"
+KT_HQL_2019_0108,HQL_HK_CKBM_002,"Bánh mỳ Anh Quân",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0106,HQL_HK_CKBM_004,"bánh Mì Minh Vũ",2019,26.09.2019,"Chưa đạt","Tường khu chế biến chưa đảm bảo","khắc phục trong vòng 01 ngày"
+KT_HQL_2019_0018,HQL_HK_DVAU_002,"Quán Diệu Hương",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0051,HQL_HK_DVAU_003,"Quán 089",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0020,HQL_HK_DVCGK_001,"Quán Cafe Việt Thương",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0113,HQL_HL_CKBM_002,"Bánh mỳ Phúc",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0114,HQL_HL_CKBM_003,"bánh mỳ",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0046,HQL_HL_CTTH_002,"Căn tin trường Nguyễn Bá Phát",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0075,HQL_HL_DVAU_001,"Quán Tâm Long",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0011,HQL_HN1_BATT_002,"Mỏ đá Hố Chuồn",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0012,HQL_HN1_BATT_003,"Công Ty TNHH Thanh Thảo",2019,26.09.2019,"Chưa đạt","Chưa có sổ kiểm thức 3 bước, ko lưu mẫu tp, để thực phẩm trên nền đất",
+KT_HQL_2019_0047,HQL_HN1_CTTH_001,"Căn tin Trường Nguyễn Viết Xuân",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0069,HQL_HN1_DVAU_002,"Nhà Hàng Thiên Địa",2019,26.09.2019,"Chưa đạt","Không thực hiện kiểm thực 3 bước và lưu mẫu thực phẩm, giấy khám sức khỏe hết hạn sử dụng","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0074,HQL_HN1_DVAU_003,"Nhà hàng Thiên Địa",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm bảo quản trong tủ lạnh ko đảm bảo, tại thời điểm kiểm tra ko xuất trình các giấy tờ có liên quan","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0066,HQL_HN1_DVGK_001,"Quán Fencha",2019,26.09.2019,"Chưa đạt","Tại thời điểm kiểm tra cơ sở chưa xuất trình các giất tờ có liên quan đến ATTP","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0021,HQL_HN2_BATT_002,"Căn Tin Bệnh Viện Hòa Vang",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0093,HQL_HN2_BATT_003,"Công ty sản xuát NLG Việt-Nhật",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0001,HQL_HN2_BATT_004,"Công ty Vinacoex 25",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0002,HQL_HN2_BATT_005,"Công ty CP Chu Lai",2019,26.09.2019,"Chưa đạt","Sổ kiểm thực 3 bước chưa cập nhật đầy đủ","nhắc nhở"
+KT_HQL_2019_0003,HQL_HN2_BATT_006,"Công ty Vĩnh Trường",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0004,HQL_HN2_BATT_007,"Xí nghiệp Lâm sản Hòa Nhơn",2019,26.09.2019,"Chưa đạt","Sổ kiểm thực 3 bước và sổ lưu mẫu chưa cập nhật đầy đủ","nhắc nhở"
+KT_HQL_2019_0079,HQL_HN2_BATT_008,"NLDLTT Quỳnh Linh",2019,26.09.2019,"Chưa đạt","Tủ lạnh lưu mẫu sắp xếp không ngăn nắp","nhắc nhở"
+KT_HQL_2019_0080,HQL_HN2_BATT_009,"Trường Mầm non tư thục",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0081,HQL_HN2_BATT_010,"NLDLTT Sơn Ca",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0105,HQL_HN2_CKBM_001,"Bánh mỳ đồng tiến",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0033,HQL_HN2_CKBM_003,"Bánh Mỳ Anh Quân",2019,26.09.2019,"Chưa đạt","nền nhà sản xuất ko đảm bảo, nhân viên sản xuất ko mặc bảo hộ  lao động, ko mang dép riêng cho khu ực chế biến","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0103,HQL_HN2_CKBM_003,"Bánh Mỳ Anh Quân",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0104,HQL_HN2_CKBM_004,"Bánh mỳ Anh Quân",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0076,HQL_HN2_DVAU_001,"Quán Đồng Quê",2019,26.09.2019,"Chưa đạt","Thùng chứa chất thải ko có nắp đậy, bảo quản thục ưphaamr ko đảm bảo, ko mặc bảo hộ lao động","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0077,HQL_HN2_DVAU_002,"Quán Vinh Hương",2019,26.09.2019,"Chưa đạt",,"Mời về PYT, chờ xử lý"
+KT_HQL_2019_0078,HQL_HN2_DVAU_003,"Quán Gà Đèo Le",2019,26.09.2019,"Chưa đạt","Thùng rác không có nắp đậy, khu chế biến không gọn gàng","nhắc nhở, khắc phục trong vong 01 ngày"
+KT_HQL_2019_0036,HQL_HN2_DVAU_004,"Quán Bê Thui Ngọc vân",2019,26.09.2019,"Chưa đạt","Chưa xuất trình các giấy tờ có liên quan đến ATTP, khu vực sơ chế không đảm bảo","Hướng dẫn các thủ tục pháp lý"
+KT_HQL_2019_0034,HQL_HN2_DVAU_005,"Quán Vinh Hương",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, dàn đựng chén bát rét rỉ, dao thớt sống chín để chung","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0035,HQL_HN2_DVAU_006,"Quán mỳ Tỉnh",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm bảo quản trong tủ lạnh ko đảm bảo","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0041,HQL_HN2_DVAU_007,"Quán Mỳ Thủy  Chung",2019,26.09.2019,"Chưa đạt","thực phẩm bảo quản trong tủ lạnh ko đảm bảo, thưc phẩm để dưới nền đất","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0038,HQL_HN2_DVAU_008,"Quán mỳ bà Tỉnh",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0022,HQL_HN2_DVAU_009,"Quán mỳ bà Tỉnh",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0068,HQL_HN2_DVAU_011,"Quán Tý Vương",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy,môi trườg xung quanh ko đảm bảo, tại thời điểm kiểm tra ko xuất trình các giấy tờ có liên quan","Mời về PYT, chờ xử lý","Độ sạch bát đĩa:Âm tính"
+KT_HQL_2019_0070,HQL_HN2_DVAU_012,"Quán Thảo Linh",2019,26.09.2019,"Chưa đạt","Thùng rác không có nắp đậy","nhắc nhở, khắc phục trong vong 01 ngày"
+KT_HQL_2019_0016,HQL_HP_DVAU_008,"Khu du lịch Hòa Phú Thành",2019,26.09.2019,"Chưa đạt","không có dụng cụ lưu mẫu tp. Chưa lưu mẫu tp","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0083,HQL_HP1_BATT_001,"Nhóm lớp ĐLTT Tương Lai",2019,26.09.2019,"Chưa đạt","Không lưu mẫu thực phẩm",
+KT_HQL_2019_0084,HQL_HP1_BATT_002,"Nhóm lớp ĐLTT Ban Mai Xanh",2019,26.09.2019,"Chưa đạt",,
+KT_HQL_2019_0005,HQL_HP1_BATT_004,"Công ty CP và đầu tư Long Phước",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0082,HQL_HP1_BATT_005,"Nhóm lớp ĐLTT Khai Trí",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0094,HQL_HP1_CKBM_001,"Bánh mỳ Kim Liên",2019,26.09.2019,"Chưa đạt","bảo quản thực phẩm không đúng quy định","Mời về PYT chờ xử lý"
+KT_HQL_2019_0029,HQL_HP1_CKBM_003,"Bánh mỳ Đồng Thạnh",2019,26.09.2019,"Chưa đạt","Nhân viên không mang bảo hộ lao đông, bao tay khi tiếp xúc trực tiếp với bánh mì",
+KT_HQL_2019_0091,HQL_HP1_CKBM_004,"bánh mỳ Đồng Tiến",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0054,HQL_HP1_DVAU_001,"Quán Phố Nướng",2019,26.09.2019,"Chưa đạt","CTaij thời điểm kiểm tra chưa xuất trình các giấy tờ có liên quan","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0019,HQL_HP1_DVAU_002,"Quán mỳ Bà mãng",2019,26.09.2019,"Chưa đạt","thực phẩm (mì) ko được che đậy, chưa có Giấy đăng ký chứng nhận đủ điều kiện an toàn thực phẩm","Mời về PYT, chờ xử lý","Độ sạch bát đĩa:Dương tính"
+KT_HQL_2019_0052,HQL_HP1_DVAU_004,"Quán Bê Thui Loan",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, khu sơ chế không đảm bảo, nền nhà loang lỗ","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0053,HQL_HP1_DVAU_005,"Quán Thanh Hiền",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0064,HQL_HP1_NTGD_001,"Nhóm lớp ĐTTL Cỏ ba Lá",2019,26.09.2019,"Chưa đạt","Chưa có hợp đồng mua bán thực phẩm, chưa có sổ kiểm thực 3 bước","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0014,HQL_HP2_BATT_001,"Khu du lịch Lái Thiêu",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0015,HQL_HP2_BATT_002,"Khu sinh thái Suối Hoa",2019,26.09.2019,"Chưa đạt","Mới hoạt động (đổi chủ)","Hướng dẫn các thủ tục pháp lý"
+KT_HQL_2019_0013,HQL_HP2_BATT_005,"Công ty CP Chăn nuôi",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0115,HQL_HP2_CTTH_001,"Quán Hồng Nhung",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0116,HQL_HP2_CTTH_002,"Quán trước trường",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0109,HQL_HP2_CTTH_005,"cang tin trường tiểu hoạc Hòa Phú",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0028,HQL_HP2_DVAU_001,"Quán Cô Ba",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm bảo quản trong tủ lạnh ko đảm bảo","nhắc nhở"
+KT_HQL_2019_0042,HQL_HP3_CKBM_002,"Bánh mỳ Tân Vinh",2019,26.09.2019,"Chưa đạt","trần nhà, nền chưa đảm bảo vệ sinh, thực phẩm trong tủ lạnh chưa bao gói theo quy định, tại thời điểm kiểm tra chưa xuất trình các giấy tờ có liên quan","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0101,HQL_HP3_CKBM_002,"Bánh mỳ Tân Vinh",2019,26.09.2019,"Chưa đạt","khu sơ chế bẩn, ruồi nhặng nhiều","khắc phục trong vòng 01 ngày","Hàn the:Âm tính"
+KT_HQL_2019_0102,HQL_HP3_CKBM_003,"Bánh Mỳ Anh Quân",2019,26.09.2019,"Chưa đạt","Tường khu chế biến không đảm bảo,","khắc phục trong vòng 01 ngày","Hàn the:Âm tính"
+KT_HQL_2019_0030,HQL_HP3_CTTH_002,"Căn tin Trường Trần Quốc Tuấn",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0045,HQL_HP3_CTTH_003,"Căn tin Trường Ông ÍCh Khiêm",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0062,HQL_HP3_DVAU_001,"Bê thui Túy Loan",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0063,HQL_HP3_DVAU_002,"Quán Bến Quê",2019,26.09.2019,"Chưa đạt","Môi trường xung quanh khu sơ chế chưa đạt, thực phẩm bảo quản chưa đảm bảo, ruồi nhẹn nhiều","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0039,HQL_HP3_DVAU_003,"Quán Gió Đồng",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0031,HQL_HP3_DVAU_004,"Quán cơm Chị Hai",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0040,HQL_HP3_DVAU_005,"Quán cơm Tuyết",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, khu sơ chế ko đảm bảo","nhắc nhở"
+KT_HQL_2019_0044,HQL_HP3_DVAU_006,"Quán Huệ",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0049,HQL_HP3_DVAU_008,"Quán Thúy An",2019,26.09.2019,"Chưa đạt","Tuờng khu sơ chế ko đảm bảo vệ sinh, tủ đựng thực ăn ko có lưới che đậy","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0050,HQL_HP3_DVAU_009,"Quán Tửu Dương",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm bảo quản trong tủ lạnh ko đảm bảo","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0032,HQL_HP3_DVCGK_002,"Quán Cà Phê Kênh",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0043,HQL_HP3_DVCGK_003,"Quán Cà Phê Lộc",2019,26.09.2019,"Chưa đạt","Chưa có Giấy đăng ký chứng nhận đủ điều kiện an toàn thực phẩm","Hướng dẫn các thủ tục pháp lý"
+KT_HQL_2019_0010,HQL_HS_BATT_003,"Công ty TNHH Insupas",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0111,HQL_HS_CKBM_001,"Bánh mì Gia Bảo",2019,26.09.2019,"Chưa đạt","chưa xuất trình các giấy tờ liên quan","chờ Phòng Y tế Xử lý"
+KT_HQL_2019_0112,HQL_HS_CKBM_002,"Bánh mỳ Hồng Yến",2019,26.09.2019,"Chưa đạt","chưa xuất trình các giấy tờ có liên quan","chờ phong Y tế xử lý"
+KT_HQL_2019_0073,HQL_HS_CKBM_004,"bánh mì Anh Quân",2019,26.09.2019,"Chưa đạt","Không mang trang phục bảo hộ khi chế biến thực phẩm, Thực phẩm để trên nền đất, thực phẩm bảo quản theo quy định","nhắc nhở, khắc phục trong vong 03 ngày"
+KT_HQL_2019_0110,HQL_HS_CKBM_005,"Bánh mỳ Kim Oanh",2019,26.09.2019,"Chưa đạt","thực phẩm gói đựng trong giấy báo, chưa làm giấy chứng nhận đủ đk ATTP","chờ PYT xử lí"
+KT_HQL_2019_0067,HQL_HS_CKBM_009,"Bánh mỳ Huy Hoàng",2019,26.09.2019,"Chưa đạt","Bàn để thực phẩm chưa đảm bảo vệ sinh","nhắc nhở, khắc phục trong vong 01 ngày"
+KT_HQL_2019_0048,HQL_HS_CTTH_003,"Căn tin Trường Phạm Phú Thứ",2019,26.09.2019,"Chưa đạt","thực phẩm sau khi chế biến không che đậy","nhắc nhở, khắc phục trong vong 01 ngày"
+KT_HQL_2019_0060,HQL_HS_DVAU_001,"Quán 602",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm bảo quản trong tủ lạnh ko đảm bảo, tại thời điểm kiểm tra ko xuất trình các giấy tờ có liên quan","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0055,HQL_HS_DVAU_002,"Quán Hương Sen",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0071,HQL_HS_DVAU_003,"Quán Lều Tranh",2019,26.09.2019,"Chưa đạt","Hầm rút lộ thiên","nhắc nhở, khắc phục trong vòng 15 ngày"
+KT_HQL_2019_0072,HQL_HS_DVAU_004,"Quán nguyên Mập",2019,26.09.2019,"Chưa đạt","Thùng chứa chất thải không có nắp đậy, , thực phẩm để trên nền đất","nhắc nhở, khắc phục trong vong 01 ngày"
+KT_HQL_2019_0059,HQL_HS_DVAU_006,"Nhà Hàng Ngọc Quý",2019,26.09.2019,"Chưa đạt","Khu sơ chế ko đảm bảo, thực phẩm để dưới nền đất, ko lưu mẫu thực phẩm. thực phẩm bảo quản trong tủ lạnh chưa bao gói","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0057,HQL_HS_DVAU_007,"Quán Quê Hương",2019,26.09.2019,"Chưa đạt","Tường bếp bẩn, nền chế biến ko đảm bảo, tủ lạnh bảo quản thực phẩm sắp xếp không gọn gàng, thùng chưa rác thải ko có nắp đậy","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0090,HQL_HT_BATT_001,"Nhóm lớp ĐLTT Minh Trí",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0007,HQL_HT_BATT_003,"Công ty TNHH may Tiến Thắng",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0089,HQL_HT_BATT_004,"Nhóm lớp ĐLTT Ánh Khuyên",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0096,HQL_HT_CKBM_001,"Bánh Mỳ Tuấn Minh",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0098,HQL_HT_CKBM_002,"Bánh Mỳ Nam Long",2019,26.09.2019,"Chưa đạt","Cơ sở mới sang nhượng, chưa thực hiện các thủ tục giấy tờ pháp ký","khắc phục trong vòng 30 ngày kể từ ngày kiểm tra"
+KT_HQL_2019_0099,HQL_HT_CKBM_003,"Bánh mỳ Hoàng Duyên",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0095,HQL_HT_CKBM_005,"Bánh mỳ Kim Hùng",2019,26.09.2019,"Chưa đạt","Thùng rác chứa chất thải rắn không có nắp đây, người trực tiếp chế biến thực phẩm không mang bao tay, Giấy CN đủ điều kiện ATTP hết hiệu lực","Mời về PYT chờ xử lý"
+KT_HQL_2019_0027,HQL_HT_CKBM_005,"Bánh mỳ Kim Hùng",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0097,HQL_HT_CKBM_006,"Bánh mỳ Hùng Vỹ",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0092,HQL_HT_CKBM_006,"Bánh mỳ Hùng Vỹ",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0037,HQL_HT_DVAU_001,"Quán Anh Em",2019,26.09.2019,"Chưa đạt","Chưa có Giấy đăng ký chứng nhận đủ điều kiện an toàn thực phẩm, thực phẩm bao gói trong tủ lạnh ko đảm bảo, dao thớt sống chín để chung, thùng rác chứa nuocsw thải ko có nắp đậy","nhắc nhở, khắc phục trong vòng 20 ngày"
+KT_HQL_2019_0023,HQL_HT_DVAU_002,"Quán King",2019,26.09.2019,"Chưa đạt","Tường bếp ko đảm bảo, thùng rác đựng nước thải ko có nắp đậy, chưa có các giấy tờ liên quan đến ATTP","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0024,HQL_HT_DVAU_003,"Quán Bê thui Hoàng Yến",2019,26.09.2019,"Chưa đạt","Thùng đựng nước thải ko có nắp đậy, thực phẩm chín ko được che đậy, thực phẩm để dưới nền đất","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0025,HQL_HT_DVAU_004,"Quán Dương",2019,26.09.2019,"Chưa đạt","Thùng chưa nước thải ko có nắp đậy, thực phẩm chín ko được che đậy, thục phẩm bảo quản trong tủ lạnh chưa đảm bảo, Chưa xuất trình các giấy tờ pháp lý liên quan đến ATTP","Hướng dẫn các thủ tục pháp lý"
+KT_HQL_2019_0026,HQL_HT_DVAU_005,"Quán Bê Thui Mạnh",2019,26.09.2019,Đạt,,
+KT_HQL_2019_0017,HQL_HT_DVAU_006,"Quán Bê thui Mạnh",2019,26.09.2019,"Chưa đạt","Tại thời điểm kiểm tra ko xuất trình các giáy tờ có liên quan đến ATTP, thực phẩm để dưới nền đất, thực phẩm bảo quản trog tủ lạnh ko bao gói","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0061,HQL_HT_DVAU_009,"quán Bê thui Mạnh",2019,26.09.2019,"Chưa đạt","Tường bếp ko đảm bảo, thùng rác đựng nước thải ko có nắp đậy, chưa có các giấy tờ liên quan đến ATTP","Mời về PYT, chờ xử lý"
+KT_HQL_2019_0065,HQL_HT_DVAU_010,"Quán Mỳ Lực",2019,26.09.2019,Đạt,,

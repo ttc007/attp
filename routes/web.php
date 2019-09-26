@@ -27,8 +27,8 @@ Route::group(['prefix'=>'food_safety/','middleware' => ['auth']],function() {
     Route::get('/upfile_csv', 'FoodSafetyController@upfile_csv');
     // Route::get('/{category}', 'FoodSafetyController@getByCate');
     Route::post('/upfile_csv', 'FoodSafetyController@upfile_csv_store');
-
-    
+    Route::get('/download_csv', 'FoodSafetyController@download_csv');
+    Route::get('/download_checked_csv', 'FoodSafetyController@download_checked_csv');
 });
 Route::post('/store_checked', 'CheckedController@store_checked')->name('store_checked');
 Route::get('/checked/remove/{id}', 'CheckedController@remove')->name('delete_checked');
