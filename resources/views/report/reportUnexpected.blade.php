@@ -49,7 +49,7 @@
           var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
           $('body').append(loader);
           $.ajax({
-            url:"/api/reportByDate",
+            url:"../api/reportByDate",
             type:"GET",
             data:{
               startDate:$("[name=startDate]").val(),
@@ -58,27 +58,54 @@
             success:function(data){
               $("#data-render").empty();
               var divCol6 = $("<div class='col-md-12'></div>");
-              var table = $("<table class='table my-4' style='' id='table-report-by-date'>");
+              var table = $("<table class='table mt-4' style='' id='table-report-by-date'>");
               divCol6.append(table);
 
               var thead = $("<tr></tr>");
               table.append(thead);
               $("#data-render").append(divCol6);
               $.each(data.wards, function(j, ward){
-                var tr = $(`<tr><td>`+j+`</td></tr>`);
-                table.append(tr);
-                thead.empty();
-                thead.append("<td style='width:100px'>"+dateFormatByString($("[name=startDate]").val())+"<br>~<br>"+
-                  dateFormatByString($("[name=endDate]").val())+"</td>");
-                $.each(ward, function(k, cateData){
-                  var check = cateData.split("/")[0];
-                  var rating1 = 0;
-                  var categoryCount = parseInt(data.fsInChildOfCategory[k+j])
-                  if(categoryCount>0) rating1 = check/categoryCount*100;
-                  rating1 = Math.round(rating1/100)*100;
-                  tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[k+j]+"/"+rating1+"%)</td>");
-                  thead.append("<td>"+k+"</td>")
-                });
+                if(j != 'Huyện quản lí'){
+                  var tr = $(`<tr><td>`+j+`</td></tr>`);
+                  table.append(tr);
+                  thead.empty();
+                  thead.append("<td style='width:100px'>"+dateFormatByString($("[name=startDate]").val())+"<br>~<br>"+
+                    dateFormatByString($("[name=endDate]").val())+"</td>");
+
+                  $.each(ward, function(k, cateData){
+                    
+                    var check = cateData.split("/")[0];
+                    var rating1 = 0;
+                    var categoryCount = parseInt(data.fsInChildOfCategory[k+j])
+                    if(categoryCount>0) rating1 = check/categoryCount*100;
+                    rating1 = Math.round(rating1/100)*100;
+                    tr.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[k+j]+"/"+rating1+"%)</td>");
+                    thead.append("<td>"+k+"</td>");
+                  });
+                } else {
+                  var divCol6Hql = $("<div class='col-md-12'></div>");
+                  var tableHql = $("<table class='table mt-3' style='' id='table-report-by-date'>");
+                  divCol6Hql.append(tableHql);
+
+                  var theadHql = $("<tr></tr>");
+                  tableHql.append(theadHql);
+                  $("#data-render").append(divCol6Hql);
+                  theadHql.append("<td style='width:100px'>"+dateFormatByString($("[name=startDate]").val())+"<br>~<br>"+
+                    dateFormatByString($("[name=endDate]").val())+"</td>");
+
+                  var trHql = $(`<tr><td>`+j+`</td></tr>`);
+                  tableHql.append(trHql);
+
+                  $.each(ward, function(k, cateData){
+                    var check = cateData.split("/")[0];
+                    var rating1 = 0;
+                    var categoryCount = parseInt(data.fsInChildOfCategory[k+j])
+                    if(categoryCount>0) rating1 = check/categoryCount*100;
+                    rating1 = Math.round(rating1/100)*100;
+                    trHql.append("<td class='count_"+convertToSlug(k)+"_"+convertToSlug(j)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[k+j]+"/"+rating1+"%)</td>");
+                    theadHql.append("<td>"+k+"</td>");
+                  });
+                }
               });
               loader.remove();
             }

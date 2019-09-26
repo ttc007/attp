@@ -53,7 +53,7 @@
 
           var month = $(this).val();
           $.ajax({
-            url:'/api/month_report_master/'+$(this).val(),
+            url:'../api/month_report_master/'+$(this).val(),
             type:'GET',
             data:{
               year:$("#GLOBAL_YEAR").val()
@@ -62,52 +62,102 @@
               $("#data-render").empty();
               for (var i = 1; i <= month; i++) {
                 var divCol6 = $("<div class='col-md-12'></div>");
-                var table = $("<table class='table my-4' style=''>");
+                var table = $("<table class='table mt-4' style=''>");
                 divCol6.append(table);
 
                 var thead = $("<tr></tr>");
                 table.append(thead);
                 $("#data-render").append(divCol6);
                 $.each(data.wards, function(j, ward){
-                  var tr = $(`<tr><td>`+ward.name+`</td></tr>`);
-                  table.append(tr);
-                  thead.empty();
-                  thead.append("<td><b> Tháng "+i+"</b></td>");
-                  $.each(data.categories, function(k, category){
-                    var cateData = "";
-                    var check = 0;
-                    var pass = 0;
-                    var rating = 0;
-                    var rating1 = 0;
-                    $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
-                      if(foodSafetyDateChecked.categoryb2_id==category.id
-                        &&foodSafetyDateChecked.ward_id==ward.id){
-                        if(foodSafetyDateChecked.dateChecked){
-                          var dateCheckMonth = foodSafetyDateChecked.month;
-                          if(dateCheckMonth.charAt(0)=='0'){
-                            dateCheckMonth = dateCheckMonth.substring(1,2);
-                            dateCheckMonth = parseInt(dateCheckMonth);
-                          }
-                          if(dateCheckMonth==i){
-                            check++;
-                            if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
-                              pass++;
+                  if(ward.name != "Huyện quản lí"){
+                    var tr = $(`<tr><td>`+ward.name+`</td></tr>`);
+                    table.append(tr);
+                    thead.empty();
+                    thead.append("<td><b> Tháng "+i+"</b></td>");
+                    $.each(data.categories, function(k, category){
+                      var cateData = "";
+                      var check = 0;
+                      var pass = 0;
+                      var rating = 0;
+                      var rating1 = 0;
+                      $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
+                        if(foodSafetyDateChecked.categoryb2_id==category.id
+                          &&foodSafetyDateChecked.ward_id==ward.id){
+                          if(foodSafetyDateChecked.dateChecked){
+                            var dateCheckMonth = foodSafetyDateChecked.month;
+                            if(dateCheckMonth.charAt(0)=='0'){
+                              dateCheckMonth = dateCheckMonth.substring(1,2);
+                              dateCheckMonth = parseInt(dateCheckMonth);
+                            }
+                            if(dateCheckMonth==i){
+                              check++;
+                              if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                                pass++;
+                              }
                             }
                           }
                         }
-                      }
+                      });
+                      if(check>0) rating = (pass/check*100);
+                      rating = Math.round(rating * 100) / 100;
+                      cateData = check+"/"+pass+"/"+rating+"%";
+
+                      var categoryCount = parseInt(data.fsInChildOfCategory[category.name+ward.name]);
+                      if(categoryCount>0) rating1 = (check/categoryCount*100);
+                      rating1 = Math.round(rating1 * 100) / 100;
+
+                      tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name+ward.name]+"/"+rating1+"%)</td>");
+                      thead.append("<td>"+category.name+"</td>")
                     });
-                    if(check>0) rating = (pass/check*100);
-                    rating = Math.round(rating * 100) / 100;
-                    cateData = check+"/"+pass+"/"+rating+"%";
+                  } else {
+                    var divCol6Hql = $("<div class='col-md-12'></div>");
+                    var tableHql = $("<table class='table my-1' style=''>");
+                    divCol6Hql.append(tableHql);
+                    $("#data-render").append(divCol6Hql);
 
-                    var categoryCount = parseInt(data.fsInChildOfCategory[category.name+ward.name]);
-                    if(categoryCount>0) rating1 = (check/categoryCount*100);
-                    rating1 = Math.round(rating1 * 100) / 100;
+                    var theadHql = $("<tr><td><b> Tháng "+i+"</b></td></tr>");
+                    tableHql.append(theadHql);
+                    
+                    var tr = $(`<tr><td>`+ward.name+`</td></tr>`);
+                    tableHql.append(tr);
 
-                    tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name+ward.name]+"/"+rating1+"%)</td>");
-                    thead.append("<td>"+category.name+"</td>")
-                  });
+                    $.each(data.hql_categories, function(k, category){
+                      var cateData = "";
+                      var check = 0;
+                      var pass = 0;
+                      var rating = 0;
+                      var rating1 = 0;
+                      $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
+                        if(foodSafetyDateChecked.categoryb2_id==category.id
+                          &&foodSafetyDateChecked.ward_id==ward.id){
+                          if(foodSafetyDateChecked.dateChecked){
+                            var dateCheckMonth = foodSafetyDateChecked.month;
+                            if(dateCheckMonth.charAt(0)=='0'){
+                              dateCheckMonth = dateCheckMonth.substring(1,2);
+                              dateCheckMonth = parseInt(dateCheckMonth);
+                            }
+                            if(dateCheckMonth==i){
+                              check++;
+                              if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                                pass++;
+                              }
+                            }
+                          }
+                        }
+                      });
+                      if(check>0) rating = (pass/check*100);
+                      rating = Math.round(rating * 100) / 100;
+                      cateData = check+"/"+pass+"/"+rating+"%";
+
+                      var categoryCount = parseInt(data.fsInChildOfCategory[category.name+ward.name]);
+                      if(categoryCount>0) rating1 = (check/categoryCount*100);
+                      rating1 = Math.round(rating1 * 100) / 100;
+
+                      tr.append("<td class='count_"+convertToSlug(category.name)+"_"+convertToSlug(ward.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name+ward.name]+"/"+rating1+"%)</td>");
+                      theadHql.append("<td>"+category.name+"</td>")
+                    });
+                  }
+                  
                 });
 
 

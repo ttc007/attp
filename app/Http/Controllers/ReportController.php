@@ -67,9 +67,11 @@ class ReportController extends Controller
                                 ->where('checkeds.year', $request->year)
                                 ->get();
         $data2["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
-        $data2["fsInChildOfCategory"] = $category->fsInChildOfCategory();
+        $data2["fsInChildOfCategory"] = $category->fsInChildOfCategory('1');
         $data2["wards"] = Ward::all();
-        $data2["categories"] = $category->childs();
+        $data2["categories"] = $category->childs('1');
+        
+        $data2["hql_categories"] = $category->childs('12');
         return $data2;
     }
 
@@ -78,7 +80,7 @@ class ReportController extends Controller
         $data = [];
         foreach (Ward::all() as $key => $ward) {
             $data1 = [];
-            foreach ($category->childs() as $key => $value) {
+            foreach ($category->childs($ward->id) as $key => $value) {
                 $count = FoodSafety::join('checkeds','checkeds.food_safety_id', 'food_safeties.id')
                         ->where('food_safeties.status','<>', 'Tạm nghỉ')
                         ->where('food_safeties.ward_id', $ward->id)->where('food_safeties.categoryb2_id',$value->id)
@@ -101,7 +103,8 @@ class ReportController extends Controller
             $data['wards'][$ward->name] = $data1;
         }
 
-        $data["fsInChildOfCategory"] = $category->fsInChildOfCategory();
+        $data["fsInChildOfCategory"] = $category->fsInChildOfCategory('1');
+        $data["hql_fsInChildOfCategory"] = $category->fsInChildOfCategory('12');
         return $data;
     }
 

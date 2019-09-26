@@ -23,7 +23,9 @@ class Category extends Model
     protected $guarded = [];
 
     function childs($ward_id){
-        if($ward_id == '12') {
+        if($ward_id == '0') {
+            return Self::where('parent_id',$this->id)->orderBy('sort')->get();
+        }else if($ward_id == '12') {
             return Self::where('parent_id',$this->id)->where('hierarchy', 'hql')->orderBy('sort')->get();
         }
     	return Self::where('parent_id',$this->id)->where('hierarchy', 'ward')->orderBy('sort')->get();
