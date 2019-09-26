@@ -103,8 +103,7 @@ class ReportController extends Controller
             $data['wards'][$ward->name] = $data1;
         }
 
-        $data["fsInChildOfCategory"] = $category->fsInChildOfCategory('1');
-        $data["hql_fsInChildOfCategory"] = $category->fsInChildOfCategory('12');
+        $data["fsInChildOfCategory"] = $category->fsInChildOfCategory('0');
         return $data;
     }
 
