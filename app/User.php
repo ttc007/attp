@@ -85,35 +85,6 @@ class User extends Authenticatable
 
     }
 
-    function workProject($project_id){
-        $missions = DB::table('work_missions')
-                        ->join('works','works.id','work_missions.work_id')
-                        ->where('work_missions.project_id',$project_id)
-                        ->where('works.user_id',$this->id)
-                        ->where('works.approved',1)
-                        ->get();
-        return $missions;
-    }
-
-    function kpi_project($project_id){
-        $missions = DB::table('work_missions')
-                        ->join('works','works.id','work_missions.work_id')
-                        ->where('work_missions.project_id',$project_id)
-                        ->where('works.user_id',$this->id)
-                        ->where('works.approved',1)
-                        ->get();
-        $kpi=0;
-        foreach ($missions as $key => $value) {
-            $kpi+=$value->kpiTotal;
-        }
-        return $kpi;
-    }
-
-    function kpi($id){
-        $kpi = KPI::find($id);
-        return $kpi;
-    }
-
     function role(){
         return 'maneger';
         $role = DB::table('role_user')

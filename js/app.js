@@ -873,10 +873,12 @@ function callApiAddOrUpdateFoodSafety(){
       	if(data == 'Code duplicate') {
   			alert('Mã số đã bị trùng!');
   			$(".loader-overlay").remove();
-  		} else if(data == 'Code required') {
-  			alert('Mã số là bắt buộc nhập!');
-  			$(".loader-overlay").remove();
-  		} else {
+  		} 
+  		// else if(data == 'Code required') {
+  		// 	alert('Mã số là bắt buộc nhập!');
+  		// 	$(".loader-overlay").remove();
+  		// } 
+  		else {
   			close();
         	filter('noAddLoading', 'endLoading');
   		}
@@ -926,10 +928,12 @@ function addChecked(){
 	if($("#ngay_kiem_tra").val() == ""){
 		alert("Ngày kiểm tra là bắt buộc!");
 		$("#ngay_kiem_tra").focus();
-	} else if($("#formCheckedData #codeChecked").val() == ""){
-		alert("Mã kiểm tra là bắt buộc!");
-		$("#formCheckedData #codeChecked").focus();
-	} else {
+	}
+	//  else if($("#formCheckedData #codeChecked").val() == ""){
+	// 	alert("Mã kiểm tra là bắt buộc!");
+	// 	$("#formCheckedData #codeChecked").focus();
+	// }
+	 else {
 		var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
 	  	$('body').append(loader);
 	  	var test = "";

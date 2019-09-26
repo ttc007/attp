@@ -70,18 +70,23 @@ class FoodSafetyController extends BaseController
     }
     
     function store(Request $request){
-        if(!$request->code) return "Code required";
         $data = $request->only('ten_co_so', 'ten_chu_co_so', 'village_id', 'ward_id',
                                 'phone', 'certification_date', 'status',
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
-                                , 'category_id', 'categoryb2_id', 'code',
+                                , 'category_id', 'categoryb2_id',
                                 'noi_tieu_thu');
+        if($request->code){
+            $data['code'] = $request->code;
+        } else{
+            $code = FoodSafety::getCodeAuto($request->village_id, $request->categoryb2_id);
+            $data['code'] = $code;
+        }
         if($request->food_safety_id == 0){
             $food_safety = FoodSafety::create($data);
         } else {
             $food_safety = FoodSafety::find($request->food_safety_id);
             $count = FoodSafety::where('code', $request->code)->count();
-            if($count == 0 || ($food_safety->code && $request->code == $food_safety->code)) $food_safety->update($data);
+            if($count == 0 || ($food_safety->code && $request->code == $food_safety->code) || !$request->code) $food_safety->update($data);
             else return "Code duplicate";
         }
         return redirect()->back();
@@ -279,6 +284,7 @@ class FoodSafetyController extends BaseController
 
         $file = fopen($path, "w");
 
+        fputs($fp, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
         $list = array("Mã số kiểm tra", "Mã số cơ sở" ,"Tên cơ sở", "Năm kiểm tra", "Ngày kiểm tra", "Kết quả kiểm tra", "Nội dung không đạt",
             "Xử phạt", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5");
         fputcsv($file, $list);

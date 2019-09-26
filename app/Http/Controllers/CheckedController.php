@@ -21,9 +21,13 @@ class CheckedController extends Controller
 			'year' => $date->format('Y'),
 			'month' => $date->format('m'),
 			'day' => $date->format('d'),
-            'dateChecked' => $request->dateChecked,
-            'code' => $request->code
+            'dateChecked' => $request->dateChecked
     	];
+        if($request->code){
+            $data['code'] = $request->code;
+        } else {
+            $data['code'] = Checked::getCodeAuto($request->food_safety_id, $date->format('Y') );
+        }
         if($request->checked_id > 0){
         	$checked = Checked::find($request->checked_id);
         	$checked->update($data);

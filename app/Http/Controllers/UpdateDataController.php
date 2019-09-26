@@ -129,25 +129,28 @@ class UpdateDataController extends Controller
             $food_safety->update($dataUpdate);
 
             $ward = Ward::find($food_safety->ward_id);
-            if(!$ward) $food_safety->delete();
-            $village = Village::find($food_safety->village_id);
-            $category = Category::find($food_safety->categoryb2_id);
-            if($village != null && $category != null){
-                $fsIndex = 1;
-                $lap = true;
-                while($lap){
-                    if($fsIndex < 10) $inc = "00".$fsIndex;
-                    else if($fsIndex < 100) $inc = "0".$fsIndex;
-                    else $inc = $fsIndex;
-                    $code =  $this->slugName($ward->name);
-                    $code .= "_".$this->slugName($village->name);
-                    $code .= "_".$this->slugName($category->name)."_".$inc;
+            if(!$ward){
+                $food_safety->delete();
+            } else {
+                $village = Village::find($food_safety->village_id);
+                $category = Category::find($food_safety->categoryb2_id);
+                if($village != null){
+                    $fsIndex = 1;
+                    $lap = true;
+                    while($lap){
+                        if($fsIndex < 10) $inc = "00".$fsIndex;
+                        else if($fsIndex < 100) $inc = "0".$fsIndex;
+                        else $inc = $fsIndex;
+                        $code =  $this->slugName(@$ward->name);
+                        $code .= "_".$this->slugName(@$village->name);
+                        $code .= "_".$this->slugName(@$category->name)."_".$inc;
 
-                    if(FoodSafety::where('code', $code)->count() == 0){
-                        $food_safety->update(['code' => $code]);
-                        $lap = false;
-                    } else {
-                        $fsIndex++;
+                        if(FoodSafety::where('code', $code)->count() == 0){
+                            $food_safety->update(['code' => $code]);
+                            $lap = false;
+                        } else {
+                            $fsIndex++;
+                        }
                     }
                 }
             }
@@ -195,45 +198,18 @@ class UpdateDataController extends Controller
         else if($string == "Nhóm trẻ gia đình") return "NTGD";
         else if($string == "Thức ăn đường phố") return "TADP";
         else if($string == "Dịch vụ ăn uống") return "DVAU";
-        else if($string == "Quán ăn") return "QA";
+        else if($string == "Quán ăn xã quản lí") return "QAXQL";
+        else if($string == "Quán ăn huyện quản lí") return "QAHQL";
+        else if($string == "Nấu ăn lưu động") return "NALD";
         else {
             $result = "";
+            
             $arr = explode(" ", $string);
             foreach ($arr as $value) {
-                $result .= substr($value, 0, 1);
+                $char = substr($value, 0, 1);
+                $result .= $char;
             }
-            return strtoupper($this->slug_url($result));
+            return strtoupper($result);
         }
-    }
-
-    function slug_url( string $str ){
-
-        //Kiểm tra xem dữ liệu truyền vào có phải là một chuỗi hay không
-        if( is_string( $str ) ){
-            // Chuyển đổi toàn bộ chuỗi sang chữ thường
-            $str = mb_convert_case($str, MB_CASE_LOWER, "UTF-8"); 
-
-            //Tạo mảng chứa key và chuỗi regex cần so sánh
-            $unicode = [
-                'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
-                'd' => 'đ',
-                'e' => 'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
-                'o' => 'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
-                'u' => 'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
-                'y' => 'ý|ỳ|ỷ|ỹ|ỵ',
-                'i' => 'í|ì|ỉ|ĩ|ị',
-                '-' => '\+|\*|\/|\&|\!| |\^|\%|\$|\#|\@',
-            ];
-
-            foreach ( $unicode as $key => $value )
-            {
-                //So sánh và thay thế bằng hàm preg_replace
-                $str = preg_replace("/($value)/", $key, $str);
-            }
-
-            //Trả về kết quả
-            return $str;
-        } 
-        return null;
     }
 }

@@ -114,6 +114,7 @@
         </div>
         
         <div class='row mx-4'>
+          <div class="text-muted w-100">*Mẹo: Đối với mã cơ sở và mã kiểm tra. Bạn có thể để trống hệ thống sẽ tự động tạo</div>
           <div class="col-md-6">
               @include('include.formfsinfo') 
           </div>
