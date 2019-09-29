@@ -158,15 +158,18 @@ class FoodSafetyController extends BaseController
             if($key > 0 && $rowCoso[11] == "Cập nhật"){
                 // dd($rowCoso);
                 $village = Village::where('name', $rowCoso[1])->first();
-                $category = Category::where('name', $rowCoso[2])->first();
+                if(Auth::user()->role == 12) $hierarchy = 'hql';
+                else $hierarchy = 'ward';
+                $category = Category::where('name', $rowCoso[2])
+                                ->where('hierarchy', $hierarchy)->first();
                 if($rowCoso[0] != "" && $rowCoso[3] != "" && $village && $category) {
                     $food_safety = FoodSafety::where('code', $rowCoso[0])->first();
                     $dataInsert = [
                         'code' => $rowCoso[0],
                         'ten_co_so' => $rowCoso[3],
                         'ten_chu_co_so' => $rowCoso[4],
-                        'categoryb2_id' => $category->id,
-                        'category_id' => Category::find($category->parent_id)->id,
+                        'categoryb2_id' => @$category->id,
+                        'category_id' => Category::find(@$category->parent_id)->id,
                         'ward_id' => Auth::user()->role,
                         'village_id' => $village->id,
                         'status' => $rowCoso[5],

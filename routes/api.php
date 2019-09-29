@@ -39,9 +39,9 @@ Route::post('/test/delete','TestController@api_delete');
 Route::get('/test/{id}','TestController@api_show');
 
 
-Route::get('/category_store','CategoryController@api_store');
+Route::post('/category_store','CategoryController@api_store');
 Route::get('/category','CategoryController@api_get');
-Route::post('/category/delete','CategoryController@api_delete');
+Route::post('/category/delete/{id}','CategoryController@api_delete');
 Route::get('/category/{id}','CategoryController@api_show');
 
 
