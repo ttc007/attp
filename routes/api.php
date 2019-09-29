@@ -30,7 +30,7 @@ Route::get('/village/{id}','VillageController@api_show');
 
 Route::post('/ward','WardController@api_store');
 Route::get('/ward','WardController@api_get');
-Route::post('/ward/delete','WardController@api_delete');
+Route::post('/ward/delete/{id}','WardController@api_delete');
 Route::get('/ward/{id}','WardController@api_show');
 
 Route::post('/test','TestController@api_store');

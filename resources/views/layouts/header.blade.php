@@ -38,16 +38,16 @@
                             @if(Auth::user()&&
                                 (Auth::user()->role=='admin'||Auth::user()->role=='hql')
                             )
-                                <a class="dropdown-item" href="/ward"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí Xã</a>
+                                <a class="dropdown-item" href="ward"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí Xã</a>
                                 
-                                <a class="dropdown-item" href="/test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
-                                <a class="dropdown-item" href="/user"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí user</a>
+                                <a class="dropdown-item" href="test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
+                                <a class="dropdown-item" href="user"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí user</a>
                             @endif
 
                             @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
-                                <a class="dropdown-item" href="/village"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lý thôn</a>
-                                <a class="dropdown-item" href="/test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
-                                <a class="dropdown-item" href="../category"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí nhóm</a>
+                                <a class="dropdown-item" href="{{route('village')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lý thôn</a>
+                                <a class="dropdown-item" href="{{route('test')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
+                                <a class="dropdown-item" href="{{route('category')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí nhóm</a>
                             @endif
                             <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a>
                             <div class="dropdown-divider"></div>

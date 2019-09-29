@@ -9,18 +9,21 @@ class WardController extends Controller
 {
     function index()
     {
-        return view('ward.view');
+        $wards = Ward::all();
+        return view('ward.view', compact('wards'));
     }
 
     function api_store(Request $request){
         if($request->ward_id==0)
     	$village = Ward::create([
-    		'name'=>$request->name
+    		'name' => $request->name,
+            'slug' => Ward::autoSlug($request->name) 
     	]);
         else{
             $village = Ward::find($request->ward_id);
             $village->update([
-                'name'=>$request->name
+                'name'=>$request->name,
+                'slug' => Ward::autoSlug($request->name) 
             ]);
         }
     	return $village;
@@ -31,8 +34,8 @@ class WardController extends Controller
     	return $villages;
     }
 
-    function api_delete(Request $request){
-    	$villages = Ward::find($request->id)->delete();
+    function api_delete($id){
+    	$villages = Ward::find($id)->delete();
     	return 200;
     }
 

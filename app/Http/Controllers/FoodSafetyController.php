@@ -43,17 +43,18 @@ class FoodSafetyController extends BaseController
         return view('kpi.add',compact('types'));
     }
 
-    function getByCate($category){
+    function getByCate($id){
+        $ward = Ward::find(Auth::user()->role);
         $categories = [];
         $category_id = 0;
-        $category = Category::where('slug',$category)->first();
+        $category = Category::where('id', $id)->first();
         if($category) {
             $category_id = $category->id;
             $categories = $category->childs(Auth::user()->role);
         }
-        $villages = Village::where('parent_id',Session::get('ward_id'))->get();
+        $villages = Village::where('parent_id', Session::get('ward_id'))->get();
         $tests = Test::all();
-        return view('food_safety.view', compact('category_id','villages','categories','category','tests'));
+        return view('food_safety.view', compact('category_id','villages','categories','category', 'tests', 'ward'));
     }
 
     function filter(){

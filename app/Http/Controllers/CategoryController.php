@@ -29,12 +29,14 @@ class CategoryController extends Controller
     	if($request->category_id == 0)$category = Category::create([
     		'name' => $request->name,
     		'parent_id' => 1,
-            'hierarchy' => $request->hierarchy
+            'hierarchy' => $request->hierarchy,
+            'slug' => Category::autoSlug($request->name)
     	]);
     	else{
     		$category = Category::find($request->category_id);
     		$category->update([
 	    		'name' => $request->name,
+                'slug' => Category::autoSlug($request->name)
 	    	]);
     	} 
     	return $category;

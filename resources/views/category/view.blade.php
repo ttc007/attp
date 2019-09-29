@@ -22,6 +22,7 @@
                 <tr>
                     <th>Stt</th>
                     <th>Tên</th>
+                    <th>Tên viết tắt</th>
                     <th>Chỉnh sửa</th>
                     <th>Xóa</th>
                 </tr>
@@ -29,6 +30,7 @@
                     <tr>
                         <td>{{$key+1}}</td>
                         <td>{{$category->name}}</td>
+                        <td>{{$category->slug}}</td>
                         <td><a onclick="editCategory('{{$category->id}}')"><i class="glyphicon glyphicon-edit"></i></a></td>
                         <td><a onclick="deleteCategory('{{$category->id}}')"><i class="glyphicon glyphicon-remove"></i></a></td>
                     </tr>
