@@ -25,7 +25,6 @@ class Village extends Model
         $arr = explode(" ", $string);
         foreach ($arr as $value) {
             $char = utf8_encode(substr($value, 0, 1));
-            // $char = utf8_decode($char);
             $result .= $char;
         }
        

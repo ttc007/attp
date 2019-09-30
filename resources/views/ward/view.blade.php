@@ -88,6 +88,8 @@
           location.reload();
       });
       function createWard(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $.ajax({
             url:'api/ward',
             type:"POST",
@@ -109,6 +111,8 @@
       }
 
       function editWard(id){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $(".outside-overlay").css('display','block');
           $(".overlay").css('display','block');
           $.ajax({
@@ -117,11 +121,14 @@
             success:function (data){
                $("#name").val(data.name);
                $("#ward_id").val(id);
+               loader.remove();
             }
           });
       }
       function deleteWard(id){
         if(confirm("Bạn có chắc muốn xóa xã này!!")){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $.ajax({
               url:'api/ward/delete/'+id,
               type:"POST",

@@ -86,6 +86,8 @@
           location.reload();
       });
       function createVillage(){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $.ajax({
             url:'api/village',
             type:"POST",
@@ -108,6 +110,8 @@
       }
 
       function editVillage(id){
+          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+          $('body').append(loader);
           $(".outside-overlay").css('display','block');
           $(".overlay").css('display','block');
           $.ajax({
@@ -116,6 +120,7 @@
             success:function (data){
                $("#name").val(data.name);
                $("#village_id").val(id);
+               loader.remove();
             }
           });
       }

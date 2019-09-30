@@ -230,7 +230,7 @@ class FoodSafetyController extends BaseController
             }
         }
 
-        return redirect('food_safety/y-te');
+        return redirect('food_safety/1');
     }
 
     function download_csv(){

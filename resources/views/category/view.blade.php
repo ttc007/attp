@@ -110,6 +110,8 @@
             scrollTop: $("#top1").offset().top
         }, 100);
     } else{
+      var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+      $('body').append(loader);
       $.ajax({
         url:'api/category_store',
         type:"POST",
@@ -130,18 +132,23 @@
   function editCategory(id){
     $(".outside-overlay").css('display','block');
     $(".overlay").css('display','block');
+    var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+    $('body').append(loader);
     $.ajax({
         url:'api/category/'+id,
         type:"GET",
         success:function (data){
             $("#name").val(data.name);
             $("#category_id").val(data.id);
+            loader.remove()
         }
     });
   }
 
   function deleteCategory(id){
     if(confirm("Bạn có chắc muốn xóa nhóm này!!")){
+      var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+      $('body').append(loader);
       $.ajax({
           url:'api/category/delete/'+id,
           type:"POST",
