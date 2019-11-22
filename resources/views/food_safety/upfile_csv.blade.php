@@ -29,6 +29,7 @@
     <p>Bạn có thể download file excel mẫu tại đây.</p>
     <a href="download_csv" class="btn btn-warning">Download excel cơ sở</a>
     <a href="download_checked_csv" class="btn btn-warning">Download excel kiểm tra</a>
+    <a href="download_no_checked_csv" class="btn btn-warning">Download excel cơ sở chưa kiểm tra</a>
 </section>
 @endsection
 

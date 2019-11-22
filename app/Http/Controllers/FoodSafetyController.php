@@ -314,6 +314,35 @@ class FoodSafetyController extends BaseController
         fclose($file);
         return Response::download($path);
     }
+
+    function download_no_checked_csv(){
+        $ward = Ward::find(Auth::user()->role);
+
+        $path = public_path("download/excel/".$ward->name."- danh sách chưa kiểm tra.csv");
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        if(!file_exists($path)){
+            file_put_contents($path, '');
+        }
+
+        $file = fopen($path, "w");
+
+        $list = array("Mã số cơ sở" , "Tên cơ sở", "Thôn", "Nhóm");
+        fputcsv($file, $list);
+
+        $noCheckeds = FoodSafety::leftJoin("checkeds", "checkeds.food_safety_id", "food_safeties.id")
+            ->select('food_safeties.*')
+            ->where("food_safeties.ward_id", Auth::user()->role)
+            ->whereNull("checkeds.id")
+            ->orderBy('food_safeties.code')->get();
+        foreach ($noCheckeds as $key => $checked) {
+            $category = Category::find($checked->categoryb2_id);
+            $category_name = (isset($category) && !empty($category->hierarchy) && $category->hierarchy != '') ? $category->name : "";
+            $data = array($checked->code, $checked->ten_co_so, @Village::find(@$checked->village_id)->name, $category_name);
+            fputcsv($file, $data);
+        }
+        fclose($file);
+        return Response::download($path);
+    }
     // function updateDataWard(){
     //     $wards = Ward::all();
     //     foreach ($wards as $key => $ward) {
