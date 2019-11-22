@@ -17,6 +17,7 @@ class FoodSafetyController extends Controller
     function api_get(Request $request){
         $food_safeties = FoodSafety::where('food_safeties.category_id',$request->category_id)
                             ->where('ward_id',$request->ward_id);
+                            
         if($request->categoryb2_id){
             $food_safeties = $food_safeties->where('categoryb2_id',$request->categoryb2_id);
         }
@@ -27,19 +28,47 @@ class FoodSafetyController extends Controller
         if($request->code){
             $food_safeties = $food_safeties->where('code', 'like', "%".$request->code."%");
         }
-        $food_safeties = $food_safeties->orderBy('code', 'asc')->get();
 
-        if($request->codeChecked) {
-            $data = [];
-            foreach ($food_safeties as $key => $food_safety) {
-                $checked = Checked::where('food_safety_id', $food_safety->id)->where('code', 'like', '%'.$request->codeChecked.'%')->first();
-                if($checked) $data[] = $food_safety;
+        if ($request->statusCheck) {
+            if ($request->statusCheck != "Chưa kiểm tra") {
+                $food_safeties = $food_safeties
+                    ->select(DB::raw('food_safeties.*'))
+                    ->leftJoin('checkeds', 'checkeds.food_safety_id', 'food_safeties.id')
+                    ->where('result', $request->statusCheck)
+                    ->where('year', $request->year);
+            } else {
+                $food_safeties = $food_safeties
+                    ->leftJoin('checkeds', function($join) use ($request){
+                        $join->on('checkeds.food_safety_id', '=','food_safeties.id')
+                            ->where('year', $request->year);
+                    })
+                    ->select(DB::raw('food_safeties.*'))
+                    ->whereNull('result');
             }
-        } else {
-            $data = $food_safeties;
         }
 
-        foreach ($data as $key => $value) {
+        $offset = $request->page?$request->page:1;
+        $offset = ($offset-1)*10;
+
+        $count = $food_safeties->count();
+        $food_safeties = $food_safeties->orderBy('code', 'asc')
+            ->limit(10)
+            ->offset($offset)
+            ->get();
+
+        $data = [];
+        $data['count'] = $count;
+        $data['page'] = $request->page?$request->page:1;
+        if($request->codeChecked) {
+            foreach ($food_safeties as $key => $food_safety) {
+                $checked = Checked::where('food_safety_id', $food_safety->id)->where('code', 'like', '%'.$request->codeChecked.'%')->first();
+                if($checked) $data['data'][] = $food_safety;
+            }
+        } else {
+            $data['data'] = $food_safeties;
+        }
+
+        foreach ($data['data'] as $key => $value) {
             if($value->certification_date){
                 $certification_date = Carbon::parse($value->certification_date)->addYears(3)->addDays(7);
                 if($certification_date<Carbon::now()) 

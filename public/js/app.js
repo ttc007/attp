@@ -877,13 +877,13 @@ function callApiAddOrUpdateFoodSafety(){
 }
 
 function filter(noAddLoading, endLoading){
+	alert(123);
     if(noAddLoading!="noAddLoading"){
       var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
       $('body').append(loader);
     }
     
     $.ajax({
-        // async: false,
         url: "/api/food_safety/",
         data: {
           category_id:$("#category_id").val(),
@@ -895,7 +895,6 @@ function filter(noAddLoading, endLoading){
         dataType: "json",
         success: function(response){
             $("#table").bootstrapTable('refreshOptions', {
-              // exportDataType: $("#GLOBAL_YEAR").val(),
               data:response
             });
             if(endLoading=="endLoading"||endLoading==undefined){

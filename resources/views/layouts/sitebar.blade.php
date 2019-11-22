@@ -33,10 +33,16 @@
                     <span class="lbl">Danh sách</span>
                 </a>
             </li>
-            <li class="blue-dirty @if(Request::is('food_safety/reportMaster')) opened @endif">
+            <li class="blue-dirty @if(Request::is('food_safety/report')) opened @endif">
                 <a href="/food_safety/report">
                     <i class="font-icon font-icon-notebook"></i>
                     <span class="lbl">Báo cáo</span>
+                </a>
+            </li>
+            <li class="gold @if(Request::is('food_safety/report1')) opened @endif">
+                <a href="/food_safety/report1">
+                    <i class="font-icon font-icon-notebook"></i>
+                    <span class="lbl">Báo cáo kiểm tra & chưa kiểm tra</span>
                 </a>
             </li>
             <li class="blue-dirty @if(Request::is('food_safety/reportTest')) opened @endif">

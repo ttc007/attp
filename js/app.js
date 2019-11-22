@@ -874,10 +874,6 @@ function callApiAddOrUpdateFoodSafety(){
   			alert('Mã số đã bị trùng!');
   			$(".loader-overlay").remove();
   		} 
-  		// else if(data == 'Code required') {
-  		// 	alert('Mã số là bắt buộc nhập!');
-  		// 	$(".loader-overlay").remove();
-  		// } 
   		else {
   			close();
         	filter('noAddLoading', 'endLoading');
@@ -886,15 +882,14 @@ function callApiAddOrUpdateFoodSafety(){
     });
 }
 
-function filter(noAddLoading, endLoading){
-    if(noAddLoading!="noAddLoading"){
+function filter(noAddLoading, endLoading, page){
+    if(noAddLoading != "noAddLoading"){
       var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
       $('body').append(loader);
     }
     
     $.ajax({
-        // async: false,
-        url: "../api/food_safety/",
+        url: "../api/food_safety",
         data: {
           category_id:$("#category_id").val(),
           ward_id:$("#ward_id").val(),
@@ -902,18 +897,15 @@ function filter(noAddLoading, endLoading){
           categoryb2_id:$("#categoryFilter").val(),
           village_id:$("#villageFilter").val(),
           code:$("#codeFilter").val(),
-          codeChecked:$('#codeCheckedFilter').val()
+          //codeChecked:$('#codeCheckedFilter').val(),
+          statusCheck:$('#statusCheck').val(),
+          page:(page?page:1)
         },
         dataType: "json",
         success: function(response){
-            $("#table").bootstrapTable('refreshOptions', {
-              // exportDataType: $("#GLOBAL_YEAR").val(),
-              data:response
-            });
-            if(endLoading=="endLoading"||endLoading==undefined){
-              $(".loader-overlay").remove();
-            }
-
+        	$("html, body").animate({ scrollTop: 0 }, "fast");
+            $('.loader-overlay').remove();
+            renderTableFS(response);
         }
     });
 }
@@ -968,4 +960,134 @@ function addCheckedNew(){
   	$("#formCheckedData")[0].reset();
   	$("#divTest").empty();
   	$("#formCheckedData [name=checked_id]").val(0);
+}
+
+function renderTableFS(data){
+	var tbody = $("#tbody");
+	tbody.empty();
+	$.each(data.data, function(i, rowData){
+		var tr = $(`<tr>
+			<td>` + ((data.page-1)*10+i+1) + `</td>
+			<td>` + 
+			'<div class="dropdown dropdown-status">' +
+				'<button class="nameclick btn" type="button" data-toggle="dropdown"'+
+				'aria-haspopup="true" aria-expanded="false">' +
+					rowData.ten_co_so +
+				'</button>' +
+				'<div class="text-left pt-2">'+
+				'<b>Mã số: '+ (rowData.code?rowData.code:"") + "</b>"+
+				'<br>Tên chủ cơ sở: '+ rowData.ten_chu_co_so+
+				'<br>Số điện thoại: '+ (rowData.phone?rowData.phone:"-")+
+				'<br>Thôn: '+ (rowData.village?rowData.village.name:"-")+
+				'<br>Nhóm: '+ (rowData.category_2?rowData.category_2.name:"-")+
+				'<br>Ngày kí cam kết(3 năm): '+ (rowData.ngay_ky_cam_ket?rowData.ngay_ky_cam_ket:"-")+
+				'<br>Ngày khám sức khỏe(1 năm): '+ ( rowData.ngay_kham_suc_khoe? rowData.ngay_kham_suc_khoe:"-")+
+				'<br>Ngày tập huấn kiến thức(3năm): '+ (rowData.certification_date?rowData.certification_date:"-")+
+				'<br>Số cấp: '+(rowData.so_cap?rowData.so_cap:"-")+
+				'</div></div>'
+			 + `</td>
+			<td>` + ngaykiemtraFormatter1(rowData) + `</td>
+			<td>` + statusFormatter1(rowData.status) + `</td>
+			<td>` + operateFormatter1(rowData) + `</td>
+		</tr>`);
+		tbody.append(tr);
+	});
+
+	renderPaginate(data.count, data.page);
+}
+
+function ngaykiemtraFormatter1(row){
+    var year = $("#GLOBAL_YEAR").val();
+    var trave = "<div class='text-left'>";
+    $.each(row.checkeds, function(i,checked){
+    	if(true){
+        	trave +="<div class='pt-2'><b style='color:#0a7dca'>Lần:"+(i+1)+"</b>: <b>"+checked.day+"-"+checked.month+"-"+checked.year+"</b> -- ";
+            
+            if(checked.result=="Chưa đạt") trave += "Kết quả: <b class='text-danger'>Chưa đạt</b>";
+            if(checked.result=="Đạt") trave += "Kết quả:<b class='text-success'>Đạt</b>";
+            trave +="<br>Mã kiểm tra: <b>"+checked.code+"</b>";
+            if(checked.note!=null) trave +=`<br>`+checked.note;
+            if(checked.penalize!=null) trave +=`<br> Xử phạt: `+checked.penalize;
+            if(checked.checked_tests.length>0){
+            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span><br>";
+            	$.each(checked.checked_tests, function(t, checked_test){
+            		trave += "<span class='test-nhanh'>"+
+            				checked_test.test.name+":"+checked_test.result+"</span><br>";
+            	});
+            } else {
+            	trave+="<br><span class='test-nhanh-title'>Test nhanh</span>: Không test";
+            }
+    	}
+    });
+ 	trave +="</div></div>";
+    return trave;
+}
+
+function statusFormatter1(data) {
+	var color = "#46c35f";
+	if(data=="Tạm nghỉ") {
+		color = `red`;
+	} else if(!data) {
+		data = "Đang hoạt động";
+	}
+
+	var trave = `<span style='color:`+color+`'>`+data+`</span>`;
+	return trave;
+}
+
+function operateFormatter1(row) {
+	if($("#role").val()=='Guest' || $("#ward_id").val()!=$("#auth_ward_role").val()) return "";
+	return [
+		'<a class="like call-overlay" data-overlay="contact" onclick="edit('+row.id+')" title="Edit">',
+		'<i class="glyphicon glyphicon-edit"></i>',
+		'</a>  ',
+		'<a class="remove" href="javascript:void(0)" title="Remove"  onclick="removeFS('+row.id+')">',
+		'<i class="glyphicon glyphicon-remove"></i>',
+		'</a>'
+	].join('');
+}
+
+function removeFS(id){
+	swal({
+		type:'warning',
+		title:'Warning',
+		text:'Bạn chắc chắn muốn xóa cơ sở này?',
+		showCancelButton:true
+	}).then(function(){
+		$.ajax({
+			url: '../api/food_safety/delete',
+			type: 'POST',
+			data: {
+				id: row.id
+			},
+		})
+		.done(function() {
+			$table.bootstrapTable('remove', {
+				field: 'id',
+				values: [row.id]
+			});
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	})
+}
+
+function renderPaginate(count, page){
+	var pageCount = count/10 + 1;
+	var ul = $("#paginate");
+	ul.empty();
+	for (var i = 1; i <= pageCount; i++ ) {
+		var li = $("<li class='page-item' data-page='"+i+"'><a class='page-link'>"+i+"</a></li>");
+		if (i == page) {
+			li.addClass('active');
+		}
+		li.click(function(){
+			filter('', 'endLoading', $(this).data('page'));
+		});
+		ul.append(li);
+	}
 }

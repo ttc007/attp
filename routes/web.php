@@ -35,12 +35,15 @@ Route::get('/checked/remove/{id}', 'CheckedController@remove')->name('delete_che
 
 Route::group(['prefix'=>'food_safety'], function(){
   Route::get('/report', 'ReportController@report');
+  Route::get('/report1', 'ReportController@report1');
   Route::get('/reportMaster', 'ReportController@reportMaster');
   Route::get('/reportUnexpected', 'ReportController@reportUnexpected');
   Route::get('/reportUnexpectedWard', 'ReportController@reportUnexpectedWard');
 
   Route::get('/reportTest', 'ReportController@reportTest');
   Route::get('/reportTestMaster', 'ReportController@reportTestMaster');
+
+  Route::get('/reportMasterExport', 'ReportController@reportMasterExport');
 });
 
 

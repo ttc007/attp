@@ -64,9 +64,18 @@
               <b>Mã số cơ sở</b><br>
               <input type="" name="" id='codeFilter' class="form-control" >
             </div>
-            <div class="col-md-2">
+            <!-- <div class="col-md-2 hidden">
               <b>Mã số kiểm tra</b><br>
               <input type="" name="" id='codeCheckedFilter' class="form-control" >
+            </div> -->
+            <div class="col-md-2">
+              <b>Trạng thái kiểm tra</b><br>
+              <select class="form-control" id="statusCheck">
+                <option></option>
+                <option>Đạt</option>
+                <option>Chưa đạt</option>
+                <option>Chưa kiểm tra</option>
+              </select>
             </div>
             <div class="col-md-2">
               &nbsp;<br>
@@ -74,25 +83,20 @@
             </div>
         </div>
         <div class="table-responsive" id="project-uid" data-uid="all">
-            <table id="table"
-               class="table table-striped table-bordered"
-               data-toolbar="#toolbar"
-               data-search="true"
-               data-show-refresh="true"
-               data-show-toggle="true"
-               data-show-columns="true"
-               data-show-export="true"
-               data-detail-view="true"
-               data-detail-formatter="detailFormatter"
-               data-minimum-count-columns="2"
-               data-show-pagination-switch="true"
-               data-pagination="true"
-               data-id-field="id"
-               data-page-list="[20, 25, 50, 100, ALL]"
-               data-page-size='20'
-               data-show-footer="false"
-               data-response-handler="responseHandler">
+            <table id="table" class="table table-bordered">
+              <tr>
+                <th style="width: 20px">STT</th>
+                <th style="width: 380px">Tên chủ cơ sở</th>
+                <th>Lịch sử kiểm tra năm 2019</th>
+                <th style="width: 100px">Trạng thái</th>
+                <th style="width: 50px">Hành động</th>
+              </tr>
+              <tbody id="tbody">
+              </tbody>
             </table>
+            <div style="float: right;max-width: 900px">
+              <ul id="paginate" class="pagination"></ul>
+            </div>
         </div>
     </section>
 
@@ -127,12 +131,15 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table.js')}}"></script>
+    <!-- <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table.js')}}"></script>
     <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-export.min.js')}}"></script>
     <script src="{{ asset('js/lib/bootstrap-table/tableExport.min.js')}}"></script>
-    <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-food-safety.js')}}"></script>
+    <script src="{{ asset('js/lib/bootstrap-table/bootstrap-table-food-safety.js')}}"></script> -->
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script type="text/javascript">
+      
+      filter('', 'endLoading', 1);
+
       function addTest( testName,TestValue){
           var rowTest = $(`<div  class="w-100 row mt-2 testRow">
             <div class="col-sm-7 form-group">

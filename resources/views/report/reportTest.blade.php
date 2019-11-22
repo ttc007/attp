@@ -70,12 +70,13 @@
               var testArr = data.tests;
               $("#table").append(thead);
               
-              for(var i=1; i<=month; i++){
+              for(var i = 1; i <= month; i++){
                 var tr = $("<tr><td>Tháng "+i+"</td></tr>");
                 thead.empty();
                 thead.append("<td><b>"+$("#wardName").text()+"</b></td>");
                 
                 $.each(testArr, function(testId, testItem){
+                  testId++;
                   var total = 0;
                   var negative = 0;
                   var positive = 0;

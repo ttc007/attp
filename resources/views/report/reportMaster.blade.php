@@ -11,13 +11,17 @@
 				<div class="tbl-cell">
 					<h3 class="w-100 mb-5">Food Safety / Báo Cáo</h3>
           <h4>Báo cáo tổng hợp</h4>
+          
 				</div>
 			</div>
 		</div>
 	</div>
 
   <div class="row p-4">
-    <div class="col-md-2">
+    <button onclick='report()' class="pull-left btn btn-primary mr-4">Xem báo cáo quý</button>
+    <button onclick="ExportToExcel('table')" style="display: none;" class="pull-left btn btn-info mr-4" id="btn-export">Xuất excel</button>
+          <!-- <a href='reportMasterExport' class="pull-left btn btn-danger">Xuất excel</a> -->
+    <!-- <div class="col-md-2">
      <p>Chọn năm</p>
      <select class="form-control" style="width:100px;display:inline-block" id="GLOBAL_YEAR">
         <option>2018</option>
@@ -33,12 +37,12 @@
             <option>{{$i}}</option>
           @endfor
       </select>
-    </div>
+    </div> -->
   </div>
 
   <div class="row p-3">
-    <div id="data-render" class="text-center row mx-0"
-       >
+    <div id="data-render" class="text-center row mx-0">
+      <table class="table mx-2" id="table"></table>
     </div>
   </div>
 </div>     
@@ -47,7 +51,7 @@
 @section('script')
     <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
     <script>
-        $("#month_report").change(function(){
+        $("#month_report1").change(function(){
           var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
           $('body').append(loader);
 
@@ -91,7 +95,7 @@
                             }
                             if(dateCheckMonth==i){
                               check++;
-                              if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                              if(foodSafetyDateChecked.result=="Đạt"){
                                 pass++;
                               }
                             }
@@ -138,7 +142,7 @@
                             }
                             if(dateCheckMonth==i){
                               check++;
-                              if(foodSafetyDateChecked.ket_qua_kiem_tra_1=="Đạt"){
+                              if(foodSafetyDateChecked.result=="Đạt"){
                                 pass++;
                               }
                             }
@@ -206,7 +210,44 @@
             }
           });
         });
+        
 
+        function report() {
+            var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
+            $('body').append(loader);
+            $.ajax({
+              url:'../api/month_report_master/12',
+              type:'GET',
+              data:{
+                year:$("#GLOBAL_YEAR").val()
+              },
+              success:function(data){
+                $("#table").empty();
+                $.each(data, function(i, quart){
+                  $("#table").append("<tr><td colspan='10'>" + i + "</td></tr>");
+                  $.each(quart, function(j, dataQuart){
+                    if (j == 'Quý 1') {
+                      var tr1 = $("<tr>");
+                      tr1.append("<td style='width:100px'></td>");
+                      $.each(dataQuart.category, function(c, category){
+                        tr1.append("<td>"+category+"</td>");
+                      });
+                      $("#table").append(tr1);
+                    }
+
+                    var tr2 = $("<tr>");
+                    tr2.append("<td>"+j+"</td>");
+                    $.each(dataQuart.count, function(d, count){
+                        tr2.append("<td>"+count+"</td>");
+                      });
+                      $("#table").append(tr2);
+                  });
+                });
+                $("#btn-export").css('display', 'block');
+                loader.remove();
+              }
+            });
+        }
     </script>
 
 @endsection
