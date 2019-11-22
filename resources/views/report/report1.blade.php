@@ -5,18 +5,14 @@
 <table class="table table-bordered">
   <tr>
     <th rowspan="2"></th>
-    @foreach($data_total as $category_total)
+    @foreach($fsInChildOfCategory as $key => $category_total)
       <th colspan="5" class="text-center">
-        @if($category_total->category_name)
-          {{$category_total->category_name}}({{$category_total->cnt}})
-        @else
-          Chưa phân nhóm({{$category_total->cnt}})
-        @endif
+        {{$key}}({{$category_total}})
       </th>
     @endforeach
   </tr>
   <tr>
-    @foreach($data_total as $category_total)
+    @foreach($fsInChildOfCategory as $category_total)
       <th title="Đạt">P</th>
       <th title="Chưa đạt">U-P</th>
       <th title="Chưa kiểm tra">U-C</th>
@@ -28,17 +24,18 @@
       <tr>
         <td>{{$key}}</td>
         @foreach($data as $data1)
+          @foreach($data1 as $data2)
           <td class="text-center">
-            {{$data1->DAT}}
+            {{$data2['P']}}
           </td>
           <td class="text-center">
-            {{$data1->CHUADAT}}
+            {{$data2['U-P']}}
           </td>
           <td class="text-center">
-            {{$data1->KHONGKIEMTRA}}
           </td>
           <td></td>
           <td></td>
+          @endforeach
         @endforeach
       </tr>
   @endforeach

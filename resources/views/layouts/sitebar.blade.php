@@ -27,7 +27,7 @@
                 </a>
             </li>
         @else
-            <li class="aquamarine @if(Request::is('food_safety/y-te')) opened @endif">
+            <li class="aquamarine @if(Request::is('food_safety/1')) opened @endif">
                 <a href="/food_safety/1">
                     <i class="font-icon font-icon-doc"></i>
                     <span class="lbl">Danh sách</span>

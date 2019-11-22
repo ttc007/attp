@@ -75,6 +75,7 @@
                 $.each(data.categories, function(m, category){
                   var check = 0;
                   var pass = 0;
+                  var noPass = 0;
                   var rating = 0;
                   var rating1 = 0;
                   thead.append("<td>"+category.name+"("
@@ -92,6 +93,8 @@
                           check++;
                           if(foodSafetyDateChecked.result=="Đạt"){
                             pass++;
+                          } else {
+                            noPass++;
                           }
                         }
                       }
@@ -106,7 +109,8 @@
                   rating1 = Math.round(rating1 * 100) / 100;
 
                   var cateData = check+"/"+pass+"/"+rating+"%";
-                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+cateData+"<br>(Tỉ lệ kt:"+rating1+"%)</td>");
+                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+
+                    cateData+"<br>("+categoryCount+"/"+rating1+"%)</td>");
                 });
                 $("#table").append(tr);
                 if(i==3||i==6||i==9||i==12){
@@ -133,7 +137,7 @@
                     if(total > 0) rating1 = checkQuarter/total*100;
                     rating1 = Math.round(rating1 * 100) / 100;
                     var viewCount = checkQuarter+"/"+passQuarter+"/"+rating
-                      +"%<br>(Tỉ lệ kiểm tra:"+rating1+"%)";
+                      +"%<br>("+cateCount+"/"+rating1+"%)";
                     tr.append('<td>'+viewCount+'</td>');
                   });
                   

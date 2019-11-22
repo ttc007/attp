@@ -288,7 +288,6 @@ class FoodSafetyController extends BaseController
 
         $file = fopen($path, "w");
 
-        fputs($fp, $bom =( chr(0xEF) . chr(0xBB) . chr(0xBF) ));
         $list = array("Mã số kiểm tra", "Mã số cơ sở" ,"Tên cơ sở", "Năm kiểm tra", "Ngày kiểm tra", "Kết quả kiểm tra", "Nội dung không đạt",
             "Xử phạt", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5");
         fputcsv($file, $list);
@@ -342,15 +341,5 @@ class FoodSafetyController extends BaseController
         }
         fclose($file);
         return Response::download($path);
-    }
-    // function updateDataWard(){
-    //     $wards = Ward::all();
-    //     foreach ($wards as $key => $ward) {
-    //         $food_safeties = Food_safety::whereIn('village_id', $ward->village_id_array())
-    //             ->update([
-    //                 "ward_id"=>$ward->id
-    //             ]);
-    //     }
-    // }
-    
+    }    
 }

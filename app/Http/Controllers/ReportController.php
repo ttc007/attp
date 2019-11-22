@@ -59,18 +59,16 @@ class ReportController extends Controller
                     function($join){
                         $join->on('latestChecks.food_safety_id', '=', 'checkeds.food_safety_id')
                             ->on('latestChecks.last_date_checked', '=', 'checkeds.dateChecked');
-                    }
-                    );
+                    });
     	$foodSafetyDateCheckeds = DB::table('food_safeties')
                                 ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
                                     'checkeds.food_safety_id', 'food_safeties.id')
-                                ->select('food_safeties.*', 'checkeds.month', 'checkeds.result')
+                                ->select('food_safeties.categoryb2_id', 'checkeds.month', 'checkeds.result')
                                 ->where('food_safeties.status','<>', 'Tạm nghỉ')
                                 ->where('food_safeties.category_id', $category->id)
                                 ->where('food_safeties.ward_id', $request->ward_id)
                                 ->where('checkeds.year', $request->year)
                                 ->orderBy('checkeds.id')
-                                //->groupBy('checkeds.food_safety_id')
                                 ->get();
         $data["foodSafetyDateCheckeds"] = $foodSafetyDateCheckeds;
         $data["fsInChildOfCategory"] = $category->fsInChildOfCategoryWard($request->ward_id);
@@ -371,48 +369,62 @@ class ReportController extends Controller
     }
 
     function report1(){
-        $hierarchy = 'ward';
-
-        $data_total = DB::table('food_safeties')
-            ->select(
-                DB::raw('categories.name as category_name'),
-                DB::raw('COUNT(food_safeties.id) AS cnt')
-            )
-            ->leftJoin('categories', function($join){
-                $join->on('categories.id', 'food_safeties.categoryb2_id')
-                     ->where('categories.hierarchy', 'ward');
-            })
-            ->where('ward_id', 1)
-            ->where('status', '<>', 'Tạm nghỉ')
-            ->groupBy('categories.name')
-            ->orderBy('categories.name', 'DESC')
-            ->get();
+        $category = Category::where('slug','YT')->first();
+        
+        $fsInChildOfCategory = $category->fsInChildOfCategoryWard(Auth::user()->role);
         $data_month = array();
-        for($i = 1; $i <= 12; $i++){
-            $month = $i < 10 ? '0' . $i : $i;
-            $data_month['Tháng' . $month] = $this->get_data_month($i);
+        for ($i=1;$i<=12;$i++) {
+            $data_month['Tháng '.$i] = array();
+            foreach ($fsInChildOfCategory as $key => $category_name) {
+                $data_month['Tháng '.$i][$category_name] = $this->get_data_month($i, $category_name);
+             } 
         }
-            
-        return view('report.report1', compact('data_total', 'data_month'));
+        return view('report.report1',compact('fsInChildOfCategory', 'data_month'));
     }
 
-    function get_data_month($month) {
-        return DB::table('food_safeties')
-            ->select(
-                'categories.name',
-                DB::raw('SUM( CASE WHEN checkeds.result = "Đạt" THEN 1 ELSE 0 END ) as DAT'),
-                DB::raw('SUM( CASE WHEN checkeds.result = "Chưa đạt" THEN 1 ELSE 0 END ) as CHUADAT'),
-                DB::raw('SUM( CASE WHEN IFNULL(checkeds.result, 1) = 1 THEN 1 ELSE 0 END ) as KHONGKIEMTRA')
-            )
-            ->leftJoin(DB::raw('(SELECT id, food_safety_id, result FROM checkeds INNER JOIN (SELECT ' 
-                . 'MAX(id) as max_id FROM checkeds GROUP BY food_safety_id) AS max_checks ON '
-                . 'max_checks.max_id = checkeds.id WHERE year = ' . date('Y') .') AS checkeds'),
-                'checkeds.food_safety_id', 'food_safeties.id')
-            ->leftJoin('categories', 'categories.id', 'food_safeties.categoryb2_id')
-            ->where('ward_id', Auth::user()->role)
-            ->where('status', '<>', 'Tạm nghỉ')
-            ->groupBy('categories.name')
-            ->orderBy('categories.name', 'DESC')
-            ->get();
+    function get_data_month($month, $category_name) {
+        $category = Category::where('slug','YT')->first();
+
+        $latestChecks = DB::table('checkeds')
+                   ->select('id', 'food_safety_id',
+                    DB::raw('MAX(dateChecked) as last_date_checked'))
+                   ->groupBy('food_safety_id');
+        $checkedSub = DB::table('checkeds')
+                ->select('checkeds.id', 'checkeds.result',
+                    'checkeds.year', 'checkeds.food_safety_id', 'checkeds.month'
+                )
+                ->join(DB::raw('(' . $latestChecks->toSql() .') as latestChecks'), 
+                    function($join){
+                        $join->on('latestChecks.food_safety_id', '=', 'checkeds.food_safety_id')
+                            ->on('latestChecks.last_date_checked', '=', 'checkeds.dateChecked');
+                    });
+        $data = array();
+        $data['P'] = DB::table('food_safeties')
+                                ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
+                                    'checkeds.food_safety_id', 'food_safeties.id')
+                                ->select('food_safeties.categoryb2_id', 'checkeds.month', 'checkeds.result')
+                                ->join('categories', 'categories.id', 'food_safeties.categoryb2_id')
+                                ->where('food_safeties.status','<>', 'Tạm nghỉ')
+                                ->where('categories.name', $category_name)
+                                ->where('food_safeties.ward_id', Auth::user()->role)
+                                ->where('checkeds.year', date('Y'))
+                                ->where('checkeds.month', $month)
+                                ->where('checkeds.result', 'Đạt')
+                                ->orderBy('checkeds.id')
+                                ->count();
+        $data['U-P'] = DB::table('food_safeties')
+                                ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
+                                    'checkeds.food_safety_id', 'food_safeties.id')
+                                ->select('food_safeties.categoryb2_id', 'checkeds.month', 'checkeds.result')
+                                ->join('categories', 'categories.id', 'food_safeties.categoryb2_id')
+                                ->where('food_safeties.status','<>', 'Tạm nghỉ')
+                                ->where('categories.name', $category_name)
+                                ->where('food_safeties.ward_id', Auth::user()->role)
+                                ->where('checkeds.year', date('Y'))
+                                ->where('checkeds.month', $month)
+                                ->where('checkeds.result', 'Chưa đạt')
+                                ->orderBy('checkeds.id')
+                                ->count();
+        return $data;
     }
 }

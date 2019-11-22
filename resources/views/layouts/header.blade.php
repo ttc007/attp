@@ -18,8 +18,7 @@
 
             <div class="dropdown-menu" aria-labelledby="dd-header-social">
                 @foreach(app('App\Http\Controllers\FoodSafetyController')->getCategories() as $value)
-                <a class="dropdown-item" href="/food_safety/{{$value->slug}}"><span class="font-icon font-icon-cart"></span>{{$value->name}}</a>
-                    
+                <a class="dropdown-item" href="/food_safety/{{$value->id}}"><span class="font-icon font-icon-cart"></span>{{$value->name}}</a>
                 @endforeach
             </div>
         </div>
