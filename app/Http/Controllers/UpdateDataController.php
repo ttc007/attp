@@ -141,9 +141,9 @@ class UpdateDataController extends Controller
                         if($fsIndex < 10) $inc = "00".$fsIndex;
                         else if($fsIndex < 100) $inc = "0".$fsIndex;
                         else $inc = $fsIndex;
-                        $code =  $this->slugName(@$ward->name);
-                        $code .= "_".$this->slugName(@$village->name);
-                        $code .= "_".$this->slugName(@$category->name)."_".$inc;
+                        $code =  @$ward->slug;
+                        $code .= "_".@$village->slug;
+                        $code .= "_".@$category->slug."_".$inc;
 
                         if(FoodSafety::where('code', $code)->count() == 0){
                             $food_safety->update(['code' => $code]);
@@ -172,7 +172,7 @@ class UpdateDataController extends Controller
                     else $inc = $cIndex;
 
                     $checked_code = "KT";
-                    $checked_code .= "_".$this->slugName($ward->name);
+                    $checked_code .= "_".$ward->slug;
                     $checked_code .= "_".$checked->year;
                     $checked_code .= "_".$inc;
 
@@ -185,31 +185,25 @@ class UpdateDataController extends Controller
                 }
             }
         }
-        return redirect("food_safety/y-te");
+        return redirect("food_safety/1");
     }
 
-    function slugName($string){
-        if($string == "Hòa Phước") return "HP1";
-        else if($string == "Hòa Phú") return "HP2";
-        else if($string == "Hòa Phong") return "HP3";
-        else if($string == "Hòa Ninh") return "HN1";
-        else if($string == "Hòa Nhơn") return "HN2";
-        else if($string == "Bếp ăn tập thể") return "BATT";
-        else if($string == "Nhóm trẻ gia đình") return "NTGD";
-        else if($string == "Thức ăn đường phố") return "TADP";
-        else if($string == "Dịch vụ ăn uống") return "DVAU";
-        else if($string == "Quán ăn xã quản lí") return "QAXQL";
-        else if($string == "Quán ăn huyện quản lí") return "QAHQL";
-        else if($string == "Nấu ăn lưu động") return "NALD";
-        else {
-            $result = "";
-            
-            $arr = explode(" ", $string);
-            foreach ($arr as $value) {
-                $char = substr($value, 0, 1);
-                $result .= $char;
-            }
-            return strtoupper($result);
+    function updateSlug(){
+        $wards = Ward::all();
+        foreach ($wards as $key => $ward) {
+            $ward->update(['slug' => Ward::autoSlug($ward->name)]);
         }
+
+        $villages = Village::all();
+        foreach ($villages as $key => $village) {
+            $village->update(['slug' => Village::autoSlug($village->name)]);
+        }
+
+        $categories = Category::all();
+        foreach ($categories as $key => $category) {
+            $category->update(['slug' => Category::autoSlug($category->name)]);
+        }
+
+        return redirect("food_safety/1");
     }
 }

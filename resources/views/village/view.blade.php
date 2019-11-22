@@ -13,35 +13,33 @@
 				</div>
 			</div>
 			<section class="box-typical col-sm-12">
-        <div id="toolbar" class="mt-2">
-            <div class="bootstrap-table-header">Quản lí xã</div>
-                <a href="#" class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm 1 xã/phường</a>
+        <div id="toolbar" class="mt-3">
+            <div class="bootstrap-table-header">Quản lí Thôn xã</div>
+                <a href="#" class="btn call-overlay" data-overlay="contact"><i class="fa fa-plus"></i>Thêm 1 thôn</a>
         </div>
         <div class="table-responsive" id="project-uid" data-uid="all">
-            <table id="table" class="table table-striped table-bordered my-4" >
+            <table id="table" class="table table-striped table-bordered my-4">
               <tr>
-                  <th>Stt</th>
-                  <th>Tên</th>
-                  <th>Tên viết tắt</th>
-                  <th>Chỉnh sửa</th>
-                  <th>Xóa</th>
+                <th>Stt</th>
+                <th>Tên</th>
+                <th>Tên viết tắt</th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa</th>
               </tr>
-              @foreach($wards as $key => $ward)
+              @foreach($villages as $key => $village)
                   <tr>
                       <td>{{$key+1}}</td>
-                      <td>{{$ward->name}}</td>
-                      <td>{{$ward->slug}}</td>
-                      <td><a onclick="editWard('{{$ward->id}}')"><i class="glyphicon glyphicon-edit"></i></a></td>
-                      <td><a onclick="deleteWard('{{$ward->id}}')"><i class="glyphicon glyphicon-remove"></i></a></td>
+                      <td>{{$village->name}}</td>
+                      <td>{{$village->slug}}</td>
+                      <td><a onclick="editVillage('{{$village->id}}')"><i class="glyphicon glyphicon-edit"></i></a></td>
+                      <td><a onclick="deleteVillage('{{$village->id}}')"><i class="glyphicon glyphicon-remove"></i></a></td>
                   </tr>
               @endforeach
             </table>
         </div>
     </section>
 
-		<!--Outside Overlay-->
     <div class="outside-overlay contact">
-      <!--Overlay-->
       <div class="overlay">
         <div class="section-header">
           <div class="tbl">
@@ -54,47 +52,48 @@
                   </div>
               </div>
           </div>
-        </div>
+      </div>
     
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="box-typical box-typical-padding col-sm-12">
-            <div class="row">
-                <label class="col-sm-2 form-control-label pt-3">Tên xã</label>
-                <div class="col-sm-8 form-group">
-                    <p class="form-control-static">
-                      <input name="name" type="text" class="form-control" 
-                      id="name" required>
-                    </p>
-                </div>
-            </div>
-            <input type="hidden" id="ward_id" value="0">
-            <div class="form-group row">
-              <div class="col-sm-10">
-                  <button class='btn ' onclick="createWard()">Thêm / Update</button>
-                  <button class='btn btn-danger overlay-close'>Thoát</button>
-              </div>
+
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <div class="box-typical box-typical-padding col-sm-12">
+        <div class="row">
+            <label class="col-sm-2 form-control-label pt-3">Tên thôn</label>
+            <div class="col-sm-8 form-group">
+                <p class="form-control-static">
+                  <input name="name" type="text" class="form-control" 
+                  id="name" required>
+                </p>
             </div>
         </div>
+        <input type="hidden" id="village_id" value="0">
+        <div class="form-group row">
+          <div class="col-sm-10">
+              <button class='btn ' onclick="createVillage()">Thêm / Update</button>
+              <button class='btn btn-danger overlay-close'>Thoát</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
       
 @endsection
 
 @section('script')
-    <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
-    <script>
+  <script src="https://cdn.jsdelivr.net/sweetalert2/latest/sweetalert2.js"></script>
 
+  <script>
       $('.overlay-close').click(function(){
           location.reload();
       });
-      function createWard(){
+      function createVillage(){
           var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
           $('body').append(loader);
           $.ajax({
-            url:'api/ward',
+            url:'api/village',
             type:"POST",
             data: {
                 name:$("#name").val(),
+                village_id:$("#village_id").val(),
                 ward_id:$("#ward_id").val()
             },
             success:function (data){
@@ -110,33 +109,21 @@
           });
       }
 
-      function editWard(id){
+      function editVillage(id){
           var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
           $('body').append(loader);
           $(".outside-overlay").css('display','block');
           $(".overlay").css('display','block');
           $.ajax({
-            url:'api/ward/'+id,
+            url:'api/village/'+id,
             type:"GET",
             success:function (data){
                $("#name").val(data.name);
-               $("#ward_id").val(id);
+               $("#village_id").val(id);
                loader.remove();
             }
           });
       }
-      function deleteWard(id){
-        if(confirm("Bạn có chắc muốn xóa xã này!!")){
-          var loader = $(`<div class='loader-overlay'><div class='loader'></div></div>`);
-          $('body').append(loader);
-          $.ajax({
-              url:'api/ward/delete/'+id,
-              type:"POST",
-              success:function (data){
-                  location.reload();
-              }
-          });
-        }
-      }
-    </script>
+
+  </script>
 @endsection

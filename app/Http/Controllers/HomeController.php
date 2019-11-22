@@ -16,7 +16,7 @@ class HomeController extends Controller
             return redirect('/food_safety/reportMaster');
         }
         Session::put('ward_id',Auth::user()->role);
-        return redirect('/food_safety/y-te');
+        return redirect('/food_safety/1');
     }
 
     public function admin_view_choose()

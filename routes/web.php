@@ -68,7 +68,7 @@ Route::group(['prefix'=>'ward/','middleware' => ['auth']],function() {
     Route::get('/', 'WardController@index');
 });
 Route::group(['prefix'=>'test/','middleware' => ['auth']],function() {
-    Route::get('/', 'TestController@index');
+    Route::get('/', 'TestController@index')->name('test');
 });
 
 Route::group(['prefix'=>'user/','middleware' => ['auth']],function() {
@@ -98,3 +98,4 @@ Route::get('/clear', function() {
 });
 Route::get('/updateDB', 'UpdateDataController@updateDB');
 Route::get('/updateFSCode', 'UpdateDataController@updateFSCode');
+Route::get('/updateSlug', 'UpdateDataController@updateSlug');

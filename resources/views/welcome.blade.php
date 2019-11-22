@@ -30,10 +30,9 @@
               
                   @auth
                   <a class="btn btn-primary p-4 rounded-0 text-white" 
-                    href="/home">Bảng điều khiển</a>
+                    href="{{route('home')}}">Bảng điều khiển</a>
                   @else
                   <a class="btn btn-success p-4 rounded-0 text-white" href="{{ route('login') }}">Đăng nhập</a>
-                  <!-- <a class="btn btn-primary p-4 rounded-0 text-white" href="{{ route('register') }}">Yêu cầu dùng thử</a> -->
                   <a href="/admin_view_choose" class="btn btn-primary p-4 rounded-0 text-white">Xem với tư cách admin</a>
                   @endauth
                

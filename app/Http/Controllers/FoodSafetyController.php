@@ -43,17 +43,18 @@ class FoodSafetyController extends BaseController
         return view('kpi.add',compact('types'));
     }
 
-    function getByCate($category){
+    function getByCate($id){
+        $ward = Ward::find(Auth::user()->role);
         $categories = [];
         $category_id = 0;
-        $category = Category::where('slug',$category)->first();
+        $category = Category::where('id', $id)->first();
         if($category) {
             $category_id = $category->id;
             $categories = $category->childs(Auth::user()->role);
         }
-        $villages = Village::where('parent_id',Session::get('ward_id'))->get();
+        $villages = Village::where('parent_id', Session::get('ward_id'))->get();
         $tests = Test::all();
-        return view('food_safety.view', compact('category_id','villages','categories','category','tests'));
+        return view('food_safety.view', compact('category_id','villages','categories','category', 'tests', 'ward'));
     }
 
     function filter(){
@@ -158,15 +159,18 @@ class FoodSafetyController extends BaseController
             if($key > 0 && $rowCoso[11] == "Cập nhật"){
                 // dd($rowCoso);
                 $village = Village::where('name', $rowCoso[1])->first();
-                $category = Category::where('name', $rowCoso[2])->first();
+                if(Auth::user()->role == 12) $hierarchy = 'hql';
+                else $hierarchy = 'ward';
+                $category = Category::where('name', $rowCoso[2])
+                                ->where('hierarchy', $hierarchy)->first();
                 if($rowCoso[0] != "" && $rowCoso[3] != "" && $village && $category) {
                     $food_safety = FoodSafety::where('code', $rowCoso[0])->first();
                     $dataInsert = [
                         'code' => $rowCoso[0],
                         'ten_co_so' => $rowCoso[3],
                         'ten_chu_co_so' => $rowCoso[4],
-                        'categoryb2_id' => $category->id,
-                        'category_id' => Category::find($category->parent_id)->id,
+                        'categoryb2_id' => @$category->id,
+                        'category_id' => Category::find(@$category->parent_id)->id,
                         'ward_id' => Auth::user()->role,
                         'village_id' => $village->id,
                         'status' => $rowCoso[5],
@@ -226,7 +230,7 @@ class FoodSafetyController extends BaseController
             }
         }
 
-        return redirect('food_safety/y-te');
+        return redirect('food_safety/1');
     }
 
     function download_csv(){

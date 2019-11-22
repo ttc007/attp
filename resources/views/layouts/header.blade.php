@@ -12,7 +12,7 @@
             <a class="dropdown-toggle" id="dd-header-social" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class=""></span>
                 <span class="lbl1">
-            Chọn ban ngành
+                Chọn ban ngành
            </span>
             </a>
 
@@ -33,43 +33,39 @@
                             <img src="{{ asset('img/avatar-2-64.png')}}" alt="">
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
-                            <!-- @guest
-                                <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                <a class="dropdown-item" href="{{ route('register') }}">Register</a>
-                            @else -->
                             <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-user"></span>Profile's {{ Auth::user()->name }}</a>
                             
                             @if(Auth::user()&&
                                 (Auth::user()->role=='admin'||Auth::user()->role=='hql')
                             )
-                            <a class="dropdown-item" href="/ward"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí Xã</a>
-                            <a class="dropdown-item" href="/category"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí ban ngành</a>
-                            <a class="dropdown-item" href="/test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
-                            <a class="dropdown-item" href="/user"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí user</a>
+                                <a class="dropdown-item" href="ward"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí Xã</a>
+                                
+                                <a class="dropdown-item" href="test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
+                                <a class="dropdown-item" href="user"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí user</a>
                             @endif
 
                             @if(Auth::user()&&Auth::user()->role==Session::get('ward_id'))
-                            <a class="dropdown-item" href="/village"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lý thôn</a>
-                            <a class="dropdown-item" href="/test"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
+                                <a class="dropdown-item" href="{{route('village')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lý thôn</a>
+                                <a class="dropdown-item" href="{{route('test')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí test</a>
+                                <a class="dropdown-item" href="{{route('category')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Quản lí nhóm</a>
                             @endif
                             <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Help</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        <span class="font-icon glyphicon glyphicon-log-out"></span>Logout
-                                    </a>
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                <span class="font-icon glyphicon glyphicon-log-out"></span>Logout
+                            </a>
                             <form id="logout-form" data-uid="{{ Auth::user()->id }}" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
-                                    </form>
-                            <!-- @endguest -->
+                            </form>
                         </div>
                     </div>
                     @endif
                     <button type="button" class="burger-right">
                         <i class="font-icon-menu-addl"></i>
                     </button>
-                </div><!--.site-header-shown-->
+                </div>
 
                 <div class="mobile-menu-right-overlay"></div>
                 <div class="site-header-collapsed">

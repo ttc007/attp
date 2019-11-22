@@ -13,7 +13,7 @@
 					<div class="tbl-row">
 						<div class="tbl-cell">
 							<h3>
-                 <b>{{app('App\Http\Controllers\UserController')->session_Ward_name()}}</b> 
+                 <b>{{@$ward->name}}</b> 
                 / @if($category){{$category->name}}@endif</h3>
 						</div>
 					</div>

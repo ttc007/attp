@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     function index(){
     	$users = User::all();
-    	$wards =Ward::all();
+    	$wards = Ward::all();
     	return view('user.view', compact('users','wards'));
     }
 
