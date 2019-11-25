@@ -40,7 +40,7 @@ class ReportController extends Controller
     }
 
     function month_report($month,Request $request){
-    	$category = Category::where('slug','y-te')->first();
+    	$category = Category::where('slug','YT')->first();
 
     	$data = [];
     	$foodSafetyDateCheckeds = FoodSafety::join('checkeds',
@@ -57,7 +57,7 @@ class ReportController extends Controller
     }
 
     function month_report_master($month,Request $request){
-        $category = Category::where('slug','y-te')->first();
+        $category = Category::where('slug','YT')->first();
         $data2 = [];
         
         $foodSafetyDateCheckeds = FoodSafety::join('checkeds',
@@ -76,7 +76,7 @@ class ReportController extends Controller
     }
 
     function reportByDate(Request $request){
-        $category = Category::where('slug','y-te')->first();
+        $category = Category::where('slug','YT')->first();
         $data = [];
         foreach (Ward::all() as $key => $ward) {
             $data1 = [];
@@ -108,7 +108,7 @@ class ReportController extends Controller
     }
 
     function reportByDateWard(Request $request){
-        $category = Category::where('slug','y-te')->first();
+        $category = Category::where('slug','YT')->first();
         $data = [];
         
         $data1 = [];
