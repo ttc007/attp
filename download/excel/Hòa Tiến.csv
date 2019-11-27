@@ -1,0 +1,499 @@
+"Mã số",Thôn,Nhóm,"Tên cơ sở","Tên chủ cơ sở","Trạng thái","Số điện thoại","Ngày kí cam kết(3 năm)","Ngày khám sức khỏe(1 năm)","Ngày tập huấn kiến thức(3 năm)","Số cấp"
+,"Cẩm Nê",,"Ngô Thị Tín","Ngô Thị Tín","Đang hoạt động",,,,,
+,"La Bông",,"Nguyễn Thị Gái","Nguyễn Thị Gái","Đang hoạt động",906492768,16.05.2019,16.05.2019,,
+,"Bắc An",,"Nguyễn Văn Thướt","Nguyễn Văn Thướt","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Văn Sô","Nguyễn Văn Sô","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Trường","Nguyễn Trường","Đang hoạt động",,,,,
+,"Lệ Sơn Bắc",,"Đặng Xí","Đặng Xí","Đang hoạt động",,,,,
+,"Lệ Sơn Bắc",,"Đặng Diệt","Đặng Diệt","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Hoanh","Nguyễn Hoanh","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Thị Chơn","Nguyễn Thị Chơn","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Văn Lý","Nguyễn Văn Lý","Đang hoạt động",,,,,
+,"Bắc An",,"Nguyễn Mính","Nguyễn Mính","Đang hoạt động",,,,,
+,"Bắc An",,"Đặng Thị Lý","Đặng Thị Lý","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đặng Thị Nhị","Đặng Thị Nhị","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Trần Thị Ba","Trần Thị Ba","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Hảo","Nguyễn Thị Hảo","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đặng thị Ái","Đặng thị Ái","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Hương","Nguyễn Thị Hương","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đặng Thị Đích","Đặng Thị Đích","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Hứa Thị A","Hứa Thị A","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Võ Thị Bườn","Võ Thị Bườn","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đinh Thị Phong","Đinh Thị Phong","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Mua","Nguyễn Thị Mua","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Đãi","Nguyễn Thị Đãi","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Đáng","Nguyễn Thị Đáng","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn THị Hiệu","Nguyễn THị Hiệu","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đặng Gang","Đặng Gang","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Đặng Thị Thử","Đặng Thị Thử","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Lê Thị Tuyết","Lê Thị Tuyết","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Bùi Thị Nghĩa","Bùi Thị Nghĩa","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Phan Thị Song","Phan Thị Song","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Nghiệp","Nguyễn Thị Nghiệp","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Xuân","Nguyễn Thị Xuân","Đang hoạt động",,,,,
+,"Thạch Bồ",,"Nguyễn Thị Thông","Nguyễn Thị Thông","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Nguyễn Thị Thông","Nguyễn Thị Thông","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Nguyễn Thị Trúc","Nguyễn Thị Trúc","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Nguyễn Thị Hưng","Nguyễn Thị Hưng","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Nguyễn Thị Ngôn","Nguyễn Thị Ngôn","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Đặng Thị Hảo","Đặng Thị Hảo","Đang hoạt động",,,,,
+,"Yến Nê 2",,"Bùi Thị Cường","Bùi Thị Cường","Đang hoạt động",,,,,
+,"Lệ Sơn 2",,"Đặng Nhì","Đặng Nhì","Đang hoạt động",,,,,
+,"Lệ Sơn Bắc",,"Đặng Thị Kim Oanh","Đặng Thị Kim Oanh","Đang hoạt động",,,,,
+,"Lệ Sơn Bắc",,"Đặng Ngân","Đặng Ngân","Đang hoạt động",,,,,
+HT_AT_BATT_003,"An Trạch","Quán ăn","Nguyễn Thi kiêu","Nguyễn Thi kiêu","Đang hoạt động",1863253089,,,,
+HT_AT_CN_001,"An Trạch","Chăn nuôi","Nguyễn Minh Tâm","Nguyễn Minh Tâm","Đang hoạt động",,,,,
+HT_AT_CN_002,"An Trạch","Chăn nuôi","Phạm Rô","Phạm Rô","Đang hoạt động",,,,,
+HT_AT_CN_003,"An Trạch","Chăn nuôi","Phạm Văn Tiến","Phạm Văn Tiến","Đang hoạt động",,,,,
+HT_AT_CN_004,"An Trạch","Chăn nuôi","Đặng Văn Quân","Đặng Văn Quân","Đang hoạt động",,,,,
+HT_AT_CN_005,"An Trạch","Chăn nuôi","Nguyễn Thị Hạnh","Nguyễn Thị Hạnh","Đang hoạt động",,,,,
+HT_AT_CN_006,"An Trạch","Chăn nuôi","Võ Văn Phi Hùng","Võ Văn Phi Hùng","Đang hoạt động",,,,,
+HT_AT_CN_007,"An Trạch","Chăn nuôi","Nguyễn Tư","Nguyễn Tư","Đang hoạt động",,,,,
+HT_AT_CN_008,"An Trạch","Chăn nuôi","Võ Lai","Võ Lai","Đang hoạt động",,,,,
+HT_AT_CN_009,"An Trạch","Chăn nuôi","Đặng Văn Quốc","Đặng Văn Quốc","Đang hoạt động",,,,,
+HT_AT_CN_010,"An Trạch","Chăn nuôi","Đặng Ký","Đặng Ký","Đang hoạt động",,,,,
+HT_AT_CN_012,"An Trạch","Chăn nuôi","Đặng Thị Tựu","Đặng Thị Tựu","Đang hoạt động",,,,,
+HT_AT_CN_013,"An Trạch","Chăn nuôi","Nguyễn Xin","Nguyễn Xin","Đang hoạt động",,,,,
+HT_AT_CN_014,"An Trạch","Chăn nuôi","Đặng Văn Toàn","Đặng Văn Toàn","Đang hoạt động",,,,,
+HT_AT_CR_001,"An Trạch","CSSX RƯỢU","Đặng Văn Dũng","Đặng Văn Dũng","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_AT_CR_002,"An Trạch","CSSX RƯỢU","Đặng Đào","Đặng Đào","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_AT_CR_004,"An Trạch","CSSX RƯỢU","Hồ Thị Vân","Hồ Thị Vân","Đang hoạt động",0905202317,,,,"Không đăng ký kinh doanh"
+HT_AT_CR_005,"An Trạch","CSSX RƯỢU","Bùi Thị Ngọc Lan","Bùi Thị Ngọc Lan","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_AT_CR_006,"An Trạch","CSSX RƯỢU","Nguyễn Thị Nguyệt","Nguyễn Thị Nguyệt","Đang hoạt động",01223269906,,,,"Không đăng ký kinh doanh"
+HT_AT_DVTC_001,"An Trạch","Dịch vụ tiệc cưới","HIỀN ,KIÊU,HƯỜNG","Nguyễn Thị Hiền","Đang hoạt động",0186353089,,,16.05.2019,
+HT_AT_TH_002,"An Trạch","Tạp hóa","Đặng Thị Luận","Đặng Thị Luận","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_AT_TH_003,"An Trạch","Tạp hóa","Nguyễn Thị Hường","Nguyễn Thị Hường","Đang hoạt động",01267172610,,,,"Không đăng ký kinh doanh"
+HT_AT_TH_004,"An Trạch","Tạp hóa","Ngô Thị Kim Loan","Ngô Thị Kim Loan","Đang hoạt động",0938514417,,,,"Có đăng ký kinh doanh"
+HT_BA_CN_001,"Bắc An","Chăn nuôi","Nguyễn Thêm","Nguyễn Thêm","Đang hoạt động",,,,,
+HT_BA_CN_002,"Bắc An","Chăn nuôi","Nguyễn Văn Mực","Nguyễn Văn Mực","Đang hoạt động",,,,,
+HT_BA_CN_003,"Bắc An","Chăn nuôi","Nguyễn Nga","Nguyễn Nga","Đang hoạt động",,,,,
+HT_BA_CN_004,"Bắc An","Chăn nuôi","Nguyễn Văn Tài","Nguyễn Văn Tài","Đang hoạt động",,,,,
+HT_BA_CN_005,"Bắc An","Chăn nuôi","Nguyễn Ngọc Hoàng","Nguyễn Ngọc Hoàng","Đang hoạt động",,,,,
+HT_BA_CN_006,"Bắc An","Chăn nuôi","Nguyễn Văn Trình","Nguyễn Văn Trình","Đang hoạt động",,,,,
+HT_BA_CN_007,"Bắc An","Chăn nuôi","Nguyễn văn Trường","Nguyễn văn Trường","Đang hoạt động",,,,,
+HT_BA_CN_008,"Bắc An","Chăn nuôi","Nguyễn Văn Do","Nguyễn Văn Do","Đang hoạt động",,,,,
+HT_BA_CN_009,"Bắc An","Chăn nuôi","Nguyễn Thị Cúc","Nguyễn Thị Cúc","Đang hoạt động",,,,,
+HT_BA_CN_011,"Bắc An","Chăn nuôi","Nguyễn Thanh Sơn","Nguyễn Thanh Sơn","Đang hoạt động",,,,,
+HT_BA_CN_012,"Bắc An","Chăn nuôi","Nguyễn Kim Hoàng","Nguyễn Kim Hoàng","Đang hoạt động",,,,,
+HT_BA_CN_013,"Bắc An","Chăn nuôi","Nguyễn Văn Quảng","Nguyễn Văn Quảng","Đang hoạt động",,,,,
+HT_BA_DVAU_001,"Bắc An","Quán ăn","Nguyễn Thị Loan","Nguyễn Thị Loan","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_BA_TH_002,"Bắc An","Tạp hóa","Nguyễn Thanh Sơn","Nguyễn Thanh Sơn","Đang hoạt động",01626253453,,,,"Không đăng ký kinh doanh"
+HT_BA_TH_003,"Bắc An","Tạp hóa","Đặng Thị Lý","Đặng Thị Lý","Đang hoạt động",0935808708,,,,"Không đăng ký kinh doanh"
+HT_BA_TH_004,"Bắc An","Tạp hóa","Nguyễn Thị Duẩn","Nguyễn Thị Duẩn","Đang hoạt động",01649369140,,,,"Không đăng ký kinh doanh"
+HT_BA_TH_005,"Bắc An","Tạp hóa","Nguyễn Thị Mực","Nguyễn Thị Mực","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_CN__001,"Cẩm Nê","Quán ăn","Vỏ Thị Tơ","Vỏ Thị Tơ","Đang hoạt động",1219157810,16.05.2019,16.05.2019,,
+HT_CN__002,"Cẩm Nê","Quán ăn","Ông Thị Lệ","Ông Thị Lệ","Đang hoạt động",932491538,16.05.2019,16.05.2019,,
+HT_CN__003,"Cẩm Nê","Quán ăn","Ông Thị Hồng,Bùi Thị Bình ,Phan Thị Tán","Ông Thị Hồng,Bùi Thị Bình ,Phan Thị Tán","Đang hoạt động",12637399352,16.05.2019,16.05.2019,,
+HT_CN_BATT_002,"Cẩm Nê",,"MN Hòa Tiến 1","Đỗ Nữ Lâm Thanh","Đang hoạt động",0906475777,,,26.09.2016,61/2016/ATTP_CNĐK
+HT_CN_CN_001,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Lượng","Ngô Ngọc Lượng","Đang hoạt động",,,,,
+HT_CN_CN_002,"Cẩm Nê","Chăn nuôi","Phan Thị Liên","Phan Thị Liên","Đang hoạt động",,,,,
+HT_CN_CN_003,"Cẩm Nê","Chăn nuôi","Nguyễn Hữu Dân","Nguyễn Hữu Dân","Đang hoạt động",,,,,
+HT_CN_CN_004,"Cẩm Nê","Chăn nuôi","Ngô Văn Hiệp","Ngô Văn Hiệp","Đang hoạt động",,,,,
+HT_CN_CN_005,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Bán","Ngô Ngọc Bán","Đang hoạt động",,,,,
+HT_CN_CN_006,"Cẩm Nê","Chăn nuôi","Nguyễn Thị Gia","Nguyễn Thị Gia","Đang hoạt động",,,,,
+HT_CN_CN_007,"Cẩm Nê","Chăn nuôi","Nguyễn Thị Mau","Nguyễn Thị Mau","Đang hoạt động",,,,,
+HT_CN_CN_008,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Hường","Ngô Ngọc Hường","Đang hoạt động",,,,,
+HT_CN_CN_009,"Cẩm Nê","Chăn nuôi","Nguyễn Chất","Nguyễn Chất","Đang hoạt động",,,,,
+HT_CN_CN_010,"Cẩm Nê","Chăn nuôi","Ngô Văn Trà","Ngô Văn Trà","Đang hoạt động",,,,,
+HT_CN_CN_011,"Cẩm Nê","Chăn nuôi","Phan Bé","Phan Bé","Đang hoạt động",,,,,
+HT_CN_CN_012,"Cẩm Nê","Chăn nuôi","Ngô Văn Mua","Ngô Văn Mua","Đang hoạt động",,,,,
+HT_CN_CN_013,"Cẩm Nê","Chăn nuôi","Ngô Trường Mẹo","Ngô Trường Mẹo","Đang hoạt động",,,,,
+HT_CN_CN_014,"Cẩm Nê","Chăn nuôi","Phan Hùng","Phan Hùng","Đang hoạt động",,,,,
+HT_CN_CN_015,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Đông","Ngô Ngọc Đông","Đang hoạt động",,,,,
+HT_CN_CN_016,"Cẩm Nê","Chăn nuôi","Nguyễn Hữu Khôi","Nguyễn Hữu Khôi","Đang hoạt động",,,,,
+HT_CN_CN_017,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Dàn","Ngô Ngọc Dàn","Đang hoạt động",,,,,
+HT_CN_CN_018,"Cẩm Nê","Chăn nuôi","Trần Trị","Trần Trị","Đang hoạt động",,,,,
+HT_CN_CN_019,"Cẩm Nê","Chăn nuôi","Ngô Thành Phước","Ngô Thành Phước","Đang hoạt động",,,,,
+HT_CN_CN_020,"Cẩm Nê","Chăn nuôi","Nguyễn Văn Thông","Nguyễn Văn Thông","Đang hoạt động",,,,,
+HT_CN_CN_021,"Cẩm Nê","Chăn nuôi","Võ Thị Nguyệt","Võ Thị Nguyệt","Đang hoạt động",,,,,
+HT_CN_CN_022,"Cẩm Nê","Chăn nuôi","Ngô Trường Sinh","Ngô Trường Sinh","Đang hoạt động",,,,,
+HT_CN_CN_023,"Cẩm Nê","Chăn nuôi","Huỳnh Văn Hùng","Huỳnh Văn Hùng","Đang hoạt động",,,,,
+HT_CN_CN_024,"Cẩm Nê","Chăn nuôi","Ngô Minh Hùng","Ngô Minh Hùng","Đang hoạt động",,,,,
+HT_CN_CN_025,"Cẩm Nê","Chăn nuôi","Huỳnh Thị Thuận","Huỳnh Thị Thuận","Đang hoạt động",,,,,
+HT_CN_CN_026,"Cẩm Nê","Chăn nuôi","Huỳnh Thị Hà","Huỳnh Thị Hà","Đang hoạt động",,,,,
+HT_CN_CN_027,"Cẩm Nê","Chăn nuôi","Ngô Trường Lung","Ngô Trường Lung","Đang hoạt động",,,,,
+HT_CN_CN_028,"Cẩm Nê","Chăn nuôi","Ngô Thị Mỹ","Ngô Thị Mỹ","Đang hoạt động",,,,,
+HT_CN_CN_030,"Cẩm Nê","Chăn nuôi","Nguyễn Hữu Liêu","Nguyễn Hữu Liêu","Đang hoạt động",,,,,
+HT_CN_CN_031,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Trà","Ngô Ngọc Trà","Đang hoạt động",,,,,
+HT_CN_CN_032,"Cẩm Nê","Chăn nuôi","Ngô Ngọc Ái","Ngô Ngọc Ái","Đang hoạt động",,,,,
+HT_CN_CR_002,"Cẩm Nê","CSSX RƯỢU","Nguyễn Thị Yến","Nguyễn Thị Yến","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_CN_DVAU_001,"Cẩm Nê","Quán ăn","Phạm thị Tố","Phạm thị Tố","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_CN_DVAU_002,"Cẩm Nê","Quán ăn","Ngô thị Quay","Ngô thị Quay","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_CN_DVAU_003,"Cẩm Nê","Quán ăn","Huỳnh Thị Hương","Huỳnh Thị Hương","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_CN_DVAU_004,"Cẩm Nê","Quán ăn","Huỳnh thị Vân","Huỳnh thị Vân","Đang hoạt động",906546665,,,04.05.2017,
+HT_CN_DVAU_005,"Cẩm Nê","Quán ăn","Huỳnh thị Phương","Huỳnh thị Phương","Đang hoạt động",124546969,16.05.2019,16.05.2019,04.05.2017,
+HT_CN_DVAU_006,"Cẩm Nê","Quán ăn","Đinh Thị Hiệp","Đinh Thị Hiệp","Đang hoạt động",1692483676,,,04.05.2017,
+HT_CN_DVAU_008,"Cẩm Nê","Quán ăn","Nguyễn văn dũng","Nguyễn văn dũng","Đang hoạt động",9074707184,16.05.2019,16.05.2019,04.05.2017,
+HT_CN_DVAU_009,"Cẩm Nê","Quán ăn","Ngô thi ba","Ngô thi ba","Đang hoạt động",906657132,16.05.2019,16.05.2019,04.05.2017,
+HT_CN_DVAU_010,"Cẩm Nê","Quán ăn","Nguyễn Thị Lạng","Nguyễn Thị Lạng","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_CN_DVAU_011,"Cẩm Nê","Quán ăn","Nguyễn thị trinh","Nguyễn thị trinh","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_CN_DVCGK_002,"Cẩm Nê",,"Cafe Minsk","Trương Thị Ngọc Bích","Đang hoạt động",01228599711,,,30.06.2017,33/2017/ATTP_CNĐK
+HT_CN_DVGK_001,"Cẩm Nê","Cafe giải khát",,"Nguyễn Thị Trinh","Đang hoạt động",,,,,
+HT_CN_DVTC_002,"Cẩm Nê","Dịch vụ tiệc cưới","TƠ LỆ BÌNH","Ông Thị Lệ","Đang hoạt động",0935491538,,,16.05.2019,
+HT_CN_DVTC_003,"Cẩm Nê","Dịch vụ tiệc cưới","BÌNH TÁM HỒNG","ÔNG THỊ HỒNG","Đang hoạt động",0906280806,,,16.05.2019,
+HT_CN_NTGD_001,"Cẩm Nê","Nhóm trẻ gia đình","Viên Ngọc","Ngô Thị Tình","Đang hoạt động",905041291,16.05.2019,16.05.2019,02.02.2018,6
+HT_CN_NTGD_003,"Cẩm Nê","Nhóm trẻ gia đình","Minh Thu","Ngô Thị Thu","Đang hoạt động",1668866465,16.05.2019,16.05.2019,29.10.2017,6
+HT_CN_SKDMK_001,"Cẩm Nê","SX Kinh doanh mỳ kí","Dương Thị Qúy Đông","Dương Thị Qúy Đông","Đang hoạt động",01222500357,,,,"Không đăng ký kinh doanh"
+HT_CN_SKDMK_002,"Cẩm Nê","SX Kinh doanh mỳ kí","Ngô Thị Hiền","Ngô Thị Hiền","Đang hoạt động",01282697449,,,,"Không đăng ký kinh doanh"
+HT_CN_TADP_001,"Cẩm Nê","Thức ăn đường phố","Đặng Công Tuấn","Lê thị Hồng tiến","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_CN_TH_001,"Cẩm Nê","Tạp hóa","Nguyễn Thị Hai","Nguyễn Thị Hai","Đang hoạt động",02363798359,,,,
+HT_CN_TH_002,"Cẩm Nê","Tạp hóa","Nguyễn Thị Bảo","Nguyễn Thị Bảo","Đang hoạt động",01225433222,,,,
+HT_CN_TH_003,"Cẩm Nê","Tạp hóa","Ngô Thị Duyên","Ngô Thị Duyên","Đang hoạt động",01214239043,,,,
+HT_DS_CR_001,"Dương Sơn","CSSX RƯỢU","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",02363798342,,,,"Không đăng ký kinh doanh"
+HT_DS_CR_002,"Dương Sơn","CSSX RƯỢU","Nguyễn Thanh Xuân","Nguyễn Thanh Xuân","Đang hoạt động",0905888940,,,,"Không đăng ký kinh doanh"
+HT_DS_DVAU_001,"Dương Sơn","Quán ăn","Nguyễn Thị Vũ","Nguyễn Thị Vũ","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_DS_DVAU_002,"Dương Sơn","Quán ăn","Lê Thị Trang","Lê Thị Trang","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_003,"Dương Sơn","Quán ăn","Trần Thị Kim Trang","Trần Thị Kim Trang","Đang hoạt động",906443767,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_004,"Dương Sơn","Quán ăn","Nguyễn Thị Lào","Nguyễn Thị Lào","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_005,"Dương Sơn","Quán ăn","Nguyễn Thị sáu,Đạo","Nguyễn Thị sáu,Đạo","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_006,"Dương Sơn","Quán ăn","Nguyễn Thị Hoa","Nguyễn Thị Hoa","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_008,"Dương Sơn","Quán ăn","Huỳnh Thị Thúy","Huỳnh Thị Thúy","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_DVAU_009,"Dương Sơn","Quán ăn","Nguyễn Thị Chúc","Nguyễn Thị Chúc","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_DS_DVAU_010,"Dương Sơn","Quán ăn","Ngô Ngọc Điệp","Ngô Ngọc Điệp","Đang hoạt động","0987 797 232",16.05.2019,16.05.2019,04.06.2016,
+HT_DS_DVAU_011,"Dương Sơn","Quán ăn","Nguyễn Văn kiếm","Nguyễn Văn kiếm","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_DS_NTGD_002,"Dương Sơn","Nhóm trẻ gia đình","Bích Vân","Lê Thị Bích Vân","Đang hoạt động",1208029099,12.05.2017,16.05.2019,02.02.2018,2
+HT_DS_NTGD_003,"Dương Sơn","Nhóm trẻ gia đình","Thanh Ngân","Nguyễn Thị Thanh Vân","Đang hoạt động",263799515,12.05.2017,16.05.2019,02.02.2018,1
+HT_DS_NTGD_004,"Dương Sơn","Nhóm trẻ gia đình","Xuân Quỳnh","Trần Thị Hồng","Đang hoạt động",932477559,12.05.2017,16.05.2019,02.02.2018,7
+HT_DS_NTGD_005,"Dương Sơn","Nhóm trẻ gia đình","Thỏ Ngọc","Trần Thị Lệ","Đang hoạt động",905085039,12.05.2017,16.05.2019,29.10.2017,3
+HT_DS_QA_001,"Dương Sơn","Quán ăn","Quán 3 Cảnh","Lê Hồng Cảnh","Đang hoạt động",0941955990,,,27.04.2018,19/2018/ATTP_CNĐK
+HT_DS_QA_003,"Dương Sơn","Quán ăn","Quán cơm Bốn","Nguyễn Thị Hồng Thắm","Đang hoạt động",01219439089,,,17.05.2016,20/2016_ATTP_CNĐK
+HT_DS_QA_004,"Dương Sơn","Quán ăn","Quán cơm Sơn","Nguyễn Thị Kim Sơn","Đang hoạt động",0938476559,,,28.03.2017,11/2017/ATTP_CNĐK
+HT_DS_QA_005,"Dương Sơn","Quán ăn","Quán A Sinh","Đặng Thị Đỡ","Đang hoạt động",0905730486,,,20.04.2018,17/2018/ATTP-CNĐK
+HT_DS_TADP_001,"Dương Sơn","Thức ăn đường phố","Lê Thị Bích Hạnh","Lê Thị Bích Hạnh","Tạm nghỉ",906222480,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_002,"Dương Sơn","Thức ăn đường phố","Nguyễn Văn Tài","Nguyễn Văn Tài","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_003,"Dương Sơn","Thức ăn đường phố","Hồ Thị Diễm Thúy","Hồ Thị Diễm Thúy","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_004,"Dương Sơn","Thức ăn đường phố","Nguyễn Xuân Quốc Cảnh","Nguyễn Xuân Quốc Cảnh","Tạm nghỉ",905051432,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_005,"Dương Sơn","Thức ăn đường phố",NẤM,"Hồ Thị Thúy Diễm","Đang hoạt động",,,,16.05.2019,
+HT_DS_TADP_007,"Dương Sơn","Thức ăn đường phố","Nguyễn Thị Oanh","Nguyễn Thị hanh","Đang hoạt động","0905 529 202",16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_008,"Dương Sơn","Thức ăn đường phố","Nguyễn Thị Minh","Nguyễn Thị Minh","Đang hoạt động",129608507,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_009,"Dương Sơn","Thức ăn đường phố","Nguyễn Thị Bích Ngọc","Nguyễn Thị Bích Ngọc","Đang hoạt động",931882149,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TADP_010,"Dương Sơn","Thức ăn đường phố","Trần Thị Hiền","Trần Thị Hiền","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_DS_TH_001,"Dương Sơn","Tạp hóa","Trần Thị Mỹ","Trần Thị Mỹ","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_002,"Dương Sơn","Tạp hóa","Trần Thị Thanh Phong","Trần Thị Thanh Phong","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_003,"Dương Sơn","Tạp hóa","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",01248025609,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_004,"Dương Sơn","Tạp hóa","Đặng Thị Dần","Đặng Thị Dần","Đang hoạt động",01215534735,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_005,"Dương Sơn","Tạp hóa","Nguyễn Thanh Trà","Nguyễn Thanh Trà","Đang hoạt động",0935865344,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_006,"Dương Sơn","Tạp hóa","Nguyễn Văn Liên","Nguyễn Văn Liên","Đang hoạt động",01215667981,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_007,"Dương Sơn","Tạp hóa","Cửa hàng Văn Giao","Cửa hàng Văn Giao","Đang hoạt động",0905346719,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_008,"Dương Sơn","Tạp hóa","Nguyễn Thị Sáu","Nguyễn Thị Sáu","Đang hoạt động",0905355499,,,,"Có đăng ký kinh doanh"
+HT_DS_TH_009,"Dương Sơn","Tạp hóa","Tạp Hóa Hiệp","Tạp Hóa Hiệp","Đang hoạt động",0905333195,,,,"Có đăng ký kinh doanh"
+HT_DS_TH_010,"Dương Sơn","Tạp hóa","Tạp Hóa Hằng Hân","Tạp Hóa Hằng Hân","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_012,"Dương Sơn","Tạp hóa","Tạp Hóa Phương Linh","Tạp Hóa Phương Linh","Đang hoạt động",0934805785,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_013,"Dương Sơn","Tạp hóa","Tạp Hóa Bảo Quốc","Tạp Hóa Bảo Quốc","Đang hoạt động",0935865344,,,,"Không đăng ký kinh doanh"
+HT_DS_TH_014,"Dương Sơn","Tạp hóa","Trần Thị Mỹ","Trần Thị Mỹ","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LB_BATT_004,"La Bông","Quán ăn","Nguyễn Thị Thùy Ninh","Nguyễn Thị Thùy Ninh","Đang hoạt động",935470681,16.05.2019,16.05.2019,,
+HT_LB_BATT_005,"La Bông","Quán ăn","Trần thị Bé","Trần thị Bé","Đang hoạt động",1699857060,,,,
+HT_LB_CR_002,"La Bông","CSSX RƯỢU","Lê Văn Lê","Lê Văn Lê","Đang hoạt động",01263620711,,,,"Không đăng ký kinh doanh"
+HT_LB_DVAU_001,"La Bông","Quán ăn","Nguyễn Thị Diểm trang","Nguyễn Thị Diểm trang","Đang hoạt động",923138111,16.05.2019,16.05.2019,04.05.2017,
+HT_LB_DVAU_002,"La Bông","Quán ăn","Trần Thị  Mai","Trần Thị  Mai","Đang hoạt động",1627052972,16.05.2019,16.05.2019,,
+HT_LB_DVAU_003,"La Bông","Quán ăn","Nguyễn Thị Hải","Nguyễn Thị Hải","Đang hoạt động",905363658,16.05.2019,16.05.2019,04.06.2016,
+HT_LB_DVAU_004,"La Bông","Quán ăn","Nuyễn Thị Luyến","Nuyễn Thị Luyến","Đang hoạt động",1226219079,,,04.05.2017,
+HT_LB_DVAU_006,"La Bông","Quán ăn","Nguyễn Thị Minh Hiệp","Nguyễn Thị Minh Hiệp","Đang hoạt động","01202 466 761",16.05.2019,16.05.2019,04.06.2016,
+HT_LB_DVAU_007,"La Bông","Quán ăn","Phan Thị Thùy Ngân","Phan Thị Thùy Ngân","Đang hoạt động",923138111,12.05.2019,12.05.2019,04.05.2017,
+HT_LB_DVAU_008,"La Bông","Quán ăn","Nuyễn Thị Luyến","Nguyễn Thị Luyến","Đang hoạt động",1226219079,12.05.2019,16.05.2019,04.05.2017,
+HT_LB_DVAU_009,"La Bông","Quán ăn","Võ Nữ Thì Long","Võ Nữ Thì Long","Đang hoạt động",166866839,16.05.2019,16.05.0219,04.05.2017,
+HT_LB_DVTC_001,"La Bông","Dịch vụ tiệc cưới",GÁI,"Nguyễn Thị Gái","Đang hoạt động",,,,16.05.2019,
+HT_LB_DVTC_003,"La Bông","Dịch vụ tiệc cưới","THÙY NINH","Nguyễn thị thùy Ninh","Đang hoạt động",,,,16.05.2019,
+HT_LB_DVTC_004,"La Bông","Dịch vụ tiệc cưới",HOA,"TRẦN THỊ BẾ","Đang hoạt động",,,,16.05.2019,
+HT_LB_NTGD_001,"La Bông","Nhóm trẻ gia đình","Thu Đông","Đặng Thị Sang","Đang hoạt động",935760662,12.05.2018,16.05.2019,03.06.2018,9
+HT_LB_SBT_001,"La Bông","SX bún tươi","Nguyễn Đống","Nguyễn Đống","Đang hoạt động",0935890258,,,,"Không đăng ký kinh doanh"
+HT_LB_SBT_002,"La Bông","SX bún tươi","Phạm Thị Lộc","Phạm Thị Lộc","Đang hoạt động",0937020186,,,,"Không đăng ký kinh doanh"
+HT_LB_SKDMK_002,"La Bông","SX Kinh doanh mỳ kí","Phạm Thị Yến","Phạm Thị Yến","Đang hoạt động",0905682295,,,,"Không đăng ký kinh doanh"
+HT_LB_TADP_001,"La Bông","Thức ăn đường phố","Nguyễn Thị Thanh Hằng","PHÂN THỊ THU THẢO","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LB_TH_001,"La Bông","Tạp hóa","Nguyễn Thị Nguyệt","Nguyễn Thị Nguyệt","Đang hoạt động",02363799912,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_002,"La Bông","Tạp hóa","Nguyễn Thị Thanh Hà","Nguyễn Thị Thanh Hà","Đang hoạt động",0934830557,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_003,"La Bông","Tạp hóa","Nguyễn Thị Hồng Hà","Nguyễn Thị Hồng Hà","Đang hoạt động",0934825125,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_004,"La Bông","Tạp hóa","Nguyễn Thị Khương","Nguyễn Thị Khương","Đang hoạt động",0905548927,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_005,"La Bông","Tạp hóa","Trần Thị Tuyết","Trần Thị Tuyết","Đang hoạt động",02363798983,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_006,"La Bông","Tạp hóa","Nguyễn Thị Hà","Nguyễn Thị Hà","Đang hoạt động",0906439754,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_007,"La Bông","Tạp hóa","Bùi Thị Thu Hà","Bùi Thị Thu Hà","Đang hoạt động",01697370237,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_008,"La Bông","Tạp hóa","Đặng Thị Diệu","Đặng Thị Diệu","Đang hoạt động",0935033724,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_009,"La Bông","Tạp hóa","Tạp Hóa Tuyết","Tạp Hóa Tuyết","Đang hoạt động",0236798983,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_010,"La Bông","Tạp hóa","Đặng Thị Hà Tiên","Đặng Thị Hà Tiên","Đang hoạt động",01282616867,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_011,"La Bông","Tạp hóa","Tạp Hóa Nguyệt","Tạp Hóa Nguyệt","Đang hoạt động",0236799912,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_012,"La Bông","Tạp hóa","Tạp Hóa Thanh Nhã","Tạp Hóa Thanh Nhã","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_013,"La Bông","Tạp hóa","Tạp Hóa Minh Hòa","Tạp Hóa Minh Hòa","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_014,"La Bông","Tạp hóa","Nguyễn Thị Thọ","Nguyễn Thị Thọ","Đang hoạt động",01202792975,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_016,"La Bông","Tạp hóa","Nguyễn Thi Xa","Nguyễn Thi Xa","Đang hoạt động",01202610715,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_017,"La Bông","Tạp hóa","Bùi Lâm","Bùi Lâm","Đang hoạt động",01224889691,,,,"Không đăng ký kinh doanh"
+HT_LB_TH_018,"La Bông","Tạp hóa","Nguyễn Thị Thương","Nguyễn Thị Thương","Đang hoạt động",0905548927,,,,"Không đăng ký kinh doanh"
+HT_LS2_CN_002,"Lệ Sơn 2","Chăn nuôi","Huỳnh Hùng","Huỳnh Hùng","Đang hoạt động",,,,,
+HT_LS2_CN_003,"Lệ Sơn 2","Chăn nuôi","Lê Tuất","Lê Tuất","Đang hoạt động",,,,,
+HT_LS2_CN_004,"Lệ Sơn 2","Chăn nuôi","Đặng Thị Thảo","Đặng Thị Thảo","Đang hoạt động",,,,,
+HT_LS2_CR_002,"Lệ Sơn 2","CSSX RƯỢU","Đặng Quang Diên","Đặng Quang Diên","Đang hoạt động",0984846707,,,,"Không đăng ký kinh doanh"
+HT_LS2_CR_003,"Lệ Sơn 2","CSSX RƯỢU","Võ Thứ","Võ Thứ","Đang hoạt động",0905597486,,,,"Không đăng ký kinh doanh"
+HT_LS2_CR_004,"Lệ Sơn 2","CSSX RƯỢU","Lê Văn Trí","Lê Văn Trí","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LS2_DVAU_001,"Lệ Sơn 2","Quán ăn","Đặng Thị lanh","Đặng Thị lanh","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LS2_DVAU_003,"Lệ Sơn 2","Quán ăn","Lê Thanh Tuấn","Lê Thanh Tuấn","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LS2_QA_002,"Lệ Sơn 2","Quán ăn","Quán bún Kháng","Lê Thị Kháng","Đang hoạt động",02363798097,,,27.04.2018,21/2018/ATTP_CNĐK
+HT_LS2_SBT_002,"Lệ Sơn 2","SX bún tươi","Đặng Quang Minh","Đặng Quang Minh","Đang hoạt động",0905628701,,,,"Không đăng ký kinh doanh"
+HT_LS2_TH_001,"Lệ Sơn 2","Tạp hóa","Đặng Ka","Đặng Ka","Đang hoạt động",02363798097,,,,"Không đăng ký kinh doanh"
+HT_LS2_TH_003,"Lệ Sơn 2","Tạp hóa","Võ Thị Thùy","Võ Thị Thùy","Đang hoạt động",0935230775,,,,"Có đăng ký kinh doanh"
+HT_LS2_TH_004,"Lệ Sơn 2","Tạp hóa","Đặng Thị Thu","Đặng Thị Thu","Đang hoạt động",02363798185,,,,"Không đăng ký kinh doanh"
+HT_LS2_TH_005,"Lệ Sơn 2","Tạp hóa","Lê Công Hạnh","Lê Công Hạnh","Đang hoạt động",01632172148,,,,"Không đăng ký kinh doanh"
+HT_LSB__001,"Lệ Sơn Bắc","Cafe giải khát","ca phe","Nguyễn Văn Tài","Đang hoạt động",,,,,
+HT_LSB_CN_001,"Lệ Sơn Bắc","Chăn nuôi","Đinh Thị Kim Quy","Đinh Thị Kim Quy","Đang hoạt động",,,,,
+HT_LSB_CN_002,"Lệ Sơn Bắc","Chăn nuôi","Hồ Phi Nghĩa","Hồ Phi Nghĩa","Đang hoạt động",,,,,
+HT_LSB_CN_003,"Lệ Sơn Bắc","Chăn nuôi","Đặng Thị Xuân","Đặng Thị Xuân","Đang hoạt động",,,,,
+HT_LSB_CN_004,"Lệ Sơn Bắc","Chăn nuôi","Lê Văn Hà","Lê Văn Hà","Đang hoạt động",,,,,
+HT_LSB_CN_005,"Lệ Sơn Bắc","Chăn nuôi","Nguyễn Văn Hùng","Nguyễn Văn Hùng","Đang hoạt động",,,,,
+HT_LSB_CN_006,"Lệ Sơn Bắc","Chăn nuôi","Đặng Hiệp","Đặng Hiệp","Đang hoạt động",,,,,
+HT_LSB_CN_007,"Lệ Sơn Bắc","Chăn nuôi","Đặng cẩm","Đặng cẩm","Đang hoạt động",,,,,
+HT_LSB_CN_008,"Lệ Sơn Bắc","Chăn nuôi","Nguyễn Phát","Nguyễn Phát","Đang hoạt động",,,,,
+HT_LSB_CN_009,"Lệ Sơn Bắc","Chăn nuôi","Đặng Thị Châu","Đặng Thị Châu","Đang hoạt động",,,,,
+HT_LSB_CN_010,"Lệ Sơn Bắc","Chăn nuôi","Lê Hữu Diệu","Lê Hữu Diệu","Đang hoạt động",,,,,
+HT_LSB_CN_011,"Lệ Sơn Bắc","Chăn nuôi","Đặng Thành Đáng","Đặng Thành Đáng","Đang hoạt động",,,,,
+HT_LSB_CN_012,"Lệ Sơn Bắc","Chăn nuôi","Đặng Thị Phương","Đặng Thị Phương","Đang hoạt động",,,,,
+HT_LSB_CN_013,"Lệ Sơn Bắc","Chăn nuôi","Đặng Hồng","Đặng Hồng","Đang hoạt động",,,,,
+HT_LSB_CN_014,"Lệ Sơn Bắc","Chăn nuôi","Phan Văn Châu","Phan Văn Châu","Đang hoạt động",,,,,
+HT_LSB_CN_015,"Lệ Sơn Bắc","Chăn nuôi","Phạm Thuận","Phạm Thuận","Đang hoạt động",,,,,
+HT_LSB_CN_016,"Lệ Sơn Bắc","Chăn nuôi","Phạm Lại","Phạm Lại","Đang hoạt động",,,,,
+HT_LSB_CN_018,"Lệ Sơn Bắc","Chăn nuôi","Đặng Văn Cư","Đặng Văn Cư","Đang hoạt động",,,,,
+HT_LSB_CN_019,"Lệ Sơn Bắc","Chăn nuôi","Nguyễn Thị Sinh","Nguyễn Thị Sinh","Đang hoạt động",,,,,
+HT_LSB_CN_020,"Lệ Sơn Bắc","Chăn nuôi","Đặng Mại","Đặng Mại","Đang hoạt động",,,,,
+HT_LSB_DVAU_001,"Lệ Sơn Bắc","Quán ăn","Nguyễn  Nở","Nguyễn  Nở","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_002,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị hương","Nguyễn Thị hương","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_003,"Lệ Sơn Bắc","Quán ăn","Đỗ Thị Thu Hạnh","Đỗ Thị Thu Hạnh","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_LSB_DVAU_004,"Lệ Sơn Bắc","Quán ăn","Nguyễn văn Hà","Nguyễn văn Hà","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_LSB_DVAU_005,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Bé","Nguyễn Thị Bé","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_006,"Lệ Sơn Bắc","Quán ăn","nguyễn thị thước","TRẦN  Thị Phi Vân","Đang hoạt động",934858127,16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_007,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Thúy","Nguyễn Thị Thúy","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_LSB_DVAU_008,"Lệ Sơn Bắc","Quán ăn","Ông Thị Thôi","Ông Thị Thôi","Đang hoạt động",1214543776,16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_009,"Lệ Sơn Bắc","Quán ăn","Nguyễn Văn Thắng","Nguyễn Văn Thắng","Đang hoạt động","01697 337 335",16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_010,"Lệ Sơn Bắc","Quán ăn","Lê Thị Hồng Lương","Lê Thị Hồng Lương","Đang hoạt động","0905 331 079",16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_011,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Nở,Cô Anh ,Minh Thu","Nguyễn Thị Nở,Cô Anh ,Minh Thu","Đang hoạt động","0935 536 269.0905307309",16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_012,"Lệ Sơn Bắc","Quán ăn","Lê Thị Điền","Lê Thị Điền","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_013,"Lệ Sơn Bắc","Quán ăn","Hồ Thị Hải","Hồ Thị Hải","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_014,"Lệ Sơn Bắc","Quán ăn","Phạm Thị Lê","Phạm Thị Lê","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_LSB_DVAU_015,"Lệ Sơn Bắc","Quán ăn","Nguyễn Hữu Hậu","Nguyễn Hữu Hậu","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_016,"Lệ Sơn Bắc","Quán ăn","Hùynh Thị Trâm","Hùynh Thị Trâm","Đang hoạt động",988611637,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_017,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Lưu","Nguyễn Thị Lưu","Đang hoạt động",1202366298,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_018,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Thu","Nguyễn Thị Thu","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_019,"Lệ Sơn Bắc","Quán ăn","Lê Thị Nhiêu","Lê Thị Nhiêu","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_LSB_DVAU_020,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị lý","Nguyễn Thị lý","Đang hoạt động",164570954,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_021,"Lệ Sơn Bắc","Quán ăn","Đặng Thị Xuân Hương","Đặng Thị Xuân Hương","Đang hoạt động",905331079,16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_022,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi Hồng","Nguyễn thi Hồng","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_023,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị lê","Nguyễn Thị lê","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_024,"Lệ Sơn Bắc","Quán ăn","Hồ Thị Bé","Hồ Thị Bé","Đang hoạt động",,16.05.2019,16.05.2019,,
+HT_LSB_DVAU_025,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi ánh","Nguyễn thi ánh","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_LSB_DVAU_026,"Lệ Sơn Bắc","Quán ăn","Đặng Thị Chơi","Đặng Thị Chơi","Đang hoạt động",,,,15.04.2017,
+HT_LSB_DVAU_027,"Lệ Sơn Bắc","Quán ăn","Ông thị thu","Ông thị thu","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_LSB_DVAU_028,"Lệ Sơn Bắc","Quán ăn","Huỳnh thị ngữ ","Huỳnh thị ngữ ","Đang hoạt động",,,,04.05.2017,
+HT_LSB_DVAU_029,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Tâm","Nguyễn Thị Tâm","Đang hoạt động",,,,04.05.2017,
+HT_LSB_DVAU_030,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi châu","Nguyễn thi châu","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_031,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi Thi","Nguyễn thi Thi","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_032,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi nghiêu","Nguyễn thi nghiêu","Đang hoạt động",,,,15.04.2017,
+HT_LSB_DVAU_033,"Lệ Sơn Bắc","Quán ăn","Nguyễn thi thu hạnh","Nguyễn thi thu hạnh","Đang hoạt động",,,,15.04.2017,
+HT_LSB_DVAU_034,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị sương","Nguyễn Thị sương","Đang hoạt động",,,,04.05.2017,
+HT_LSB_DVAU_035,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị phúc","Nguyễn Thị phúc","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_036,"Lệ Sơn Bắc","Quán ăn","Vũ Ngọc Công","Vũ Ngọc Công","Đang hoạt động",988408606,,,04.05.2017,
+HT_LSB_DVAU_037,"Lệ Sơn Bắc","Quán ăn","Trên bà sang","Trên bà sang","Đang hoạt động",,,,15.04.2017,
+HT_LSB_DVAU_038,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Hằng","Nguyễn Thị Hằng","Đang hoạt động",,,,15.04.2017,
+HT_LSB_DVAU_040,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị Thương","Nguyễn Thị Thương","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_DVAU_041,"Lệ Sơn Bắc","Quán ăn","Phạm Thị BảoThi","Phạm Thị BảoThi","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_042,"Lệ Sơn Bắc","Quán ăn","Phan Thị Ánh Nguyệt","Phan Thị Ánh Nguyệt","Đang hoạt động","0934 825 191",16.05.2019,16.05.2019,04.06.2016,
+HT_LSB_DVAU_043,"Lệ Sơn Bắc","Quán ăn","Nguyễn Thị phượng","Nguyễn Thị phượng","Đang hoạt động",,16.05.2019,16.05.2019,15.04.2017,
+HT_LSB_DVGK_001,"Lệ Sơn Bắc","Cafe giải khát",,"lê thị thanh kiều","Đang hoạt động",,,,,
+HT_LSB_DVGK_002,"Lệ Sơn Bắc",,,"Nguyễn Thị Ánh tuyết","Đang hoạt động",,,,,
+HT_LSB_NTGD_001,"Lệ Sơn Bắc","Nhóm trẻ gia đình","Thu Trâm","Nguyễn Thị Thu Trâm","Đang hoạt động",935760662,12.05.2017,16.05.2019,03.06.2018,8
+HT_LSB_NTGD_003,"Lệ Sơn Bắc","Nhóm trẻ gia đình","Thu Nguyệt","Lê Thị Nguyệt","Đang hoạt động",905684016,12.05.2017,16.05.2019,08.01.2019,1
+HT_LSB_SBT_002,"Lệ Sơn Bắc","SX bún tươi","Đặng Thị Lại","Đặng Thị Lại","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LSB_SKDMK_001,"Lệ Sơn Bắc","SX Kinh doanh mỳ kí","Huỳnh Thị Hạ","Huỳnh Thị Hạ","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LSB_SKDMK_003,"Lệ Sơn Bắc","SX Kinh doanh mỳ kí","Nguyễn Văn Hùng","Nguyễn Văn Hùng","Đang hoạt động",0935733843,,,,"Không đăng ký kinh doanh"
+HT_LSB_SKDMK_004,"Lệ Sơn Bắc","SX Kinh doanh mỳ kí","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",01658914297,,,,"Không đăng ký kinh doanh"
+HT_LSB_SKDMK_005,"Lệ Sơn Bắc","SX Kinh doanh mỳ kí","Lê Thị Cơ","Lê Thị Cơ","Đang hoạt động",,,,,"Có đăng ký kinh doanh"
+HT_LSB_TADP_001,"Lệ Sơn Bắc","Thức ăn đường phố","Hồ Thị Bích","Hồ Thị Bích","Đang hoạt động",932434357,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_002,"Lệ Sơn Bắc","Thức ăn đường phố","Trần Thị Kim Quyên","Trần Thị Kim Quyên","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_003,"Lệ Sơn Bắc","Thức ăn đường phố","Võ Thị Xuân","Võ Thị Xuân","Tạm nghỉ",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_004,"Lệ Sơn Bắc","Thức ăn đường phố","Đặng  Thị Thanh Phương","Đặng  Thị Thanh Phương","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_005,"Lệ Sơn Bắc","Thức ăn đường phố",Thuỷ,"trần Thị Thanh Thuỷ","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_007,"Lệ Sơn Bắc","Thức ăn đường phố","Nguyễn Thị bi","Nguyễn Thị bi","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_008,"Lệ Sơn Bắc","Thức ăn đường phố","Nguyễn Thi Mỹ Châu","Nguyễn Thi Mỹ Châu","Đang hoạt động",1202729300,16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_009,"Lệ Sơn Bắc","Thức ăn đường phố","Nguyễn Thị Lợi","Nguyễn Thị mộng hongd","Đang hoạt động",905893151,16.02.2019,16.05.2019,04.05.2017,
+HT_LSB_TADP_010,"Lệ Sơn Bắc","Thức ăn đường phố","Đặng Thị Ngọc Vân","Đặng Thị Ngọc Vân","Đang hoạt động","01234 333 959",16.05.2019,16.05.2019,04.05.2017,
+HT_LSB_TH_001,"Lệ Sơn Bắc","Tạp hóa","Đặng Thị Kim Hộp","Đặng Thị Kim Hộp","Đang hoạt động",0908861293,,,,"Có đăng ký kinh doanh"
+HT_LSB_TH_002,"Lệ Sơn Bắc","Tạp hóa","Nguyễn Thị Bé","Nguyễn Thị Bé","Đang hoạt động",0236367099,,,,"Có đăng ký kinh doanh"
+HT_LSB_TH_003,"Lệ Sơn Bắc","Tạp hóa","Nguyễn Thị Ánh","Nguyễn Thị Ánh","Đang hoạt động",0905148140,,,,"Không đăng ký kinh doanh"
+HT_LSB_TH_005,"Lệ Sơn Bắc","Tạp hóa","Tạp Hóa Quyến","Tạp Hóa Quyến","Đang hoạt động",02363799994,,,,"Không đăng ký kinh doanh"
+HT_LSB_TH_006,"Lệ Sơn Bắc","Tạp hóa","Đặng Thị Bưởi","Đặng Thị Bưởi","Đang hoạt động",0935962732,,,,"Có đăng ký kinh doanh"
+HT_LSB_TH_007,"Lệ Sơn Bắc","Tạp hóa","Huỳnh Thị Xuân","Huỳnh Thị Xuân","Đang hoạt động",0905520806,,,,"Có đăng ký kinh doanh"
+HT_LSB_TTLT_001,"Lệ Sơn Bắc","BATT doanh nghiệp",N,"Hồ Thị NHUNG","Đang hoạt động",,,,16.05.2019,
+HT_LSN__001,"Lệ Sơn Nam",,tài,"nguyễn văn tài","Đang hoạt động",,,,16.05.2019,
+HT_LSN__002,"Lệ Sơn Nam","Quán ăn",THỦY,"TRẦN THỊ THANH THỦY","Đang hoạt động",,,,16.05.2019,
+HT_LSN__003,"Lệ Sơn Nam","Quán ăn",T,"LÊ THỊ HỒNG TIẾN","Đang hoạt động",,,,16.05.2019,
+HT_LSN__004,"Lệ Sơn Nam",,"PHONG THỦY","NGUYỄN VĂN PHONG","Đang hoạt động",0982225557,,,16.05.2019,
+HT_LSN_BATT_002,"Lệ Sơn Nam",,"MN Hòa Tiến 2","Ông Thị Hồng Phương","Đang hoạt động",02363799787,,,26.04.2016,13/2016/ATTP_CNĐK
+HT_LSN_BATT_003,"Lệ Sơn Nam",,"Đặng Thị Liên","Đặng Thị Liên","Đang hoạt động",1219464810,16.05.2019,16.05.2019,,
+HT_LSN_CN_001,"Lệ Sơn Nam","Chăn nuôi","Lê Sang","Lê Sang","Đang hoạt động",,,,,
+HT_LSN_CN_002,"Lệ Sơn Nam","Chăn nuôi","Lê Thì","Lê Thì","Đang hoạt động",,,,,
+HT_LSN_CN_003,"Lệ Sơn Nam","Chăn nuôi","Đặng Lư","Đặng Lư","Đang hoạt động",,,,,
+HT_LSN_CN_004,"Lệ Sơn Nam","Chăn nuôi","Đặng Hưng Bình","Đặng Hưng Bình","Đang hoạt động",,,,,
+HT_LSN_CN_005,"Lệ Sơn Nam","Chăn nuôi","Lê Bình ( hoàng)","Lê Bình ( hoàng)","Đang hoạt động",,,,,
+HT_LSN_CN_006,"Lệ Sơn Nam","Chăn nuôi","Lê Bình ( thôi)","Lê Bình ( thôi)","Đang hoạt động",,,,,
+HT_LSN_CN_007,"Lệ Sơn Nam","Chăn nuôi","Đặng Văn Quáng","Đặng Văn Quáng","Đang hoạt động",,,,,
+HT_LSN_CN_008,"Lệ Sơn Nam","Chăn nuôi","Đặng Nghiêu","Đặng Nghiêu","Đang hoạt động",,,,,
+HT_LSN_CN_009,"Lệ Sơn Nam","Chăn nuôi","Lê Văn Sơn","Lê Văn Sơn","Đang hoạt động",,,,,
+HT_LSN_CN_010,"Lệ Sơn Nam","Chăn nuôi","Lê Thị Tân","Lê Thị Tân","Đang hoạt động",,,,,
+HT_LSN_CN_011,"Lệ Sơn Nam","Chăn nuôi","Lê Thị Thụy","Lê Thị Thụy","Đang hoạt động",,,,,
+HT_LSN_CN_012,"Lệ Sơn Nam","Chăn nuôi","Đặng Thị Đây","Đặng Thị Đây","Đang hoạt động",,,,,
+HT_LSN_CN_013,"Lệ Sơn Nam","Chăn nuôi","Đặng Hân","Đặng Hân","Đang hoạt động",,,,,
+HT_LSN_CN_014,"Lệ Sơn Nam","Chăn nuôi","Đặng Văn Hữu","Đặng Văn Hữu","Đang hoạt động",,,,,
+HT_LSN_CN_015,"Lệ Sơn Nam","Chăn nuôi","Lê Hữu Lịch","Lê Hữu Lịch","Đang hoạt động",,,,,
+HT_LSN_CN_016,"Lệ Sơn Nam","Chăn nuôi","Lê Văn Phước","Lê Văn Phước","Đang hoạt động",,,,,
+HT_LSN_CN_017,"Lệ Sơn Nam","Chăn nuôi","Đặng Văn Thiệu","Đặng Văn Thiệu","Đang hoạt động",,,,,
+HT_LSN_CN_018,"Lệ Sơn Nam","Chăn nuôi","Đặng Văn Trình","Đặng Văn Trình","Đang hoạt động",,,,,
+HT_LSN_CN_019,"Lệ Sơn Nam","Chăn nuôi","Đặng Văn  Lập","Đặng Văn  Lập","Đang hoạt động",,,,,
+HT_LSN_CN_020,"Lệ Sơn Nam","Chăn nuôi","Lê Đương","Lê Đương","Đang hoạt động",,,,,
+HT_LSN_CN_021,"Lệ Sơn Nam","Chăn nuôi","Lê Văn Tiên","Lê Văn Tiên","Đang hoạt động",,,,,
+HT_LSN_CN_023,"Lệ Sơn Nam","Chăn nuôi","Lê Hồng Anh","Lê Hồng Anh","Đang hoạt động",,,,,
+HT_LSN_CN_024,"Lệ Sơn Nam","Chăn nuôi","Đặng Thị Hòa","Đặng Thị Hòa","Đang hoạt động",,,,,
+HT_LSN_CN_025,"Lệ Sơn Nam","Chăn nuôi","Lê Hội","Lê Hội","Đang hoạt động",,,,,
+HT_LSN_CR_002,"Lệ Sơn Nam","CSSX RƯỢU","Huỳnh Thị Mai","Huỳnh Thị Mai","Đang hoạt động",0128751034,,,,"Không đăng ký kinh doanh"
+HT_LSN_CR_003,"Lệ Sơn Nam","CSSX RƯỢU","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",0236798342,,,,"Không đăng ký kinh doanh"
+HT_LSN_CR_004,"Lệ Sơn Nam","CSSX RƯỢU","Nguyễn Đức Ngư","Nguyễn Đức Ngư","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LSN_CT_001,"Lệ Sơn Nam",,N,"NGUYỄN THỊ NGHĨ","Đang hoạt động",,,,16.05.2019,
+HT_LSN_DVAU_001,"Lệ Sơn Nam",,"Đặng Thị Hương","Đặng Thị Hương","Đang hoạt động",1247383259,16.05.2019,16.05.2019,04.05.2017,
+HT_LSN_DVAU_002,"Lệ Sơn Nam",,"Nguyễn Thị loài","Nguyễn Thị loài","Tạm nghỉ",935950245,16.05.2019,16.05.2019,,
+HT_LSN_DVAU_003,"Lệ Sơn Nam",,"Nguyễn thi lai","Nguyễn thi lai","Đang hoạt động",905950245,,,,
+HT_LSN_DVAU_005,"Lệ Sơn Nam",,"Lê Thị Lai","Lê Thị Lai","Đang hoạt động",905950245,16.05.2019,16.05.2019,,
+HT_LSN_DVAU_006,"Lệ Sơn Nam",,"Đặng thị chỉ","Đặng thị chỉ","Đang hoạt động",1263626169,16.05.2019,16.05.2019,,
+HT_LSN_DVAU_007,"Lệ Sơn Nam",,LỰU,"Nguyễn Thị Lựu","Đang hoạt động",9051023381,16.05.2019,16.05.2019,,
+HT_LSN_DVAU_008,"Lệ Sơn Nam","Quán ăn","Lê Thị Thanh Xuân","Lê Thị Thanh Xuân","Đang hoạt động",905102381,,,04.05.2017,
+HT_LSN_DVTC_002,"Lệ Sơn Nam","Dịch vụ tiệc cưới","tHÔNG LỆ","NGUYỄN ĐỨC THÔNG","Đang hoạt động",,,,16.05.2019,
+HT_LSN_DVTC_003,"Lệ Sơn Nam","Dịch vụ tiệc cưới","LIÊN KHUYẾT","Đặng Thị Liên","Đang hoạt động",,,,16.05.2019,
+HT_LSN_NTGD_001,"Lệ Sơn Nam","Nhóm trẻ gia đình","Lan Trinh","Phan Thị Hoài Trinh","Đang hoạt động",1263574539,16.05.2019,16.05.2019,29.10.2017,5
+HT_LSN_NTGD_003,"Lệ Sơn Nam","Nhóm trẻ gia đình","Trà my","Đặng Thị Huệ","Đang hoạt động",1692555605,12.05.2017,16.05.2019,03.12.2018,1
+HT_LSN_QA_003,"Lệ Sơn Nam","Quán ăn",Nnn,nn,"Đang hoạt động",,,,,
+HT_LSN_SBT_002,"Lệ Sơn Nam","SX bún tươi","Ngô Thị Lanh","Ngô Thị Lanh","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LSN_SKDMK_002,"Lệ Sơn Nam","SX Kinh doanh mỳ kí","Nguyễn Thị Loan","Nguyễn Thị Loan","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_LSN_SKDMK_003,"Lệ Sơn Nam","SX Kinh doanh mỳ kí","Từ Thị Hường","Từ Thị Hường","Đang hoạt động",01645347182,,,,"Có đăng ký kinh doanh"
+HT_LSN_SKDMK_004,"Lệ Sơn Nam","SX Kinh doanh mỳ kí","Lê Thị Thống","Lê Thị Thống","Đang hoạt động",,,,,"Có đăng ký kinh doanh"
+HT_LSN_TADP_001,"Lệ Sơn Nam","Thức ăn đường phố","Nguyên thi thu","Nguyễn Thị Thu","Tạm nghỉ",,,,,
+HT_LSN_TADP_002,"Lệ Sơn Nam","Thức ăn đường phố","Lê Thị Cẩm Vân","Lê Thị Cẩm Vân","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_LSN_TADP_003,"Lệ Sơn Nam","Thức ăn đường phố",H,"NGUYỄN THỊ TIẾT HOA","Đang hoạt động",,,,16.05.2019,
+HT_LSN_TH_001,"Lệ Sơn Nam","Tạp hóa","Đặng Thị Biêu","Đặng Thị Biêu","Đang hoạt động",,,,,"Có đăng ký kinh doanh"
+HT_LSN_TH_002,"Lệ Sơn Nam","Tạp hóa","Lê Thị Sưa","Lê Thị Sưa","Đang hoạt động",0976647433,,,,"Không đăng ký kinh doanh"
+HT_NS_CN_001,"Nam Sơn","Chăn nuôi","Lê Văn Công","Lê Văn Công","Đang hoạt động",,,,,
+HT_NS_CN_002,"Nam Sơn","Chăn nuôi","Lê Thị Mai","Lê Thị Mai","Đang hoạt động",,,,,
+HT_NS_CN_003,"Nam Sơn","Chăn nuôi","Nguyễn Phú Cư","Nguyễn Phú Cư","Đang hoạt động",,,,,
+HT_NS_CN_004,"Nam Sơn","Chăn nuôi","Lê Xuân Hoàng","Lê Xuân Hoàng","Đang hoạt động",,,,,
+HT_NS_CN_005,"Nam Sơn","Chăn nuôi","Võ Hạnh","Võ Hạnh","Đang hoạt động",,,,,
+HT_NS_CN_006,"Nam Sơn","Chăn nuôi","Phạm Xê","Phạm Xê","Đang hoạt động",,,,,
+HT_NS_CN_007,"Nam Sơn","Chăn nuôi","Lê Văn Cứ","Lê Văn Cứ","Đang hoạt động",,,,,
+HT_NS_CN_008,"Nam Sơn","Chăn nuôi","Ngô Thành Trung","Ngô Thành Trung","Đang hoạt động",,,,,
+HT_NS_CN_009,"Nam Sơn","Chăn nuôi","Đặng Minh Đức","Đặng Minh Đức","Đang hoạt động",,,,,
+HT_NS_CN_010,"Nam Sơn","Chăn nuôi","Nguyễn Bá Lợi","Nguyễn Bá Lợi","Đang hoạt động",,,,,
+HT_NS_CN_011,"Nam Sơn","Chăn nuôi","Võ Thiện Phúc","Võ Thiện Phúc","Đang hoạt động",,,,,
+HT_NS_CN_012,"Nam Sơn","Chăn nuôi","Phan Thị Hà","Phan Thị Hà","Đang hoạt động",,,,,
+HT_NS_CN_013,"Nam Sơn","Chăn nuôi","Nguyễn Hòa","Nguyễn Hòa","Đang hoạt động",,,,,
+HT_NS_CN_014,"Nam Sơn","Chăn nuôi","Lê Văn Than","Lê Văn Than","Đang hoạt động",,,,,
+HT_NS_CN_015,"Nam Sơn","Chăn nuôi","Lê Văn Lý","Lê Văn Lý","Đang hoạt động",,,,,
+HT_NS_CN_016,"Nam Sơn","Chăn nuôi","Lê Văn Hùng","Lê Văn Hùng","Đang hoạt động",,,,,
+HT_NS_CN_017,"Nam Sơn","Chăn nuôi","Lê Học","Lê Học","Đang hoạt động",,,,,
+HT_NS_CN_018,"Nam Sơn","Chăn nuôi","Lê Thị Thơm","Lê Thị Thơm","Đang hoạt động",,,,,
+HT_NS_CN_019,"Nam Sơn","Chăn nuôi","Lê Văn Mười","Lê Văn Mười","Đang hoạt động",,,,,
+HT_NS_CN_020,"Nam Sơn","Chăn nuôi","Nguyễn Thị Ánh Tuyết","Nguyễn Thị Ánh Tuyết","Đang hoạt động",,,,,
+HT_NS_CN_021,"Nam Sơn","Chăn nuôi","Nguyễn Hữu Hổ","Nguyễn Hữu Hổ","Đang hoạt động",,,,,
+HT_NS_CN_023,"Nam Sơn","Chăn nuôi","Lê Văn Côi","Lê Văn Côi","Đang hoạt động",,,,,
+HT_NS_CN_024,"Nam Sơn","Chăn nuôi","Lê Bi","Lê Bi","Đang hoạt động",,,,,
+HT_NS_CN_025,"Nam Sơn","Chăn nuôi","Đặng Thành Lành","Đặng Thành Lành","Đang hoạt động",,,,,
+HT_NS_CR_002,"Nam Sơn","CSSX RƯỢU","Thái Thị Kiều","Thái Thị Kiều","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_NS_DVAU_001,"Nam Sơn","Quán ăn","Trần Thị Năm ,Lê Thị Lệ Phương","Trần Thị Năm ,Lê Thị Lệ Phương","Đang hoạt động",932490533,,,15.04.2017,
+HT_NS_DVAU_002,"Nam Sơn","Quán ăn","Nguyễn thị Việt ,Nguyễn Thị Cúc","Nguyễn thị Việt ,Nguyễn Thị Cúc","Đang hoạt động",905677028,,,04.05.2017,
+HT_NS_DVAU_003,"Nam Sơn","Quán ăn","Nguyễn Thi Ánh Tuyết","Nguyễn Thi Ánh Tuyết","Đang hoạt động",1682754221,16.05.2019,16.05.2019,04.05.2017,
+HT_NS_DVGK_001,"Nam Sơn","Quán ăn","Quán Giải khát","Trần Thị Năm","Đang hoạt động",,,,,
+HT_NS_TH_002,"Nam Sơn","Tạp hóa","Nguyễn Thị Hoa","Nguyễn Thị Hoa","Đang hoạt động",01208747590,,,,"Không đăng ký kinh doanh"
+HT_TB_CN_001,"Thạch Bồ","Chăn nuôi","Trương Sinh","Trương Sinh","Đang hoạt động",,,,,
+HT_TB_CN_002,"Thạch Bồ","Chăn nuôi","Đặng Cúc","Đặng Cúc","Đang hoạt động",,,,,
+HT_TB_CN_003,"Thạch Bồ","Chăn nuôi","Trương Xí","Trương Xí","Đang hoạt động",,,,,
+HT_TB_CN_004,"Thạch Bồ","Chăn nuôi","Trần Văn Hiệu","Trần Văn Hiệu","Đang hoạt động",,,,,
+HT_TB_CN_005,"Thạch Bồ","Chăn nuôi","Nguyễn Đức Liên","Nguyễn Đức Liên","Đang hoạt động",,,,,
+HT_TB_CN_006,"Thạch Bồ","Chăn nuôi","Đặng Thô","Đặng Thô","Đang hoạt động",,,,,
+HT_TB_CN_007,"Thạch Bồ","Chăn nuôi","Nguyễn Mười","Nguyễn Mười","Đang hoạt động",,,,,
+HT_TB_CN_009,"Thạch Bồ","Chăn nuôi","Đặng Thống","Đặng Thống","Đang hoạt động",,,,,
+HT_TB_CN_010,"Thạch Bồ","Chăn nuôi","Nguyễn Thị Thu","Nguyễn Thị Thu","Đang hoạt động",,,,,
+HT_TB_CN_011,"Thạch Bồ","Chăn nuôi","Đặng Thị Ngân Hạnh","Đặng Thị Ngân Hạnh","Đang hoạt động",,,,,
+HT_TB_DVAU_001,"Thạch Bồ","Quán ăn","Đặng Thị Thùy Liên","Đặng Thị Thùy Liên","Đang hoạt động",,,,15.04.2017,
+HT_TB_DVAU_003,"Thạch Bồ","Quán ăn","Đặng Thị Lược","Đặng Thị Lược","Đang hoạt động",,,,15.04.2017,
+HT_TB_TH_002,"Thạch Bồ","Tạp hóa","Đặng Thị Nhành","Đặng Thị Nhành","Đang hoạt động",0906492773,,,,"Không đăng ký kinh doanh"
+HT_TB_TH_003,"Thạch Bồ","Tạp hóa","Đặng Thị Luận","Đặng Thị Luận","Đang hoạt động",01213534525,,,,"Không đăng ký kinh doanh"
+HT_TB_TH_004,"Thạch Bồ","Tạp hóa","Nguyễn Thị Qúy","Nguyễn Thị Qúy","Đang hoạt động",02363798780,,,,"Không đăng ký kinh doanh"
+HT_TB_TH_005,"Thạch Bồ","Tạp hóa","Trần Thị Thiên Hương","Trần Thị Thiên Hương","Đang hoạt động",02363799382,,,,"Không đăng ký kinh doanh"
+HT_YN1_CN_001,"Yến Nê 1","Chăn nuôi","Nguyễn Thị Điền","Nguyễn Thị Điền","Đang hoạt động",,,,,
+HT_YN1_CN_002,"Yến Nê 1","Chăn nuôi","Nguyễn Văn Phi","Nguyễn Văn Phi","Đang hoạt động",,,,,
+HT_YN1_CN_003,"Yến Nê 1","Chăn nuôi","Trần Đình Hiền","Trần Đình Hiền","Đang hoạt động",,,,,
+HT_YN1_CN_004,"Yến Nê 1","Chăn nuôi","Nguyễn Thị Chiến","Nguyễn Thị Chiến","Đang hoạt động",,,,,
+HT_YN1_CN_005,"Yến Nê 1","Chăn nuôi","Nguyễn Văn Chiến","Nguyễn Văn Chiến","Đang hoạt động",,,,,
+HT_YN1_CN_006,"Yến Nê 1","Chăn nuôi","Nguyễn Văn Tương","Nguyễn Văn Tương","Đang hoạt động",,,,,
+HT_YN1_CN_007,"Yến Nê 1","Chăn nuôi","Trần Thị Liên","Trần Thị Liên","Đang hoạt động",,,,,
+HT_YN1_CN_008,"Yến Nê 1","Chăn nuôi","Nguyễn Dõng","Nguyễn Dõng","Đang hoạt động",,,,,
+HT_YN1_CN_009,"Yến Nê 1","Chăn nuôi","Huỳnh Tra","Huỳnh Tra","Đang hoạt động",,,,,
+HT_YN1_CN_010,"Yến Nê 1","Chăn nuôi","Nguyễn Phú Nễ","Nguyễn Phú Nễ","Đang hoạt động",,,,,
+HT_YN1_CN_011,"Yến Nê 1","Chăn nuôi","Trần Thị Sách","Trần Thị Sách","Đang hoạt động",,,,,
+HT_YN1_CN_012,"Yến Nê 1","Chăn nuôi","Trần Toàn","Trần Toàn","Đang hoạt động",,,,,
+HT_YN1_CN_014,"Yến Nê 1","Chăn nuôi","Nguyễn Thị Minh","Nguyễn Thị Minh","Đang hoạt động",,,,,
+HT_YN1_CN_015,"Yến Nê 1","Chăn nuôi","Nguyễn Thị Hạnh","Nguyễn Thị Hạnh","Đang hoạt động",,,,,
+HT_YN1_CN_016,"Yến Nê 1","Chăn nuôi","Nguyễn Ta","Nguyễn Ta","Đang hoạt động",,,,,
+HT_YN1_CR_001,"Yến Nê 1","CSSX RƯỢU","Đặng Thị Thương","Đặng Thị Thương","Đang hoạt động",01216589750,,,,"Không đăng ký kinh doanh"
+HT_YN1_CR_002,"Yến Nê 1","CSSX RƯỢU","Nguyễn Văn Nhiên","Nguyễn Văn Nhiên","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_YN1_DVAU_001,"Yến Nê 1",,"Nguyễn Thị Đấu","Nguyễn Thị Đấu","Đang hoạt động",,16.05.2019,16.05.2019,04.06.2016,
+HT_YN1_DVAU_002,"Yến Nê 1",,"Đặng Thị Chúc","Đặng Thị Chúc","Đang hoạt động",906544352,16.05.2019,16.05.2019,04.06.2016,
+HT_YN1_DVAU_003,"Yến Nê 1",,"Hồ thị thu sương","Hồ thị thu sương","Đang hoạt động",908621516,16.05.2019,16.05.2019,04.05.2017,
+HT_YN1_DVTC_001,"Yến Nê 1","Dịch vụ tiệc cưới","PHONG THỦY","NGUYỄN VĂN PHONG","Đang hoạt động",,,,16.05.2019,
+HT_YN1_NTGD_002,"Yến Nê 1","Nhóm trẻ gia đình","Hồng Anh","Trần Thị Hòa","Đang hoạt động",905087346,12.05.2017,16.05.2019,02.02.2018,4
+HT_YN1_NTGD_003,"Yến Nê 1","Nhóm trẻ gia đình","Trần Thị Ngãi","Trần Thị Ngãi","Tạm nghỉ",263798621,12.05.2017,16.05.2019,02.02.2018,5
+HT_YN1_NTGD_004,"Yến Nê 1","Nhóm trẻ gia đình","Hiền Vân","Nguyễn Thị Hiền","Đang hoạt động",236799831,12.05.2017,16.05.2019,08.01.2019,2
+HT_YN1_NTGD_005,"Yến Nê 1","Nhóm trẻ gia đình","Trúc Quỳnh","Nguyễn Thị Thắng","Đang hoạt động",935730971,16.05.2019,16.05.2019,02.02.2017,1
+HT_YN1_SBT_002,"Yến Nê 1","SX bún tươi","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",0905329393,,,,"Không đăng ký kinh doanh"
+HT_YN1_SKDMK_001,"Yến Nê 1","SX Kinh doanh mỳ kí","Nguyễn Thị Hường","Nguyễn Thị Hường","Đang hoạt động",01886946065,,,,"Không đăng ký kinh doanh"
+HT_YN1_SKDMK_002,"Yến Nê 1","SX Kinh doanh mỳ kí","Nguyễn Thị Hồng Vân","Nguyễn Thị Hồng Vân","Đang hoạt động",01213597424,,,,"Không đăng ký kinh doanh"
+HT_YN1_TADP_001,"Yến Nê 1","Thức ăn đường phố","Võ Thị Bảy","Đào thị thanh trà","Tạm nghỉ",,16.05.2019,16.05.2019,04.05.2017,
+HT_YN1_TADP_002,"Yến Nê 1","Thức ăn đường phố",NM,"NGUYỄN THỊ TÌNH","Đang hoạt động",,,,16.05.2019,
+HT_YN1_TADP_004,"Yến Nê 1","Thức ăn đường phố","Ngô Thị Lộc","Ngô Thị Lộc","Đang hoạt động","Chưa nhập",16.05.2019,16.05.2019,04.05.2017,
+HT_YN1_TH_001,"Yến Nê 1","Tạp hóa","Cửa Hàng Thùy Ly","Cửa Hàng Thùy Ly","Đang hoạt động",01225727640,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_002,"Yến Nê 1","Tạp hóa","Lê Thị Vân","Lê Thị Vân","Đang hoạt động",02363798058,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_003,"Yến Nê 1","Tạp hóa","Đặng Thị Hòa","Đặng Thị Hòa","Đang hoạt động",0905620295,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_004,"Yến Nê 1","Tạp hóa","Nguyễn Thị Hương","Nguyễn Thị Hương","Đang hoạt động",0935001519,,,,"Có đăng ký kinh doanh"
+HT_YN1_TH_005,"Yến Nê 1","Tạp hóa","Trương Thị Nha","Trương Thị Nha","Đang hoạt động",0236798058,,,,"Có đăng ký kinh doanh"
+HT_YN1_TH_006,"Yến Nê 1","Tạp hóa","Nguyễn Thị Nhạn","Nguyễn Thị Nhạn","Đang hoạt động",0236798094,,,,"Có đăng ký kinh doanh"
+HT_YN1_TH_007,"Yến Nê 1","Tạp hóa","Nguyễn Thị Nhạn","Nguyễn Thị Nhạn","Đang hoạt động",0236798094,,,,"Có đăng ký kinh doanh"
+HT_YN1_TH_008,"Yến Nê 1","Tạp hóa","Ngô Thị Cần","Ngô Thị Cần","Đang hoạt động",,,,,"Có đăng ký kinh doanh"
+HT_YN1_TH_009,"Yến Nê 1","Tạp hóa","Trần Duyên","Trần Duyên","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_011,"Yến Nê 1","Tạp hóa","Ngô Thị Liên","Ngô Thị Liên","Đang hoạt động",0905155161,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_012,"Yến Nê 1","Tạp hóa","Ngô Thị Tâm","Ngô Thị Tâm","Đang hoạt động",0120133125,,,,"Không đăng ký kinh doanh"
+HT_YN1_TH_013,"Yến Nê 1","Tạp hóa","Nguyễn Thị Hồng","Nguyễn Thị Hồng","Đang hoạt động",01262778116,,,,"Không đăng ký kinh doanh"
+HT_YN1_TTLT_002,"Yến Nê 1",,"Trung tâm lưu trú Hòa Thuận","Nguyễn Thu Hà chuyển huyện","Tạm nghỉ",0935600719,,,26.08.2016,51/2016/ATTP_CNĐK
+HT_YN2__001,"Yến Nê 2",,"Nguyễn Thi Mai + Nguyễn Thị Lệ","Nguyễn Thi Mai + Nguyễn Thị Lệ","Đang hoạt động",1262749087,16.05.2019,16.05.2019,,
+HT_YN2_BATT_002,"Yến Nê 2",,"MN Hòa Tiến 1","Đỗ Nữ Lâm Thanh","Đang hoạt động",0906475777,,,26.09.2016,62/2016_ATTP_CNĐK
+HT_YN2_CN_001,"Yến Nê 2","Chăn nuôi","Nguyễn Văn Nhiên","Nguyễn Văn Nhiên","Đang hoạt động",,,,,
+HT_YN2_CN_002,"Yến Nê 2","Chăn nuôi","Lý Thị Hoa","Lý Thị Hoa","Đang hoạt động",,,,,
+HT_YN2_CN_003,"Yến Nê 2","Chăn nuôi","Nguyễn văn Chức","Nguyễn văn Chức","Đang hoạt động",,,,,
+HT_YN2_CN_004,"Yến Nê 2","Chăn nuôi","Nguyễn Tiến Phong","Nguyễn Tiến Phong","Đang hoạt động",,,,,
+HT_YN2_CN_005,"Yến Nê 2","Chăn nuôi","Nguyễn Văn Hùng","Nguyễn Văn Hùng","Đang hoạt động",,,,,
+HT_YN2_CN_006,"Yến Nê 2","Chăn nuôi","Nguyễn Văn Ba","Nguyễn Văn Ba","Đang hoạt động",,,,,
+HT_YN2_CN_007,"Yến Nê 2","Chăn nuôi","Huỳnh Tấn Trớ","Huỳnh Tấn Trớ","Đang hoạt động",,,,,
+HT_YN2_CN_008,"Yến Nê 2","Chăn nuôi","Nguyễn Thị Xí","Nguyễn Thị Xí","Đang hoạt động",,,,,
+HT_YN2_CN_009,"Yến Nê 2","Chăn nuôi","Trần Đình Quế","Trần Đình Quế","Đang hoạt động",,,,,
+HT_YN2_CN_010,"Yến Nê 2","Chăn nuôi","Nguyễn Văn Cúc","Nguyễn Văn Cúc","Đang hoạt động",,,,,
+HT_YN2_CN_011,"Yến Nê 2","Chăn nuôi","Nguyễn Văn Xạ","Nguyễn Văn Xạ","Đang hoạt động",,,,,
+HT_YN2_CN_012,"Yến Nê 2","Chăn nuôi","Trần Đình Chiêm","Trần Đình Chiêm","Đang hoạt động",,,,,
+HT_YN2_CN_014,"Yến Nê 2","Chăn nuôi","Nguyễn Thị Mai","Nguyễn Thị Mai","Đang hoạt động",,,,,
+HT_YN2_CN_015,"Yến Nê 2","Chăn nuôi","Phạm Văn Tơi","Phạm Văn Tơi","Đang hoạt động",,,,,
+HT_YN2_CN_016,"Yến Nê 2","Chăn nuôi","Phan Thị Lựu","Phan Thị Lựu","Đang hoạt động",,,,,
+HT_YN2_CR_002,"Yến Nê 2","CSSX RƯỢU","Nguyễn Phú Đà","Nguyễn Phú Đà","Đang hoạt động",01202589923,,,,"Không đăng ký kinh doanh"
+HT_YN2_DVAU_001,"Yến Nê 2",,"Nguyễn sáu","Nguyễn sáu","Tạm nghỉ",,16.05.2019,16.05.2019,15.04.2017,
+HT_YN2_DVAU_002,"Yến Nê 2",,"Huỳnh Thị Huệ","Huỳnh Thị Huệ","Đang hoạt động",1225525784,16.05.2019,16.05.2019,04.05.2017,
+HT_YN2_DVAU_003,"Yến Nê 2",,"Trần thị nguyệt","Trần thị nguyệt","Tạm nghỉ",,16.05.2019,16.05.2019,,
+HT_YN2_DVAU_004,"Yến Nê 2",,"Đặng Thị Hồng, Lê Thị Ánh Hồng","Đặng Thị Hồng, Lê Thị Ánh Hồng","Tạm nghỉ",,16.05.2019,16.05.2019,15.04.2017,
+HT_YN2_DVAU_005,"Yến Nê 2",,"Đặng Thị Hồng,lê Thị Ánh Hồng","Đặng Thị Hồng,lê Thị Ánh Hồng","Tạm nghỉ",,,,15.04.2017,
+HT_YN2_DVAU_007,"Yến Nê 2",,"Nguyễn thị miên","Nguyễn thị miên","Tạm nghỉ",,16.05.2019,16.05.2019,,
+HT_YN2_DVAU_008,"Yến Nê 2",,"Nguyễn Đà","Nguyễn Đà","Tạm nghỉ",,16.05.2019,16.05.2019,15.04.2017,
+HT_YN2_DVAU_009,"Yến Nê 2",,"Nguyễn Thị Như (Nguyễn Thị Hiền)","Nguyễn Thị Như (Nguyễn Thị Hiền)","Tạm nghỉ",95333298,16.05.2019,16.05.2019,04.06.2016,
+HT_YN2_DVAU_010,"Yến Nê 2",,"Lê thị năm","Lê thị năm","Tạm nghỉ",,16.05.2019,16.05.2019,15.04.2017,
+HT_YN2_DVGK_001,"Yến Nê 2",,,"Nguyễn Sáu","Đang hoạt động",,,,,
+HT_YN2_DVTC_001,"Yến Nê 2","Dịch vụ tiệc cưới","DUYÊN NGHIÊM","NGÔ THỊ DUYÊN","Đang hoạt động",,,,16.05.2019,
+HT_YN2_NTGD_001,"Yến Nê 2","Nhóm trẻ gia đình","Thảo Nguyên","Nguyễn Thị Bích Thuận","Đang hoạt động",1216000316,16.05.2019,16.05.2019,29.10.2017,2
+HT_YN2_SBT_002,"Yến Nê 2","SX bún tươi","Nguyễn Thị Dung","Nguyễn Thị Dung","Đang hoạt động",,,,,"Không đăng ký kinh doanh"
+HT_YN2_TADP_001,"Yến Nê 2","Thức ăn đường phố","Trương Thị Thương","HỒ THỊ KIM KHƯƠNG","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_YN2_TADP_002,"Yến Nê 2","Thức ăn đường phố","TÂM XÔI SỬA","Trần thị tâm","Đang hoạt động",,16.05.2019,16.05.2019,04.05.2017,
+HT_YN2_TADP_003,"Yến Nê 2","Thức ăn đường phố","Nguyễn Thị Thùy Dung","Nguyễn Thị Thùy Dung","Đang hoạt động",129608504,16.05.2019,16.05.2019,04.05.2017,

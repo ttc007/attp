@@ -50,7 +50,7 @@ class Category extends Model
         $data = [];
         foreach ($childs as $key => $child) {
             $data[$child->name] = FoodSafety::where("categoryb2_id", $child->id)
-                        ->where('status','!=', 'Tạm nghỉ')
+                        ->where('status','<>', 'Tạm nghỉ')
                         ->where("ward_id", $ward_id)
                         ->count();
         }

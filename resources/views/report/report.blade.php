@@ -75,9 +75,11 @@
                 $.each(data.categories, function(m, category){
                   var check = 0;
                   var pass = 0;
+                  var noPass = 0;
                   var rating = 0;
                   var rating1 = 0;
-                  thead.append("<td>"+category.name+"</td>");
+                  thead.append("<td>"+category.name+"("
+                    +data.fsInChildOfCategory[category.name]+")"+"</td>");
                   
                   $.each(data.foodSafetyDateCheckeds, function(m, foodSafetyDateChecked){
                     if(foodSafetyDateChecked.categoryb2_id==category.id){
@@ -91,6 +93,8 @@
                           check++;
                           if(foodSafetyDateChecked.result=="Đạt"){
                             pass++;
+                          } else {
+                            noPass++;
                           }
                         }
                       }
@@ -105,16 +109,14 @@
                   rating1 = Math.round(rating1 * 100) / 100;
 
                   var cateData = check+"/"+pass+"/"+rating+"%";
-                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+cateData+"<br>("+data.fsInChildOfCategory[category.name]+"/"+rating1+"%)</td>");
+                  tr.append("<td class='count_"+convertToSlug(category.name)+"'>"+
+                    cateData+"<br>("+categoryCount+"/"+rating1+"%)</td>");
                 });
                 $("#table").append(tr);
                 if(i==3||i==6||i==9||i==12){
                   var quy = "Quý " +(i/3);
                   if(i==12) quy = "Quý 4 - cả năm";
                   var bg = "#2ec";
-                  // if(i==6) bg = "#8bdaa3";
-                  // if(i==9) bg = "#d5e484";
-                  // if(i==12) bg = "#e2927a";
                   var tr = $("<tr style='background:"+bg+"'><td> "+quy+"</td></tr>");
                   
                   $.each(data.fsInChildOfCategory, function(cateName, cateCount){
@@ -125,17 +127,17 @@
                     $('.count_'+convertToSlug(cateName)).each(function (h,k){
                       checkQuarter +=parseInt($(k).text());
                       passQuarter +=parseInt($(k).text().split("/")[1]);
-                      total = parseInt($(k).text().split("(")[1]);
+                      total = parseInt(cateCount);
                     });
                     var rating = 0;
-                    if(checkQuarter>0) rating = (passQuarter/checkQuarter*100);
+                    if(checkQuarter > 0) rating = (passQuarter/checkQuarter*100);
                     rating = Math.round(rating * 100) / 100;
 
                     var rating1 = 0;
-                    if(total>0) rating1 = checkQuarter/total*100;
+                    if(total > 0) rating1 = checkQuarter/total*100;
                     rating1 = Math.round(rating1 * 100) / 100;
                     var viewCount = checkQuarter+"/"+passQuarter+"/"+rating
-                      +"%<br>("+total+"/"+rating1+"%)";
+                      +"%<br>("+cateCount+"/"+rating1+"%)";
                     tr.append('<td>'+viewCount+'</td>');
                   });
                   
