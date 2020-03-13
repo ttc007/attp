@@ -77,122 +77,21 @@ class ReportController extends Controller
     }
 
     function month_report_master($month, Request $request){
+        $data['data'] = DB::table('checkeds')->join('food_safeties', 'food_safeties.id', 'checkeds.food_safety_id')
+            ->select('food_safeties.categoryb2_id', 'food_safeties.ward_id', 'checkeds.month', 'checkeds.food_safety_id', 'checkeds.result')
+            ->where('checkeds.year', date('Y'))
+            ->orderBy('checkeds.food_safety_id')
+            ->get();
+        
         $category = Category::where('slug','YT')->first();
-        $wards = Ward::all();
-        $categories = $category->childs('1');
-        $hql_categories = $category->childs('12');
-
-        $data_res = array();
-        $latestChecks = DB::table('checkeds')
-                   ->select('id', 'food_safety_id',
-                    DB::raw('MAX(dateChecked) as last_date_checked'))
-                   ->groupBy('food_safety_id');
-        $checkedSub = DB::table('checkeds')
-                ->select('checkeds.id', 'checkeds.result',
-                    'checkeds.year', 'checkeds.food_safety_id', 'checkeds.month'
-                )
-                ->join(DB::raw('(' . $latestChecks->toSql() .') as latestChecks'), 
-                    function($join){
-                        $join->on('latestChecks.food_safety_id', '=', 'checkeds.food_safety_id')
-                            ->on('latestChecks.last_date_checked', '=', 'checkeds.dateChecked');
-                    });
-
-        foreach ($wards as $key => $ward) {
-            $data_res[$ward->name] = array();
-            if ($ward->id != 12) {
-                for ($i=1; $i <=4 ; $i++) {
-                    $data_res[$ward->name]['Quý '. $i] = array();
-                    $category_line = array();
-                    $count_checked_line = array();
-                    foreach ($categories as $key1 => $category) {
-                        $category_line[] = $category->name;
-
-                        $count_check = DB::table('food_safeties')
-                            ->select(DB::raw('COUNT("checkeds.id") as cnt'))
-                            ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
-                                    'checkeds.food_safety_id', 'food_safeties.id')
-                            ->where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->where('checkeds.year', date('Y'))
-                            ->where('checkeds.month', '<=', $i * 3)
-                            ->groupBy('checkeds.year')
-                            ->first()->cnt;
-                        $count_check_pass = DB::table('food_safeties')
-                            ->select(DB::raw('COUNT("checkeds.id") as cnt'))
-                            ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
-                                    'checkeds.food_safety_id', 'food_safeties.id')
-                            ->where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->where('checkeds.year', date('Y'))
-                            ->where('checkeds.month', '<=', $i * 3)
-                            ->where('checkeds.result', 'Đạt')
-                            ->first()->cnt;
-                        $count_category = FoodSafety::where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->count();
-                        $rate1 = $count_check > 0 ? round(($count_check_pass / $count_check) *100, 2) : 0;
-                        $rate2 = $count_category > 0 ? round(($count_check / $count_category) *100, 2) : 0;
-                        $count_checked_line[] = $count_check . '/' 
-                            . $count_check_pass . '/'
-                            . $rate1 . '% - '
-                            . $count_category . '/'
-                            . $rate2 . '%';
-                    }
-                    if ($i == 1) $data_res[$ward->name]['Quý '. $i]['category'] = $category_line;
-                    $data_res[$ward->name]['Quý '. $i]['count'] = $count_checked_line;
-                }
-            } else {
-                for ($i=1; $i <=4 ; $i++) {
-                    $data_res[$ward->name]['Quý '. $i] = array();
-                    $category_line = array();
-                    $count_checked_line = array();
-                    foreach ($hql_categories as $key1 => $category) {
-                        $category_line[] = $category->name;
-
-                        $count_check = DB::table('food_safeties')
-                            ->select(DB::raw('COUNT("checkeds.id") as cnt'))
-                            ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
-                                    'checkeds.food_safety_id', 'food_safeties.id')
-                            ->where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->where('checkeds.year', date('Y'))
-                            ->where('checkeds.month', '<=', $i * 3)
-                            ->groupBy('checkeds.year')
-                            ->first()->cnt;
-                        $count_check_pass = DB::table('food_safeties')
-                            ->select(DB::raw('COUNT("checkeds.id") as cnt'))
-                            ->join(DB::raw('(' . $checkedSub->toSql() .') as checkeds'),
-                                    'checkeds.food_safety_id', 'food_safeties.id')
-                            ->where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->where('checkeds.year', date('Y'))
-                            ->where('checkeds.month', '<=', $i * 3)
-                            ->where('checkeds.result', 'Đạt')
-                            ->groupBy('checkeds.year')
-                            ->first()->cnt;
-                        $count_category = FoodSafety::where('food_safeties.categoryb2_id', $category->id)
-                            ->where('food_safeties.ward_id', $ward->id)
-                            ->where('food_safeties.status', '<>', 'Tạm nghỉ')
-                            ->count();
-                        $rate1 = $count_check > 0 ? round(($count_check_pass / $count_check) *100, 2) : 0;
-                        $rate2 = $count_category > 0 ? round(($count_check / $count_category) *100, 2) : 0;
-                        $count_checked_line[] = $count_check . '/' 
-                            . $count_check_pass . '/'
-                            . $rate1 . '% - '
-                            . $count_category . '/'
-                            . $rate2 . '%';
-                    }
-                    $data_res[$ward->name]['Quý '. $i]['category'] = $category_line;
-                    $data_res[$ward->name]['Quý '. $i]['count'] = $count_checked_line;
-                }
-            }
+        $data['wards'] = Ward::all();
+        $data['categories'] = $category->childs('1');
+        $data['hql_categories'] = $category->childs('12');
+        foreach ($data['wards'] as $key => $ward) {
+            $fsInChildOfCategory[$ward->id] = $category->fsInChildOfCategoryWard($ward->id);
         }
-        return $data_res;
+        $data['fsInChildOfCategory'] = $fsInChildOfCategory;
+        return $data;
     }
 
     function reportByDate(Request $request){
@@ -216,7 +115,7 @@ class ReportController extends Controller
                         ->count();
                 
                 $rating = "0";
-                if($count>0) $rating = round($countPass/$count*100, 2);
+                if($count > 0) $rating = round($countPass/$count*100, 2);
                 
                 $data1[$value->name] = $count."/".$countPass."/".$rating."%";
             }

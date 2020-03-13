@@ -15,21 +15,32 @@
 		</div>
 	</div>
 </div>
-<section class="box-typical col-sm-12 p-5">
+<!-- <section class="box-typical col-sm-12 p-5">
     <p class="text-muted">Chọn 1 tệp danh sách excel rồi thêm vào</p>
     <form method="post" action="upfile_csv" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" name="file" class="form-control w-25 ">
         <button class="btn mt-3">Up</button>
     </form>
-</section>
+</section> -->
 
 <section class="w-100">
     <hr>
-    <p>Bạn có thể download file excel mẫu tại đây.</p>
-    <a href="download_csv" class="btn btn-warning">Download excel cơ sở</a>
-    <a href="download_checked_csv" class="btn btn-warning">Download excel kiểm tra</a>
-    <a href="download_no_checked_csv" class="btn btn-warning">Download excel cơ sở chưa kiểm tra</a>
+    <p>Bạn có thể <b>Download</b> file excel theo năm tại đây.</p>
+    <form action="download_csv" method="get">
+        Chọn năm
+        <select class="form-control w-25" name='year'>
+            <option>2018</option>
+            <option>2019</option>
+            <option selected="">2020</option>
+        </select>
+        <br>
+        <input type="submit" formaction="download_csv" class="btn btn-warning" value="Excel cơ sở" />
+        <input type="submit" formaction="download_checked_csv" class="btn btn-warning" value="Excel kiểm tra" />
+        <input type="submit" formaction="download_no_checked_csv" class="btn btn-warning" value="Excel cơ sở chưa kiểm tra" />
+        <input type="submit" formaction="download_general_csv" class="btn btn-warning" value="Excel tổng hợp theo năm" />
+    </form>
+    
 </section>
 @endsection
 

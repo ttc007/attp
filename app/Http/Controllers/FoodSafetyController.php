@@ -277,7 +277,7 @@ class FoodSafetyController extends BaseController
         return Response::download($path);
     }
     
-    function download_checked_csv(){
+    function download_checked_csv(Request $request){
         $ward = Ward::find(Auth::user()->role);
 
         $path = public_path("download/excel/".$ward->name." kiểm tra.csv");
@@ -293,7 +293,9 @@ class FoodSafetyController extends BaseController
         fputcsv($file, $list);
 
         $checkeds = FoodSafety::join("checkeds", "checkeds.food_safety_id", "food_safeties.id")
-            ->where("food_safeties.ward_id", Auth::user()->role)->orderBy('food_safeties.code')->get();
+            ->where("food_safeties.ward_id", Auth::user()->role)->orderBy('food_safeties.code')
+            ->where('checkeds.year', $request->year)
+            ->get();
         foreach ($checkeds as $key => $checked) {
             $food_safety = FoodSafety::find($checked->food_safety_id);
             
@@ -314,10 +316,10 @@ class FoodSafetyController extends BaseController
         return Response::download($path);
     }
 
-    function download_no_checked_csv(){
+    function download_no_checked_csv(Request $request){
         $ward = Ward::find(Auth::user()->role);
 
-        $path = public_path("download/excel/".$ward->name."- danh sách chưa kiểm tra.csv");
+        $path = public_path("download/excel/" . $ward->name . "- danh sách chưa kiểm tra.csv");
         $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
         if(!file_exists($path)){
             file_put_contents($path, '');
@@ -332,6 +334,7 @@ class FoodSafetyController extends BaseController
             ->select('food_safeties.*')
             ->where("food_safeties.ward_id", Auth::user()->role)
             ->whereNull("checkeds.id")
+            ->where('checkeds.year', $request->year)
             ->orderBy('food_safeties.code')->get();
         foreach ($noCheckeds as $key => $checked) {
             $category = Category::find($checked->categoryb2_id);
@@ -339,6 +342,79 @@ class FoodSafetyController extends BaseController
             $data = array($checked->code, $checked->ten_co_so, @Village::find(@$checked->village_id)->name, $category_name);
             fputcsv($file, $data);
         }
+        fclose($file);
+        return Response::download($path);
+    }
+
+    function download_general_csv(Request $request){
+        $ward = Ward::find(Auth::user()->role);
+
+        $path = public_path("download/excel/".$ward->name." kiểm tra.csv");
+        $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
+        if(!file_exists($path)){
+            file_put_contents($path, '');
+        }
+
+        $file = fopen($path, "w");
+
+        $list = array("Mã số cơ sở" ,"Tên cơ sở", "Thôn", "Nhóm", "Kiểm tra");
+        fputcsv($file, $list);
+
+        
+        $food_safeties = FoodSafety::leftJoin(
+            DB::raw("(SELECT checkeds.food_safety_id, checkeds.id,
+                checkeds.year
+                FROM `checkeds` WHERE checkeds.year = $request->year) AS checkeds"), 
+            function($join){
+            $join->on('checkeds.food_safety_id', '=', 'food_safeties.id');
+        })
+            ->select('food_safeties.id as food_safety_id', 'checkeds.id as checked_id')
+            ->where("food_safeties.ward_id", Auth::user()->role)
+            ->groupBy('food_safeties.id')
+            ->orderBy('checkeds.id', 'DESC')
+            ->orderBy('food_safeties.code')
+            ->get();
+
+            // echo json_encode($food_safeties);exit();
+        foreach ($food_safeties as $key => $food_safety_row) {
+            $food_safety = FoodSafety::find($food_safety_row->food_safety_id);
+            $category = Category::find($food_safety->categoryb2_id);
+            $category_name = (isset($category) && !empty($category->hierarchy) && $category->hierarchy != '') ? $category->name : "";
+
+            $data = array($food_safety->code, $food_safety->ten_co_so, @Village::find(@$food_safety->village_id)->name, $category_name);
+
+            $checked_data = '';
+            $checkeds = Checked::where('food_safety_id', $food_safety_row->food_safety_id)
+                ->where('year', $request->year)
+                ->get();
+            foreach ($checkeds as $key => $checked) {
+                $checked_data_row = 'Đợt ' . ($key + 1) . ':';
+                $checked_data_row .= 'Ngày kiểm tra: ' . $checked->dateChecked . '.';
+                $checked_data_row .= 'Kết quả: ' . $checked->result . '.';
+                if ($checked->note) $checked_data_row .= 'Nội dung chưa đạt: ' . $checked->note . '.';
+                if ($checked->penalize) $checked_data_row .= 'Xử phạt: ' . $checked->penalize . '.';
+
+                
+                $tests = DB::table('checked_tests')->where('checked_id', $checked->id)->get();
+                if (count($tests) > 0) {
+                    $checked_data_row .= 'Test nhanh: ';
+                    foreach ($tests as $key1 => $test) {
+                        $test_name = @Test::find($test->test_id)->name;
+                        $checked_data_row .= 'Test ' . ($key1 + 1) . ':' . $test_name . ' - ' . $test->result . ',';
+                    }
+                }
+                
+                $checked_data_row .= '. ************** '; 
+
+                $checked_data .= $checked_data_row;
+            }
+
+            $data[] = $checked_data;
+            // var_dump($data); 
+            // echo "<br>";
+            fputcsv($file, $data);
+        }
+        // exit();
         fclose($file);
         return Response::download($path);
     }    
