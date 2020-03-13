@@ -59,6 +59,7 @@
                 <td>Thôn</td>
                 <td>
                     <select id='village_id' name="village_id" class="form-control">
+                        <option></option>
                         @foreach($villages as $village)
                             <option value="{{$village->id}}">
                                 {{$village->name}}
