@@ -26,19 +26,21 @@ class CategoryController extends Controller
 
     function api_store(Request $request){
     	
-    	if($request->category_id == 0)$category = Category::create([
-    		'name' => $request->name,
-    		'parent_id' => 1,
-            'hierarchy' => $request->hierarchy,
-            'slug' => Category::autoSlug($request->name)
-    	]);
-    	else{
+    	if($request->category_id == 0) {
+            $category = Category::create([
+        		'name' => $request->name,
+        		'parent_id' => 1,
+                'hierarchy' => $request->hierarchy,
+                'slug' => $request->slug
+        	]);
+    	} else {
     		$category = Category::find($request->category_id);
     		$category->update([
 	    		'name' => $request->name,
-                'slug' => Category::autoSlug($request->name)
+                'slug' => $request->slug
 	    	]);
-    	} 
+    	}
+
     	return $category;
     }
 

@@ -15,7 +15,7 @@
                 <td>Mã số</td>
                 <td>
                     <input name="code" type="text"
-                        class="form-control" id="code" required>
+                        class="form-control" id="code" required readonly="">
                 </td>
             </tr>
             <tr>

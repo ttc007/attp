@@ -32,7 +32,7 @@ class Checked extends Model
             else $inc = $cIndex;
 
             $checked_code = "KT";
-            $checked_code .= "_".self::slugName($ward->name);
+            $checked_code .= "_". $ward->slug;
             $checked_code .= "_".$year;
             $checked_code .= "_".$inc;
 
@@ -44,29 +44,5 @@ class Checked extends Model
             }
         }
         return "0000Error";
-    }
-
-    public static function slugName($string){
-        if($string == "Hòa Phước") return "HP1";
-        else if($string == "Hòa Phú") return "HP2";
-        else if($string == "Hòa Phong") return "HP3";
-        else if($string == "Hòa Ninh") return "HN1";
-        else if($string == "Hòa Nhơn") return "HN2";
-        else if($string == "Bếp ăn tập thể") return "BATT";
-        else if($string == "Nhóm trẻ gia đình") return "NTGD";
-        else if($string == "Thức ăn đường phố") return "TADP";
-        else if($string == "Dịch vụ ăn uống") return "DVAU";
-        else if($string == "Quán ăn xã quản lí") return "QAXQL";
-        else if($string == "Quán ăn huyện quản lí") return "QAHQL";
-        else if($string == "Nấu ăn lưu động") return "NALD";
-        else {
-            $result = "";
-            $arr = explode(" ", $string);
-            foreach ($arr as $value) {
-                $char = substr($value, 0, 1);
-                $result .= $char;
-            }
-            return strtoupper($result);
-        }
     }
 }

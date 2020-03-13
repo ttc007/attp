@@ -19,13 +19,13 @@ class VillageController extends Controller
     	$village = Village::create([
     		'name' => $request->name,
             'parent_id' => $request->ward_id,
-            'slug' => Village::autoSlug($request->name) 
+            'slug' => $request->slug
     	]);
         else{
             $village = Village::find($request->village_id);
             $village->update([
                 'name'=>$request->name,
-                'slug' => Village::autoSlug($request->name) 
+                'slug' => $request->slug
             ]);
         }
     	return $village;

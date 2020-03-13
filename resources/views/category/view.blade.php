@@ -57,13 +57,20 @@
     </div>
     <!-- <form id="contact-form"> -->
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <div class="box-typical box-typical-padding col-sm-12">
+    <div class="box-typical box-typical-padding w-75 mx-3">
             <div class="row">
-                <label class="col-sm-2 form-control-label pt-3">Tên nhóm</label>
-                <div class="col-sm-8 form-group">
+                <label class="col-sm-1 form-control-label pt-3">Tên nhóm</label>
+                <div class="col-sm-4 form-group">
                     <p class="form-control-static">
                       <input name="name" type="text" class="form-control" 
                       id="name" required>
+                    </p>
+                </div>
+                <label class="col-sm-1 form-control-label pt-3">Tên viết tắt</label>
+                <div class="col-sm-4 form-group">
+                    <p class="form-control-static">
+                      <input name="slug" type="text" class="form-control" 
+                      id="slug" required>
                     </p>
                 </div>
             </div>
@@ -119,7 +126,8 @@
             name:$("#name").val(),
             parent_id:$("#parent_id").val(),
             category_id:$("#category_id").val(),
-            hierarchy: "{{Auth::user()->role == 12?'hql':'ward'}}"
+            hierarchy: "{{Auth::user()->role == 12?'hql':'ward'}}",
+            slug: $("#slug").val()
         },
         success:function (data){
           location.reload();
@@ -140,6 +148,7 @@
         success:function (data){
             $("#name").val(data.name);
             $("#category_id").val(data.id);
+            $("#slug").val(data.slug);
             loader.remove()
         }
     });

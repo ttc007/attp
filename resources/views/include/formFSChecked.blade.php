@@ -33,7 +33,7 @@
             <tr>
                 <td style="width: 120px">Mã kiểm tra</td>
                 <td>
-                    <input name="code" id='codeChecked' type="text" value="" class="form-control" />
+                    <input name="code" id='codeChecked' type="text" value="" class="form-control" readonly="" />
                 </td>
             </tr>
             <tr>

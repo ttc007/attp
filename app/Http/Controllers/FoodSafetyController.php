@@ -76,19 +76,14 @@ class FoodSafetyController extends BaseController
                                 'so_cap', 'ngay_ky_cam_ket', 'ngay_kham_suc_khoe'
                                 , 'category_id', 'categoryb2_id',
                                 'noi_tieu_thu');
-        if($request->code){
-            $data['code'] = $request->code;
-        } else{
-            $code = FoodSafety::getCodeAuto($request->village_id, $request->categoryb2_id);
-            $data['code'] = $code;
-        }
+        $code = FoodSafety::getCodeAuto($request->ward_id, $request->village_id, $request->categoryb2_id);
+        $data['code'] = $code;
+        
         if($request->food_safety_id == 0){
             $food_safety = FoodSafety::create($data);
         } else {
             $food_safety = FoodSafety::find($request->food_safety_id);
-            $count = FoodSafety::where('code', $request->code)->count();
-            if($count == 0 || ($food_safety->code && $request->code == $food_safety->code) || !$request->code) $food_safety->update($data);
-            else return "Code duplicate";
+            $food_safety->update($data);
         }
         return redirect()->back();
     }
@@ -389,7 +384,8 @@ class FoodSafetyController extends BaseController
                 ->get();
             foreach ($checkeds as $key => $checked) {
                 $checked_data_row = 'Đợt ' . ($key + 1) . ':';
-                $checked_data_row .= 'Ngày kiểm tra: ' . $checked->dateChecked . '.';
+                $date = date_create_from_format('Y-m-d' ,$checked->dateChecked);
+                $checked_data_row .= 'Ngày kiểm tra: ' . date_format($date, 'd-m-Y') . '.';
                 $checked_data_row .= 'Kết quả: ' . $checked->result . '.';
                 if ($checked->note) $checked_data_row .= 'Nội dung chưa đạt: ' . $checked->note . '.';
                 if ($checked->penalize) $checked_data_row .= 'Xử phạt: ' . $checked->penalize . '.';
@@ -404,7 +400,7 @@ class FoodSafetyController extends BaseController
                     }
                 }
                 
-                $checked_data_row .= '. ************** '; 
+                $checked_data_row .= ' ************** '; 
 
                 $checked_data .= $checked_data_row;
             }

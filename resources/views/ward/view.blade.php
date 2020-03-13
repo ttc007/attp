@@ -57,13 +57,20 @@
         </div>
     
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="box-typical box-typical-padding col-sm-12">
+        <div class="box-typical box-typical-padding col-sm-12 w-75 mx-3">
             <div class="row">
-                <label class="col-sm-2 form-control-label pt-3">Tên xã</label>
-                <div class="col-sm-8 form-group">
+                <label class="col-sm-1 form-control-label pt-3">Tên xã</label>
+                <div class="col-sm-4 form-group">
                     <p class="form-control-static">
                       <input name="name" type="text" class="form-control" 
                       id="name" required>
+                    </p>
+                </div>
+                <label class="col-sm-1 form-control-label pt-3">Tên viết tắt</label>
+                <div class="col-sm-4 form-group">
+                    <p class="form-control-static">
+                      <input name="slug" type="text" class="form-control" 
+                      id="slug" required>
                     </p>
                 </div>
             </div>
@@ -95,17 +102,11 @@
             type:"POST",
             data: {
                 name:$("#name").val(),
-                ward_id:$("#ward_id").val()
+                ward_id:$("#ward_id").val(),
+                slug:$("#slug").val()
             },
             success:function (data){
-              console.log(data);
-                swal({
-                  title:'Success!',
-                  text:'Thêm mới thành công',
-                  type:'success'
-                }).then(function(){
-                    location.reload();
-                });
+              location.reload();
             }
           });
       }
@@ -121,6 +122,7 @@
             success:function (data){
                $("#name").val(data.name);
                $("#ward_id").val(id);
+               $("#slug").val(data.slug);
                loader.remove();
             }
           });

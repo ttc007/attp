@@ -35,8 +35,8 @@
               <select class="form-control" 
                 style="width:100%;display:inline-block" id="GLOBAL_YEAR">
                   <option>2018</option>
-                  <option selected>2019</option>
-                  <option>2020</option>
+                  <option>2019</option>
+                  <option selected>2020</option>
                   <option>2021</option>
               </select>
             </div>
@@ -64,10 +64,6 @@
               <b>Mã số cơ sở</b><br>
               <input type="" name="" id='codeFilter' class="form-control" >
             </div>
-            <!-- <div class="col-md-2 hidden">
-              <b>Mã số kiểm tra</b><br>
-              <input type="" name="" id='codeCheckedFilter' class="form-control" >
-            </div> -->
             <div class="col-md-2">
               <b>Trạng thái kiểm tra</b><br>
               <select class="form-control" id="statusCheck">

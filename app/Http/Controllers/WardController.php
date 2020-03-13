@@ -14,28 +14,29 @@ class WardController extends Controller
     }
 
     function api_store(Request $request){
-        if($request->ward_id==0)
-    	$village = Ward::create([
-    		'name' => $request->name,
-            'slug' => Ward::autoSlug($request->name) 
-    	]);
-        else{
-            $village = Ward::find($request->ward_id);
-            $village->update([
+        if($request->ward_id==0) {
+            $ward = Ward::create([
+                'name' => $request->name,
+                'slug' => $request->slug
+            ]);
+        } else {
+            $ward = Ward::find($request->ward_id);
+            $ward->update([
                 'name'=>$request->name,
-                'slug' => Ward::autoSlug($request->name) 
+                'slug' => $request->slug
             ]);
         }
-    	return $village;
+
+    	return $ward;
     }
 
     function api_get(){
-    	$villages = Ward::all();
-    	return $villages;
+    	$wards = Ward::all();
+    	return $wards;
     }
 
     function api_delete($id){
-    	$villages = Ward::find($id)->delete();
+    	Ward::find($id)->delete();
     	return 200;
     }
 
